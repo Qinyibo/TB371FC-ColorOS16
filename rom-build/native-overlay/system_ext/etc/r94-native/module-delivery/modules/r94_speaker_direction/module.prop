@@ -1,0 +1,6 @@
+id=r94_speaker_direction
+name=TB371FC 四扬旋转（启动与通话归还修正版）
+version=0.29-kernel43-test-guard
+versionCode=2026102003
+author=TB371FC-ROM
+description=仅#35/#36/#37/#38与API19；通话归还失败保留低频恢复，成功确认前禁媒体旋转；方向表和驱动映射不变。待实机验收。

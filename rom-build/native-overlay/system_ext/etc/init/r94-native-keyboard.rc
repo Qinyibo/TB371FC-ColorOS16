@@ -1,0 +1,14 @@
+# Native package integration. No module manager, su, cached ART pair or private signature bypass.
+service r94_native_keyboard /system/bin/sh /system_ext/etc/r94-native/keyboard-prepare.sh
+    user root
+    group root shell
+    seclabel u:r:shell:s0
+    disabled
+    oneshot
+
+on property:sys.boot_completed=1 && property:ro.product.board=spinel && property:ro.build.version.incremental=V.2e733a1-dda927-df323a
+    start r94_native_keyboard
+
+on property:debug.r94.keyboard_ready=1 && property:sys.boot_completed=1 && property:ro.product.board=spinel && property:ro.build.version.incremental=V.2e733a1-dda927-df323a
+    mount none /system_ext/etc/r94-native/keyboard /my_stock/app/OplusSecurityKeyboard bind
+    mount none /system_ext/etc/r94-native/keyboard /my_stock/app/OplusSecurityKeyboard bind remount ro

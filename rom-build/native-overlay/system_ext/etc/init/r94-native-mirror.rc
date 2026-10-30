@@ -1,0 +1,13 @@
+# Registered after the main post-fs-data OPEX handler; synchronous before zygote-start.
+service r94_native_mirror_check /system/bin/sh /system_ext/etc/r94-native/mirror/prepare.sh
+    user root
+    group root shell
+    seclabel u:r:shell:s0
+    disabled
+    oneshot
+
+on post-fs-data && property:ro.product.board=spinel && property:ro.build.version.incremental=V.2e733a1-dda927-df323a
+    setprop debug.r94.mirror_source /system_ext/etc/r94-native/mirror/not-approved
+    exec_start r94_native_mirror_check
+    mount none ${debug.r94.mirror_source} /system_ext/framework/oplusex/com.oplus.odmf bind
+    mount none ${debug.r94.mirror_source} /system_ext/framework/oplusex/com.oplus.odmf bind remount ro

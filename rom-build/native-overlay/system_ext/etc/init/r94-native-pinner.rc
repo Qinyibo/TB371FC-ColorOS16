@@ -1,0 +1,10 @@
+# Platform shell domain; one bounded job per normal boot, no root manager dependency.
+service r94_native_pinner /system/bin/sh /system_ext/etc/r94-native/pinner-settle.sh
+    user root
+    group root shell
+    seclabel u:r:shell:s0
+    disabled
+    oneshot
+
+on property:sys.boot_completed=1 && property:ro.product.board=spinel && property:ro.build.version.incremental=V.2e733a1-dda927-df323a
+    start r94_native_pinner

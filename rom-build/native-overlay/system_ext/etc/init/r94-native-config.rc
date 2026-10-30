@@ -1,0 +1,7 @@
+# TB371FC native defaults. Uses platform init; no shell, polling or module hooks.
+# ART owns compilation scheduling, install fallback and low-storage handling.
+on init
+    setprop pm.dexopt.install speed-profile
+    setprop pm.dexopt.install-fast skip
+    setprop pm.dexopt.install-bulk speed-profile
+    setprop pm.dexopt.bg-dexopt speed-profile

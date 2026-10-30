@@ -1,0 +1,22 @@
+# Create the three stock unbound ovnet endpoints before class-main telephony.
+# Kernel version and all imported CRCs are checked by the normal module loader.
+on post-fs-data && property:ro.product.board=spinel && property:ro.build.version.sdk=36
+    insmod /system_ext/etc/r94-native/virtual-radio/oplus_vnet.ko numvnets=3
+
+# Native virtual radio; existing communication-center executable preserved exactly.
+on post-fs-data
+    mount none /system_ext/etc/r94-native/virtual-radio/bin /vendor/bin/r94-commcenter bind
+    mount none /system_ext/etc/r94-native/virtual-radio/bin /vendor/bin/r94-commcenter bind remount ro
+    mount none /system_ext/etc/r94-native/virtual-radio/lib64 /vendor/lib64/r94-commcenter bind
+    mount none /system_ext/etc/r94-native/virtual-radio/lib64 /vendor/lib64/r94-commcenter bind remount ro
+
+service r94-virtual-ril-0 /vendor/bin/r94-commcenter/subsys_daemon -l /vendor/lib64/r94-commcenter/lib-virtual-modem-radio.so -i 0
+    class main
+    user radio
+    group radio cache inet misc audio log readproc wakelock
+    capabilities BLOCK_SUSPEND
+    seclabel u:r:rild:s0
+    interface android.hardware.radio@1.5::IRadio vircommslot1
+    interface vendor.qti.hardware.radio.ims@1.7::IImsRadio imsradio0
+    disabled
+    oneshot

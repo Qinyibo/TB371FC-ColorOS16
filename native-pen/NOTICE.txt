@@ -1,0 +1,7 @@
+Modified locally 2026-10-21 for TB371FC native ColorOS16 integration.
+Reference: ACLaniakea/coloros-pad-fixes, commit97a4024b875d22d3eea4d811da045765fd4388ed, GPL-3.0.
+https://github.com/ACLaniakea/coloros-pad-fixes
+Guide: https://wasddestroy.site/tb710fu-doc/generic/flash_fix_module_yu_c16.html
+New editable helper and patch source is included under the same GPL-3.0 terms. OEM input APK/JAR retain their original rights.
+The reference uses LSPosed/Magisk; this local adaptation replaces that execution path with native framework/application hooks and a ROM init overlay.
+No claim of reference author testing or approving this TB371FC variant.

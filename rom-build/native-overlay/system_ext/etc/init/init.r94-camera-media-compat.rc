@@ -1,0 +1,5 @@
+# Native ROM delivery. Use this instead of the temporary Magisk module.
+# Packaging must verify the same LDC and AV extension library hashes.
+on post-fs-data && property:ro.product.board=spinel
+    setprop vendor.debug.camera.tpldc.enable 0
+    setprop vendor.audio.hw.aac.encoder 0

@@ -1,0 +1,7 @@
+com.heytap.speechassist
+com.oplus.aimemory
+com.coloros.translate
+com.coloros.translate.engine
+com.oplus.aiunit
+com.aiunit.aon
+com.oplus.obrain

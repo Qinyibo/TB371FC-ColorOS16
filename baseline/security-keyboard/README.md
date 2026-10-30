@@ -1,0 +1,5 @@
+# 当前原生安全键盘宽度补丁
+
+补丁直接对实际包内使用的v4 APK与其原始DEX反汇编生成，包含主要三类宽度改动及重编译差异。原厂输入APK SHA256：9a9304f50497dc8566c72d79f9366f7cde3718f8b1545c72e97195e4eeac91e2；历史输出APK：b9db02a031e88d2c4fa7c13638d488c6f0df61ec4678b6636a092337199ddf10。
+
+自行准备原厂输入，使用baksmali API36拆出classes.dex，在smali根目录执行 `patch -p1 < keyboard-width.patch` 后重新用smali编译。将新DEX封装回输入APK；封装工具和ZIP元数据可能影响成品SHA，需同步更新原生投放脚本的校验。原生启动时先扫描原签名应用，再投放对应代码，见rom-build/native-overlay，不使用历史OAT/VDEX缓存。

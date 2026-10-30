@@ -1,0 +1,6 @@
+id=r94_bili_native_rules
+name=R94 Bilibili native double window
+version=1.0
+versionCode=100
+author=Codex
+description=Native draggable double window and live exceptions. Preserves layout choice and ratio; no app changes.

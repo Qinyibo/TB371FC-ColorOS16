@@ -1,0 +1,29 @@
+# Replace the previous v1 file; do not load two pen bootstrap configurations.
+on post-fs-data && property:ro.product.board=spinel
+    mkdir /data/local/r94-pen-native-v4 0755 root root
+    restorecon /data/local/r94-pen-native-v4
+
+service r94_pen_prepare /system/bin/sh /system_ext/etc/r94-pen-native-v4/bootstrap.sh
+    user root
+    group root shell
+    seclabel u:r:magisk:s0
+    disabled
+    oneshot
+
+service r94_pen_reload /system/bin/sh /system_ext/etc/r94-pen-native-v4/reload.sh
+    user root
+    group root shell
+    seclabel u:r:shell:s0
+    disabled
+    oneshot
+
+on property:sys.boot_completed=1 && property:ro.product.board=spinel && property:ro.build.version.incremental=V.2e733a1-dda927-df323a
+    start r94_pen_prepare
+
+on property:debug.r94.pen_v4_ready=1 && property:sys.boot_completed=1 && property:ro.product.board=spinel && property:ro.build.version.incremental=V.2e733a1-dda927-df323a
+    restorecon_recursive /data/local/r94-pen-native-v4
+    mount none /data/local/r94-pen-native-v4/ipe /my_product/priv-app/IPeManager bind
+    mount none /data/local/r94-pen-native-v4/ipe /my_product/priv-app/IPeManager bind remount ro
+    mount none /data/local/r94-pen-native-v4/ws /system_ext/priv-app/WirelessSettings bind
+    mount none /data/local/r94-pen-native-v4/ws /system_ext/priv-app/WirelessSettings bind remount ro
+    start r94_pen_reload

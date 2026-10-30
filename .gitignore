@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.apk
+*.jar
+*.img
+*.ko
+*.pem
+*.jks
+*.keystore
+*.pftrace
+*.perfetto-trace
+.env

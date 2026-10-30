@@ -1,0 +1,10 @@
+service r94-commcenterd /vendor/bin/r94-commcenter/commcenterd
+    class late_start
+    user root
+    group system radio inet log
+    seclabel u:r:r94_commcenterd:s0
+    disabled
+    interface aidl vendor.oplus.hardware.communicationcenter.IDmtpService/default
+
+on property:sys.boot_completed=1
+    start r94-commcenterd

@@ -1,0 +1,504 @@
+--- a/com/oplus/securitykeyboard/InputService.smali
++++ b/com/oplus/securitykeyboard/InputService.smali
+@@ -4,7 +4,7 @@
+ 
+ 
+ # static fields
+-.field static A:Z = false
++.field static A:Z
+ 
+ 
+ # instance fields
+@@ -235,160 +235,7 @@
+ .end method
+ 
+ .method private D()V
+-    .registers 7
+-
+-    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+-
+-    move-result-object v0
+-
+-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+-
+-    move-result-object v0
+-
+-    invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+-
+-    move-result-object v0
+-
+-    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+-
+-    move-result-object v1
+-
+-    invoke-static {v1}, Ld/a;->a(Landroid/content/Context;)Z
+-
+-    move-result v1
+-
+-    const/high16 v2, 0x43200000    # 160.0f
+-
+-    if-nez v1, :cond_59
+-
+-    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+-
+-    move-result-object v1
+-
+-    invoke-static {v1}, Ld/a;->b(Landroid/content/Context;)Z
+-
+-    move-result v1
+-
+-    if-eqz v1, :cond_23
+-
+-    goto :goto_59
+-
+-    :cond_23
+-    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+-
+-    move-result-object v1
+-
+-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+-
+-    move-result-object v1
+-
+-    invoke-virtual {v1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+-
+-    move-result-object v1
+-
+-    iget v1, v1, Landroid/content/res/Configuration;->orientation:I
+-
+-    const/4 v3, 0x1
+-
+-    const/high16 v4, 0x43b40000    # 360.0f
+-
+-    if-ne v1, v3, :cond_47
+-
+-    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+-
+-    move-result-object v1
+-
+-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+-
+-    move-result-object v1
+-
+-    invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+-
+-    move-result-object v1
+-
+-    iget v1, v1, Landroid/util/DisplayMetrics;->widthPixels:I
+-
+-    :goto_44
+-    int-to-float v1, v1
+-
+-    div-float/2addr v1, v4
+-
+-    goto :goto_56
+-
+-    :cond_47
+-    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+-
+-    move-result-object v1
+-
+-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+-
+-    move-result-object v1
+-
+-    invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+-
+-    move-result-object v1
+-
+-    iget v1, v1, Landroid/util/DisplayMetrics;->heightPixels:I
+-
+-    goto :goto_44
+-
+-    :goto_56
+-    mul-float/2addr v2, v1
+-
+-    float-to-int v2, v2
+-
+-    goto :goto_61
+-
+-    :cond_59
+-    :goto_59
+-    sget v1, Landroid/util/DisplayMetrics;->DENSITY_DEVICE_STABLE:I
+-
+-    int-to-float v3, v1
+-
+-    div-float v2, v3, v2
+-
+-    move v5, v2
+-
+-    move v2, v1
+-
+-    move v1, v5
+-
+-    :goto_61
+-    iput v1, v0, Landroid/util/DisplayMetrics;->density:F
+-
+-    iput v1, v0, Landroid/util/DisplayMetrics;->scaledDensity:F
+-
+-    iput v2, v0, Landroid/util/DisplayMetrics;->densityDpi:I
+-
+-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+-
+-    move-result-object v0
+-
+-    invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+-
+-    move-result-object v0
+-
+-    iput v1, v0, Landroid/util/DisplayMetrics;->density:F
+-
+-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+-
+-    move-result-object v0
+-
+-    invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+-
+-    move-result-object v0
+-
+-    iput v1, v0, Landroid/util/DisplayMetrics;->scaledDensity:F
+-
+-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+-
+-    move-result-object p0
+-
+-    invoke-virtual {p0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+-
+-    move-result-object p0
+-
+-    iput v2, p0, Landroid/util/DisplayMetrics;->densityDpi:I
++    .registers 1
+ 
+     return-void
+ .end method
+--- a/com/oplus/securitykeyboardui/c.smali
++++ b/com/oplus/securitykeyboardui/c.smali
+@@ -656,6 +656,10 @@
+ 
+     :cond_44
+     :goto_44
++    const/high16 v0, 0x3f800000    # 1.0f
++
++    return v0
++
+     sget v0, Landroid/util/DisplayMetrics;->DENSITY_DEVICE_STABLE:I
+ 
+     int-to-float v0, v0
+@@ -1253,6 +1257,149 @@
+     return p0
+ .end method
+ 
++.method public r94Fit(I)Z
++    .registers 12
++
++    const/4 v0, 0x0
++
++    if-lez p1, :cond_68
++
++    iget v1, p0, Lcom/oplus/securitykeyboardui/c;->i:I
++
++    if-le v1, p1, :cond_8
++
++    goto :goto_26
++
++    :cond_8
++    const/4 v1, 0x0
++
++    iget-object v2, p0, Lcom/oplus/securitykeyboardui/c;->j:Ljava/util/List;
++
++    invoke-interface {v2}, Ljava/util/List;->size()I
++
++    move-result v3
++
++    const/4 v4, 0x0
++
++    :goto_10
++    if-ge v4, v3, :cond_24
++
++    invoke-interface {v2, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
++
++    move-result-object v5
++
++    check-cast v5, Lcom/oplus/securitykeyboardui/c$a;
++
++    iget v6, v5, Lcom/oplus/securitykeyboardui/c$a;->i:I
++
++    iget v7, v5, Lcom/oplus/securitykeyboardui/c$a;->e:I
++
++    add-int/2addr v6, v7
++
++    invoke-static {v1, v6}, Ljava/lang/Math;->max(II)I
++
++    move-result v1
++
++    add-int/lit8 v4, v4, 0x1
++
++    goto :goto_10
++
++    :cond_24
++    if-le v1, p1, :cond_68
++
++    :goto_26
++    int-to-float v6, p1
++
++    int-to-float v7, v1
++
++    div-float/2addr v6, v7
++
++    iput v6, p0, Lcom/oplus/securitykeyboardui/c;->t:F
++
++    iget-object v2, p0, Lcom/oplus/securitykeyboardui/c;->j:Ljava/util/List;
++
++    invoke-interface {v2}, Ljava/util/List;->size()I
++
++    move-result v3
++
++    const/4 v4, 0x0
++
++    :goto_32
++    if-ge v4, v3, :cond_62
++
++    invoke-interface {v2, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
++
++    move-result-object v5
++
++    check-cast v5, Lcom/oplus/securitykeyboardui/c$a;
++
++    iget v7, v5, Lcom/oplus/securitykeyboardui/c$a;->i:I
++
++    iget v8, v5, Lcom/oplus/securitykeyboardui/c$a;->e:I
++
++    add-int/2addr v8, v7
++
++    int-to-float v7, v7
++
++    mul-float/2addr v7, v6
++
++    float-to-int v7, v7
++
++    const/4 v9, 0x0
++
++    invoke-static {v7, v9}, Ljava/lang/Math;->max(II)I
++
++    move-result v7
++
++    iput v7, v5, Lcom/oplus/securitykeyboardui/c$a;->i:I
++
++    int-to-float v8, v8
++
++    mul-float/2addr v8, v6
++
++    float-to-int v8, v8
++
++    invoke-static {v8, p1}, Ljava/lang/Math;->min(II)I
++
++    move-result v8
++
++    sub-int/2addr v8, v7
++
++    const/4 v9, 0x1
++
++    invoke-static {v8, v9}, Ljava/lang/Math;->max(II)I
++
++    move-result v8
++
++    iput v8, v5, Lcom/oplus/securitykeyboardui/c$a;->e:I
++
++    iget v7, v5, Lcom/oplus/securitykeyboardui/c$a;->g:I
++
++    int-to-float v7, v7
++
++    mul-float/2addr v7, v6
++
++    float-to-int v7, v7
++
++    iput v7, v5, Lcom/oplus/securitykeyboardui/c$a;->g:I
++
++    add-int/lit8 v4, v4, 0x1
++
++    goto :goto_32
++
++    :cond_62
++    iput p1, p0, Lcom/oplus/securitykeyboardui/c;->i:I
++
++    const/4 v0, 0x0
++
++    iput-object v0, p0, Lcom/oplus/securitykeyboardui/c;->q:[[I
++
++    const/4 v0, 0x1
++
++    :cond_68
++    return v0
++.end method
++
+ .method public s()I
+     .registers 2
+ 
+--- a/com/oplus/securitykeyboardui/COUIKeyboardView.smali
++++ b/com/oplus/securitykeyboardui/COUIKeyboardView.smali
+@@ -353,7 +353,7 @@
+ 
+     move-result-object v0
+ 
+-    if-eqz v0, :cond_b2
++    if-eqz v0, :cond_f6
+ 
+     invoke-virtual {p0}, Lcom/oplus/securitykeyboardui/COUIKeyboardView;->getKeyboardView()Lcom/oplus/securitykeyboardui/SecurityKeyboardView;
+ 
+@@ -363,7 +363,7 @@
+ 
+     move-result-object v0
+ 
+-    if-eqz v0, :cond_b2
++    if-eqz v0, :cond_f6
+ 
+     invoke-virtual {p0}, Lcom/oplus/securitykeyboardui/COUIKeyboardView;->getKeyboardView()Lcom/oplus/securitykeyboardui/SecurityKeyboardView;
+ 
+@@ -373,6 +373,17 @@
+ 
+     move-result-object v0
+ 
++    invoke-virtual {v0, p1}, Lcom/oplus/securitykeyboardui/c;->r94Fit(I)Z
++
++    move-result v1
++
++    if-eqz v1, :cond_23
++
++    iget-object v1, p0, Lcom/oplus/securitykeyboardui/COUIKeyboardView;->g:Lcom/oplus/securitykeyboardui/SecurityKeyboardView;
++
++    invoke-virtual {v1}, Lcom/oplus/securitykeyboardui/SecurityKeyboardView;->E()V
++
++    :cond_23
+     invoke-virtual {v0}, Lcom/oplus/securitykeyboardui/c;->p()I
+ 
+     move-result v0
+@@ -427,15 +438,15 @@
+ 
+     invoke-static {v2, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    if-ge p1, v0, :cond_68
++    if-ge p1, v0, :cond_74
+ 
+     iget-boolean v1, p0, Lcom/oplus/securitykeyboardui/COUIKeyboardView;->q:Z
+ 
+-    if-nez v1, :cond_5f
+-
+-    goto :goto_68
+-
+-    :cond_5f
++    if-nez v1, :cond_6a
++
++    goto :goto_74
++
++    :cond_6a
+     invoke-virtual {p0}, Lcom/oplus/securitykeyboardui/COUIKeyboardView;->getKeyboardView()Lcom/oplus/securitykeyboardui/SecurityKeyboardView;
+ 
+     move-result-object p0
+@@ -444,10 +455,10 @@
+ 
+     invoke-virtual {p0, p1, v1, v0, v1}, Lcom/oplus/securitykeyboardui/SecurityKeyboardView;->onSizeChanged(IIII)V
+ 
+-    goto :goto_b2
+-
+-    :cond_68
+-    :goto_68
++    goto/16 :goto_f6
++
++    :cond_74
++    :goto_74
+     sub-int/2addr p1, v0
+ 
+     div-int/lit8 p1, p1, 0x2
+@@ -518,12 +529,60 @@
+ 
+     invoke-virtual {v0, p1, v1, v2, v3}, Landroid/view/View;->setPaddingRelative(IIII)V
+ 
+-    iget-object p0, p0, Lcom/oplus/securitykeyboardui/COUIKeyboardView;->g:Lcom/oplus/securitykeyboardui/SecurityKeyboardView;
+-
+-    invoke-virtual {p0}, Lcom/oplus/securitykeyboardui/SecurityKeyboardView;->E()V
+-
+-    :cond_b2
+-    :goto_b2
++    iget-object v0, p0, Lcom/oplus/securitykeyboardui/COUIKeyboardView;->g:Lcom/oplus/securitykeyboardui/SecurityKeyboardView;
++
++    invoke-virtual {v0}, Lcom/oplus/securitykeyboardui/SecurityKeyboardView;->E()V
++
++    iget-object v0, p0, Lcom/oplus/securitykeyboardui/COUIKeyboardView;->g:Lcom/oplus/securitykeyboardui/SecurityKeyboardView;
++
++    invoke-virtual {v0}, Lcom/oplus/securitykeyboardui/SecurityKeyboardView;->getKeyboard()Lcom/oplus/securitykeyboardui/c;
++
++    move-result-object v0
++
++    if-eqz v0, :cond_f6
++
++    new-instance v1, Ljava/lang/StringBuilder;
++
++    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
++
++    const-string v2, "container="
++
++    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++
++    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
++
++    const-string v2, " model="
++
++    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++
++    invoke-virtual {v0}, Lcom/oplus/securitykeyboardui/c;->p()I
++
++    move-result v2
++
++    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
++
++    const-string v2, " padding="
++
++    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++
++    iget-object v0, p0, Lcom/oplus/securitykeyboardui/COUIKeyboardView;->g:Lcom/oplus/securitykeyboardui/SecurityKeyboardView;
++
++    invoke-virtual {v0}, Landroid/view/View;->getPaddingLeft()I
++
++    move-result v2
++
++    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
++
++    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
++
++    move-result-object v1
++
++    const-string v2, "R94KeyboardFit"
++
++    invoke-static {v2, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
++
++    :cond_f6
++    :goto_f6
+     return-void
+ .end method
+ 
+--- a/d/a.smali
++++ b/d/a.smali
+@@ -4,9 +4,9 @@
+ 
+ 
+ # static fields
+-.field public static a:Z = false
+-
+-.field public static b:Z = false
++.field public static a:Z
++
++.field public static b:Z
+ 
+ 
+ # direct methods
+--- a/k/f.smali
++++ b/k/f.smali
+@@ -4,7 +4,7 @@
+ 
+ 
+ # static fields
+-.field private static a:Z = false
++.field private static a:Z
+ 
+ 
+ # direct methods

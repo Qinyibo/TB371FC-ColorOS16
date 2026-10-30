@@ -1,0 +1,6 @@
+id=r94_privacy_password_test
+name=TB371FC 隐私密码兼容候选
+version=0.1.1-first-start-delivery
+versionCode=2026102401
+author=TB371FC ROM project
+description=仅当前spinel/框架版本的隐私密码软件兼容测试。独立双强制域和资料目录，保留原资料；不是硬件TEE/RPMB。原版已通过本机应用隐藏与重启保留；本候选仅修首次策略加载，清空首启待验。

@@ -1,0 +1,108 @@
+{
+  "sys_fantasy_window_managed": {
+    "version": "20253025",
+    "apps": {
+      "com.tencent.mm": {
+        "noRelaunchOnResize": "true",
+        "Activities": [
+          {
+            "name": "com.tencent.mm.ui.chatting.ChattingUI",
+            "forceRelaunch": "true"
+          },
+          {
+            "name": "com.tencent.mm.plugin.sns.ui.improve.ImproveSnsTimelineUI",
+            "forceRelaunch": "true"
+          },
+          {
+            "name": "com.tencent.mm.plugin.multitalk.ui.MultiTalkMainUI",
+            "reverseCameraRotation": "10",
+            "reverseCameraRotationFront": "9"
+          },
+          {
+            "name": "com.tencent.mm.plugin.voip.ui.VideoActivity",
+            "reverseCameraRotation": "10",
+            "reverseCameraRotationFront": "9"
+          },
+          {
+            "name": "com.tencent.mm.plugin.flash.FaceFlashUI",
+            "defaultFullScreen": "true"
+          },
+          {
+            "name": "com.tencent.mm.ui.transmit.SelectConversationUI",
+            "defaultFullScreen": "true"
+          },
+          {
+            "name": "com.tencent.mm.ui.mvvm.MvvmContactListUII",
+            "defaultFullScreen": "true"
+          }
+        ],
+        "UX": {
+          "isDraggable": "true",
+          "windowsRatio": [
+            {
+              "device": "PAD",
+              "ratio": "886|2058"
+            }
+          ]
+        },
+        "scaleWindow": "-1"
+      },
+      "tv.danmaku.bili": {
+        "Activities": [
+          {
+            "name": "*",
+            "reverseCameraRotation": "10",
+            "reverseCameraRotationFront": "9"
+          },
+          {
+            "name": "com.bilibili.bililive.room.ui.roomv3.LiveRoomActivityV3",
+            "defaultFullScreen": "true",
+            "forceRelaunch": "true"
+          }
+        ],
+        "transActivities": [
+          "com.bilibili.studio.centerplus.ui.CenterPlusMainActivity"
+        ],
+        "relaunchWhenEnterCompactWindow": "false",
+        "noRelaunchOnResize": "true",
+        "adjustDisplayRotation": "0",
+        "blockSensor": "true",
+        "blackAdjust": "false",
+        "UX": {
+          "keepPrimaryTopAlwaysResume": "false",
+          "windowsRatio": [
+            {
+              "device": "PAD",
+              "ratio": "1026|1918"
+            }
+          ],
+          "isDraggable": "true"
+        },
+        "scaleWindow": "-1"
+      }
+    }
+  },
+  "sys_full_orientation_managed": {
+    "version": "20260423",
+    "apps": {
+      "com.tencent.mm": {
+        "rao": "false",
+        "rotate_cam": "false",
+        "orientForStarting": [
+          "com.tencent.mm.ui.LauncherUI#splash#-1#1"
+        ],
+        "alwaysFullOrientActivities": [
+          "com.tencent.mm.plugin.appbrand.ui.AppBrandUI00",
+          "com.tencent.mm.plugin.profile.ui.ContactInfoUI"
+        ]
+      },
+      "tv.danmaku.bili": {
+        "rao": "false",
+        "rotate_cam": "false",
+        "force_relaunch_activity": [
+          "com.bilibili.bililive.room.ui.roomv3.LiveRoomActivityV3"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+id=r94_ai_transaction_candidate
+name=TB371FC｜七项AI停用与恢复
+version=0.5-controls
+versionCode=2026101501
+author=TB371FC ROM project
+description=停用指定七项AI，保留原启用状态；操作按钮立即切换。模块开关重启生效，非全部AI移除，性能收益待验。

@@ -1,0 +1,685 @@
+{
+  "format": "tb371fc-r94-rom-v1",
+  "state": "OFFLINE_VERIFIED_DEVICE_PENDING",
+  "product": "spinel",
+  "slot": "a",
+  "label": "ColorOS16 TB371FC R94T v23 测试版",
+  "wipe_userdata": true,
+  "based_on": "Verified v22b kernel43/vendor/camera7 plus retained focus-aware caption patch, native WeChat/Bili source configuration, narrower Bili home and repaired startup checksum chain.",
+  "defaults": {
+    "resolution": "1840x2944",
+    "physical_density_note": "my_product is a directory included in system_a; source runtime density460 was observed. No independent retained my_product partition is assumed.",
+    "font_scale": 0.9,
+    "icon_dp": "user slider (43.8dp@460 ~ 126px at time of packaging)",
+    "recent_style": "stacked",
+    "peak_refresh_rate": 144.00002,
+    "automatic_split_recommendations": false
+  },
+  "images": [
+    {
+      "name": "super",
+      "path": "images/super-R94.img",
+      "bytes": 12884901888,
+      "sha256": "62a93f64978b3cf4b234734fc5124004a000dd61cbda906dedbde7b4ea1b9edd"
+    },
+    {
+      "name": "boot",
+      "path": "images/boot_a.img",
+      "bytes": 100663296,
+      "sha256": "09d3c1bd67946575de8b0dad434f651e746747da2686fa227719142ad47cfbbe"
+    },
+    {
+      "name": "vbmeta",
+      "path": "images/vbmeta_a.img",
+      "bytes": 65536,
+      "sha256": "5faf802f3d821512505c42a9fa0dba5b969f135fd5ec3bf6686e8448e741a169"
+    },
+    {
+      "name": "vbmeta_system",
+      "path": "images/vbmeta_system_a.img",
+      "bytes": 65536,
+      "sha256": "848f04a7cf01cbfc68640ece4895e1aa00c6ba5cbf385c81b395f51da0829fef"
+    }
+  ],
+  "kernel": {
+    "build": "#43",
+    "image_sha256": "c234e5c0ed600369816fb98f5d4a54748dc46bc4dcd5bff07529c82e165a2519",
+    "speaker_native_api": 19,
+    "change": "Runtime failure recovery, display transaction errors, IRQ wake ownership and Hall/PM serialization; DSI sleep order unchanged from39",
+    "preserves": "Fixed v17 DTB, Magisk ramdisk, config, all13080 export table rows; charging39 and audio source",
+    "physical_tested": false
+  },
+  "boot_ramdisk": {
+    "r93-apply": "redirects to /system_ext/etc/r91-rom/apply.sh (accepted)",
+    "r93-init.rc": "extended with r94-native-scheduler service (magisk seclabel)"
+  },
+  "native_services": [
+    "r91-rom boot apply: assistant readonly bind + market guard; OTA client replaced in image with static local notice, no OTA boot bind",
+    "r94-native-mirror: odmf decoder candidate + stable-display RRO (in super)",
+    "security-keyboard/bootreg/QS-menu/launcher-capsule/ART-policy/home-pinner: prior verified natives (in super)",
+    "r94-native-scheduler: existing single-owner controller, module provides user switch",
+    "module-delivery: first-install AI/speaker/scheduler module seed and market guard assets; explicit user switches preserved",
+    "communication: native radio/IMS backend, missing default reconciliation and dual-stack ovnet driver v8"
+  ],
+  "official_app_count": 46,
+  "magisk": "30.7",
+  "protected_packages": [
+    "com.android.launcher",
+    "com.coloros.assistantscreen",
+    "com.oplus.ota",
+    "com.heytap.market"
+  ],
+  "assets_optional": [],
+  "device_runtime_verified": false,
+  "limitations": [
+    "This exact v22b image/ZIP has not yet been clean-flashed. Native publication, first-boot package restoration and cross-device boot still require original-script physical acceptance.",
+    "An actual automatic black-screen/reboot happened on v22a kernel43. Generic reboot reason and empty pstore do not establish its cause. Finite smoke tests do not prove that rare black screens are fixed.",
+    "Current panel/driver exposes real 30/60/144 rates; no real1Hz exists. Physical120 still enumerates, and filtering tested policy paths is not exhaustive elimination of every120 path.",
+    "Cold-start stutter remains under investigation. The standard background compilation change is not a measured immediate cure for native-library/memory-mapping waits.",
+    "Camera call contracts passed bounded tests, not every third-party app/video call. One short front-camera HIGH request selected4K with low measured frame rate; lighting/longer capture and profile suitability remain to verify.",
+    "Real pen writing/pressure/tilt/buttons/charging and paired-phone call/data/SMS/audio still need actual accessories/phone tests. Visible UI options and service recovery are not proof of these features.",
+    "No user passwords, accounts, personal media, ADB keys or Wi-Fi credentials are included."
+  ],
+  "user_requested_package_without_factory_reset_test": false,
+  "host": "Windows 10/11 x64, PowerShell 5.1",
+  "tested_device_serial": "HA1W0JA3",
+  "serial_policy": "auto-select exactly one connected spinel device",
+  "release_channel": "internal_test",
+  "clean_first_boot_tested": false,
+  "test_ready": {
+    "communication": "Existing communication code and vnet driver retained; init restart correction integrated. Real paired phone behavior remains pending.",
+    "speaker": "Companion0.29 admits verified kernel43; sound/call behavior unchanged and not newly accepted.",
+    "modules_ai": "Exact stale first-boot guard corrected; controlled native-service reboot restored all five default modules. Exact clean image first boot remains pending.",
+    "third_party_jank": "Process-cold Perfetto trace collected. Native-library monitor waits and non-I/O mapping/fault waits remain; bounded fixed144 ABA showed no stable benefit. ART background policy corrected; no universal smoothness claim.",
+    "intermittent_touch": "Kernel41/42/43 source and failure/concurrency tests pass; physical incident root cause and full resolution unproven.",
+    "wechat_parallel_window": "Manufacturer source correction to permit actual installed WeChat OPPO SDK branch; landscape chat acceptance pending",
+    "display": "Real A3 gate preserved; not-ready 144Hz boundary switch defers without indefinite polling; real timeline/retry/sleep-wake acceptance pending",
+    "wlan_detail": "Tablet QS detail margin0dp; physical WLAN/Bluetooth portrait/landscape layout pending",
+    "classic_notification": "Identical repaired SystemUI clean-flashed: post-setup system gestures and classic/separate shade responses passed; card design/resources retained from accepted candidate. Last Bilibili seed integration was not another clean flash.",
+    "bilibili": "Exact native module and matching XML bytes tested live with original app: divider drag and real cloud-rule refresh recovery passed. Final seed integration verified offline; no original APK modification or homepage experiment.",
+    "system_ota": "Donor OTA client and precompiled code removed; no-permission static notice in image; original clean-flash and online/reboot checks pending",
+    "double_tap_wake": "IRQ wake ownership candidate; no physical double-tap pass. Kernel40 alternative sleep order excluded.",
+    "camera": "Only ZUI camera is delivered. Camera1/Camera2 JPEG, 720p YUV and default photo/video contracts have component evidence on kernel43; front short 4K sample was slow. Exact ROM first boot and all calling apps remain pending.",
+    "refresh_policy": "Native vendor policy candidate, finite vote/rotation/sleep and foreground-app checks on39;144Hz Settings scroll sample872/1 janky frame. Not universal or causal black-screen proof.",
+    "privacy_password": "Accepted backend with startup-only0.1.1 delivery candidate; actual fresh-first-boot acceptance pending.",
+    "native_pen": "Native v0.4 source snapshot; original-app hashes, unique init, real label-parser cases and image readback pass. Physical writing/pressure/tilt/buttons/charge and exact clean-first-boot pending."
+  },
+  "logical_partitions": [
+    {
+      "name": "odm_a",
+      "sha256": "eec06da5d0fbab6808028cc7341a495ed810de30b7f931db988ca664a9525a17",
+      "bytes": 15138816
+    },
+    {
+      "name": "product_a",
+      "sha256": "8f590c8e5c7a94d3d350c54b4eea6e6597d56d9f5eba4d0373ac5fd55d481bcd",
+      "bytes": 16777216
+    },
+    {
+      "name": "system_a",
+      "sha256": "dc0486684aa069b674ec94a5676dbf114e48c501681fe330d72fe966b6d8a7a5",
+      "bytes": 9932111872
+    },
+    {
+      "name": "system_ext_a",
+      "sha256": "d52b0f3fed4c0e77f8e0ed14481b69f1172e8517a8863dcd3e4c201272477585",
+      "bytes": 2013265920
+    },
+    {
+      "name": "vendor_a",
+      "sha256": "8686ff64760ddc1fdd2c36aa88f9ae604fbd02d5a7556c5681bed2ee97703059",
+      "bytes": 899739648
+    }
+  ],
+  "tools": [
+    {
+      "path": "tools/adb.exe",
+      "sha256": "b4a6b455702684652cccf7b46258b29e653538904359a58fd4931cf3ef286b3f"
+    },
+    {
+      "path": "tools/AdbWinApi.dll",
+      "sha256": "c1d653030b4bde65d3e07e4d0b0979e17be56df1436cdd15528630f27808050d"
+    },
+    {
+      "path": "tools/AdbWinUsbApi.dll",
+      "sha256": "0710e894d9b40f71a670c13c694079d564c92c1279da382cfe4850983aaebe1b"
+    },
+    {
+      "path": "tools/fastboot.exe",
+      "sha256": "b2d9cbff4ce9ae7eb448cfc831bafc867935f50f5be38f8f81057fd7eb3b8d86"
+    },
+    {
+      "path": "tools/libwinpthread-1.dll",
+      "sha256": "f2044c755e39efc5d47f47c5a942178dd6d79dc8945bb182dc8753d10e2a4269"
+    },
+    {
+      "path": "tools/NOTICE.txt",
+      "sha256": "38ec8c6f5b7799c223ffeab1f9e81c2d5fc67b5e56d6424f649630ca1ee1a811"
+    },
+    {
+      "path": "tools/source.properties",
+      "sha256": "2dccd788c0234d8cf7f7457377e57f57527a86a629c6ed54feb8af0f549dac38"
+    }
+  ],
+  "accessories": [
+    {
+      "path": "scripts/Check-Connection.ps1",
+      "sha256": "7bc258065a686a797e3c000f0222fe19f93aaaea0265c4a3c99064b0307fd829"
+    },
+    {
+      "path": "scripts/Invoke-R91-Clean.ps1",
+      "sha256": "d1c972a5d485997b04356d341f41c43f645f8a4ba722d7cbc7cfd1cb1bac44c7"
+    },
+    {
+      "path": "assets/camera/安装说明.md",
+      "sha256": "2f4bb9f804e7a9b39ebe1fa77de6f04473a291f01e9c20409348c944091bca5f"
+    },
+    {
+      "path": "verification/v22-image-result.json",
+      "sha256": "09aec1e5a9c34868cf18d4c8d4ce101f506903a7f322c50161c129b99b05219f"
+    },
+    {
+      "path": "verification/v22-seed-test-result.json",
+      "sha256": "17d4725592525bf68f0420b72a428b02d4e88c3d6e2958658fc3424768e7c523"
+    },
+    {
+      "path": "verification/v22-privacy-delivery-result.json",
+      "sha256": "7a97d5e4de6e136b7849655b8390b1e546ed889887a622a377e872b53b10a27b"
+    },
+    {
+      "path": "verification/v22-source39-settings-scroll.json",
+      "sha256": "7d65871906aaa935429487a2ab804b4dbd94dd8e3cfea185524912923362b67c"
+    },
+    {
+      "path": "verification/test-scope-v22.json",
+      "sha256": "23a25ea65c6fa42f0197498cc4a120e30b9d1bec3beb56c4c6e40c2d618bb80c"
+    },
+    {
+      "path": "刷入说明.md",
+      "sha256": "af4823e5a2b989f92a51659a51039b3b943ca83b37fc4673e3f64a7c2be5d7ee"
+    },
+    {
+      "path": "verification/v22a-image-result.json",
+      "sha256": "9bd4c16c8c326560b90aeb1eb4743ca417ce341b21614ea89fae8328f63cae74"
+    },
+    {
+      "path": "verification/v22a-input-audit.json",
+      "sha256": "ffe4b3a72a5e8510577132f880b0b9d229a9d8ebf30f76879d6a6eaeffbf255c"
+    },
+    {
+      "path": "verification/v22a-contexts-test.json",
+      "sha256": "a703116334768e36a89ab74305c18041460fa617a49b35d023104a7dde3ecfd8"
+    },
+    {
+      "path": "verification/v22a-native-source-manifest.json",
+      "sha256": "d151c7577b13924ec1a8b7f080e200797bcbbbb3db0d6b05f296209932142115"
+    },
+    {
+      "path": "verification/test-scope-v22a.json",
+      "sha256": "7e1d478c9cf28fbbf8a4ba5b4ea9ee025cc1a82059d69adf4bf1739054fb271f"
+    },
+    {
+      "path": "assets/native-pen-comm/LICENSE",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "assets/native-pen-comm/NOTICE.txt",
+      "sha256": "63f7bf2dfbb8eed61fc23a5d7b6c3a7a069c409014c413a85b32d7b10315242a"
+    },
+    {
+      "path": "assets/native-pen-comm/README.md",
+      "sha256": "5cd7d3d2799466d3633e90f9abbedc61aafd7f61a6a760ec1276209ed49b7530"
+    },
+    {
+      "path": "verification/v22b-image-result.json",
+      "sha256": "629a64cc87d62b66631d59a23c4cc733820fc36ba5b1d69deda7410ddb39be58"
+    },
+    {
+      "path": "verification/v22b-final-policy-image.json",
+      "sha256": "00c03d1982ee0f573a1f8876c8bca03d918992e5ffd930d4ff502a6be4eb3a58"
+    },
+    {
+      "path": "verification/v22b-cold-publication.json",
+      "sha256": "276882bc666bfa9cde2b0dc71a0a064931cb79ca6b64af11269e7e7d8cdeb473"
+    },
+    {
+      "path": "verification/v22b-existing-policy-domain.json",
+      "sha256": "80009ddcf8f670e8559a19f4e9d9cc32ef38176eb08f3dd5a9dec415e119c886"
+    },
+    {
+      "path": "verification/v22b-camera-source.json",
+      "sha256": "56afd66c6884a7f63d3e3415b2d402fb8384015aacd4c44c3f0d46c0a573656a"
+    },
+    {
+      "path": "verification/v22b-camera-delivery-test.json",
+      "sha256": "f5d7ae904e430704c0621bb086d8e08a7eafec0b65114bdd4b44303a30a4888d"
+    },
+    {
+      "path": "verification/v22b-camera-API-tests.json",
+      "sha256": "56d5b4101aa865d9930573092bee250f4a52e89874e75a7204394006d56b11a2"
+    },
+    {
+      "path": "verification/v22b-camera-YUV-tests.json",
+      "sha256": "152192976008e209d7099e9742c24e72d80904737f1538560c432992af505e77"
+    },
+    {
+      "path": "verification/v22b-camera-video-contracts.json",
+      "sha256": "e1ee652fc88a429cc03982194e2a507bfa8eaf823dacfd5a9220f3c9b676eb13"
+    },
+    {
+      "path": "verification/test-scope-v22b.json",
+      "sha256": "a3ca73286377720befab3a2ba895645e9dbe2b9dddda91dcd91e6b2043a3922f"
+    },
+    {
+      "path": "assets/root/Magisk-v30.7.apk",
+      "sha256": "e0d32d2123532860f97123d927b1bb86c4e08e6fd8a48bfc6b5bee0afae9ebd5"
+    },
+    {
+      "path": "assets/root/离线安装说明.md",
+      "sha256": "6a034706884a53071a7aa5658e21a41f2a2814fb0d20659723071eeab642fc86"
+    },
+    {
+      "path": "verification/v22b-camera-photo-contract.json",
+      "sha256": "7dcc22673b5c908889014d992cae61826adcb51d06a85c733983b8b45f141db6"
+    },
+    {
+      "path": "verification/v23-image-result.json",
+      "sha256": "62466ec6e04423548b0c27f08e265a4cc13eeb9fe031b4d4b66f1d51995feebf"
+    },
+    {
+      "path": "verification/test-scope-v23.json",
+      "sha256": "191f03d8c84a11cbc66100daf5960070e403b689de1ed89e17bc34e5f916cbd5"
+    }
+  ],
+  "speaker_user_accepted": false,
+  "speaker_first_install_enabled": true,
+  "installer_revision": "Exact released v11a scripts, incorporating v10d connection fix and earlier bounded checks/sparse transfer",
+  "installer_compatibility_note": "Includes v10a/b/c; fixes invalid USB path regex in connection inventory, emits valid empty JSON array, and leaves unreadable GUID result unknown. No image or flash-command changes.",
+  "compatibility_audit_20261017": {
+    "source_clean_first_boot_evidence": "Two original v10 clean flash tests on HA1W0JA3, recorded separately after archive publication",
+    "cross_device_boot_accepted": false,
+    "my_partitions": "my_stock and my_product directories are included in system_a; distinct physical/logical partitions are not required for their contents. Previous outside-super statement is withdrawn."
+  },
+  "source_clean_boot_evidence": "Original v10 images passed two original-script source-device clean boots. This does not validate v13.",
+  "supported_boot_baselines": {
+    "product": "spinel",
+    "source_baseline": "v13 kernel38 and payload, source tablet retained10 partitions equal original C15; source tablet uses dtb0/overlay2",
+    "target_dtbo_compatibility_verified": false,
+    "physical_v14_tested_serials": [],
+    "physical_v15_tested_serials": []
+  },
+  "boot_firmware_owner": {
+    "kernel": 38,
+    "change": "Delayed boot firmware worker serialized with PREPARE/ARM/COMMIT/suspend; sleep/pending/failed/already-restored skip; IRQ drain before touch lock; real REK gate retained",
+    "physical_causality_proven": false
+  },
+  "touch_lifecycle": {
+    "kernel": 38,
+    "change": "PM/Hall sleep commands check state under touch lock; stopping blocks Boot and DRM reopen; unregister producers then drain Hall/firmware/restore/charger queues",
+    "physical_causality_proven": false
+  },
+  "dtb_repair": {
+    "third_tree_string_suffix_bytes_restored": 364,
+    "actual_changed_dtb_bytes": 337,
+    "symbols_restored": 29,
+    "standard_dtc_all_three_pass": true,
+    "c15_overlay_merge_cases_pass": 42,
+    "c15_overlay_merge_cases_total": 42,
+    "friend_failure_causality_proven": false
+  },
+  "product_identity": {
+    "property": "ro.product.manufacturer",
+    "files": [
+      "/odm/build.prop",
+      "/my_manifest/build.prop (inside system_a)"
+    ],
+    "before": [
+      "Lenovo",
+      "LENOVO"
+    ],
+    "after": "OnePlus",
+    "one_global_property_changed_in_each_source_file": true,
+    "separate_identity_module_required": false,
+    "app_runtime_verification_pending": true,
+    "wechat_parallel_window_verified": false
+  },
+  "hwc_fw_gate_repair": {
+    "status": "offline_execution_verified_physical_pending",
+    "original_sha256": "b968a1045c85ed20cced05fe743953b9fb39dcbb30e1719ed3caee461be374e2",
+    "candidate_sha256": "a4a23acdfe6ef5f8d695d968a3b27525c028516e117568bb2b958ba279eae40a",
+    "va": "0x67cac",
+    "instruction": "CBZ not-ready -> existing unsuccessful-submit cleanup",
+    "real_A3_gate_preserved": true,
+    "pending_config_preserved": true,
+    "fixed_refresh_rate_used": false,
+    "actual_arm64_control_flow_cases_passed": 10,
+    "hardware_stubbed_in_host_test": true,
+    "runtime_timeline_and_retry_verified": false,
+    "new_build_id_generated": false
+  },
+  "qs_detail_layout": {
+    "status": "offline_resource_verified_physical_pending",
+    "resource": "qs_detail_background_top_margin",
+    "qualifiers": [
+      "sw600dp-land",
+      "sw600dp-port"
+    ],
+    "value": "0dp",
+    "other_resource_entries_preserved": 242,
+    "module_required_after_clean_flash": false
+  },
+  "classic_notification_alignment": {
+    "user_visual_accepted": true,
+    "card_bounds_landscape": [
+      879,
+      2066
+    ],
+    "upper_control_bounds_landscape": [
+      879,
+      2066
+    ],
+    "separate_card_bounds_preserved": [
+      788,
+      2157
+    ],
+    "QS_icons_original_size_restored": true,
+    "uniform_card_scale": 0.8666666666666667,
+    "active_only": "unlocked classic opened shade",
+    "separate_and_lockscreen_not_scaled": true,
+    "systemui_apk_sha256": "ea6aa3ac6686cd8aa793265a1b86c8abe6f4d949c1ba901d3eb186da62ac28f0",
+    "native_libraries_page_aligned": 16384,
+    "code_semantic_audit_changed_methods": 1,
+    "code_semantic_audit_total_methods": 52891,
+    "old_app_image_removed": true,
+    "matching_preopt_filter": "verify",
+    "clean_v16_flash_tested": false,
+    "interaction_suite": "Not completed: own test notification no longer present; no guessed coordinates; no claim of automated interaction pass.",
+    "identical_SystemUI_clean_v17_flash_tested": true,
+    "v16_clean_flash_regression_reproduced": true
+  },
+  "first_boot_systemui_repair": {
+    "source_issue": "v16 ZIP rebuild stripped required APK v2/v3 signing container; target>=30 requires minimum scheme v2 during package collection",
+    "repair": "Preserve inherited preinstalled package certificate container, no signature-policy weakening",
+    "DEX_resources_identical_to_v16": true,
+    "native_library_alignment": 16384,
+    "clean_flash_acceptance": "Identical repaired SystemUI, boot and kernel on HA1W0JA3: original CMD userdata+metadata wipe, SystemUI registered and stable, post-setup UI+gesture injection and subsequent reboot passed. Last Bilibili seed integration was live/offline verified, not another clean flash; other devices/panels unproven.",
+    "normal_sideload_signature_valid": false
+  },
+  "bilibili_native_double_window": {
+    "state": "NATIVE_BILI_TWO_CORRECT_SEPARATE_CONFIG_FILES_VALIDATED",
+    "source_sha256": "0eafe38d8cd6f04c717d2bb0cc90a5bee66d4fdeedae0e92803309809ea1f490",
+    "sha256": "2551f6aacd97aa020cea35e8f823c843a3bd543e3658de36985852d28c5684fa",
+    "bytes": 1366537,
+    "target": "/my_product/etc/fantasy/sys_fantasy_window_managed.xml",
+    "fullorientation_source_sha256": "390082848d077f7e8eca814726e3cb33f857a0db2ae9f7f399a1ba226b8b5a1e",
+    "fullorientation_sha256": "a2991a58e3398d3017f9d804dca7c4ff20ce226420311e32245a2f040967b97c",
+    "fullorientation_target": "/my_product/etc/fantasy/sys_full_orientation_managed.xml",
+    "only_package_changed": "tv.danmaku.bili",
+    "other_packages_and_root_metadata_identical": true,
+    "default_choice": "magicwindow",
+    "draggable": true,
+    "user_ratio_not_forced": true,
+    "live_fullscreen_relaunch_exception": "com.bilibili.bililive.room.ui.roomv3.LiveRoomActivityV3",
+    "orientation_relaunch_exception_kept": true,
+    "homepage_autolayout_not_added": true,
+    "original_app_not_modified": true,
+    "single_Bili_entry_per_file": true,
+    "native_event_module": {
+      "state": "BILI_NATIVE_CONFIG_EVENT_MODULE_BUILT",
+      "dex_sha256": "f20c62a4c8715ca9005b02aaefa682d41610bbd0de2409e4cb353c898874a3f2",
+      "app_code_modified": false,
+      "no_idle_poll": true,
+      "only_package": "tv.danmaku.bili"
+    },
+    "first_install_seed_default_enabled": true,
+    "cloud_overwrite_recovery_test": {
+      "state": "BILI_NATIVE_EVENT_RULES_AND_CLOUD_REFRESH_RECOVERY_PASS",
+      "event_driven_observer_registered": true,
+      "draggable_live_rules_still_parsed": true,
+      "cloud_broadcast_result": "Broadcasting: Intent { act=oplus.intent.action.ROM_UPDATE_CONFIG_SUCCESS flg=0x400000 (has extras) }\r\nBroadcast completed: result=0\r\n",
+      "rule_apply_count_before": 3,
+      "rule_apply_count_after": 4,
+      "idle_poll": false,
+      "existing_ratio_and_layout_choice_preserved": true,
+      "original_app_not_modified": true
+    },
+    "system_api_only": true,
+    "App_not_modified": true,
+    "native_rules_and_exact_module_live_verified": true
+  },
+  "validation_scope": "New v23 images: file readback, metadata, checksum closure and filesystem checks completed. Exact archive clean-flash and smoothness acceptance pending.",
+  "charging_native_fix": {
+    "driver": "drivers/usb/dwc3/dwc3-msm.c",
+    "checks_per_attach_max": 3,
+    "check_interval_seconds": 10,
+    "fixed_current_or_voltage_written": false,
+    "extra_charging_daemon_or_Magisk_module": false,
+    "physical_trial_on_kernel38": "Same vivo charger: single existing native timeout delivered, capacity59 to63 in approximately6min; not proof of this new kernel yet",
+    "this_kernel_physical_tested": false
+  },
+  "speaker_module_version": "0.29-kernel43-test-guard",
+  "ota_native_removal": {
+    "old_apk_sha256": "80301efa8b915f8e183367d5fef40c3107713cade9ecb6fbab55ddb39ad50e6a",
+    "new_apk_sha256": "ce7d4a1ed6b34f23c7fc972a86974ebf53be53c1627c623c826a4b852e0b0d9c",
+    "permissions": [],
+    "services": 0,
+    "receivers": 0,
+    "providers": 0,
+    "ota_precompiled_removed": true,
+    "legacy_boot_payload_removed": true,
+    "physical_tested": false
+  },
+  "speaker_kernel43_note": "Known kernel43 allowlist only; same native protocol and Java direction/call guard; physical sound/call acceptance pending.",
+  "camera_media_compat": {
+    "native_init": "/system_ext/etc/init/init.r94-camera-media-compat.rc",
+    "properties": {
+      "vendor.debug.camera.tpldc.enable": "0",
+      "vendor.audio.hw.aac.encoder": "0"
+    },
+    "new_SELinux_rule": false,
+    "native_library_guards_verified": true,
+    "APK": {
+      "package": "com.zui.camera",
+      "sha256": "0c72c201cef16bb4e187257690d7963b3c49c13dfa990ebb3cc1b53da57e7b7e",
+      "version_code": 160070001,
+      "preinstalled": true,
+      "manual_install_required": false,
+      "system_base": "/system/app/ZuiCameraSeed/ZuiCameraSeed.apk",
+      "exact_full_update": "/system/etc/r94-camera-v7/ZuiCamera.apk.xz",
+      "delivery": "Existing post-setup native service, once-only verified PackageManager update. Same certificate preserves normal SYSTEM/UPDATED_SYSTEM_APP identity.",
+      "new_module_required": false
+    },
+    "current_kernel39_camera_save_decode_and_reboot_pass": true,
+    "this_full_ROM_clean_boot_verified": false,
+    "old_OpenCamera_removed": true,
+    "native_completion_fix": "MediaRecorderWrapper.onInfo only: completion OK/EOS is not an error merely because it preceded mStopping. Original onError and encoding validation remain.",
+    "kernel43_component_tests": {
+      "camera1_front_back_JPEG": true,
+      "camera2_front_back_JPEG": true,
+      "camera2_front_back_720p_YUV": true,
+      "system_default_handler_resolution": true,
+      "implicit_video_front_back_RETURN_OK_audio_video_and_frame_decode": true,
+      "explicit_photo_RETURN_OK": true,
+      "clean_v22b_flash": false,
+      "all_third_party_apps_or_real_video_calls": false,
+      "implicit_photo_RETURN_OK": true
+    }
+  },
+  "historical_source_device_state": {
+    "serial": "HA1W0JA3",
+    "boot_receipt": "R91_ROM_READY + EXIT rc=0 every boot",
+    "scheduler": "native ADMIT/READY receipts",
+    "density": "460 physical"
+  },
+  "vendor_module_consistency": {
+    "state": "OFFLINE_CANDIDATE_ONLY",
+    "current_modules": 9,
+    "import_CRC_checks": 609,
+    "builtin_driver_groups_link_proven": 32,
+    "normal_boot_load_requests_corrected": true,
+    "conditional_RMNET_runtime_actions_preserved_not_fixed": true,
+    "KSU_added": false,
+    "qca6490_hardware_equivalence_proven": false,
+    "friend_boot_failure_fixed": false
+  },
+  "refresh_policy": {
+    "native_in_system_image": true,
+    "jar_sha256": "7ea250fb0b7b00830a48b6ad111c795dc3adfcbb0d7b8c5a261f63d309b29762",
+    "xml_sha256": "d38f4cf981136e82933e26501ed1cd7f7b4b27d19dbe27446f835586b374a88f",
+    "desired_native_rates_hz": [
+      30,
+      60,
+      144
+    ],
+    "physical_1hz_supported": false,
+    "physical120_still_advertised": true,
+    "native_boot_timing120_not_deleted": true,
+    "source_kernel39_runtime_finite_tests_pass": true,
+    "kernel43_clean_boot_and_daily_use_pass": false,
+    "arbitrary_app_surface_thermal_path_coverage_exhaustive": false,
+    "adaptive30hz_acceptance": false,
+    "compiled_cache_cleanup_files": [
+      {
+        "path": "/system/framework/oplus-services.jar.fsv_meta",
+        "sha256": "957cebcf548ca10ea81bd52384830023b0d62f3fc71ac63363f0bd667a639fa3",
+        "bytes": 200704
+      },
+      {
+        "path": "/system/framework/oplus-services.jar.prof",
+        "sha256": "bd4afd26bb3c2d416c48c6ff83999f9e9af0892f5f387649dceedd56148a872c",
+        "bytes": 74261
+      },
+      {
+        "path": "/system/framework/oplus-services.jar.prof.fsv_meta",
+        "sha256": "0374aeffc6ee38c9ca7f3323c6ff0946c79ba5d672e10528b8d240dd80b3b2de",
+        "bytes": 8192
+      },
+      {
+        "path": "/system/framework/oat/arm64/oplus-services.ocomp.art",
+        "sha256": "a35006071fb06762ef379c1ac2b1182d50b70c92d080391fcd6f588622d8d28d",
+        "bytes": 200704
+      },
+      {
+        "path": "/system/framework/oat/arm64/oplus-services.ocomp.odex",
+        "sha256": "c06d5a8418f92b2982e033e864d39f9b86090fcdd45fcb5b993a3ba3c527a68f",
+        "bytes": 28531608
+      },
+      {
+        "path": "/system/framework/oat/arm64/oplus-services.ocomp.vdex",
+        "sha256": "06dbe511347963c93c51179f72104c8a5dac6801ba5f33038920d529f0a8609a",
+        "bytes": 265192
+      },
+      {
+        "path": "/system/framework/oat/arm64/oplus-services.ocomp.art.fsv_meta",
+        "sha256": "d7054a82084446b0f812bd7989966847ea2aaa972d696feaa37c7b44e4970c54",
+        "bytes": 8192
+      },
+      {
+        "path": "/system/framework/oat/arm64/oplus-services.ocomp.odex.fsv_meta",
+        "sha256": "18d8eedbf39a69e62d412ea9c287c83581bb8e181a248d7834a92d8b9a752de8",
+        "bytes": 139264
+      },
+      {
+        "path": "/system/framework/oat/arm64/oplus-services.ocomp.vdex.fsv_meta",
+        "sha256": "df22e17d20afaf4df93e22413d209e5a9c595490422e4ebc43abe9fcc54e4640",
+        "bytes": 8192
+      }
+    ],
+    "kernel43_finite_app_requests_rotations_and_sleep_wake_pass": true,
+    "permanent_144_startup_lock_added": false,
+    "cold_ABA_fixed144_clear_benefit": false
+  },
+  "privacy_password_delivery": {
+    "seed_module": "r94_privacy_password_test",
+    "version": "0.1.1-first-start-delivery",
+    "same_accepted_backend_and_authentication": true,
+    "source_module_user_create_reenter_reboot_pass_on39": true,
+    "new_first_start_loader_13_guard_cases_pass": true,
+    "actual_new_clean_first_boot_pass": false,
+    "software_backend_not_TEE_RPMB": true,
+    "credential_contents_carried_in_package": false
+  },
+  "native_pen_delivery": {
+    "version": "0.4-native-ROM-integration",
+    "services_jar_sha256": "90948f136d8621cf86be52f7899bec5490e53a1a548f169a9fc90be890143520",
+    "original_apps_for_first_scan": {
+      "ipe": "aa85fdc365304282a0d5a4fdb434ba24cd4e03946242096d4ca2fafde7333c9c",
+      "ws": "212ca0b56089b932e46363224a9f3a80a48362cd86e50e8999840a457020d8e2"
+    },
+    "generated_runtime_apps": {
+      "ipe": "43585b82be1f50899ae50e378439655c3947d2bae2e64bad0de456148883d94b",
+      "ws": "2e7327f1b4bdc4b504ad076a86684fd46c2891436b1e7a4bfd1abcb1754d1cce"
+    },
+    "prepare_service": "r94_pen_prepare",
+    "only_existing_init_file_replaced": true,
+    "cache": "/data/local/r94-pen-native-v4",
+    "root_owned_cache_scoped_labels": true,
+    "normal_UNLOCKED_required_for_app_start": true,
+    "extra_Magisk_pen_module_required": false,
+    "current39_same_code_software_boot_history": true,
+    "physical_pen_and_clean_ROM_boot_pass": false,
+    "publication_fix": {
+      "prepare_domain": "existing u:r:magisk:s0",
+      "umask": "022",
+      "published_directories": "0755 root:root",
+      "published_APKs": "0644 root:root",
+      "labels": "Only ipe/ws payload children system_file; cache root/log retain existing shell_data_file rules.",
+      "readiness_after_metadata_verification": true,
+      "extra_init_allow_or_label_expansion": false,
+      "fresh_private_namespace_real_device_test": true,
+      "new_full_image_firstboot_test": false
+    }
+  },
+  "native_communication_recovery": {
+    "service": "r94-commcenterd",
+    "change": "remove only oneshot; init owns restart",
+    "original_domain_user_groups_interfaces_and_start_conditions_preserved": true,
+    "new_daemon_or_fake_phone_capability": false,
+    "current39_controlled_exit_recovery_history": true,
+    "real_phone_call_data_SMS_and_audio_pass": false
+  },
+  "firstboot_runtime_delivery_fix": {
+    "old_guard_sha256": "e18e0e4df08b541b85c3e45b2be4de3af17ade1d21cdb4f8808b723d8d05a454",
+    "correct_exact_framework_sha256": "ab25a362ff81a90c69dfa55ceaa3a2ae201775bd339abb04da5b1c2b71330467",
+    "new_guard_and_checksum_closure_verified": true,
+    "controlled_kernel43_boot_native_ready_exit0_and_five_default_modules_pass": true,
+    "v22b_firstboot_pass": false
+  },
+  "portrait_wizard_fix": {
+    "overlay_package": "com.tb371fc.r93.uifit.bootreg",
+    "qualifier": "w600dp-port",
+    "width_dp": 180,
+    "height_dp": 130,
+    "gap_dp": 30,
+    "existing_11_dimensions_preserved": true,
+    "real_rotation0_visual_pass": true,
+    "global_density_or_SystemUI_changes": false
+  },
+  "ART_background_policy": {
+    "pm.dexopt.bg-dexopt": "speed-profile",
+    "pm.dexopt.install": "speed-profile",
+    "pm.dexopt.install-fast": "skip",
+    "new_polling_or_forced_whole_device_compilation": false,
+    "cold_start_fully_resolved": false
+  },
+  "offline_magisk_manager": {
+    "path": "assets/root/Magisk-v30.7.apk",
+    "sha256": "e0d32d2123532860f97123d927b1bb86c4e08e6fd8a48bfc6b5bee0afae9ebd5",
+    "version": "30.7",
+    "auto_grant_root": false
+  },
+  "test_scope_v23": "verification/test-scope-v23.json",
+  "v23_changes": {
+    "native_caption_patch_sha256": "56bc35af0c908ec00151ec792f3df048985d1cf0db06260b6a86f42614d76928",
+    "native_framework_sha256": "ab25a362ff81a90c69dfa55ceaa3a2ae201775bd339abb04da5b1c2b71330467",
+    "native_parallel_config_for_wechat_bili": true,
+    "bili_center_home_width_2944x1840": 1149,
+    "bili_rules_watcher_default_install_removed": true,
+    "launcher_speed_compile_once": true,
+    "startup_base_guard_and_two_checksum_lists_updated": true,
+    "new_kernel_or_gc_scheduling_trial": false,
+    "camera_version7_matches_current_device": true,
+    "native_init_magisk_domain_after_manager_initialization": true,
+    "native_init_rc_sha256": "85739a5112d7c096ed72bc2bff8337de29b6ed90671eea1b05c8d8652bbef750"
+  }
+}

@@ -1,0 +1,3 @@
+/data/local/r94-pen-native-v4 u:object_r:shell_data_file:s0
+/data/local/r94-pen-native-v4/bootstrap\.log u:object_r:shell_data_file:s0
+/data/local/r94-pen-native-v4/(ipe|ws)(/.*)? u:object_r:system_file:s0

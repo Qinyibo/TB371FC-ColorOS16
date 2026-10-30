@@ -1,0 +1,7 @@
+Gateway and controller source are supplied in the adjacent candidate folder.
+Backend provenance: ACLaniakea/coloros-pad-fixes commit97a4024b875d22d3eea4d811da045765fd4388ed, cryptoeng-hal-module/bin/cryptoeng-original-default (public prebuilt).
+Original SHA256:1a74e4adbd61fbd7a5e8422a2918ead3778364c6eb8a4236ee89360e3645b49d.
+Only independent service/storage literals are patched; no complete backend-source audit or hardware security claim.
+https://github.com/ACLaniakea/coloros-pad-fixes/tree/97a4024b875d22d3eea4d811da045765fd4388ed/cryptoeng-hal-module
+
+Gateway/controller source and parent-death wrapper are included in sources/ and *.sh. The public backend remains a prebuilt; no complete-source/hardware-TEE claim.

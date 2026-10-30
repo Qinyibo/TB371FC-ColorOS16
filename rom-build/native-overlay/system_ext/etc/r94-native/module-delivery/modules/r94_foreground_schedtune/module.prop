@@ -1,0 +1,6 @@
+id=r94_foreground_schedtune
+name=TB371FC｜前台调度开关
+version=0.19-native-control
+versionCode=2026101501
+author=TB371FC ROM project
+description=控制ROM内置v5调度器，保持单实例；操作按钮立即启停，模块开关重启生效。偶发卡顿仍待定位。

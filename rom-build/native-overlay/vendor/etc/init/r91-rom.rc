@@ -1,0 +1,10 @@
+# One sequential service prevents races between launcher and assistant binds.
+service r91-rom /system/bin/sh /system_ext/etc/r91-rom/apply.sh
+    user root
+    group root
+    seclabel u:r:magisk:s0
+    disabled
+    oneshot
+
+on property:sys.boot_completed=1
+    start r91-rom
