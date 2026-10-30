@@ -1,0 +1,158 @@
+{
+  "status": "REJECTED_ORIGINAL_ART_RESTORED",
+  "stages": [
+    {
+      "label": "A1",
+      "action": "reuse",
+      "art_sha256": "16c6d07f5baaff155478664adbcd773386cfd9aff4bdd856652406c749e9c187",
+      "initial_temperature": "39700",
+      "elapsed_seconds": 64.02110147476196,
+      "runs": [
+        {
+          "tag": "GCLightSettledA1Daily20261030",
+          "mode": "daily4",
+          "total_frames": 1743,
+          "missed_frames": 666,
+          "frame_duration_average_ms": 4.786,
+          "frame_duration_p95_bin_ms": 8,
+          "frame_duration_over25ms": 0,
+          "frame_duration_samples": 1743,
+          "present_interval_p95_bin_ms": 20,
+          "present_intervals_over25ms": 86,
+          "present_interval_samples": 1741,
+          "temperature_raw": "52900"
+        },
+        {
+          "tag": "GCLightSettledA1Fast120261030",
+          "mode": "rapid4",
+          "total_frames": 720,
+          "missed_frames": 93,
+          "frame_duration_average_ms": 5.411,
+          "frame_duration_p95_bin_ms": 7,
+          "frame_duration_over25ms": 1,
+          "frame_duration_samples": 720,
+          "present_interval_p95_bin_ms": 14,
+          "present_intervals_over25ms": 17,
+          "present_interval_samples": 718,
+          "temperature_raw": "57600"
+        },
+        {
+          "tag": "GCLightSettledA1Fast220261030",
+          "mode": "rapid4",
+          "total_frames": 776,
+          "missed_frames": 82,
+          "frame_duration_average_ms": 5.103,
+          "frame_duration_p95_bin_ms": 7,
+          "frame_duration_over25ms": 0,
+          "frame_duration_samples": 776,
+          "present_interval_p95_bin_ms": 13,
+          "present_intervals_over25ms": 6,
+          "present_interval_samples": 774,
+          "temperature_raw": "56400"
+        }
+      ]
+    },
+    {
+      "label": "B1",
+      "action": "begin",
+      "art_sha256": "7f944161482d6ff66892572b0bc44ac204004149c863b19bae6457de7f0bde97",
+      "initial_temperature": "48300",
+      "elapsed_seconds": 112.88269543647766,
+      "runs": [
+        {
+          "tag": "GCLightSettledB1Daily20261030",
+          "mode": "daily4",
+          "total_frames": 1651,
+          "missed_frames": 432,
+          "frame_duration_average_ms": 4.734,
+          "frame_duration_p95_bin_ms": 8,
+          "frame_duration_over25ms": 5,
+          "frame_duration_samples": 1651,
+          "present_interval_p95_bin_ms": 20,
+          "present_intervals_over25ms": 78,
+          "present_interval_samples": 1649,
+          "temperature_raw": "56400"
+        },
+        {
+          "tag": "GCLightSettledB1Fast120261030",
+          "mode": "rapid4",
+          "total_frames": 663,
+          "missed_frames": 165,
+          "frame_duration_average_ms": 5.787,
+          "frame_duration_p95_bin_ms": 8,
+          "frame_duration_over25ms": 2,
+          "frame_duration_samples": 663,
+          "present_interval_p95_bin_ms": 13,
+          "present_intervals_over25ms": 13,
+          "present_interval_samples": 661,
+          "temperature_raw": "59200"
+        },
+        {
+          "tag": "GCLightSettledB1Fast220261030",
+          "mode": "rapid4",
+          "total_frames": 777,
+          "missed_frames": 132,
+          "frame_duration_average_ms": 5.344,
+          "frame_duration_p95_bin_ms": 7,
+          "frame_duration_over25ms": 2,
+          "frame_duration_samples": 777,
+          "present_interval_p95_bin_ms": 13,
+          "present_intervals_over25ms": 5,
+          "present_interval_samples": 775,
+          "temperature_raw": "60000"
+        }
+      ]
+    },
+    {
+      "label": "A2",
+      "action": "restore",
+      "art_sha256": "16c6d07f5baaff155478664adbcd773386cfd9aff4bdd856652406c749e9c187",
+      "initial_temperature": "51800",
+      "elapsed_seconds": 112.7224268913269,
+      "runs": [
+        {
+          "tag": "GCLightSettledA2Daily20261030",
+          "mode": "daily4",
+          "total_frames": 1733,
+          "missed_frames": 391,
+          "frame_duration_average_ms": 4.623,
+          "frame_duration_p95_bin_ms": 8,
+          "frame_duration_over25ms": 3,
+          "frame_duration_samples": 1733,
+          "present_interval_p95_bin_ms": 27,
+          "present_intervals_over25ms": 92,
+          "present_interval_samples": 1731,
+          "temperature_raw": "57200"
+        },
+        {
+          "tag": "GCLightSettledA2Fast120261030",
+          "mode": "rapid4",
+          "total_frames": 743,
+          "missed_frames": 92,
+          "frame_duration_average_ms": 5.225,
+          "frame_duration_p95_bin_ms": 7,
+          "frame_duration_over25ms": 0,
+          "frame_duration_samples": 743,
+          "present_interval_p95_bin_ms": 20,
+          "present_intervals_over25ms": 20,
+          "present_interval_samples": 741,
+          "temperature_raw": "61500"
+        },
+        {
+          "tag": "GCLightSettledA2Fast220261030",
+          "mode": "rapid4",
+          "total_frames": 786,
+          "missed_frames": 129,
+          "frame_duration_average_ms": 5.536,
+          "frame_duration_p95_bin_ms": 7,
+          "frame_duration_over25ms": 1,
+          "frame_duration_samples": 786,
+          "present_interval_p95_bin_ms": 13,
+          "present_intervals_over25ms": 8,
+          "present_interval_samples": 784,
+          "temperature_raw": "61100"
+        }
+      ]
+    }
+  ]
+}

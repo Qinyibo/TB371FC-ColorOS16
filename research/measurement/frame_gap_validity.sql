@@ -1,0 +1,4 @@
+CREATE PERFETTO TABLE present AS SELECT DISTINCT a.ts+a.dur ts FROM actual_frame_timeline_slice a JOIN process p USING(upid) WHERE p.name='/system/bin/surfaceflinger' AND a.dur>0 AND a.present_type IN ('On-time Present','Late Present','Early Present');
+CREATE PERFETTO TABLE gaps AS SELECT ts,lag(ts) OVER (ORDER BY ts) prev_ts FROM present;
+CREATE PERFETTO TABLE worst AS SELECT g.prev_ts ts,g.ts-g.prev_ts dur,q.name phase FROM gaps g JOIN slice q ON q.name GLOB 'return|*' AND g.prev_ts>=q.ts AND g.ts<q.ts+q.dur ORDER BY dur DESC LIMIT 1;
+SELECT round((a.ts-w.ts)/1e6,2) begin_ms,round((a.ts+a.dur-w.ts)/1e6,2) end_ms,a.present_type,a.jank_type,a.name,a.display_frame_token,a.on_time_finish FROM actual_frame_timeline_slice a JOIN process p USING(upid),worst w WHERE p.name='/system/bin/surfaceflinger' AND a.ts+a.dur>=w.ts-10000000 AND a.ts+a.dur<=w.ts+w.dur+10000000 ORDER BY a.ts+a.dur LIMIT 30;

@@ -1,0 +1,90 @@
+{
+  "files": [
+    {
+      "path": "/system_ext/etc/r94-native/virtual-radio/bin/commcenterd",
+      "v17_sha256": "25da3d0da6fce0f63c896753f3dd6d2f23975b1ed960a477e742e666ba01aef7",
+      "current_sha256": "25da3d0da6fce0f63c896753f3dd6d2f23975b1ed960a477e742e666ba01aef7",
+      "identical": true
+    },
+    {
+      "path": "/system_ext/etc/r94-native/virtual-radio/bin/subsys_daemon",
+      "v17_sha256": "f18b37e15374095cb117c3b8c2c17ea4425027b9d1f056e9a7606a2b5eea623e",
+      "current_sha256": "f18b37e15374095cb117c3b8c2c17ea4425027b9d1f056e9a7606a2b5eea623e",
+      "identical": true
+    },
+    {
+      "path": "/system_ext/etc/r94-native/virtual-radio/lib64/i.so",
+      "v17_sha256": "112a8abfa9c1f5c3b1620fcbd5f051877974eaa114e39fd50d28ab5e1931bf94",
+      "current_sha256": "112a8abfa9c1f5c3b1620fcbd5f051877974eaa114e39fd50d28ab5e1931bf94",
+      "identical": true
+    },
+    {
+      "path": "/system_ext/etc/r94-native/virtual-radio/lib64/lib-virtual-modem-api.so",
+      "v17_sha256": "e962f8ad32a0c1437e634d0df39d1c9d6018c7dd1635baf7f823d5773909eb89",
+      "current_sha256": "e962f8ad32a0c1437e634d0df39d1c9d6018c7dd1635baf7f823d5773909eb89",
+      "identical": true
+    },
+    {
+      "path": "/system_ext/etc/r94-native/virtual-radio/lib64/lib-virtual-modem-protos.so",
+      "v17_sha256": "fc018ff1229a62ba9cc8abec924e8067fc83ab67af889543a98003f7f304c592",
+      "current_sha256": "fc018ff1229a62ba9cc8abec924e8067fc83ab67af889543a98003f7f304c592",
+      "identical": true
+    },
+    {
+      "path": "/system_ext/etc/r94-native/virtual-radio/lib64/lib-virtual-modem-radio.so",
+      "v17_sha256": "2f0e5abac7d047aab8183908a0d8f2ad605b3dce490a589ae51c47293d8a959d",
+      "current_sha256": "2f0e5abac7d047aab8183908a0d8f2ad605b3dce490a589ae51c47293d8a959d",
+      "identical": true
+    },
+    {
+      "path": "/system_ext/etc/r94-native/virtual-radio/lib64/libdmtp-protos-lite.so",
+      "v17_sha256": "5232e1b239a222b6ab5de45561bced897433ee838244255155269d9e80589235",
+      "current_sha256": "5232e1b239a222b6ab5de45561bced897433ee838244255155269d9e80589235",
+      "identical": true
+    },
+    {
+      "path": "/system_ext/etc/r94-native/virtual-radio/lib64/libdmtpclient.so",
+      "v17_sha256": "df9061f14a898b5246f7e601d30927c76c02f010fc3f5c3c98d5ec6334b6cb77",
+      "current_sha256": "df9061f14a898b5246f7e601d30927c76c02f010fc3f5c3c98d5ec6334b6cb77",
+      "identical": true
+    },
+    {
+      "path": "/system_ext/etc/r94-native/virtual-radio/lib64/libmindroid-app.so",
+      "v17_sha256": "e04a570c616984a5893355aed139fef8af75f52bb5154c6a395aaa739e659efe",
+      "current_sha256": "e04a570c616984a5893355aed139fef8af75f52bb5154c6a395aaa739e659efe",
+      "identical": true
+    },
+    {
+      "path": "/system_ext/etc/r94-native/virtual-radio/lib64/libmindroid-framework.so",
+      "v17_sha256": "fc7439e8bfa43ae1c28f763fb2600aad9ff20b02c5372fd9acf2659bc3d747a7",
+      "current_sha256": "fc7439e8bfa43ae1c28f763fb2600aad9ff20b02c5372fd9acf2659bc3d747a7",
+      "identical": true
+    },
+    {
+      "path": "/system_ext/etc/r94-native/virtual-radio/lib64/libsubsys-utils.so",
+      "v17_sha256": "6c3a5927a42c4c7f03520df877b1b60db968bec8db889837ba5275cc02b636b6",
+      "current_sha256": "6c3a5927a42c4c7f03520df877b1b60db968bec8db889837ba5275cc02b636b6",
+      "identical": true
+    },
+    {
+      "path": "/system_ext/etc/r94-native/virtual-radio/oplus_vnet.ko",
+      "v17_sha256": "01cb1335daddcf308d11076af1db50f5386c6bb94312243b02197d1a7bfc66bd",
+      "current_sha256": "01cb1335daddcf308d11076af1db50f5386c6bb94312243b02197d1a7bfc66bd",
+      "identical": true
+    },
+    {
+      "path": "/system_ext/etc/r94-native/module-delivery/comm-defaults.sh",
+      "v17_sha256": "6df8af1a13b935c711f601c2b6be02f359b735986294f95681b1dd66c7309243",
+      "current_sha256": "6df8af1a13b935c711f601c2b6be02f359b735986294f95681b1dd66c7309243",
+      "identical": true
+    },
+    {
+      "path": "/system_ext/priv-app/OplusVirtualComm/OplusVirtualComm.apk",
+      "v17_sha256": "959b381847ec630baab44d670b1502105a18a3fe1f6561a67a94f9325931719b",
+      "current_sha256": "959b381847ec630baab44d670b1502105a18a3fe1f6561a67a94f9325931719b",
+      "identical": true
+    }
+  ],
+  "init_diff": "--- v17\n+++ current\n@@ -5,7 +5,6 @@\n     seclabel u:r:r94_commcenterd:s0\n     disabled\n     interface aidl vendor.oplus.hardware.communicationcenter.IDmtpService/default\n-    oneshot\n \n on property:sys.boot_completed=1\n     start r94-commcenterd\n",
+  "conclusion": "14 native communication payloads match actual v17 partition images. Sole init difference removes oneshot for service recovery. No confirmed local regression found; no speculative replacement performed. No phone available for data-link acceptance."
+}

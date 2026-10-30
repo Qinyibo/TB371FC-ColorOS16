@@ -1,0 +1,106 @@
+{
+  "final-clean-firstboot": {
+    "checks": {
+      "boot_and_setup_complete": true,
+      "original_kernel43": true,
+      "selinux_enforcing": true,
+      "/system_ext/priv-app/SystemUI/SystemUI.apk": true,
+      "/system/framework/oplus-services.jar": true,
+      "/vendor/etc/init/r91-rom.rc": true,
+      "native_init_completed_rc0": true,
+      "144hz_recommendations_off": true,
+      "normal_animation_scales": true,
+      "launcher_speed": true,
+      "no_old_bili_or_caption_module": true,
+      "no_native_rule_watcher": true,
+      "camera7": true,
+      "native_pen_software_ready": true,
+      "com.tencent.mm_native_parallel": true,
+      "tv.danmaku.bili_native_parallel": true,
+      "bili_live_exception": true,
+      "three_core_processes": true,
+      "no_core_java_crash": true
+    },
+    "kernel": "Linux localhost 4.19.325-perf+ #43 SMP PREEMPT Tue Oct 20 2026 22:49:00 +0800 aarch64 Toybox",
+    "settings": [
+      "144.00002",
+      "0",
+      "null",
+      "1.0",
+      "1.0"
+    ],
+    "enabled_modules": [
+      "r94_ai_transaction_candidate",
+      "r94_foreground_schedtune",
+      "r94_privacy_password_test",
+      "r94_speaker_direction"
+    ],
+    "camera_sha256": "0c72c201cef16bb4e187257690d7963b3c49c13dfa990ebb3cc1b53da57e7b7e",
+    "native_pen_ready": "1"
+  },
+  "final-clean-normal-reboot": {
+    "checks": {
+      "boot_and_setup_complete": true,
+      "original_kernel43": true,
+      "selinux_enforcing": true,
+      "/system_ext/priv-app/SystemUI/SystemUI.apk": true,
+      "/system/framework/oplus-services.jar": true,
+      "/vendor/etc/init/r91-rom.rc": true,
+      "native_init_completed_rc0": true,
+      "144hz_recommendations_off": true,
+      "normal_animation_scales": true,
+      "launcher_speed": true,
+      "no_old_bili_or_caption_module": true,
+      "no_native_rule_watcher": true,
+      "camera7": true,
+      "native_pen_software_ready": true,
+      "com.tencent.mm_native_parallel": true,
+      "tv.danmaku.bili_native_parallel": true,
+      "bili_live_exception": true,
+      "three_core_processes": true,
+      "no_core_java_crash": true
+    },
+    "kernel": "Linux localhost 4.19.325-perf+ #43 SMP PREEMPT Tue Oct 20 2026 22:49:00 +0800 aarch64 Toybox",
+    "settings": [
+      "144.00002",
+      "0",
+      "null",
+      "1.0",
+      "1.0"
+    ],
+    "enabled_modules": [
+      "r94_ai_transaction_candidate",
+      "r94_foreground_schedtune",
+      "r94_privacy_password_test",
+      "r94_speaker_direction"
+    ],
+    "camera_sha256": "0c72c201cef16bb4e187257690d7963b3c49c13dfa990ebb3cc1b53da57e7b7e",
+    "native_pen_ready": "1"
+  },
+  "different_boots": true,
+  "bili_geometry": {
+    "status": "NATIVE_BILI_HOME_WIDTH_AND_SEARCH_DUAL_PANES_PASS",
+    "home_bounds": [
+      897,
+      0,
+      2046,
+      1840
+    ],
+    "left_pane_bounds": [
+      0,
+      0,
+      1025,
+      1840
+    ],
+    "new_rules_module_required": false
+  },
+  "package": {
+    "sha256": "ae0fcc1d29d8f3e7c1aa2c0972eec74c6e56d260521a0942361cbc5199847db3",
+    "bytes": 7471266259,
+    "members": 142,
+    "physical_flash_pass": true,
+    "device_runtime_verified": true,
+    "user_smoothness_accepted": true,
+    "github_published": true
+  }
+}

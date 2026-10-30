@@ -1,0 +1,144 @@
+{
+  "status": "REJECTED_NOT_SHIPPED",
+  "stages": [
+    {
+      "label": "A1",
+      "runs": [
+        {
+          "tag": "NativeClientA1Daily20261030",
+          "mode": "daily4",
+          "total_frames": 1552,
+          "missed_frames": 559,
+          "frame_duration_average_ms": 5.041,
+          "frame_duration_p95_bin_ms": 9,
+          "frame_duration_over25ms": 7,
+          "frame_duration_samples": 1552,
+          "present_interval_p95_bin_ms": 34,
+          "present_intervals_over25ms": 103,
+          "present_interval_samples": 1550
+        },
+        {
+          "tag": "NativeClientA1Fast120261030",
+          "mode": "rapid4",
+          "total_frames": 699,
+          "missed_frames": 87,
+          "frame_duration_average_ms": 5.84,
+          "frame_duration_p95_bin_ms": 7,
+          "frame_duration_over25ms": 8,
+          "frame_duration_samples": 699,
+          "present_interval_p95_bin_ms": 20,
+          "present_intervals_over25ms": 20,
+          "present_interval_samples": 697
+        },
+        {
+          "tag": "NativeClientA1Fast220261030",
+          "mode": "rapid4",
+          "total_frames": 686,
+          "missed_frames": 192,
+          "frame_duration_average_ms": 5.622,
+          "frame_duration_p95_bin_ms": 8,
+          "frame_duration_over25ms": 1,
+          "frame_duration_samples": 686,
+          "present_interval_p95_bin_ms": 20,
+          "present_intervals_over25ms": 18,
+          "present_interval_samples": 684
+        }
+      ],
+      "temperature_start": "35000",
+      "temperature_end": "54500"
+    },
+    {
+      "label": "B1",
+      "runs": [
+        {
+          "tag": "NativeClientB1Daily20261030",
+          "mode": "daily4",
+          "total_frames": 1434,
+          "missed_frames": 699,
+          "frame_duration_average_ms": 6.402,
+          "frame_duration_p95_bin_ms": 13,
+          "frame_duration_over25ms": 6,
+          "frame_duration_samples": 1434,
+          "present_interval_p95_bin_ms": 34,
+          "present_intervals_over25ms": 103,
+          "present_interval_samples": 1432
+        },
+        {
+          "tag": "NativeClientB1Fast120261030",
+          "mode": "rapid4",
+          "total_frames": 695,
+          "missed_frames": 291,
+          "frame_duration_average_ms": 6.096,
+          "frame_duration_p95_bin_ms": 13,
+          "frame_duration_over25ms": 7,
+          "frame_duration_samples": 695,
+          "present_interval_p95_bin_ms": 20,
+          "present_intervals_over25ms": 23,
+          "present_interval_samples": 693
+        },
+        {
+          "tag": "NativeClientB1Fast220261030",
+          "mode": "rapid4",
+          "total_frames": 752,
+          "missed_frames": 327,
+          "frame_duration_average_ms": 5.223,
+          "frame_duration_p95_bin_ms": 13,
+          "frame_duration_over25ms": 3,
+          "frame_duration_samples": 752,
+          "present_interval_p95_bin_ms": 13,
+          "present_intervals_over25ms": 10,
+          "present_interval_samples": 750
+        }
+      ],
+      "temperature_start": "49800",
+      "temperature_end": "56400"
+    },
+    {
+      "label": "A2",
+      "runs": [
+        {
+          "tag": "NativeClientA2Daily20261030",
+          "mode": "daily4",
+          "total_frames": 1569,
+          "missed_frames": 478,
+          "frame_duration_average_ms": 4.923,
+          "frame_duration_p95_bin_ms": 8,
+          "frame_duration_over25ms": 3,
+          "frame_duration_samples": 1569,
+          "present_interval_p95_bin_ms": 34,
+          "present_intervals_over25ms": 100,
+          "present_interval_samples": 1567
+        },
+        {
+          "tag": "NativeClientA2Fast120261030",
+          "mode": "rapid4",
+          "total_frames": 725,
+          "missed_frames": 133,
+          "frame_duration_average_ms": 5.953,
+          "frame_duration_p95_bin_ms": 8,
+          "frame_duration_over25ms": 8,
+          "frame_duration_samples": 725,
+          "present_interval_p95_bin_ms": 20,
+          "present_intervals_over25ms": 22,
+          "present_interval_samples": 723
+        },
+        {
+          "tag": "NativeClientA2Fast220261030",
+          "mode": "rapid4",
+          "total_frames": 769,
+          "missed_frames": 117,
+          "frame_duration_average_ms": 5.265,
+          "frame_duration_p95_bin_ms": 7,
+          "frame_duration_over25ms": 0,
+          "frame_duration_samples": 769,
+          "present_interval_p95_bin_ms": 13,
+          "present_intervals_over25ms": 10,
+          "present_interval_samples": 767
+        }
+      ],
+      "temperature_start": "51800",
+      "temperature_end": "57200"
+    }
+  ],
+  "measurement_note": "Temperature values are raw readings from the historical fixture; runs are not a constant-temperature laboratory comparison."
+}

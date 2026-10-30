@@ -1,0 +1,141 @@
+{
+  "scope": "Selected technical summaries only; original device identifiers, account databases, screenshots and raw traces are not included. Artifact names and SHA256 identify the local source material. Historical states are superseded by the v23 runtime record.",
+  "sources": [
+    {
+      "artifact": "result.json",
+      "sha256": "de2e4eb6ade5323fe53987408ab9c128d60ff969565dcca5baac10c7c3477980"
+    },
+    {
+      "artifact": "validation.json",
+      "sha256": "9892b3f1e9b0f7d2b0b1c84f0b1a1a7d4a67472c52edc61c629b5219755ab594"
+    },
+    {
+      "artifact": "light-settled-A1.json",
+      "sha256": "3fb942eb22dbe08edfc9260a2eb44f18b6ce583d6cb5d7ba2d16a60122cf8752"
+    },
+    {
+      "artifact": "GCLightSettledA1Daily20261030-summary.json",
+      "sha256": "2b809c648cb97f0748b57e4e8ce76065fe1347686486d5b1d5469351ea55af84"
+    },
+    {
+      "artifact": "GCLightSettledA1Fast120261030-summary.json",
+      "sha256": "9095862792b36260157848fdc73e40aa302c837ee08745a9600a9e12abaccedc"
+    },
+    {
+      "artifact": "GCLightSettledA1Fast220261030-summary.json",
+      "sha256": "66eb49245431c86ad9e5dc91de8baca67a5849eaf9893cabec9fdacacf73f64c"
+    },
+    {
+      "artifact": "light-settled-B1.json",
+      "sha256": "ea0c915d59b8883ce93554df4cfa6c27c7afc9d505a40fb79e01c8781eebe41a"
+    },
+    {
+      "artifact": "GCLightSettledB1Daily20261030-summary.json",
+      "sha256": "1475bc2cac0739be732f6461a2927832458215de889e2df9db2cbea23aed1183"
+    },
+    {
+      "artifact": "GCLightSettledB1Fast120261030-summary.json",
+      "sha256": "531e7cc00f8feed2bc70116930cba0eadc1a05bafbedf270f1ba1d5d179c4791"
+    },
+    {
+      "artifact": "GCLightSettledB1Fast220261030-summary.json",
+      "sha256": "5ba123390d0b6d27a15b969f3a55f5dc45e6056d22301951bec0ac35a2571af2"
+    },
+    {
+      "artifact": "light-settled-A2.json",
+      "sha256": "96a091ddc6f27bd29f2d46e0df836307bb5d5e8bfb766aed0cbe846e7f3b3770"
+    },
+    {
+      "artifact": "GCLightSettledA2Daily20261030-summary.json",
+      "sha256": "84f015464fc9d34b1ec5d31f947680cd698466a121a7b4a4bc3b161756364848"
+    },
+    {
+      "artifact": "GCLightSettledA2Fast120261030-summary.json",
+      "sha256": "186e200a7269d3fc53c199b38d3107cb3d32d6e5e964de6b705bcd8d3f5c7315"
+    },
+    {
+      "artifact": "GCLightSettledA2Fast220261030-summary.json",
+      "sha256": "2153c2d090aee03dc523e8be95f78021edecbc7699268d90d24f9f4a3bf900b4"
+    },
+    {
+      "artifact": "comparison.json",
+      "sha256": "2091c2a28f8162fede895ae4409a5de69013e6fdc7d0a331d74683fce5dd2da5"
+    },
+    {
+      "artifact": "final-clean-firstboot-result.json",
+      "sha256": "91bc547977a7b7651b978fea419ee349a01d810a6282661afd8ea35ad788c513"
+    },
+    {
+      "artifact": "final-clean-normal-reboot-result.json",
+      "sha256": "c39fbaa3250aab17855c4106fa8fcb7fa9113b323d32187b05f7d17b4f39ab89"
+    },
+    {
+      "artifact": "bili-dual-result.json",
+      "sha256": "de656769a72541fab1fb7bf583e25949da274210a3242b6ad1ef47859b45c5be"
+    },
+    {
+      "artifact": "package-result.json",
+      "sha256": "1fd953d1871eec80ad93d7091c12390e36c86a79aab26f8a1292375bb8340ac9"
+    },
+    {
+      "artifact": "NativeClientA1Daily20261030-summary.json",
+      "sha256": "697556493fca5a25f86a6dd1f43351e23f387c815d4ed5d3a70a2c64fecb2923"
+    },
+    {
+      "artifact": "NativeClientA1Fast120261030-summary.json",
+      "sha256": "20101a06ca89ce43c3a91889705e5feb7014c05eaa01c1c7b36f5ac01adf1347"
+    },
+    {
+      "artifact": "NativeClientA1Fast220261030-summary.json",
+      "sha256": "05638e31d4cde2b1bb1e78db67e58d249a6168d3d1a48111f513aca92611f1fb"
+    },
+    {
+      "artifact": "NativeClientA2Daily20261030-summary.json",
+      "sha256": "dac2cf0e62fe2b51003cda6d7780e0c9c4321f9679f36a9ba0e124727256a724"
+    },
+    {
+      "artifact": "NativeClientA2Fast120261030-summary.json",
+      "sha256": "78b8161a2a2eb6c603190f940490a743c2f60a4fa2ebd1a1c01a91ad866e9175"
+    },
+    {
+      "artifact": "NativeClientA2Fast220261030-summary.json",
+      "sha256": "dd25cfe36cdac13508343277113972ca727afb80fd43cfdcf98d4e464cfa0ab9"
+    },
+    {
+      "artifact": "NativeClientB1Daily20261030-summary.json",
+      "sha256": "ffaf4d099a4386dd398adf034636a433a465b5956c87a3f45ed948ef7f3173e5"
+    },
+    {
+      "artifact": "NativeClientB1Fast120261030-summary.json",
+      "sha256": "7fcaa388c8193a2b1653c02f300ca0f6686fa76070ab7c6663f573960cab60ec"
+    },
+    {
+      "artifact": "NativeClientB1Fast220261030-summary.json",
+      "sha256": "e5f2cfee66f33d8988a69b8289d063020c0830663ef7b43e113540612d8782cb"
+    },
+    {
+      "artifact": "ParallelColdA120261030-summary.json",
+      "sha256": "7d0a9d5ed319f910f166cbee9dfb6f2d684d1f45e19739b911e71cfa922159a1"
+    },
+    {
+      "artifact": "ParallelColdA220261030-summary.json",
+      "sha256": "ad5685abf28d47e3ed83ce7d746b44d2311bd759ba31c54b11411337f66acdd8"
+    },
+    {
+      "artifact": "ParallelGCA120261030-summary.json",
+      "sha256": "b97cfc9a85217a2d6ff17650beb326fea23f2b0fb6bf549b7b9c255fc2ab15f2"
+    },
+    {
+      "artifact": "ParallelGCB120261030-summary.json",
+      "sha256": "604df30c35040600d7e437c16cf47d0a3d15b2f2eb86643109230723241755e3"
+    },
+    {
+      "artifact": "ParallelSettledB120261030-summary.json",
+      "sha256": "01e4bd791befc03f36213644c5ebd7cb1f8c3714c9940d03f83b3acebbb677ab"
+    },
+    {
+      "artifact": "ParallelSettledB220261030-summary.json",
+      "sha256": "7d0228b6e3c9bf83deed73f5bac624c40dfaa0bb1c35f7fd3d381500a519004d"
+    }
+  ]
+}

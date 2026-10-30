@@ -1,0 +1,130 @@
+{
+  "scope": "v22b private-test baseline -> final v23, not full v17 delta",
+  "changes": {
+    "system_a": {
+      "/system/framework/oplus-services.jar": "oplus-services.jar",
+      "/my_product/etc/fantasy/sys_fantasy_window_managed.xml": "sys_fantasy_window_managed.xml",
+      "/my_product/etc/fantasy/sys_full_orientation_managed.xml": "sys_full_orientation_managed.xml"
+    },
+    "system_ext_a": {
+      "/priv-app/SystemUI/SystemUI.apk": "SystemUI.apk",
+      "/etc/r91-rom/apply.sh": "apply.sh",
+      "/etc/r91-rom/SHA256SUMS": "rom-SHA256SUMS",
+      "/etc/r94-native/module-delivery/delivery.sh": "delivery.sh",
+      "/etc/r94-native/module-delivery/SHA256SUMS": "delivery-SHA256SUMS"
+    },
+    "vendor_a": {
+      "/etc/init/r91-rom.rc": "r91-rom.rc"
+    }
+  },
+  "payloads": {
+    "apply.sh": "a261a1471ac1beb1ae879926b361edbf9a05abc887c3ee7044b89d8bbfba2c0d",
+    "delivery-SHA256SUMS": "2767e1d36245849a8a8eda89ce021ea8d16af58950408125583dada020f1520e",
+    "delivery.sh": "30215529f5f4d0b646512bf1beac80525b3b73d79e9570915df88f5b03d9b2f0",
+    "oplus-services.jar": "ab25a362ff81a90c69dfa55ceaa3a2ae201775bd339abb04da5b1c2b71330467",
+    "rom-SHA256SUMS": "9875ad438a4275796756f6f6c797083af01a4c3c33c03a95c1653e290dc0e214",
+    "SystemUI.apk": "56bc35af0c908ec00151ec792f3df048985d1cf0db06260b6a86f42614d76928",
+    "sys_fantasy_window_managed.xml": "1e2f2efef5d90825977ba9a009483b42ed16bdaa22b2fce7943c34f00fecead2",
+    "sys_full_orientation_managed.xml": "3b53120c1cda32829a8090f11ed0f3f88acce5064d7fd1686364c477e97cfdef",
+    "r91-rom.rc": "85739a5112d7c096ed72bc2bff8337de29b6ed90671eea1b05c8d8652bbef750"
+  },
+  "changed_files": [
+    {
+      "partition": "system_a",
+      "target": "/system/framework/oplus-services.jar",
+      "base_sha256": "7ea250fb0b7b00830a48b6ad111c795dc3adfcbb0d7b8c5a261f63d309b29762",
+      "new_sha256": "ab25a362ff81a90c69dfa55ceaa3a2ae201775bd339abb04da5b1c2b71330467",
+      "mode": "0644",
+      "context": "u:object_r:system_file:s0",
+      "verified_existing_edit": true
+    },
+    {
+      "partition": "system_a",
+      "target": "/my_product/etc/fantasy/sys_fantasy_window_managed.xml",
+      "base_sha256": "2551f6aacd97aa020cea35e8f823c843a3bd543e3658de36985852d28c5684fa",
+      "new_sha256": "1e2f2efef5d90825977ba9a009483b42ed16bdaa22b2fce7943c34f00fecead2",
+      "mode": "0644",
+      "context": "u:object_r:system_file:s0",
+      "verified_existing_edit": true
+    },
+    {
+      "partition": "system_a",
+      "target": "/my_product/etc/fantasy/sys_full_orientation_managed.xml",
+      "base_sha256": "a2991a58e3398d3017f9d804dca7c4ff20ce226420311e32245a2f040967b97c",
+      "new_sha256": "3b53120c1cda32829a8090f11ed0f3f88acce5064d7fd1686364c477e97cfdef",
+      "mode": "0644",
+      "context": "u:object_r:system_file:s0",
+      "verified_existing_edit": true
+    },
+    {
+      "partition": "system_ext_a",
+      "target": "/priv-app/SystemUI/SystemUI.apk",
+      "base_sha256": "ea6aa3ac6686cd8aa793265a1b86c8abe6f4d949c1ba901d3eb186da62ac28f0",
+      "new_sha256": "56bc35af0c908ec00151ec792f3df048985d1cf0db06260b6a86f42614d76928",
+      "mode": "0644",
+      "context": "u:object_r:system_file:s0",
+      "verified_existing_edit": true
+    },
+    {
+      "partition": "system_ext_a",
+      "target": "/etc/r91-rom/apply.sh",
+      "base_sha256": "ecb7756c801d68c7fa712a91b00ae04a6f66890bd42a197b7873ef0935291d27",
+      "new_sha256": "a261a1471ac1beb1ae879926b361edbf9a05abc887c3ee7044b89d8bbfba2c0d",
+      "mode": "0755",
+      "context": "u:object_r:system_file:s0",
+      "verified_existing_edit": true
+    },
+    {
+      "partition": "system_ext_a",
+      "target": "/etc/r91-rom/SHA256SUMS",
+      "base_sha256": "bb3063cbe0719d679ad4dcde4a6888263c5ef060ec7f73d9fb792ae115a9f001",
+      "new_sha256": "9875ad438a4275796756f6f6c797083af01a4c3c33c03a95c1653e290dc0e214",
+      "mode": "0644",
+      "context": "u:object_r:system_file:s0",
+      "verified_existing_edit": true
+    },
+    {
+      "partition": "system_ext_a",
+      "target": "/etc/r94-native/module-delivery/delivery.sh",
+      "base_sha256": "c6d4f68b57f9b2cee935c55acf4c24efeb4973fae878546232def890a6071b88",
+      "new_sha256": "30215529f5f4d0b646512bf1beac80525b3b73d79e9570915df88f5b03d9b2f0",
+      "mode": "0755",
+      "context": "u:object_r:system_file:s0",
+      "verified_existing_edit": true
+    },
+    {
+      "partition": "system_ext_a",
+      "target": "/etc/r94-native/module-delivery/SHA256SUMS",
+      "base_sha256": "bea202132819a456233d9fc6cc68cc2ef6d5d152a15db8b76ff42541b35820cb",
+      "new_sha256": "2767e1d36245849a8a8eda89ce021ea8d16af58950408125583dada020f1520e",
+      "mode": "0644",
+      "context": "u:object_r:system_file:s0",
+      "verified_existing_edit": true
+    },
+    {
+      "partition": "vendor_a",
+      "target": "/etc/init/r91-rom.rc",
+      "base_sha256": "e69e563723c8f0fe7ee3a46b07b20758d92ce6864c642938630e1b4667c24800",
+      "new_sha256": "85739a5112d7c096ed72bc2bff8337de29b6ed90671eea1b05c8d8652bbef750",
+      "mode": "0644",
+      "context": "u:object_r:vendor_configs_file:s0"
+    }
+  ],
+  "removed_stale_companions": [],
+  "images": {
+    "system_a": {
+      "base_sha256": "7ca0dd781f6e78348ec914800e1036acb3847ee05af176538cd21329f2fc4f00",
+      "bytes": 9932111872,
+      "sha256": "dc0486684aa069b674ec94a5676dbf114e48c501681fe330d72fe966b6d8a7a5"
+    },
+    "system_ext_a": {
+      "base_sha256": "cf98c6d6bb2fe8a466c1ae622caa49684e35bc59b84674865156ce7be90560e4",
+      "bytes": 2013265920,
+      "sha256": "d52b0f3fed4c0e77f8e0ed14481b69f1172e8517a8863dcd3e4c201272477585"
+    },
+    "vendor_a": {
+      "bytes": 899739648,
+      "sha256": "8686ff64760ddc1fdd2c36aa88f9ae604fbd02d5a7556c5681bed2ee97703059"
+    }
+  }
+}

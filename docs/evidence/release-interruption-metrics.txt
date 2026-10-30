@@ -1,0 +1,20 @@
+"phases","incomplete"
+24,0
+
+"name","frames","dropped","latency95_ms","max_latency_ms","one_second_latency_frames"
+"/system/bin/surfaceflinger",965,11,13.040000,26.010000,0
+"<pre-initialized>",9,0,23.140000,33.290000,0
+"com.android.launcher",3269,3,18.910000,82.750000,0
+"com.android.systemui",38,0,28.210000,38.950000,0
+"com.tencent.mm",4,0,2.000000,2.000000,0
+"system_server",471,0,9.420000,54.970000,0
+"tv.danmaku.bili",45,0,44.940000,94.500000,0
+
+"name","value"
+
+
+Loading trace: 0.00 MB
+
+Loading trace: 7.76 MB
+[080.566]     common_flags.cc:525 Trace loaded: 7.76 MB in 0.29s (27.0 MB/s)
+[114.838]            query.cc:191 Query execution time: 34270 ms

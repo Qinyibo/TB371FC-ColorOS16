@@ -1,0 +1,86 @@
+[
+  {
+    "file": "research/not-retained/lock-compat/build_lock_compat_sourcefix.py",
+    "sha256": "1f45e8656d824482f2df092c539f885fd13a1b99714b51cedd25976779085414"
+  },
+  {
+    "file": "research/not-retained/art-gc/patch_art_bg_defer.py",
+    "sha256": "96168f42fb8a4455010f2b6f8cf23d7e9d2e91b0f210e996b012e16359824e2c"
+  },
+  {
+    "file": "research/not-retained/caption-experiments/patch_caption_recents.py",
+    "sha256": "4687bfc823d7b4cf9837f2460ea83e3ef54354baf66baaee25b2ba4045624d7f"
+  },
+  {
+    "file": "research/not-retained/caption-experiments/patch_caption_toback.py",
+    "sha256": "ff2ae046cbbf030c8c5202a77e59e304ed836cab2b95f39c4d431ec613fc46e0"
+  },
+  {
+    "file": "research/not-retained/caption-experiments/build_caption_settle.py",
+    "sha256": "16e8182d7486824bf682b0e6fa2d7da3b2d8472a36a76c4384bdf83fac6aae3e"
+  },
+  {
+    "file": "research/not-retained/launcher-replay/build_launcher_pending_replay.py",
+    "sha256": "2c0aba448c8ecd803d6a8af58974c38cabbe247176577269a8d6cefae4ee1fb4"
+  },
+  {
+    "file": "research/measurement/animation-gc.cfg",
+    "sha256": "bd08a4c1cfd2637dd29cbf3312232e029585ebbeda8b5df42990eafcba0b5860"
+  },
+  {
+    "file": "research/measurement/animation-lean.cfg",
+    "sha256": "73a83fb0ec5a61ef5afeb74a93284ffdf14de1a7d5fb6855e6b88713461c9d4a"
+  },
+  {
+    "file": "research/measurement/gc_defer_summary.sql",
+    "sha256": "2650adf90cd07f4785d33bd4faef86b266ab20a5850e87c4a8a2018ee849690d"
+  },
+  {
+    "file": "research/measurement/animation_lean_metrics.sql",
+    "sha256": "bba6a0c0fe6caf0387fab411e9dc9c0f9607122fe915bee1098d043f7d925eda"
+  },
+  {
+    "file": "research/measurement/frame_gap_validity.sql",
+    "sha256": "d263b5453cb58d8721e1646d8df2d1ae64e8c109652a0a0b9de2e325134b0968"
+  },
+  {
+    "file": "research/measurement/frame_gap_cause.sql",
+    "sha256": "11d7053986674ecdb89d40f4d30b97ca0f83fdc1294e411662422c4f97d5a691"
+  },
+  {
+    "file": "research/measurement/interruption_input_delivery.sql",
+    "sha256": "6ecbb2018965ae13a69b441d3c7eb032750af61b49a296d07cb0e199660b07cb"
+  },
+  {
+    "file": "research/measurement/full_cycle_requests.sql",
+    "sha256": "350a9eee55b0a68656e875062ae908559c5cd7abbec7b66388e17911610f18e0"
+  },
+  {
+    "file": "research/measurement/critical_core_metrics.sql",
+    "sha256": "47660e74123fd43b37262830b74377493c832a0b42c30c37f0121ccc18ed4ceb"
+  },
+  {
+    "file": "research/measurement/sourcefix_warm_comparison.sql",
+    "sha256": "e35ee255f533b1d6f076e93f26ef8a6589dc8bdbb8021290413fa05ba3aca8e3"
+  },
+  {
+    "file": "research/measurement/interruption-fixture.sh",
+    "sha256": "7ffe9f51acac8ccdb437272e209bd1aa8708c54cb7cdbd7a99c14adda173ccd5"
+  },
+  {
+    "file": "research/measurement/interruption.cfg",
+    "sha256": "34c1ace5cddbeabd748880108b6aac842720723324d8fbc938cd7dd4f5a238cd"
+  },
+  {
+    "file": "research/measurement/interruption.sql",
+    "sha256": "4626aa28439d2a1759476fd52c429ef0fd972a820e6a7f7be04680140c4adb35"
+  },
+  {
+    "file": "research/measurement/verify_device_v23.py",
+    "sha256": "9c6ec669fe002384e225632c84f9de7958245cc53f0efb7636901ed3bc9d1137"
+  },
+  {
+    "file": "research/measurement/check_bili_dual.py",
+    "sha256": "e9f059fbbd5b84687c9b41f56c60363a4109d97bf766b660f0e40c45374d0190"
+  }
+]

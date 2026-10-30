@@ -1,0 +1,3 @@
+SELECT count(*) phases,sum(dur<0) incomplete FROM slice WHERE name GLOB 'open|*' OR name GLOB 'return|*';
+SELECT p.name,count(*) frames,sum(a.present_type='Dropped Frame') dropped,round(percentile(a.dur,95)/1e6,2) latency95_ms,round(max(a.dur)/1e6,2) max_latency_ms,sum(a.dur>=1000000000) one_second_latency_frames FROM actual_frame_timeline_slice a JOIN process p USING(upid) WHERE a.dur>0 AND EXISTS(SELECT 1 FROM slice s WHERE (s.name GLOB 'open|[23]|*' OR s.name GLOB 'return|[23]|*') AND a.ts>=s.ts AND a.ts<s.ts+s.dur) GROUP BY p.name;
+SELECT name,value FROM stats WHERE value>0 AND severity IN('error','data_loss');

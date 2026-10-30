@@ -1,0 +1,100 @@
+{
+  "status": "CHECKED_STUTTER_REMAINS_NO_NEW_PATCH",
+  "system_changes": false,
+  "parallel_enabled": true,
+  "runs": [
+    {
+      "tag": "ParallelColdA120261030",
+      "kind": "cold",
+      "detail": false,
+      "metrics": {
+        "tag": "ParallelColdA120261030",
+        "mode": "rapid4",
+        "total_frames": 804,
+        "missed_frames": 124,
+        "frame_duration_average_ms": 5.493,
+        "frame_duration_p95_bin_ms": 7,
+        "frame_duration_over25ms": 3,
+        "frame_duration_samples": 804,
+        "present_interval_p95_bin_ms": 13,
+        "present_intervals_over25ms": 8,
+        "present_interval_samples": 802
+      }
+    },
+    {
+      "tag": "ParallelSettledB120261030",
+      "kind": "settled",
+      "detail": false,
+      "metrics": {
+        "tag": "ParallelSettledB120261030",
+        "mode": "rapid4",
+        "total_frames": 761,
+        "missed_frames": 136,
+        "frame_duration_average_ms": 5.561,
+        "frame_duration_p95_bin_ms": 7,
+        "frame_duration_over25ms": 1,
+        "frame_duration_samples": 761,
+        "present_interval_p95_bin_ms": 13,
+        "present_intervals_over25ms": 9,
+        "present_interval_samples": 759
+      }
+    },
+    {
+      "tag": "ParallelColdA220261030",
+      "kind": "cold",
+      "detail": false,
+      "metrics": {
+        "tag": "ParallelColdA220261030",
+        "mode": "rapid4",
+        "total_frames": 763,
+        "missed_frames": 229,
+        "frame_duration_average_ms": 5.746,
+        "frame_duration_p95_bin_ms": 7,
+        "frame_duration_over25ms": 2,
+        "frame_duration_samples": 763,
+        "present_interval_p95_bin_ms": 13,
+        "present_intervals_over25ms": 12,
+        "present_interval_samples": 761
+      }
+    },
+    {
+      "tag": "ParallelSettledB220261030",
+      "kind": "settled",
+      "detail": false,
+      "metrics": {
+        "tag": "ParallelSettledB220261030",
+        "mode": "rapid4",
+        "total_frames": 733,
+        "missed_frames": 257,
+        "frame_duration_average_ms": 6.171,
+        "frame_duration_p95_bin_ms": 8,
+        "frame_duration_over25ms": 4,
+        "frame_duration_samples": 733,
+        "present_interval_p95_bin_ms": 13,
+        "present_intervals_over25ms": 10,
+        "present_interval_samples": 731
+      }
+    },
+    {
+      "tag": "ParallelColdDetail20261030",
+      "kind": "cold",
+      "detail": true
+    },
+    {
+      "tag": "ParallelSettledDetail20261030",
+      "kind": "settled",
+      "detail": true
+    }
+  ],
+  "conclusion": {
+    "parallel_windows_retained": true,
+    "narrow_bili_framework_retained": true,
+    "light_comparison": "Two process-cold vs two preinitialized cohorts, identical rapid12 input timing. All native p95 present interval bins13ms; missed frame variation mixed. Not a stable whole-flow warmup benefit proof.",
+    "cold_window_path": "Splashscreen UI frame127.62ms; relayout52.93ms, included49.72ms IPC with45.08ms WM monitor wait; shell frame only4.44ms CPU,118.12ms sleeping. This directly establishes startup-window waiting.",
+    "parallel_waiter": "getCurrentEmbeddedTask runs on oplus.ui and waits for WM lock; cold maximum68.48ms, preinitialized maximum92.43ms. It is a waiter in these samples, not a proven long lock owner.",
+    "decor_creation": "StatusBar InputLayer first relayout cold24.62ms x1, settled18.09/16.44ms x2. Decoration relayout max cold26.81ms, settled47.91ms. No evidence cold systematically creates more of these.",
+    "desktop_gc": "Settled Launcher Taskbar frame64.59ms included45.06ms ClassLinker lock held by HeapTaskDaemon during NativeAlloc GC. Owner Running5.33ms vs Runnable/R+53.97ms across frame. General scheduler contention is distinct from app split rules.",
+    "coverage_limit": "Detailed cold4/4 launching markers, preinitialized3/4; missing marker can be TO_FRONT or unsuccessful click. Do not infer equal visible launch coverage or claim a fix.",
+    "priority_trial": "Invalid planned two-system-GC comparison: Launcher remained0 but SystemUI reset itself4. Stopped at B1; finally restored both original4, no persistent policy."
+  }
+}
