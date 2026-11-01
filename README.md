@@ -45,3 +45,7 @@ ColorOS及联想原厂应用、framework、vendor和固件含闭源组件，本�
 ## 许可与来源
 
 新增可编辑帮助代码和原生笔适配沿用GPL-3.0，见LICENSE；保留文件原有许可与版权。内核遵循其自身COPYING及各文件许可。原生笔方案参考 ACLaniakea/coloros-pad-fixes，commit 97a4024b875d22d3eea4d811da045765fd4388ed，见 native-pen/NOTICE.txt。厂商组件保持原有权属；不代表上游作者测试或认可本机移植。
+
+## 待机唤醒更新
+
+[查看 wake-r4 修复和验证情况](docs/wake-hardreset-r4.md)。
