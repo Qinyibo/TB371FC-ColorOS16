@@ -1,0 +1,5 @@
+23:29 post-report snapshot, not the trigger instant. Selected existing data only. Duplicate lines reflect repeated dump sections.
+recents_animation_input_consumer: inputConfig=NOT_VISIBLE | TRUSTED_OVERLAY
+recents_animation_input_consumer: status=NORMAL, monitor=false, responsive=true
+recents_animation_input_consumer: inputConfig=NOT_VISIBLE | TRUSTED_OVERLAY
+recents_animation_input_consumer: status=NORMAL, monitor=false, responsive=true

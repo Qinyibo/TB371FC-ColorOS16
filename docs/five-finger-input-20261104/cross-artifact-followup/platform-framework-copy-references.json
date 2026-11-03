@@ -1,0 +1,10 @@
+[
+{"kind":"definition","dex":"classes4.dex","class":"Landroid/view/IWindowManager;","method":"Landroid/view/IWindowManager;->createInputConsumer[Landroid/os/IBinder;, Ljava/lang/String;, I, Landroid/view/InputChannel;]V","member":"createInputConsumer"},
+{"kind":"definition","dex":"classes4.dex","class":"Landroid/view/IWindowManager;","method":"Landroid/view/IWindowManager;->destroyInputConsumer[Landroid/os/IBinder;, I]Z","member":"destroyInputConsumer"},
+{"kind":"definition","dex":"classes4.dex","class":"Landroid/view/IWindowManager$Default;","method":"Landroid/view/IWindowManager$Default;->createInputConsumer[Landroid/os/IBinder;, Ljava/lang/String;, I, Landroid/view/InputChannel;]V","member":"createInputConsumer"},
+{"kind":"definition","dex":"classes4.dex","class":"Landroid/view/IWindowManager$Default;","method":"Landroid/view/IWindowManager$Default;->destroyInputConsumer[Landroid/os/IBinder;, I]Z","member":"destroyInputConsumer"},
+{"kind":"definition","dex":"classes4.dex","class":"Landroid/view/IWindowManager$Stub$Proxy;","method":"Landroid/view/IWindowManager$Stub$Proxy;->createInputConsumer[Landroid/os/IBinder;, Ljava/lang/String;, I, Landroid/view/InputChannel;]V","member":"createInputConsumer"},
+{"kind":"definition","dex":"classes4.dex","class":"Landroid/view/IWindowManager$Stub$Proxy;","method":"Landroid/view/IWindowManager$Stub$Proxy;->destroyInputConsumer[Landroid/os/IBinder;, I]Z","member":"destroyInputConsumer"},
+{"kind":"reference","dex":"classes4.dex","class":"Landroid/view/IWindowManager$Stub;","method":"Landroid/view/IWindowManager$Stub;->onTransact[I, Landroid/os/Parcel;, Landroid/os/Parcel;, I]Z","instruction":707,"opcode":"INVOKE_VIRTUAL","owner":"Landroid/view/IWindowManager$Stub;","member":"destroyInputConsumer"},
+{"kind":"reference","dex":"classes4.dex","class":"Landroid/view/IWindowManager$Stub;","method":"Landroid/view/IWindowManager$Stub;->onTransact[I, Landroid/os/Parcel;, Landroid/os/Parcel;, I]Z","instruction":722,"opcode":"INVOKE_VIRTUAL","owner":"Landroid/view/IWindowManager$Stub;","member":"createInputConsumer"}
+]

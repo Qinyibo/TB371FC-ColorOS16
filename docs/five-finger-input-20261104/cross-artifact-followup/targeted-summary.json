@@ -1,0 +1,53 @@
+{
+  "full_screen_drag_field_writes": [
+    {
+      "artifact": "oplus-services",
+      "kind": "reference",
+      "dex": "classes2.dex",
+      "class": "Lcom/android/server/wm/OplusGestureAnimationController;",
+      "method": "Lcom/android/server/wm/OplusGestureAnimationController;-><init>[Lcom/android/server/wm/WindowManagerService;, Landroid/view/IOplusGestureAnimationRunner;, Lcom/android/server/wm/IOplusGestureAnimationCallbacks;, I]V",
+      "instruction": 22,
+      "opcode": "IPUT_BOOLEAN",
+      "owner": "Lcom/android/server/wm/OplusGestureAnimationController;",
+      "member": "mGestureFullScreenDragStart"
+    },
+    {
+      "artifact": "oplus-services",
+      "kind": "reference",
+      "dex": "classes2.dex",
+      "class": "Lcom/android/server/wm/OplusGestureAnimationController;",
+      "method": "Lcom/android/server/wm/OplusGestureAnimationController;->initializeDragFullScreenAnmation[Lcom/android/server/wm/Task;, Lcom/android/server/wm/Task;, Lcom/android/server/wm/ActivityRecord;, Landroid/os/Bundle;]V",
+      "instruction": 64,
+      "opcode": "IPUT_BOOLEAN",
+      "owner": "Lcom/android/server/wm/OplusGestureAnimationController;",
+      "member": "mGestureFullScreenDragStart"
+    },
+    {
+      "artifact": "older-service-payload",
+      "kind": "reference",
+      "dex": "classes2.dex",
+      "class": "Lcom/android/server/wm/OplusGestureAnimationController;",
+      "method": "Lcom/android/server/wm/OplusGestureAnimationController;-><init>[Lcom/android/server/wm/WindowManagerService;, Landroid/view/IOplusGestureAnimationRunner;, Lcom/android/server/wm/IOplusGestureAnimationCallbacks;, I]V",
+      "instruction": 22,
+      "opcode": "IPUT_BOOLEAN",
+      "owner": "Lcom/android/server/wm/OplusGestureAnimationController;",
+      "member": "mGestureFullScreenDragStart"
+    },
+    {
+      "artifact": "older-service-payload",
+      "kind": "reference",
+      "dex": "classes2.dex",
+      "class": "Lcom/android/server/wm/OplusGestureAnimationController;",
+      "method": "Lcom/android/server/wm/OplusGestureAnimationController;->initializeDragFullScreenAnmation[Lcom/android/server/wm/Task;, Lcom/android/server/wm/Task;, Lcom/android/server/wm/ActivityRecord;, Landroid/os/Bundle;]V",
+      "instruction": 64,
+      "opcode": "IPUT_BOOLEAN",
+      "owner": "Lcom/android/server/wm/OplusGestureAnimationController;",
+      "member": "mGestureFullScreenDragStart"
+    }
+  ],
+  "target_calls": {
+    "shouldApplyInputConsumer": [],
+    "updateInputConsumerForApp": [],
+    "scheduleFailsafe": []
+  }
+}
