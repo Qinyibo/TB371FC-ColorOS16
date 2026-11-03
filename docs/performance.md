@@ -29,6 +29,50 @@
 
 当前源：[延后创建](../patches/work/patch_caption_defer.py)、[失焦取消](../patches/work/patch_caption_focus.py)。最终已直接合入SystemUI，不再依赖试验模块启动。
 
+## 2026-11-02：减少无线诊断写盘
+
+实机发现 `vendor.cnss_diag` 开机常驻，在熄屏的15秒内增加了5,652,480字节实际写盘，并使用约0.79秒CPU时间。它负责无线诊断采集，正常联网另由 `cnss-daemon`、Wi-Fi HAL和驱动维持。
+
+将[原生启动规则](../rom-build/native-overlay/vendor/etc/init/hw/init.target.rc)中的诊断采集改为按需启动：不随 `class main` 启动，解密完成触发也需诊断开关。排障时可由root执行 `setprop persist.vendor.r94.wlan_diag 1` 开启，设为0关闭。未停用任何应用，CPU/GPU策略、144Hz、动画、后台、负一屏、平行视窗和互联配置均未改变。
+
+本机已停止采集；随后15秒两个诊断日志大小和修改时间均未增加，无线连接正常，公网ping两次均成功。复测时屏幕已亮，不能把整机CPU数据与前面的熄屏样本直接比较。新启动规则已写入分区并读回核对，尚未重启验证。当前仍接USB充电，不能据此给出续航提升比例；已生成的v24刷机包不含此后续修改。
+
+参考[LineageOS的原生诊断开关](https://github.com/LineageOS/android_device_google_bonito/blob/lineage-23.0/init.hardware.diag.rc.userdebug)。也查阅了[UAD-NG精简清单](https://github.com/Universal-Debloater-Alliance/universal-android-debloater-next-generation/wiki/Debloat-Lists)，本轮未据此禁用应用，以保留功能。
+
+后续在r99正常启动后补做了只读核对：实际init规则仍包含disabled及显式诊断属性条件，当前无cnss_diag进程，cnss-daemon在运行，wlan0已获得地址并保持链路。该观察补充了前述“尚未重启验证”的现场记录；没有重新切换诊断开关，也未据此宣称续航或公网连通性通过。v24整包是否包含此修改仍以其镜像内容为准。
+
+同次空闲快照中，调度mapper进程存在，控制租约匹配当前boot；不能只凭模块status.txt里的START_REQUESTED判断运行与否。当前zram为4GiB、使用LZO，可用内存约3.6GiB，内存PSI的近期平均为0。这不是快速切换或内存压力验收，也不支持为了对齐参考ROM就切换压缩算法、增加CPU限值。本轮没有修改这些参数。
+
+## 2026-11-02：停止未声明工厂服务的开机重试
+
+被动熄屏采样发现 `hqkitservice` 约每5秒由init重启；每个新进程都因产品VINTF未声明 `vendor.stc.hardware.hqkitservice@1.0::IHQKitService/default` 而注册失败。实际实现提供工厂文件、属性和Qcom/MTK测试标志操作，当前产品没有对应接口声明，也没有找到其他init启动触发。
+
+在[原生启动定义](../rom-build/native-overlay/vendor/etc/init/vendor.stc.hardware.hqkitservice@1.0-service.rc)加入 `disabled`，使它不再随 `class hal` 自动启动；保留程序、用户组和显式启动入口。没有为了通过注册而增加文件/属性操作服务的VINTF声明。实机已保存原文件、更新读回并恢复vendor只读，当前init实例用 `stop hqkitservice` 停止失败循环。此项只处理本产品的无效自动启动，不恢复工厂接口；将来工厂产品若需此接口，应同时补齐其声明、权限和实际验收。
+
+随后30秒观察中服务保持stopped，未再出现其注册失败日志；热控、Power HAL、health与audioserver进程仍在。之后充电接口兼容补丁的一次正常重启中，也确认本服务未被启动，没有对应注册失败日志；未启动服务的init状态属性为空，不能把空属性误写成running或缺文件。未重新生成发布整包，不能用这一处重试消失宣称整机续航或深睡通过。旧版本完整刷机包是否包含它，以镜像内容为准。
+
+## 2026-11-02：旧充电 HAL 的可选查询
+
+系统V9充电代理的 `getChgConfig()` 使用事务128，而实机V3接口库只分发1至126。旧电池服务每次更新都尝试该事务，捕获“未实现”异常后返回字符串 `-1`；一次有界日志中保留了117条同类异常，截取已到1500行上限，因此不是完整窗口的精确频率。
+
+[源码补丁与构建入口](../native-charger/README.md)只给 `OplusBatteryServiceFeature.getChgConfig()` 加版本判断：V3及以前直接沿用原有未知值；更新接口保留原调用与异常处理，不假设V4已经支持该方法。使用现有Binder代理的版本缓存，连接替换后自然重新判断；没有修改通用代理或充电控制，没有伪造电量、功率或无线充电状态。
+
+已完成真实方法的7类隔离ART测试，旧代码失败、候选通过；完整DEX的49,753个可执行方法中仅目标方法指令与捕获表变化，其余JAR条目载荷相同。候选由仓库源码独立复现。安装并正常重启后，系统启动完成、r91原生启动与动画绑定成功，30秒窗口中system_server稳定，电池数据继续更新，目标异常消失。仍存在旧接口及无线充电字段缺失的其他日志，本次没有扩展处理。内核仍为r99，键盘候选未刷入。
+
+第一次安装因ext4内部预留造成空间不足，读回校验阻止了重启；先恢复三份原文件并验证哈希，再临时降低内部预留，以临时文件全部验哈希后替换的方式安装。随后预留恢复原值、分区恢复只读。该经历说明分区写入前必须看实际可分配块，不能只看df原始空闲量。原文件保存在实机 `/data/local/tmp/tb371fc-charger-v3-compat/` 的三个 `.before` 文件中；回退须同时恢复框架、启动脚本及校验清单，然后正常重启。
+
+本项只验证旧接口兼容、启动与当前更新链，不代表真实快充、充电功率、电话/笔或续航验收。新整包尚未发布。
+
+## 2026-11-02：统一对外平均电流方向（r102）
+
+实机读取跟踪确认：Health从 `battery/current_now` 读取经过SMB5转换的瞬时电流，却从 `bms/current_avg` 直接读取MM8013原始平均值。两层方向约定不同，导致Android上两个电流属性符号相反。不能只改bms原始电流，因为低电量断电判定也依赖它。
+
+r102在SMB5的battery接口增加只读 `CURRENT_AVG`，与瞬时电流共用既有转换；读取失败不翻转无效输出。MM8013原始寄存器、缓存、低电量判定、充电控制和阈值均保持原逻辑。三个文件的改动已保存在内核本地历史 `local/r102-reviewed`（`d981748399d68a57bcbe5faeb25c196589d9bc9c`），main及r99基线未改动。
+
+29类实际函数/分发受控测试、相关对象及完整Image构建通过；配置、导出符号表不变。实机正常启动后再次跟踪，Health已实际选择 `battery/current_avg`。三组原始/对外电流读数恰好反号，Health的瞬时与平均电流方向一致，原生启动完成。r102不包含尚未实机验收的键盘候选。此验证覆盖当前接USB状态和双向数值的受控测试，不代表已完成实际充放电周期、功率校准或续航验收。
+
+充电计数、满充及设计容量仍由底层报告为不可用，显示的零不能当真实容量。未用未确认编码的寄存器数据补齐这些数字。r99的原boot已保留，可单独回退内核；ROM充电接口兼容修正不受内核回退影响。
+
 ## 最终保留：关闭自动分屏推荐
 
 `SplitRemindView` 会加载两个应用图标、建立新窗口并绘制推荐。一次约209.95ms的SystemUI长帧包含约80.23ms relayout和56.26ms draw。服务端实际观察的设置键是 `Settings.System.recommender_split_screen_enable`。
@@ -67,3 +111,26 @@ GC延后在轻量、启动后稳定的A/B/A中，快速样本的native missedFra
 ## 当前结论
 
 保留用户确认有效的窗口生命周期改动和原生规则，恢复原ART/Launcher及未获益的临时优先级/绑核/合成设置。最终同一组代码得到“日常和连续打断都正常，可以用”的反馈，最终完整包又做了实际双清、首启和重启检查。少量掉帧仍存在，没有证据证明已经触及硬件上限。
+
+## 2026-11-02：修复后台虚拟冻结失效
+
+当前4.19内核不支持HANS所用旧Netlink协议29（实机socket探针errno93），但ColorOS扩展仍可把缓存应用标记为虚拟冻结并否决Android冻结入队。旧版独立测试应用进入缓存18秒后仍持续执行。已实现[HANS未就绪时的单方法回退](../native-freezer/README.md)，复用现有Android分支，保留quota例外和HANS就绪路径，不改频率、zram或LMK。
+
+组件在r102上正常启动，真实应用缓存冻结、广播解冻/再冻结、前台服务豁免及停止后重新冻结通过；测试应用已卸载。完整DEX共49,753个方法只有目标方法变化。见[组件验证摘要](../native-freezer/validation-20261102.json)。原v25 ZIP未变；USB充电状态不能证明续航提升，消息推送/媒体等兼容与离线待机仍待验收。
+
+2026-11-03续查：30.47秒熄屏、USB充电观察中，换入换出、主缺页、分配停顿、压缩停顿、OOM及内存PSI累计值均无增量；当时调度mapper仅消耗0.17秒CPU，约单核0.56%。该窗口不支持调整zram/LMK/频率，也不是断电长待机或前后续航对照。另观察到旧桌面PID失效后控制器按预期退出25，supervisor已自动接管新桌面，熄屏前台组为空。
+
+两项组件已生成[完整组合候选](../rom-build/release-v25/freezer-variant-20261103.json)，实际镜像及全部154个ZIP成员校验通过。构建没有再次刷机，组件运行状态保留；新完整包的首启验收尚未进行。
+
+## 2026-11-03：冻结后恢复前台与图形重建
+
+[设置/WLAN恢复记录](../native-freezer/ui-validation-20261103.json)确认：实际内核冻结位1→0，设置主进程PID和出生时间不变，双栏画面恢复，system_server保持同一PID。此次只覆盖通过启动意图恢复已有任务，未验收最近任务手势。AM报告未冻结115ms、冻结后173ms；不同后台时长、adj700/900及图形资源状态使这组数据不能作为冻结修复的性能A/B。
+
+轨迹中WLAN首次traversal两段均约78–82ms；冻结恢复段的设置主窗口traversal约70.75ms，同期RenderThread重建EGL上下文约31.24ms。未修改的services.jar中，CachedAppOptimizer.freezeAppAsyncInternalLSP先调用scheduleTrimMemory(40)，之后才进入checkFreezeProc；实际轨迹也看到trim40后销毁图形上下文。这条回收路径不能误写成本次单方法补丁新增，更不能据此直接关闭回收或提高全局CPU参数。
+
+两段恢复的后续帧均出现Buffer/SurfaceFlinger Stuffing标签。[官方FrameTimeline说明](https://android.googlesource.com/platform/external/perfetto/+/refs/heads/main/docs/data-sources/frametimeline.md)将缓冲堆积与迟到呈现关联；它不等于每个标签都对应一次丢帧。应用Actual Timeline结束也不能当成物理屏幕首次显示时刻。本轮功能恢复通过有限范围检查，性能尚未接受；后续应对齐回收/缓存条件再定位呈现排队与窗口重建成本。
+
+
+## 2026-11-03 用户确认汽水收纳效果可用
+
+按用户确认停止汽水专项优化，v26保留原有动画等级4、桌面和插件载荷。临时计时、异步统计、加载器试验均未入包。通用取消任务截图映射修正已随SystemUI镜像升级并验证实际加载；黑条仍由用户手测，不宣称消除。

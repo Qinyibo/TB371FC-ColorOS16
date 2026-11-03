@@ -1,0 +1,34 @@
+{
+  "state": "R103_KERNEL_EXIT_CONTRACT_AND_DOUYIN_STARTUP_PASS_WITH_LIMITATIONS",
+  "kernel": {
+    "base": "d981748399d68a57bcbe5faeb25c196589d9bc9c",
+    "ref": "refs/heads/local/r103-reviewed",
+    "commit": "3bb16146970db387a7dd5fdd9d8786e21ee236b5",
+    "tree": "14a6df4cfd60a13e3c7ae5f2b92a9342167e4c22",
+    "main_unchanged": true,
+    "keyboard_candidate_included": false,
+    "upstream": "e7f7c99ba911f56bc338845c1cd72954ba591707",
+    "patch_sha256": "5b728e55b4218db5fc6a94274c30f13ff5039cfeb4a6519158ea4cf3a69bd15c"
+  },
+  "upstream_url": "https://github.com/torvalds/linux/commit/e7f7c99ba911f56bc338845c1cd72954ba591707",
+  "image_sha256": "f15a09327a506dc445ceaa42dafc5a0a19fc3f3af9df37886af9fe34f8dfea60",
+  "boot_sha256": "fa31bcc2d836560cc2b11b5f2336257a3cafec5491ce269eb88469e61c212d01",
+  "old_boot_sha256": "1d84543e6e3c026aaf0560e79c45f73a90c7e2efa7dc876c4395022ccbbaa9e9",
+  "current_boot_id": "9d0cb3a1-e817-4600-8a00-4f620e230cc0",
+  "source_sha256": "2126f9bcdb7aaffdd85e63089c67fd9a156054279923a676ef2207ce0e60b470",
+  "config_unchanged": true,
+  "module_symvers_unchanged": true,
+  "nonkernel_boot_payloads_and_header_preserved": true,
+  "keyboard_candidate_included": false,
+  "baseline": "Owned modes0-2 pass; mode3 ptrace signal delivery stop -> freeze -> SIGKILL reproduces Z leader + traced S worker SIGKILL pending at do_freezer_trap. Cleaned after thaw.",
+  "candidate": "Exact same binary SHA59d3b45e2bb8d99837b5d23c460ad4e2226e2574ea31487715bc979cc68bd70a: modes0-3 all reaped, exit0. App UI confirms Douyin recommendation feed after dismissing boot keyguard and USB mode chooser; no clear app data or app whitelist.",
+  "runtime": "root0; Enforcing; animation active4/ready1; system_server2262/SystemUI3083 stable; retained crash buffer empty",
+  "rollback": "/data/local/tmp/r103-freezer-exit/boot-r102-rollback.img",
+  "limitations": [
+    "No all-app or long-duration acceptance",
+    "Wechat black frame and capsule stutter remain open",
+    "USB flashing and sustained daily-debug reliability remain open",
+    "Existing full ZIP still r102; NOT rebuilt/installed with r103"
+  ],
+  "published": false
+}

@@ -1,0 +1,7 @@
+service hqkitservice /vendor/bin/hw/vendor.stc.hardware.hqkitservice@1.0-service
+    # Factory helper has no VINTF instance in this product. Keep explicit
+    # starts available, but do not retry registration on every normal boot.
+    disabled
+    class hal
+    user system
+    group system

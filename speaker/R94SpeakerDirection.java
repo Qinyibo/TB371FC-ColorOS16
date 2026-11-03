@@ -25,17 +25,89 @@ public class R94SpeakerDirection {
     private static Method devicesForStream;
     private static int lastRotation=-1,lastSwap=-1,lastResult=-99;
     private static String lastGate="";
+    private static int observedMode=Integer.MIN_VALUE;
+    private static int releaseRetries=0;
+    private static boolean releasePending=false;
+    private static boolean modeReadFailed=false;
+    private static boolean helperStopping=false;
+    private static boolean modeBlocked=true;
+    private static void cancelMediaWork() {
+        handler.removeCallbacks(update);handler.removeCallbacks(settle);
+        handler.removeCallbacks(retry);handler.removeCallbacks(monitor);
+    }
+    private static final Runnable releaseForCall=new Runnable() {
+        public void run() {
+            if(!releasePending||helperStopping)return;
+            handler.removeCallbacks(this);
+            int rc=restore();
+            log("CALL_MODE_RELEASE mode="+observedMode+" result="+rc+" burstAttempt="+releaseRetries);
+            if(rc==0) {
+                releasePending=false;releaseRetries=0;
+                modeBlocked=observedMode!=AudioManager.MODE_NORMAL;
+                if(!modeBlocked)schedule();
+            } else {
+                // Retain ownership until acknowledged; avoid an unbounded fast retry loop.
+                modeBlocked=true;cancelMediaWork();
+                if(releaseRetries<12)releaseRetries++;
+                handler.postDelayed(this,releaseRetries<12?500:5000);
+            }
+        }
+    };
+    private static void onMode(int mode) {
+        if(helperStopping)return;
+        modeReadFailed=false;
+        if(mode==observedMode)return;
+        observedMode=mode;
+        cancelMediaWork();
+        if(mode!=AudioManager.MODE_NORMAL) {
+            modeBlocked=true;
+            if(!releasePending) {
+                releasePending=true;releaseRetries=0;releaseForCall.run();
+            }
+        } else {
+            // Returning to NORMAL is not proof that the prior transaction was released.
+            modeBlocked=releasePending;
+            if(!modeBlocked)schedule();
+        }
+        log("CALL_MODE_CHANGED mode="+mode+" mediaBlocked="+modeBlocked+" releasePending="+releasePending);
+    }
+    private static void failClosed(Throwable e) {
+        if(helperStopping)return;
+        boolean firstFailure=!modeReadFailed;
+        modeReadFailed=true;
+        observedMode=Integer.MIN_VALUE;modeBlocked=true;cancelMediaWork();
+        if(firstFailure && !releasePending) {
+            releasePending=true;releaseRetries=0;releaseForCall.run();
+        }
+        if(firstFailure)log("MEDIA_GUARD_READ_FAILED "+e);
+    }
+    private static final Runnable modeWatch=new Runnable() {
+        public void run() {
+            if(helperStopping)return;
+            try {onMode(audio.getMode());}
+            catch(Throwable e) {failClosed(e);}
+            handler.postDelayed(this,100);
+        }
+    };
     private static void gate(String value){if(!value.equals(lastGate)){log(value);lastGate=value;}}
     private static void tick() {
+        if(helperStopping)return;
         try {
+            int currentMode=audio.getMode();
+            onMode(currentMode);
+            if(modeBlocked)return;
             int devices=((Integer)devicesForStream.invoke(audio, AudioManager.STREAM_MUSIC)).intValue();
             boolean music=audio.isMusicActive();
             int mode=audio.getMode();
-            if(!music || devices!=2 || mode!=AudioManager.MODE_NORMAL) { gate("MEDIA_GATE music="+music+" devices="+devices+" mode="+mode); restore(); retries=0; return; }
+            if(mode!=AudioManager.MODE_NORMAL){onMode(mode);return;}
+            if(!music || devices!=2) { gate("MEDIA_GATE music="+music+" devices="+devices+" mode="+mode); restore(); retries=0; return; }
             Display d=display.getDisplay(Display.DEFAULT_DISPLAY);
             if(d==null) { restore(); return; }
             int r=d.getRotation(),s=swap();
             if(r<0||r>3||s<0||s>1) { gate("ROTATION_SWAP_GATE rotation="+r+" swap="+s); restore(); return; }
+            // Recheck after route queries, immediately before native apply.
+            int beforeApplyMode=audio.getMode();
+            if(beforeApplyMode!=AudioManager.MODE_NORMAL){onMode(beforeApplyMode);return;}
             int result=apply(r,s);
             if(result==4) {
                 retries=0;
@@ -52,13 +124,14 @@ public class R94SpeakerDirection {
                 log("ACTUAL_DISPLAY_MEDIA_ROUTE rotation="+r+" swap="+s+" result="+result+" devices="+devices);
                 lastRotation=r;lastSwap=s;lastResult=result;
             }
-        } catch(Throwable e) { restore(); log("ROUTE_CALLBACK_REFUSED "+e+" cause="+e.getCause()); }
+        } catch(Throwable e) { failClosed(e); }
     }
     private static final Runnable update=()->tick();
     private static final Runnable settle=()->tick();
     private static final Runnable retry=()->tick();
     private static final Runnable monitor=()->tick();
     private static void schedule() {
+        if(modeBlocked||helperStopping)return;
         generationStart=android.os.SystemClock.elapsedRealtime();retries=0;
         handler.removeCallbacks(update);handler.removeCallbacks(settle);handler.removeCallbacks(retry);handler.removeCallbacks(monitor);
         handler.postDelayed(update,250);handler.postDelayed(settle,1200);
@@ -66,6 +139,7 @@ public class R94SpeakerDirection {
     private static final Runnable stopCheck=new Runnable() {
         public void run() {
             if(stopRequested()) {
+                helperStopping=true;modeBlocked=true;cancelMediaWork();
                 int result=restore();
                 log("NATIVE_RESTORE_ON_CONTROLLED_STOP result="+result);
                 handler.removeCallbacksAndMessages(null);
@@ -124,7 +198,9 @@ public class R94SpeakerDirection {
             public void onAudioDevicesAdded(AudioDeviceInfo[] devices){schedule();}
             public void onAudioDevicesRemoved(AudioDeviceInfo[] devices){schedule();}
         },handler);
-        log("NATIVE_API19_LISTENERS_READY_COMPLEMENTARY_INPUTS_BASELINE1 PID="+android.os.Process.myPid()+" UID="+android.os.Process.myUid());
+        audio.addOnModeChangedListener(command -> handler.post(command), mode -> onMode(mode));
+        onMode(audio.getMode());handler.post(modeWatch);
+        log("NATIVE_API19_CALL_RELEASE_ACK_V24 PID="+android.os.Process.myPid()+" UID="+android.os.Process.myUid());
         handler.post(stopCheck);schedule();Looper.loop();
         log("CONTROLLED_HELPER_EXIT");System.exit(0);
     }

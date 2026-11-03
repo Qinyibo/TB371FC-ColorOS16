@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "artifact": "ColorOS16_TB371FC_R94T_v25_r102_20261102_CANDIDATE.zip",
+  "archive_sha256": "410aca5bfb01f856d3f4260510006953dc4fd04f8ba306169036d17145eca601",
+  "published": false,
+  "rom_git_base": "07dffedff683afe5861e12c4a190aa02bfc8762d",
+  "rom_base_has_uncommitted_overlay_changes": true,
+  "kernel_local_ref": "local/r102-reviewed",
+  "kernel_commit": "d981748399d68a57bcbe5faeb25c196589d9bc9c",
+  "installation_method": "Wireless raw-image staging and installed TWRP 3.7.1 offline write, all target logical partitions unmounted",
+  "images": [
+    {
+      "name": "super",
+      "target": "/dev/block/by-name/super",
+      "bytes": 12884901888,
+      "sha256": "fb86018864dc449c7a3d2161457737f89d86d751a1bfd112848d73ae3da227a6",
+      "readback_pass": true
+    },
+    {
+      "name": "vbmeta",
+      "target": "/dev/block/by-name/vbmeta_a",
+      "bytes": 65536,
+      "sha256": "5faf802f3d821512505c42a9fa0dba5b969f135fd5ec3bf6686e8448e741a169",
+      "readback_pass": true
+    },
+    {
+      "name": "vbmeta_system",
+      "target": "/dev/block/by-name/vbmeta_system_a",
+      "bytes": 65536,
+      "sha256": "848f04a7cf01cbfc68640ece4895e1aa00c6ba5cbf385c81b395f51da0829fef",
+      "readback_pass": true
+    },
+    {
+      "name": "boot",
+      "target": "/dev/block/by-name/boot_a",
+      "bytes": 100663296,
+      "sha256": "1d84543e6e3c026aaf0560e79c45f73a90c7e2efa7dc876c4395022ccbbaa9e9",
+      "readback_pass": true
+    }
+  ],
+  "data_formatted_and_unmounted_metadata_zero_readback_pass": true,
+  "firstboot_id": "ad3b035a-eac8-4ff1-b07c-873cef7bfecd",
+  "normal_reboot": {
+    "boot_id": "739860c8-e0b9-4e6f-ad83-eba70bd50b10",
+    "native_current_boot_log_ready_exit_0": true,
+    "shell_root_persisted": true,
+    "boot_partition_sha256_unchanged": true,
+    "setup_complete": "1",
+    "selinux": "Enforcing",
+    "animation_level_observed": "2",
+    "animation_default_level_acceptance": false,
+    "animation_note": "Current user-selected/default value origin not established; no level override performed."
+  },
+  "native_startup_ready_exit_0_both_boots": true,
+  "selinux": "Enforcing",
+  "magisk": "30.7 (30700)",
+  "magisk_full_apk_sha256": "e0d32d2123532860f97123d927b1bb86c4e08e6fd8a48bfc6b5bee0afae9ebd5",
+  "keyboard_r100_included": false,
+  "android_usb_read_only_sample": {
+    "exit_code": 0,
+    "timed_out": false,
+    "stderr": "",
+    "bytes": 11613864,
+    "sha256": "e0d32d2123532860f97123d927b1bb86c4e08e6fd8a48bfc6b5bee0afae9ebd5",
+    "seconds": 0.828
+  },
+  "android_usb_sample_source_sha256": "e0d32d2123532860f97123d927b1bb86c4e08e6fd8a48bfc6b5bee0afae9ebd5",
+  "android_usb_sample_same_boot_id": "ad3b035a-eac8-4ff1-b07c-873cef7bfecd",
+  "new_retained_usb_kernel_lines_during_sample": 0,
+  "bootloader_usb_bulk_fixed": false,
+  "limitations": [
+    "Original bootloader USB bulk transfer remains unresolved; this result does not validate that transport.",
+    "No synthetic wake cycles, no claim that rare black screen/wake root cause is fixed.",
+    "Keyboard candidate r100 excluded; physical keyboard/pen/paired-phone behavior not accepted.",
+    "No new audible quad separation, charging cycle, battery-life or long-duration stability acceptance.",
+    "Animation asset loading passed; default level4 was not accepted: level2 observed after normal reboot, owner/user-choice origin unestablished and not overridden."
+  ],
+  "rollback": "On-device temporary backup was erased during authorized data format. Use retained host v24 full package or matching component images and installed recovery.",
+  "animation_default_followup": {
+    "status": "Confirmed factory override; separate one-byte component fix boots level4",
+    "record": "../../native-animation/animation-default-r1-validation.json",
+    "original_archive_contains_fix": false
+  }
+}

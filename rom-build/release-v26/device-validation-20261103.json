@@ -1,0 +1,177 @@
+{
+  "state": "FULL_PACKAGE_UPGRADE_READBACK_BOOT_PASS_USB_FAIL_DISPLAY_ROOT_UNPROVEN",
+  "time": "2026-11-03T13:38:43.640205+08:00",
+  "archive": {
+    "state": "LOCAL_CANDIDATE_ARCHIVE_MEMBER_HASH_AND_CRC_PASS",
+    "path": "D:\\TB371FC-release\\ColorOS16_TB371FC_v26_r104_20261103_CANDIDATE.zip",
+    "sha256": "93de4dc2e1f7ecfba1fedb763a0d4e71d9ea4c4b18e053fd5103dc9e235ec100",
+    "bytes": 7484788950,
+    "members": 169,
+    "exact_archive_clean_flash_tested": false,
+    "published": false,
+    "device_modified_by_packaging": false,
+    "original_seven_scripts_unchanged": true
+  },
+  "serial": "HA1W0JA3",
+  "kernel_ref": "local/r104-reviewed",
+  "kernel_commit": "455927db6665e2b3696aa8a96bc97fb09c20bd3a",
+  "installation_method": "Authenticated TLS staging and existing TWRP offline writes",
+  "data_wiped": false,
+  "clean_first_boot_tested": false,
+  "partition_readbacks": [
+    {
+      "name": "super",
+      "target": "/dev/block/by-name/super",
+      "bytes": 12884901888,
+      "sha256": "fc7e2ea3cd7783ef41eb5dce90290c6af03eac2ebb18cbd5c08e46168b355405",
+      "readback_pass": true
+    },
+    {
+      "name": "boot",
+      "target": "/dev/block/by-name/boot_a",
+      "bytes": 100663296,
+      "sha256": "f29c32c15c7276d777f243a322ca35495099c25d6e41e402dd4eacb77121f85b",
+      "readback_pass": true
+    },
+    {
+      "name": "vbmeta",
+      "target": "/dev/block/by-name/vbmeta_a",
+      "bytes": 65536,
+      "sha256": "5faf802f3d821512505c42a9fa0dba5b969f135fd5ec3bf6686e8448e741a169",
+      "readback_pass": true
+    },
+    {
+      "name": "vbmeta_system",
+      "target": "/dev/block/by-name/vbmeta_system_a",
+      "bytes": 65536,
+      "sha256": "848f04a7cf01cbfc68640ece4895e1aa00c6ba5cbf385c81b395f51da0829fef",
+      "readback_pass": true
+    }
+  ],
+  "first_upgrade_boot": {
+    "state": "UPGRADE_BOOT_NATIVE_STARTUP_HASHES_PASS",
+    "stable_pids": "2338 3060 9856",
+    "boot": "b81f033c-6462-4d9a-8972-427d35c73e40",
+    "wireless_endpoint": "192.168.10.58:40935",
+    "clean_flash": false,
+    "data_wiped": false,
+    "native_startup_current_boot_ready": true,
+    "animation_level": 4,
+    "systemui_from_image": true,
+    "framework_and_launcher_hashes_verified": true,
+    "promotional_data_copies_removed": [
+      "com.heytap.reader",
+      "com.oplus.game.empowerment.folder",
+      "com.nearme.gamecenter",
+      "com.oneplus.bbs",
+      "com.oppo.store",
+      "com.oneplus.member"
+    ],
+    "usb_fixed_claimed": false,
+    "black_screen_root_cause_fixed_claimed": false
+  },
+  "final_boot": {
+    "state": "UPGRADE_BOOT_NATIVE_STARTUP_HASHES_PASS",
+    "stable_pids": "2204 3101 9900",
+    "boot": "b1576da1-ecdb-4881-844d-a6b4d978e1ae",
+    "wireless_endpoint": "192.168.10.58:43107",
+    "clean_flash": false,
+    "data_wiped": false,
+    "native_startup_current_boot_ready": true,
+    "animation_level": 4,
+    "systemui_from_image": true,
+    "framework_and_launcher_hashes_verified": true,
+    "promotional_data_copies_removed": [],
+    "usb_fixed_claimed": false,
+    "black_screen_root_cause_fixed_claimed": false
+  },
+  "usb_result": {
+    "source": "/data/local/tmp/r103-usb-probe-random-16MiB.bin",
+    "expected_bytes": 16777216,
+    "sha256": "1a2526373f5bef44c1910547de4ae81db4319b70631d860f162df8a92f2eef1d",
+    "compression_disabled": true,
+    "boot": "b81f033c-6462-4d9a-8972-427d35c73e40",
+    "usb_source_changed": false,
+    "usb_trials": [
+      {
+        "returncode": 1,
+        "stderr": "",
+        "timed_out": false,
+        "seconds": 0.047,
+        "bytes": 0,
+        "hash_match": false,
+        "pass": false
+      }
+    ],
+    "wireless_control": {
+      "returncode": 0,
+      "stderr": "/data/local/tmp/r103-usb-probe-random-16MiB.bin: 1 file pulled, 0 skipped. 17.1 MB/s (16777216 bytes in 0.935s)\r\n",
+      "timed_out": false,
+      "seconds": 0.969,
+      "bytes": 16777216,
+      "hash_match": true,
+      "pass": true
+    },
+    "usb_short_test_pass": false,
+    "usb_long_term_fixed_claimed": false
+  },
+  "kernel_usb_control": {
+    "state": "KERNEL_AB_COMPLETE_R104_RESTORED",
+    "same_rom_data_dtb_ramdisk": true,
+    "old_boot_sha256": "09d3c1bd67946575de8b0dad434f651e746747da2686fa227719142ad47cfbbe",
+    "r104_boot_sha256": "f29c32c15c7276d777f243a322ca35495099c25d6e41e402dd4eacb77121f85b",
+    "old_kernel_test": {
+      "identity": "5626f77f-48e7-4281-97e9-751d309bba94\nLinux version 4.19.325-perf+ (tb371fc-offline@r94-irq-wake-owner-v43) (Ubuntu clang version 21.1.8 (++20251221032922+2078da43e25a-1~exp1~20251221153059.70), GNU ld (GNU Binutils for Ubuntu) 2.42) #43 SMP PREEMPT Tue Oct 20 2026 22:49:00 +0800\n09d3c1bd67946575de8b0dad434f651e746747da2686fa227719142ad47cfbbe  /dev/block/by-name/boot_a",
+      "source_hash_verified": true,
+      "usb_state": "configured\nhigh-speed",
+      "usb": {
+        "returncode": 1,
+        "output": "",
+        "timed_out": false,
+        "bytes": 0,
+        "seconds": 0.047,
+        "hash_match": false
+      },
+      "tls_control_not_required_for_usb_attempt": true
+    },
+    "r104_restored": true,
+    "restored_endpoint": null,
+    "restored_boot": "b1576da1-ecdb-4881-844d-a6b4d978e1ae",
+    "r104_recheck": {
+      "returncode": 1,
+      "output": "",
+      "timed_out": false,
+      "bytes": 0,
+      "seconds": 0.047,
+      "hash_match": false
+    }
+  },
+  "old_kernel_ab_first_attempt_excluded": true,
+  "display_result": {
+    "boot": "b81f033c-6462-4d9a-8972-427d35c73e40",
+    "ordinary_sleep_wake_cycles": 1,
+    "awake_requested": true,
+    "touch_failure": false,
+    "kernel_counts": {
+      "R96_ENABLE_FAILED": 0,
+      "R94_PREPARE_FAILED": 0,
+      "reset_state=0x9D": 0,
+      "R104_PANEL_DEAD_POWER_ON": 0,
+      "R104_PANEL_DEAD_POWER_OFF": 0
+    },
+    "exceptional_recovery_branch_exercised": false,
+    "physical_pixels_confirmed": false,
+    "black_screen_root_cause_fixed_claimed": false,
+    "no_gesture_stress_or_fault_injection": true
+  },
+  "final_touch_state": "stage=2 err_stage=0 errno=0 awake=0 pending=0 armed=0 failed=0 gesture=1 hall_at_sleep=1 irq=1 irq_wake=1 gestures=0 last_gesture=0 pm_timeouts=0",
+  "black_screen_root_cause_fixed": false,
+  "fastboot_retested_this_install": false,
+  "historical_fastboot_success": "D:/TB371FC-release/R94T-v23-20261030-TEST/attempt-logs/20261030-202244/fastboot.txt",
+  "historical_fastboot_failure": "outputs/v25-r102-original-cmd/flash-console.txt",
+  "known_limits": "The controlled old kernel also failed Android USB; this does not prove the cause of the fastboot regression or exclude ROM/host effects. One ordinary sleep/wake and normal boot do not validate INIT9D fault recovery.",
+  "rollback_super": "/data/local/tmp/tb371fc-v26-offline-stage/rollback-super.img",
+  "rollback_super_sha256": "a57ee5660e1f55378510130922b5a680aa2d9a3ba3d47fac5b7ad19b78513f76",
+  "candidate_super_staging_removed": true,
+  "published": false
+}

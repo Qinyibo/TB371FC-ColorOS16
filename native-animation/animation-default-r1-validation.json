@@ -1,0 +1,29 @@
+{
+  "state": "FACTORY_ANIMATION_DEFAULT_4_COMPONENT_BOOT_PASS",
+  "time": "2026-11-02T22:45:09.879461+08:00",
+  "user_confirmed_no_manual_animation_choice": true,
+  "saved_choice_before_patch": false,
+  "target": "/my_manifest/build.prop",
+  "before_sha256": "18a97f39d6334bb734ede32891d33c1320e793cf60bc448f43000afa07916d91",
+  "after_sha256": "2b553eb8a545cb6c40596c0759eb8d14c861cd5f5362a1dd11ea2efad14c4193",
+  "changed_bytes": 1,
+  "changed_offset": 4760,
+  "boot_id": "9717c945-cce7-41ee-a10d-b4d70bafa619",
+  "desired_level": "4",
+  "active_level": "4",
+  "native_current_boot_ready_exit0": true,
+  "root_and_enforcing": true,
+  "root_mount_restored_readonly": true,
+  "runtime_property_set_by_agent": false,
+  "persistent_property_modified_by_agent": false,
+  "framework_kernel_apk_changed": false,
+  "new_whole_variant_images_built": false,
+  "new_whole_variant_archive_built": false,
+  "original_v25_zip_unchanged": true,
+  "variant_suffix": "animation-default-r1",
+  "user_choice_reboot_case": "Existing native persistence mechanism unchanged; no manual mode-toggle test added",
+  "limitations": [
+    "No repeated full-data wipe; startup tested with absent animation-choice key.",
+    "No new gesture/fluidity, wake, power or accessory hardware acceptance."
+  ]
+}

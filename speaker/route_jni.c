@@ -27,15 +27,24 @@ static int ctl(const char *name,int write,long *values,int count){
  if(ioctl(fd,write?SNDRV_CTL_IOCTL_ELEM_WRITE:SNDRV_CTL_IOCTL_ELEM_READ,&v)<0)return -1;
  if(!write)for(int i=0;i<count;i++)values[i]=v.value.integer.value[i];return 0;
 }
+static int control_shape(const char *name,unsigned int count,int writable){
+ struct snd_ctl_elem_info i;memset(&i,0,sizeof(i));i.id.iface=SNDRV_CTL_ELEM_IFACE_MIXER;
+ snprintf((char*)i.id.name,sizeof(i.id.name),"%s",name);
+ if(ioctl(fd,SNDRV_CTL_IOCTL_ELEM_INFO,&i)<0 ||
+    i.type!=SNDRV_CTL_ELEM_TYPE_INTEGER || i.count!=count)return -1;
+ if(writable && (!(i.access&SNDRV_CTL_ELEM_ACCESS_WRITE) ||
+    i.value.integer.min!=0 || i.value.integer.max!=1))return -1;
+ return 0;
+}
 static int initialize(void){
  if(fd>=0)return 0;
  char board[PROP_VALUE_MAX];struct utsname u;
  if(getuid()!=0||__system_property_get("ro.product.board",board)<=0||strcmp(board,"spinel")||
-    uname(&u)||!strstr(u.version,"#35 SMP PREEMPT "))return -20;
+    uname(&u)||(!strstr(u.version,"#35 SMP PREEMPT ") && !strstr(u.version,"#36 SMP PREEMPT ") && !strstr(u.version,"#37 SMP PREEMPT ") && !strstr(u.version,"#38 SMP PREEMPT ") && !strstr(u.version,"#39 SMP PREEMPT ") && !strstr(u.version,"#40 SMP PREEMPT ") && !strstr(u.version,"#41 SMP PREEMPT ") && !strstr(u.version,"#42 SMP PREEMPT ") && !strstr(u.version,"#43 SMP PREEMPT ")))return -20;
  lockfd=open(STATE "/route.lock",O_CREAT|O_RDWR|O_CLOEXEC|O_NOFOLLOW,0600);
  if(lockfd<0 || flock(lockfd,LOCK_EX|LOCK_NB)){if(lockfd>=0)close(lockfd);lockfd=-1;return -24;}
  fd=open("/dev/snd/controlC0",O_RDWR|O_CLOEXEC);
- long s[22];if(fd<0||ctl("TB371FC Route State",0,s,22)||s[0]!=19){if(fd>=0)close(fd);fd=-1;close(lockfd);lockfd=-1;return -20;}
+ long s[22];if(fd<0||control_shape("TB371FC Route State",22,0)||control_shape("TB371FC Route Request",5,1)||ctl("TB371FC Route State",0,s,22)||s[0]!=19){if(fd>=0)close(fd);fd=-1;close(lockfd);lockfd=-1;return -20;}
  return 0;
 }
 static int complete(long s[22],long req[5]){

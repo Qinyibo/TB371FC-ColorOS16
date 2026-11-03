@@ -1,0 +1,443 @@
+{
+  "state": "ACTIVITY_RESTORE_PASS_WITH_LIMITATIONS_PERFORMANCE_NOT_ACCEPTED",
+  "time": "2026-11-03T00:39:48.670500+08:00",
+  "framework_sha256": "a5928b090b68085bd2f32d9ecd39d76d1f4919ffee7072a071ef978232f46136",
+  "services_sha256": "90948f136d8621cf86be52f7899bec5490e53a1a548f169a9fc90be890143520",
+  "boot_id": "28ff088a-e709-4c07-999d-f3c692a9affa",
+  "system_server_pid": 2494,
+  "scope": "Intent-based task restore of Settings homepage plus WLAN companion pane. Both native settings processes thawed in logs; root Settings PID/birth unchanged. Not a Recents gesture or all-app compatibility acceptance.",
+  "trace": {
+    "path": "C:\\Users\\Administrator\\Documents\\Codex\\2026-11-02\\e-tb371fc-codex-local-start-pack\\outputs\\freezer-ui\\settings-restore.pftrace",
+    "sha256": "5bb29398a7079588df102828f8728f3f862d71bb36a79d494b352b8692fd7fa1",
+    "bytes": 48506753,
+    "producer": "Perfetto49.0",
+    "processor": "Perfetto58.2",
+    "nonzero_data_loss_or_error_stats": 0
+  },
+  "samples": {
+    "warm_before": {
+      "pid": 6994,
+      "birth_ticks": 273826,
+      "frozen": 0,
+      "adj": 700
+    },
+    "warm_after": {
+      "pid": 6994,
+      "birth_ticks": 273826,
+      "frozen": 0,
+      "adj": 101
+    },
+    "frozen_before": {
+      "pid": 6994,
+      "birth_ticks": 273826,
+      "frozen": 1,
+      "adj": 900
+    },
+    "frozen_after": {
+      "pid": 6994,
+      "birth_ticks": 273826,
+      "frozen": 0,
+      "adj": 101
+    }
+  },
+  "am_start_total_ms": {
+    "warm": 115,
+    "frozen": 173
+  },
+  "marker_spans": [
+    {
+      "name": "R94_UI_WARM_RESUME",
+      "duration_ms": 134.913
+    },
+    {
+      "name": "R94_UI_FROZEN_RESUME",
+      "duration_ms": 225.254
+    }
+  ],
+  "frame_rows": [
+    {
+      "section": "frames",
+      "phase": "R94_UI_FROZEN_RESUME",
+      "process_name": "com.android.launcher",
+      "frames": "20",
+      "flagged_frames": "19",
+      "max_frame_ms": "6.738000",
+      "first_frame_end_after_marker_ms": "478.464000"
+    },
+    {
+      "section": "frames",
+      "phase": "R94_UI_FROZEN_RESUME",
+      "process_name": "com.android.settings",
+      "frames": "3",
+      "flagged_frames": "2",
+      "max_frame_ms": "71.673000",
+      "first_frame_end_after_marker_ms": "209.705000"
+    },
+    {
+      "section": "frames",
+      "phase": "R94_UI_FROZEN_RESUME",
+      "process_name": "com.android.systemui",
+      "frames": "4",
+      "flagged_frames": "4",
+      "max_frame_ms": "20.123000",
+      "first_frame_end_after_marker_ms": "138.746000"
+    },
+    {
+      "section": "frames",
+      "phase": "R94_UI_FROZEN_RESUME",
+      "process_name": "com.oplus.wirelesssettings",
+      "frames": "114",
+      "flagged_frames": "112",
+      "max_frame_ms": "81.968000",
+      "first_frame_end_after_marker_ms": "179.128000"
+    },
+    {
+      "section": "frames",
+      "phase": "R94_UI_WARM_RESUME",
+      "process_name": "com.android.launcher",
+      "frames": "19",
+      "flagged_frames": "0",
+      "max_frame_ms": "4.438000",
+      "first_frame_end_after_marker_ms": "321.155000"
+    },
+    {
+      "section": "frames",
+      "phase": "R94_UI_WARM_RESUME",
+      "process_name": "com.android.settings",
+      "frames": "3",
+      "flagged_frames": "3",
+      "max_frame_ms": "26.992000",
+      "first_frame_end_after_marker_ms": "109.854000"
+    },
+    {
+      "section": "frames",
+      "phase": "R94_UI_WARM_RESUME",
+      "process_name": "com.android.systemui",
+      "frames": "4",
+      "flagged_frames": "1",
+      "max_frame_ms": "13.337000",
+      "first_frame_end_after_marker_ms": "77.654000"
+    },
+    {
+      "section": "frames",
+      "phase": "R94_UI_WARM_RESUME",
+      "process_name": "com.oplus.wirelesssettings",
+      "frames": "125",
+      "flagged_frames": "19",
+      "max_frame_ms": "82.340000",
+      "first_frame_end_after_marker_ms": "124.371000"
+    }
+  ],
+  "egl_creation": [
+    {
+      "section": "render_slice",
+      "phase": "R94_UI_FROZEN_RESUME",
+      "process_name": "com.android.settings",
+      "tid": "7077",
+      "id": "246966",
+      "rel_ms": "146.592000",
+      "dur_ms": "31.240000",
+      "depth": "1",
+      "name": "Creating EGLContext"
+    },
+    {
+      "section": "render_slice",
+      "phase": "R94_UI_FROZEN_RESUME",
+      "process_name": "com.oplus.wirelesssettings",
+      "tid": "7319",
+      "id": "245822",
+      "rel_ms": "128.527000",
+      "dur_ms": "29.492000",
+      "depth": "1",
+      "name": "Creating EGLContext"
+    },
+    {
+      "section": "render_slice",
+      "phase": "R94_UI_WARM_RESUME",
+      "process_name": "com.oplus.wirelesssettings",
+      "tid": "7319",
+      "id": "102606",
+      "rel_ms": "70.977000",
+      "dur_ms": "15.987000",
+      "depth": "1",
+      "name": "Creating EGLContext"
+    }
+  ],
+  "main_thread_states": [
+    {
+      "section": "main_state",
+      "phase": "R94_UI_FROZEN_RESUME",
+      "process_name": "com.android.settings",
+      "tid": "6994",
+      "state": "S",
+      "blocked_function": "[NULL]",
+      "duration_ms": "190.876000"
+    },
+    {
+      "section": "main_state",
+      "phase": "R94_UI_FROZEN_RESUME",
+      "process_name": "com.android.settings",
+      "tid": "6994",
+      "state": "Running",
+      "blocked_function": "[NULL]",
+      "duration_ms": "23.146000"
+    },
+    {
+      "section": "main_state",
+      "phase": "R94_UI_FROZEN_RESUME",
+      "process_name": "com.android.settings",
+      "tid": "6994",
+      "state": "D",
+      "blocked_function": "[NULL]",
+      "duration_ms": "5.453000"
+    },
+    {
+      "section": "main_state",
+      "phase": "R94_UI_FROZEN_RESUME",
+      "process_name": "com.android.settings",
+      "tid": "6994",
+      "state": "R+",
+      "blocked_function": "[NULL]",
+      "duration_ms": "2.913000"
+    },
+    {
+      "section": "main_state",
+      "phase": "R94_UI_FROZEN_RESUME",
+      "process_name": "com.android.settings",
+      "tid": "6994",
+      "state": "R",
+      "blocked_function": "[NULL]",
+      "duration_ms": "2.866000"
+    },
+    {
+      "section": "main_state",
+      "phase": "R94_UI_FROZEN_RESUME",
+      "process_name": "com.oplus.wirelesssettings",
+      "tid": "7244",
+      "state": "S",
+      "blocked_function": "[NULL]",
+      "duration_ms": "183.145000"
+    },
+    {
+      "section": "main_state",
+      "phase": "R94_UI_FROZEN_RESUME",
+      "process_name": "com.oplus.wirelesssettings",
+      "tid": "7244",
+      "state": "Running",
+      "blocked_function": "[NULL]",
+      "duration_ms": "36.476000"
+    },
+    {
+      "section": "main_state",
+      "phase": "R94_UI_FROZEN_RESUME",
+      "process_name": "com.oplus.wirelesssettings",
+      "tid": "7244",
+      "state": "R+",
+      "blocked_function": "[NULL]",
+      "duration_ms": "2.818000"
+    },
+    {
+      "section": "main_state",
+      "phase": "R94_UI_FROZEN_RESUME",
+      "process_name": "com.oplus.wirelesssettings",
+      "tid": "7244",
+      "state": "R",
+      "blocked_function": "[NULL]",
+      "duration_ms": "2.816000"
+    },
+    {
+      "section": "main_state",
+      "phase": "R94_UI_WARM_RESUME",
+      "process_name": "com.android.settings",
+      "tid": "6994",
+      "state": "S",
+      "blocked_function": "[NULL]",
+      "duration_ms": "107.497000"
+    },
+    {
+      "section": "main_state",
+      "phase": "R94_UI_WARM_RESUME",
+      "process_name": "com.android.settings",
+      "tid": "6994",
+      "state": "Running",
+      "blocked_function": "[NULL]",
+      "duration_ms": "19.646000"
+    },
+    {
+      "section": "main_state",
+      "phase": "R94_UI_WARM_RESUME",
+      "process_name": "com.android.settings",
+      "tid": "6994",
+      "state": "R",
+      "blocked_function": "[NULL]",
+      "duration_ms": "3.266000"
+    },
+    {
+      "section": "main_state",
+      "phase": "R94_UI_WARM_RESUME",
+      "process_name": "com.android.settings",
+      "tid": "6994",
+      "state": "R+",
+      "blocked_function": "[NULL]",
+      "duration_ms": "3.013000"
+    },
+    {
+      "section": "main_state",
+      "phase": "R94_UI_WARM_RESUME",
+      "process_name": "com.android.settings",
+      "tid": "6994",
+      "state": "D",
+      "blocked_function": "[NULL]",
+      "duration_ms": "1.491000"
+    },
+    {
+      "section": "main_state",
+      "phase": "R94_UI_WARM_RESUME",
+      "process_name": "com.oplus.wirelesssettings",
+      "tid": "7244",
+      "state": "S",
+      "blocked_function": "[NULL]",
+      "duration_ms": "95.243000"
+    },
+    {
+      "section": "main_state",
+      "phase": "R94_UI_WARM_RESUME",
+      "process_name": "com.oplus.wirelesssettings",
+      "tid": "7244",
+      "state": "Running",
+      "blocked_function": "[NULL]",
+      "duration_ms": "30.206000"
+    },
+    {
+      "section": "main_state",
+      "phase": "R94_UI_WARM_RESUME",
+      "process_name": "com.oplus.wirelesssettings",
+      "tid": "7244",
+      "state": "R",
+      "blocked_function": "[NULL]",
+      "duration_ms": "7.034000"
+    },
+    {
+      "section": "main_state",
+      "phase": "R94_UI_WARM_RESUME",
+      "process_name": "com.oplus.wirelesssettings",
+      "tid": "7244",
+      "state": "R+",
+      "blocked_function": "[NULL]",
+      "duration_ms": "2.430000"
+    }
+  ],
+  "settling_rows": [
+    {
+      "section": "settling",
+      "phase": "R94_UI_FROZEN_RESUME",
+      "process_name": "com.android.settings",
+      "second_after_marker": "0",
+      "frames": "3",
+      "on_time_class": "1",
+      "stuffing_class": "1",
+      "app_deadline_class": "2",
+      "max_duration_ms": "71.673000"
+    },
+    {
+      "section": "settling",
+      "phase": "R94_UI_FROZEN_RESUME",
+      "process_name": "com.oplus.wirelesssettings",
+      "second_after_marker": "0",
+      "frames": "114",
+      "on_time_class": "2",
+      "stuffing_class": "110",
+      "app_deadline_class": "14",
+      "max_duration_ms": "81.968000"
+    },
+    {
+      "section": "settling",
+      "phase": "R94_UI_FROZEN_RESUME",
+      "process_name": "com.oplus.wirelesssettings",
+      "second_after_marker": "1",
+      "frames": "90",
+      "on_time_class": "0",
+      "stuffing_class": "89",
+      "app_deadline_class": "3",
+      "max_duration_ms": "27.134000"
+    },
+    {
+      "section": "settling",
+      "phase": "R94_UI_FROZEN_RESUME",
+      "process_name": "com.oplus.wirelesssettings",
+      "second_after_marker": "2",
+      "frames": "1",
+      "on_time_class": "0",
+      "stuffing_class": "0",
+      "app_deadline_class": "1",
+      "max_duration_ms": "26.419000"
+    },
+    {
+      "section": "settling",
+      "phase": "R94_UI_WARM_RESUME",
+      "process_name": "com.android.settings",
+      "second_after_marker": "0",
+      "frames": "3",
+      "on_time_class": "0",
+      "stuffing_class": "2",
+      "app_deadline_class": "3",
+      "max_duration_ms": "26.992000"
+    },
+    {
+      "section": "settling",
+      "phase": "R94_UI_WARM_RESUME",
+      "process_name": "com.oplus.wirelesssettings",
+      "second_after_marker": "0",
+      "frames": "125",
+      "on_time_class": "106",
+      "stuffing_class": "17",
+      "app_deadline_class": "10",
+      "max_duration_ms": "82.340000"
+    },
+    {
+      "section": "settling",
+      "phase": "R94_UI_WARM_RESUME",
+      "process_name": "com.oplus.wirelesssettings",
+      "second_after_marker": "1",
+      "frames": "86",
+      "on_time_class": "0",
+      "stuffing_class": "85",
+      "app_deadline_class": "3",
+      "max_duration_ms": "33.479000"
+    },
+    {
+      "section": "settling",
+      "phase": "R94_UI_WARM_RESUME",
+      "process_name": "com.oplus.wirelesssettings",
+      "second_after_marker": "2",
+      "frames": "12",
+      "on_time_class": "0",
+      "stuffing_class": "11",
+      "app_deadline_class": "1",
+      "max_duration_ms": "22.732000"
+    }
+  ],
+  "source_finding": "The unchanged pinned CachedAppOptimizer.freezeAppAsyncInternalLSP sends scheduleTrimMemory(40) before checkFreezeProc. Thus the one-method extension patch did not introduce this caller-side trim block. No trim-policy edit justified by this observation.",
+  "findings": [
+    "Confirmed kernel freeze1->0 and same PID/birth, hot Activity restore statusok, visible Settings/WLAN panes; retained crash buffer empty.",
+    "Both warm and frozen phases contain78-82ms WirelessSettings traversal; frozen Settings root traversal70.75ms overlaps a RenderThread EGL rebuild31.24ms. Overlap alone does not quantify the entire critical path.",
+    "WirelessSettings EGL creation15.987ms warm and29.492ms frozen; root Settings context destroyed after trim40 before long background phase.",
+    "Both phases show substantial Buffer/SurfaceFlinger Stuffing after1second; do not interpret every late label as one dropped frame or as kernel freezer failure."
+  ],
+  "performance_accepted": false,
+  "limitations": [
+    "One observational pair; different background duration, adj700vs900 and GPU resource state. Not a controlled E73/candidate A/B or a causal58ms freeze penalty.",
+    "Actual app FrameTimeline ts+dur is GPU/post completion, not direct physical display present or touch-to-photon latency.",
+    "FileManager first-use consent was not accepted; it served only as an intermediate task.",
+    "Tracing enabled; USB-powered and temporarily stay-awake. No battery, Recents gesture, media or messaging acceptance.",
+    "Blocked-function names mostly unavailable; thread-state samples do not identify every native wait cause."
+  ],
+  "official_frame_timeline_reference": "https://android.googlesource.com/platform/external/perfetto/+/refs/heads/main/docs/data-sources/frametimeline.md",
+  "product_implementation_changed": false,
+  "whole_zip_changed": false,
+  "temporary_stay_awake_restored": true,
+  "owned_device_trace_files_removed": true,
+  "tracing_off": true,
+  "root_and_enforcing": true,
+  "collection_note": "Workload exited0. Initial adb pull of the root-owned trace failed permission checks; an owned readable copy was made and full SHA verified without workload replay. Helper corrected. All device trace files subsequently removed."
+}

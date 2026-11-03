@@ -30,9 +30,9 @@ ota_target=/system_ext/app/OTA/OTA.apk
 assistant_prefix=/data/dalvik-cache/arm64/my_stock@app@AssistantScreen@AssistantScreen.apk@classes
 # A changed base ROM must never receive stale candidates or stale ART files.
 test "$(sha256sum /system_ext/priv-app/OplusLauncher/OplusLauncher.apk | cut -d ' ' -f 1)" = 1f04f79c4564c58b03673f4ca575e270f08bc10d926ccc6509797aef15cb5024 || { echo R91_ROM_BASE_GUARD_FAILED_1; exit 1; }
-test "$(sha256sum "$assistant_target" | cut -d ' ' -f 1)" = c8e7396f691b146d630764e3037e7a41f92170c725e1661272406c41c7c6a628 || { echo R91_ROM_BASE_GUARD_FAILED_2; exit 1; }
+test "$(sha256sum "$assistant_target" | cut -d ' ' -f 1)" = afbcf730467bf727d3dfd18d503a5050fdaabaecad5a54052847574074344823 || { echo R91_ROM_BASE_GUARD_FAILED_2; exit 1; }
 test "$(sha256sum "$ota_target" | cut -d ' ' -f 1)" = ce7d4a1ed6b34f23c7fc972a86974ebf53be53c1627c623c826a4b852e0b0d9c || { echo R91_ROM_BASE_GUARD_FAILED_3; exit 1; }
-test "$(sha256sum /system/framework/oplus-services.jar | cut -d ' ' -f 1)" = ab25a362ff81a90c69dfa55ceaa3a2ae201775bd339abb04da5b1c2b71330467 || { echo R91_ROM_BASE_GUARD_FAILED_4; exit 1; }
+test "$(sha256sum /system/framework/oplus-services.jar | cut -d ' ' -f 1)" = e73be401835ecede505e6c37c75c007a8f5bd840d9441fe0a99b3f5320c3e3a9 || { echo R91_ROM_BASE_GUARD_FAILED_4; exit 1; }
 echo R91_ROM_NATIVE_BASE_IDENTITIES_OK
 
 # Preserve the accepted launcher speed compilation after a clean installation.
@@ -122,12 +122,8 @@ echo R94_OTA_NATIVE_NOTICE_ONLY_NO_DONOR_UPDATER
 
 # Stop only Assistant before replacing its previously accepted code.
 run_am force-stop com.coloros.assistantscreen || rollback stop_assistant
-mount -o bind /data/adb/r91-assistant/AssistantScreen.apk "$assistant_target" || rollback assistant_apk
-for s in art dex vdex; do
-    cache_target "$assistant_prefix.$s"
-    mount -o bind /data/adb/r91-assistant/aot/AssistantScreen.$s "$assistant_prefix.$s" || rollback assistant_cache
-done
-/data/adb/r91-assistant/bind-readonly --paired || rollback assistant_readonly
+# R94_ASSISTANT_DIRECT_NATIVE_ASSETS: the animation bootstrap mounts the final code.
+# Do not briefly run the intermediate Assistant or its old ART files.
 
 # Market update-guard: same tested mechanism the retired r93_patch_guard
 # module provided (bind patched market APK + R93PatchGuard policy). All
@@ -184,5 +180,7 @@ if [ "$first_defaults" = 1 ]; then
 fi
 cmd package set-home-activity --user 0 com.android.launcher/.Launcher
 sh /system/etc/r94-camera-v7/install-once.sh || echo R94_CAMERA_PRELOAD_PENDING
+
+sh /system/etc/r94-animation-v1/bootstrap.sh || echo R94_ANIMATION_MODES_FAILED
 
 echo "R91_ROM_READY launcher_native=1 $(date)"

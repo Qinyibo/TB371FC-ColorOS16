@@ -1,14 +1,28 @@
 # 联想 TB371FC · ColorOS 16 移植
 
-R94T v23 TEST（2026-10-30）。这是本项目本地修改的源码、补丁、构建资料和原始刷机入口。配套完整内核源码：[android_kernel_lenovo_tb371fc](https://github.com/Qinyibo/android_kernel_lenovo_tb371fc)。
+当前源码对应 **v26 / r104 维护候选（2026-11-03）**；v23 保留为历史发布记录。本库保存项目修改的源码、补丁、构建资料和刷机入口。配套完整内核源码：[android_kernel_lenovo_tb371fc](https://github.com/Qinyibo/android_kernel_lenovo_tb371fc)。
 
 保留 #43 内核、原生笔/通信集成、当前相机 v7；整合辅助触摸窗口延后创建与失焦取消、微信/B站原生平行视窗及B站首页缩窄。关闭自动分屏推荐，保留144Hz、正常动画与模糊。修正框架更新后首启脚本仍校验旧SHA而退出的问题，双清后准备桌面 speed 编译。初始化服务改用现有Magisk运行域，修复管理器初始化后正常重启时旧KernelSU运行域失效的问题。
 
-## 后续唤醒候选（2026-10-31）
+## 当前状态（2026-11-03）
+
+**仍有两项严重问题：USB／fastboot 大块传输不稳定，以及偶发黑屏后无法唤醒。当前版本不能称为已根治或正式稳定版。**
+
+- [v26 构建与安装记录](rom-build/release-v26/README.md)：已完成 TWRP 保留数据升级、四分区回读和正常开机；完整 fastboot 刷入未通过，精确 v26 整包未完成双清首启验收。源码上传不等于发布完整 ROM 镜像。
+- 内核为 [r104（455927db6665）](https://github.com/Qinyibo/android_kernel_lenovo_tb371fc/commit/455927db6665e2b3696aa8a96bc97fb09c20bd3a)，包含 r103 冻结退出和 r102 平均电流接口修复。r104 只修正既有死屏供电恢复路径的短路条件，没有证明解决触控 INIT=0x9D 根因。
+- 用户当前反馈：汽水胶囊、冻结、日常调度内存、温控、四扬与旋转、键盘触控板体验可用；待机续航目前可接受。保持这些基线，此反馈不替代逐项实验室测试。
+- 手写笔暂缺测试条件，黑屏保留观察。USB 按用户要求暂缓，待更换连接环境后继续，验收标准仍为正式脚本经 bootloader fastboot 完整刷入并正常开机。
+- [最新维护记录](docs/maintenance-20261103.md)及[严重问题](docs/known-issues.md)。已撤回的 USB r105、胶囊计时／异步／加载器试验不进入当前构建。
+
+## 历史唤醒候选（2026-10-31）
 
 [wake-cache-r1 已刷入版本与审阅入口](docs/wake-cache-r1.md)：缓存首次校验成功的触控固件，保留正常恢复顺序。双击亮屏仍失败；用户反馈长时间放置后电源键正常亮屏，但未确认根因。原v23完整包没有替换。
 
 ## 开发记录与经验
+
+此前维护构建入口为 [v25/r102](rom-build/release-v25/README.md)：以持有的v24镜像合入r102、充电查询兼容及两处vendor启动规则，保留原分区布局和刷机入口。四份候选镜像已通过现有TWRP离线写入、完整分区回读、双清首启及Magisk初始化后普通重启的原生启动检查；仍未发布。原fastboot大块USB传输在本机未解决，不能据此宣称原入口实刷通过。键盘候选未包含；硬件验收边界见[实机记录](rom-build/release-v25/device-validation-20261102.json)。公开v23及历史包仍按原始记录追溯。
+
+后续已修正动画出厂默认被my_manifest覆盖为2的问题，单字段修正重启后加载4；另修复HANS未就绪时后台应用仅虚拟冻结的问题，真实应用冻结、广播解冻及前台服务生命周期通过。两项已生成独立 `animation-default-r1-freezer-fallback-r1` 完整候选，镜像回读、启动校验链、文件系统、原离线入口及154个归档成员校验通过。新包尚未整包首启，续航增益未量化；原v25 ZIP保持原样。见[新变体记录](rom-build/release-v25/freezer-variant-20261103.json)、[动画说明](native-animation/README.md)及[后台冻结修复](native-freezer/README.md)。
 
 [完整阅读入口](docs/README.md)包含从早期八项修复、v16/v17首启故障到v23的经过，并说明为什么保留或撤回各条路线。
 
