@@ -1,6 +1,6 @@
 # 联想 TB371FC · ColorOS 16 移植
 
-当前 ROM 整包对应 **v26 / r104 维护候选（2026-11-03）**，实机 boot 已更新为 r106 独立候选；原整包未重新打包。v23 保留为历史发布记录。本库保存项目修改的源码、补丁、构建资料和刷机入口。配套完整内核源码：[android_kernel_lenovo_tb371fc](https://github.com/Qinyibo/android_kernel_lenovo_tb371fc)。
+当前本地完整包为 **v27 / r106 维护候选（2026-11-03）**：沿用 v26 系统镜像，合入已刷入的 r106 boot；原 v26/r104 包保留。见 [v27 打包入口与记录](rom-build/release-v27/README.md)。v23 保留为历史发布记录。本库保存项目修改的源码、补丁、构建资料和刷机入口。配套完整内核源码：[android_kernel_lenovo_tb371fc](https://github.com/Qinyibo/android_kernel_lenovo_tb371fc)。
 
 保留 #43 内核、原生笔/通信集成、当前相机 v7；整合辅助触摸窗口延后创建与失焦取消、微信/B站原生平行视窗及B站首页缩窄。关闭自动分屏推荐，保留144Hz、正常动画与模糊。修正框架更新后首启脚本仍校验旧SHA而退出的问题，双清后准备桌面 speed 编译。初始化服务改用现有Magisk运行域，修复管理器初始化后正常重启时旧KernelSU运行域失效的问题。
 
@@ -10,6 +10,7 @@
 
 - [v26 构建与安装记录](rom-build/release-v26/README.md)：已完成 TWRP 保留数据升级、四分区回读和正常开机；换后置口后尚未重测完整 ROM fastboot 刷入，精确 v26 整包未完成双清首启验收。源码上传不等于发布完整 ROM 镜像。
 - 原 v26 整包内核为 [r104（455927db6665）](https://github.com/Qinyibo/android_kernel_lenovo_tb371fc/commit/455927db6665e2b3696aa8a96bc97fb09c20bd3a)；实机已刷入 [r106（4b397325943e）](https://github.com/Qinyibo/android_kernel_lenovo_tb371fc/commit/4b397325943e70d3dbaaff63b5f622ab48668d62)。r106 保留失败后的电源恢复资格，并防止旧恢复提交清除新故障；35 项源码回归、完整内核构建、分区回读和正常开机通过。异常恢复未触发，INIT=0x9D 根因仍未解决。
+- v27 将同一 r106 boot 纳入完整包，三个其他分区镜像及原七个刷机入口保持一致；完成离线入口和压缩包逐成员 SHA/CRC 核验。本次仅打包，未刷写、双清或执行新的唤醒实验，精确 v27 整包实刷尚未验收。
 - 用户当前反馈：汽水胶囊、冻结、日常调度内存、温控、四扬与旋转、键盘触控板体验可用；待机续航目前可接受。保持这些基线，此反馈不替代逐项实验室测试。
 - 手写笔暂缺测试条件，黑屏等待自然复现。刷机固定使用已验证的主板后置口；[USB 实机记录](docs/usb-retest-20261103.json)不代表整包刷入或长期稳定性验收。
 - [最新维护记录](docs/maintenance-20261103.md)及[严重问题](docs/known-issues.md)。已撤回的 USB r105、胶囊计时／异步／加载器试验不进入当前构建。

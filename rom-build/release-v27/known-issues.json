@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-03",
+  "candidate": "v27-r106",
+  "black_screen": {
+    "init_0x9d_root_cause_fixed": false,
+    "r106_software_recovery_state_fix_included": true,
+    "exceptional_hardware_recovery_exercised": false
+  },
+  "transient_normal_touch_and_home_interaction": {
+    "user_reported": true,
+    "user_reported_multi_finger_mini_window_gesture_still_worked": true,
+    "user_reported_recovered": true,
+    "agent_reboot_or_systemui_restart_performed": false,
+    "snapshot_dispatch_enabled": true,
+    "snapshot_dispatch_frozen": false,
+    "snapshot_touch_driver_awake": true,
+    "snapshot_touch_driver_failed": false,
+    "later_evdev_events_and_irq_increment_observed": true,
+    "entire_failure_interval_captured": false,
+    "root_cause_proven": false,
+    "complete_touch_hardware_failure_proven": false,
+    "input_dispatch_or_gesture_interception_is_only_a_lead": true
+  },
+  "usb": {
+    "rear_motherboard_port_accepted": true,
+    "bidirectional_16mib_and_96mib_boot_fastboot_pass": true,
+    "full_rom_script_retested": false,
+    "usb_kernel_patch_added": false
+  },
+  "exact_archive_clean_first_boot_tested": false
+}
