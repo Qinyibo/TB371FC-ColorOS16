@@ -1,0 +1,141 @@
+{
+  "hardware_success_claimed": false,
+  "production_changes": false,
+  "device_operations": false,
+  "oplus_services_sha256": "a5928b090b68085bd2f32d9ecd39d76d1f4919ffee7072a071ef978232f46136",
+  "services_local_copy_sha256": "90948f136d8621cf86be52f7899bec5490e53a1a548f169a9fc90be890143520",
+  "services_live_alignment_reverified": false,
+  "files": [
+    {
+      "file": "oplus-services-OplusZoomWindowManagerService.md",
+      "methods": [
+        ".method public checkAnimationReady()V",
+        ".method public cleanupGestureAnimation()V",
+        ".method public hasGestureAnimationController()Z",
+        ".method public startGestureAnmation(Landroid/view/IOplusGestureAnimationRunner;Landroid/os/Bundle;)V"
+      ],
+      "sha256": "0eae33e45a01b5b21d2c3fa06ce1786e95f734f1aa9c0cb21704d067dbe196f3"
+    },
+    {
+      "file": "oplus-services-OplusGestureAnimationController.md",
+      "methods": [
+        ".method constructor <init>(Lcom/android/server/wm/WindowManagerService;Landroid/view/IOplusGestureAnimationRunner;Lcom/android/server/wm/IOplusGestureAnimationCallbacks;I)V",
+        ".method private synthetic lambda$new$0()V",
+        ".method public initializeDragFullScreenAnmation(Lcom/android/server/wm/Task;Lcom/android/server/wm/Task;Lcom/android/server/wm/ActivityRecord;Landroid/os/Bundle;)V",
+        ".method scheduleFailsafe()V"
+      ],
+      "sha256": "ff9fbc2f46faf936223be609a3640c0afe258d79d0080a75644320e9d5adc95b"
+    },
+    {
+      "file": "oplus-services-OplusWindowAnimationManager.md",
+      "methods": [
+        ".method constructor <init>()V",
+        ".method public getInputConsumerEnabled()Z",
+        ".method public setInputConsumerEnabled(Z)Z"
+      ],
+      "sha256": "1468f7aee373935a27143152db489ab6eda3e7d77eef5c9a1c3deee98374c26e"
+    },
+    {
+      "file": "oplus-services-OplusActivityTaskManagerServiceEnhance.md",
+      "methods": [
+        ".method public setInputConsumerEnabled(Z)V"
+      ],
+      "sha256": "d3aba7dd89eceb9ee54691152d0d8195cf181211edbf0b0ab7c2cccc663207a5"
+    },
+    {
+      "file": "oplus-services-InputMonitorExtImpl.md",
+      "methods": [
+        ".method public getInputConsumerEnabled()Z"
+      ],
+      "sha256": "cc9c8dfed1ca26dcf1c2b2961556c9b0b0e86036c85c0769af0646ec36a6daed"
+    },
+    {
+      "file": "oplus-services-OplusCompactWindowInputConsumer.md",
+      "methods": [
+        ".method constructor <init>(Lcom/android/server/wm/WindowManagerService;Ljava/lang/String;)V",
+        ".method registerInputConsumer(Lcom/android/server/wm/DisplayContent;Landroid/os/IBinder;Landroid/view/SurfaceControl;Z)Z",
+        ".method unregisterInputConsumer()V"
+      ],
+      "sha256": "831346b47dd31c51b6d809efcb2051ea83677249d7370693698d4936d5d5c26e"
+    },
+    {
+      "file": "oplus-services-OplusFullScreenDragHandleSurface.md",
+      "methods": [
+        ".method private unregisterInputConsumer()V",
+        ".method public createInputConsumer(Landroid/graphics/Rect;Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wm/DisplayContent;Lcom/android/server/wm/OplusCompactWindowInputConsumer$InputListener;)V",
+        ".method public destroy()V"
+      ],
+      "sha256": "f6910ee1a43bb549e425042f4bd3aff0bcf53cd4645a990bc7b9a0e753f4b16c"
+    },
+    {
+      "file": "oplus-services-OplusBlurBackgroundSurface.md",
+      "methods": [
+        ".method private unregisterInputConsumer()V",
+        ".method public createInputConsumer(Landroid/graphics/Rect;Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wm/DisplayContent;Lcom/android/server/wm/OplusCompactWindowInputConsumer$InputListener;)V",
+        ".method public destroy()V"
+      ],
+      "sha256": "65505c2e4df4b1d4ae7f601d6398bf293834c5a9bee3fef01317e570cbc87d93"
+    },
+    {
+      "file": "oplus-services-OplusGestureAnimationManagerPolicy$3.md",
+      "methods": [
+        ".method public onAnimationCancel(Landroid/animation/Animator;)V",
+        ".method public onAnimationEnd(Landroid/animation/Animator;)V",
+        ".method public onAnimationStart(Landroid/animation/Animator;)V"
+      ],
+      "sha256": "fb6c16c18d1d643e8fc22a3ad0c7d004cd9bf738bf255ce1ebf8c3c374527368"
+    },
+    {
+      "file": "oplus-services-OplusGestureAnimationManagerPolicy$5.md",
+      "methods": [
+        ".method public onAnimationCancel(Landroid/animation/Animator;)V",
+        ".method public onAnimationEnd(Landroid/animation/Animator;)V",
+        ".method public onAnimationStart(Landroid/animation/Animator;)V"
+      ],
+      "sha256": "4f6183934daf49b24d509ef31c6c8cf886c06698866d777b11130805a946fc0a"
+    },
+    {
+      "file": "services-local-copy-InputMonitor.md",
+      "methods": [
+        ".method createInputConsumer(Landroid/os/IBinder;Ljava/lang/String;Landroid/view/InputChannel;ILandroid/os/UserHandle;)V",
+        ".method destroyInputConsumer(Landroid/os/IBinder;)Z"
+      ],
+      "sha256": "d5f2383a1f7a320cf1d66cee11d8d72e395bd19ec177f9c26adb7e6b93212898"
+    },
+    {
+      "file": "services-local-copy-InputConsumerImpl.md",
+      "methods": [
+        ".method public binderDied()V"
+      ],
+      "sha256": "6b2f6d960cf25915c6d9a025cac4d4ee1758f935741d78ef2f3c44442e26d875"
+    },
+    {
+      "file": "services-local-copy-WindowManagerService.md",
+      "methods": [
+        ".method public createInputConsumer(Landroid/os/IBinder;Ljava/lang/String;ILandroid/view/InputChannel;)V",
+        ".method public destroyInputConsumer(Landroid/os/IBinder;I)Z"
+      ],
+      "sha256": "3ecd38af0dcc857e487929fd74305924cb299b6c00d18ae447c18001104651e9"
+    },
+    {
+      "file": "oplus-services-references.json",
+      "sha256": "44757136fb7e3812a7af2d1eab34497ef37e292a898944b849d2b093d0229c78"
+    },
+    {
+      "file": "oplus-services-scope.json",
+      "sha256": "203d69c67559c996e9bbba2683f73d63525b866892b5bdefdbc5d5ab07d3c4a6"
+    },
+    {
+      "file": "services-local-copy-references.json",
+      "sha256": "f5d1ee6d190091104c458ccf1ce375f5fbe09714084a51a517b49498ae690253"
+    },
+    {
+      "file": "services-local-copy-scope.json",
+      "sha256": "cd2e430d99f206b99f54e71626153465614232abc94a86d59c6f3106ce59cec4"
+    },
+    {
+      "file": "targeted-index-summary.json",
+      "sha256": "5ac5fcbb84f0da066d3ceb8281833cf69f48e6a66ef4d7818d4729fd20a70f68"
+    }
+  ]
+}

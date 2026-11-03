@@ -1,0 +1,38 @@
+{
+  "OplusGestureAnimationController": {
+    "mInputConsumerEnabled_writes": []
+  },
+  "OplusWindowAnimationManager": {
+    "mInputConsumerEnabled_writes": [
+      {
+        "kind": "reference",
+        "dex": "classes2.dex",
+        "class": "Lcom/android/server/wm/OplusWindowAnimationManager;",
+        "method": "Lcom/android/server/wm/OplusWindowAnimationManager;-><init>[]V",
+        "instruction": 36,
+        "opcode": "IPUT_BOOLEAN",
+        "owner": "Lcom/android/server/wm/OplusWindowAnimationManager;",
+        "member": "mInputConsumerEnabled"
+      },
+      {
+        "kind": "reference",
+        "dex": "classes2.dex",
+        "class": "Lcom/android/server/wm/OplusWindowAnimationManager;",
+        "method": "Lcom/android/server/wm/OplusWindowAnimationManager;->setInputConsumerEnabled[Z]Z",
+        "instruction": 2,
+        "opcode": "IPUT_BOOLEAN",
+        "owner": "Lcom/android/server/wm/OplusWindowAnimationManager;",
+        "member": "mInputConsumerEnabled"
+      }
+    ]
+  },
+  "scheduleFailsafe": {
+    "direct_dex_call_sites": []
+  },
+  "shouldApplyInputConsumer": {
+    "direct_dex_call_sites": []
+  },
+  "updateInputConsumerForApp": {
+    "direct_dex_call_sites": []
+  }
+}
