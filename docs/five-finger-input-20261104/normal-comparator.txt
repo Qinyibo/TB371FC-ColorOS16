@@ -1,0 +1,16 @@
+NORMAL COMPARATOR ONLY: user reported no reproduction, single touch normal.
+No device restart, input injection or recovery performed.
+Sanitized selection of lifecycle log messages; not a complete failure trace.
+
+11-03 23:54:11.300 D OMG_FourStrategy: handleFourZoomStart start!
+11-03 23:54:11.300 W OplusGestureAnimationManagerPolicy: startAnmation: isInAnimation=false
+11-03 23:54:13.965 D OMG_FourStrategy: M:STATUS_FOUR_ZOOM abort: invalid count:3
+11-03 23:54:13.967 D OMG_FourStrategy: handleFourZoomEnd start!
+11-03 23:54:13.967 D OplusGestureAnimationManagerPolicy: finishAnimation: [controller/surface/crop details omitted]
+11-03 23:54:14.175 D OplusGestureAnimationManagerPolicy: finishAnimation: [controller/surface/crop details omitted]
+11-03 23:54:17.949 D OMG_FourStrategy: handleFourZoomStart start!
+11-03 23:54:17.949 W OplusGestureAnimationManagerPolicy: startAnmation: isInAnimation=false
+11-03 23:54:18.213 D OMG_FourStrategy: M:STATUS_FOUR_ZOOM abort: invalid count:3
+11-03 23:54:18.213 D OMG_FourStrategy: handleFourZoomEnd start!
+11-03 23:54:18.214 D OplusGestureAnimationManagerPolicy: finishAnimation: [controller/surface/crop details omitted]
+11-03 23:54:18.418 D OplusGestureAnimationManagerPolicy: finishAnimation: [controller/surface/crop details omitted]

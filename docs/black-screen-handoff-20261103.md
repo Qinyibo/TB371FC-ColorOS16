@@ -1,5 +1,7 @@
 # 给 Grok 的当前接续：r107 已安装，黑屏起因未解决
 
+最新新增：[五指收拢触摸／Home失效资料与并行任务](five-finger-input-20261104/README.md)。含有效正常对照、无效采集说明及待核对的异步清理路径。
+
 当前运行内核的功能源码是 [`41082098d`](https://github.com/Qinyibo/android_kernel_lenovo_tb371fc/commit/41082098de91855a809239bf64f339a16d39effe)，完整接续分支为 [recovery-state-r107](https://github.com/Qinyibo/android_kernel_lenovo_tb371fc/tree/recovery-state-r107)。不要只看仍停在 r104 的 kernel main。**hardware_success_claimed=false**。
 
 ## 已做什么，实际验证到哪里
