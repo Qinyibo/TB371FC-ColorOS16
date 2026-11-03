@@ -1,0 +1,53 @@
+{
+  "hardware_success_claimed": false,
+  "new_device_operations": false,
+  "sources": [
+    {
+      "source": "23:29 post-report snapshot",
+      "lines": 7078,
+      "sha256": "7dfa1595d3197c040fdc21c87979684ce2957d7d92259994cedcbac8e8e6ac5a",
+      "exact_marker_counts": {
+        "setInputConsumerEnabled: enabled:": 0,
+        "setInputConsumerEnabled: call trace:": 0,
+        "setInputConsumerEnabled from launcher enabled=": 0,
+        "cleanupGestureAnimation": 0,
+        "onAnimationStart: not to start zoom by gesture because remoteTarget exception": 0,
+        "onAnimationStart: gesture had up": 0
+      },
+      "other_setter_lines": 0
+    },
+    {
+      "source": "post-recovery/timeout snapshot",
+      "lines": 7143,
+      "sha256": "0d7437fa9042fd2cc4516e09dc26db57d76475d51f060455e02a45294a56e748",
+      "exact_marker_counts": {
+        "setInputConsumerEnabled: enabled:": 0,
+        "setInputConsumerEnabled: call trace:": 0,
+        "setInputConsumerEnabled from launcher enabled=": 0,
+        "cleanupGestureAnimation": 0,
+        "onAnimationStart: not to start zoom by gesture because remoteTarget exception": 0,
+        "onAnimationStart: gesture had up": 0
+      },
+      "other_setter_lines": 1
+    },
+    {
+      "source": "normal comparator, user reported not reproduced",
+      "lines": 67745,
+      "sha256": "89a9f411836222abf964470662735da3f0b5f47e82078a31de688aeca4e602ae",
+      "exact_marker_counts": {
+        "setInputConsumerEnabled: enabled:": 0,
+        "setInputConsumerEnabled: call trace:": 0,
+        "setInputConsumerEnabled from launcher enabled=": 0,
+        "cleanupGestureAnimation": 2,
+        "onAnimationStart: not to start zoom by gesture because remoteTarget exception": 0,
+        "onAnimationStart: gesture had up": 0
+      },
+      "other_setter_lines": 0
+    }
+  ],
+  "sanitized_existing_log_excerpt": [
+    "11-03 23:34:40.699 V ShellRecents: RecentsController.setInputConsumerEnabled: skip, cb?=false enabled?=false",
+    "11-03 23:54:14.198 I OplusZoomWindowManagerService: cleanupGestureAnimation",
+    "11-03 23:54:18.435 I OplusZoomWindowManagerService: cleanupGestureAnimation"
+  ]
+}

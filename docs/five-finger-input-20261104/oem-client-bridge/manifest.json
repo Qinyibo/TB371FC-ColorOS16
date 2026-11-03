@@ -53,7 +53,7 @@
     },
     {
       "file": "README.md",
-      "sha256": "167d9604bf7e13001486a164f38f16a4a6630d79124ddd51e4b9fb6e83f1a50d"
+      "sha256": "42f99bea1341e6c25b5aa3d6cfac6d94383f8981517e245deba661530e4eaddb"
     },
     {
       "file": "RecentsAnimationControllerCompat.md",
@@ -62,6 +62,14 @@
     {
       "file": "RecentsViewAnimUtil.md",
       "sha256": "99553a7c04f26f71d2839785faadf1a499bcc821409c8f41379b8e48bb578603"
+    },
+    {
+      "file": "existing-log-comparison.json",
+      "sha256": "3a1128dcf06c29a246f77401167aa24579bd743e8e84d1b23e244bf158352acb"
+    },
+    {
+      "file": "existing-log-comparison.md",
+      "sha256": "ee518144c24059339bd49a33b6e2083b881e8287d87cb7eb54d7257d43027317"
     }
   ]
 }

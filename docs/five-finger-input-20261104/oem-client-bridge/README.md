@@ -1,5 +1,7 @@
 # OEM 客户端桥已补：当前实机构件与接受版 Launcher
 
+后续结果：[已有日志对照与可见性边界](existing-log-comparison.md)。没有故障窗setter证据，不再扩无目标静态扫描。
+
 **hardware_success_claimed=false；无修复候选。** 本轮只读复制两个现有文件、读取 SHA；没有切应用、输入注入、主动亮灭屏、重启或新建触发瞬间采集。
 
 ## 直接阅读：Binder 桥不再缺字节码
