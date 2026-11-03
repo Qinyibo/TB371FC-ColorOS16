@@ -1,5 +1,7 @@
 # 给 Grok：五指收拢后普通触摸／Home 偶发失效，同步分析入口
 
+后续补齐：[实际 DEX 方法摘录、输入区域语义及 controller 身份对照](dex-excerpts/README.md)。
+
 **尚未修复，hardware_success_claimed=false。请与黑屏线并行推进，不等待 Codex 独自完成。**
 
 ## 当前基线

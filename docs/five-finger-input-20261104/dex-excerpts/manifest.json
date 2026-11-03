@@ -1,0 +1,64 @@
+{
+  "baseline_jar_sha256": "a5928b090b68085bd2f32d9ecd39d76d1f4919ffee7072a071ef978232f46136",
+  "api": 35,
+  "source": "actual baseline DEX, selective baksmali API disassembly; no source patch",
+  "hardware_success_claimed": false,
+  "excerpts": [
+    {
+      "file": "OplusGestureAnimationManagerPolicy$2.md",
+      "sha256": "a89506d0f7df6ca77781b6e29eeb6a4a2a00aa0555f86522b256c55904782607",
+      "methods": [
+        ".method public onAnimationCanceled()V",
+        ".method public onAnimationStart(Landroid/view/IOplusGestureAnimationController;[Landroid/view/RemoteAnimationTarget;[Landroid/view/SurfaceControl;)V"
+      ]
+    },
+    {
+      "file": "OplusGestureAnimationManagerPolicy.md",
+      "sha256": "fc4d4c8b99091340e2caa0d33efd76daaadfb767f7e3a4969844b60179fb4515",
+      "methods": [
+        ".method private synthetic lambda$finishAnimation$0()V",
+        ".method private playReboundAnimIfNeed()Z",
+        ".method private resetGestureAnimation()V",
+        ".method public finishAnimation()V",
+        ".method public startAnmation()V"
+      ]
+    },
+    {
+      "file": "OplusGestureAnimationManagerPolicy$8.md",
+      "sha256": "adeb701aed4bed68d26c76890f89b1302ebac4f117ea73e334bf15bcf3d845fb",
+      "methods": [
+        ".method public onAnimationCancel(Landroid/animation/Animator;)V",
+        ".method public onAnimationEnd(Landroid/animation/Animator;)V"
+      ]
+    },
+    {
+      "file": "OplusGestureAnimationController.md",
+      "sha256": "eac07118f1aae6609659b0a3e555f7ab65b9ad184e70be032631b5744788ae50",
+      "methods": [
+        ".method private cleanUpOnAnimationEnd()V",
+        ".method private synthetic lambda$new$0()V",
+        ".method cancelAnimation(Ljava/lang/String;)V",
+        ".method cancelAnimationInRun()V",
+        ".method cleanupAnimation()V",
+        ".method public finishGestureAnimationUncheck()V",
+        ".method scheduleFailsafe()V",
+        ".method public shouldApplyInputConsumer(Lcom/android/server/wm/ActivityRecord;)Z",
+        ".method public updateInputConsumerForApp(Landroid/view/InputWindowHandle;Z)Z"
+      ]
+    },
+    {
+      "file": "OplusGestureAnimationController$1.md",
+      "sha256": "cdd62d0841e8ac4fe17565f86d72bdaa74c55491bc7674d8c95d932269e28013",
+      "methods": [
+        ".method public finishGestureAnimation(Landroid/os/Bundle;)V"
+      ]
+    },
+    {
+      "file": "OplusGestureAnimation.md",
+      "sha256": "84f13fe0f6b13b44f538296a281ebd7992b51c4b4bd77a3dc837dddb1a7bbf5d",
+      "methods": [
+        ".method public onAnimationFinished()V"
+      ]
+    }
+  ]
+}

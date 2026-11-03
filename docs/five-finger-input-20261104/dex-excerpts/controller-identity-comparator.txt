@@ -1,0 +1,5 @@
+Normal comparator only; stable opaque aliases preserve controller equality; original object hashes and surface/task details omitted.
+11-03 23:54:13.967 finishAnimation controller-1
+11-03 23:54:14.175 finishAnimation controller-1
+11-03 23:54:18.214 finishAnimation controller-2
+11-03 23:54:18.418 finishAnimation controller-2
