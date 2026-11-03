@@ -8,6 +8,7 @@
 | `not-retained/art-gc/` | 精确libart符号上的后台collector切换延后；端点混合，恢复原ART |
 | `not-retained/caption-experiments/` | recents、TO_BACK、800ms延后；不替代当前400ms焦点版 |
 | `not-retained/launcher-replay/` | 缓冲完整手势重放；目标分支未被观察到，恢复原Launcher |
+| `input-lifecycle-r1/` | resetState局部清理试验；host/ART契约通过，用户Home故障仍出现，UI套件中止；已撤回并恢复原版，不进入产品 |
 | `measurement/` | 短夹具、低开销trace配置、SQL与本机测试脚本 |
 
 这些源码仅公开实际写过的可编辑改动，不附原厂APK/JAR/libart二进制或可直接安装候选。文件里的历史“offline”“candidate”等状态保持原意；当前解释以[性能记录](../docs/performance.md)为准。

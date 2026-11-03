@@ -1,4 +1,14 @@
-# v27 / r106 候选包与实机维护记录
+# v27 / r106 完整包与 r107 实机维护记录
+
+## 最新实机：r107（2026-11-03 晚）
+
+已安装 [r107 功能提交41082098d](https://github.com/Qinyibo/android_kernel_lenovo_tb371fc/commit/41082098de91855a809239bf64f339a16d39effe)。70项软件检查、完整Image、未变的配置/Module.symvers、精确非内核载荷/头部、boot分区完整回读及一次正常启动通过；原生服务、Enforcing、输入驱动与原版桌面命名空间核对正常。未清数据，未做唤醒压力测试。
+
+r107修正恢复状态提前完成、触控就绪错误漏传和同状态完整modeset漏提交，保留既有锁、故障代次及通知合并。**自然黑屏的INIT=0x9D和恢复后REK=A0起因仍未证实修复。** 当前供电接入线索及供Grok复核的问题统一见[最新交接](black-screen-handoff-20261103.md)。
+
+当前boot为100663296B，SHA256 `372004d3e4ad7985c58f9eade4961aa89a30ef8a5605e57e09eea0309e7129de`；Image为 `bfe1eb72f48503560051b5307fa009431cf43c087fc34086130ed9112752e8ff`。回退r106 boot为 `899860494f70ec1b63241a9ebbd25946502bdb7e932558bc114632f908ae0920`。本地v27 ZIP保持不变、仍含r106，不将新boot冒充已经验收的新整包。
+
+普通触摸/Home的Launcher清理试验已撤回，原版bdd74恢复。局部host/真实ART契约通过，UI行为测试因runner缺依赖中止，不能计为PASS；源码转入[研究目录](../research/input-lifecycle-r1/)，不进入产品资产。
 
 ## 最新打包：v27 / r106（2026-11-03）
 
