@@ -1,5 +1,7 @@
 # 给 Grok：五指收拢后普通触摸／Home 偶发失效，同步分析入口
 
+最新：[实机OEM客户端Binder桥／接受版Launcher调用索引](oem-client-bridge/README.md)。
+
 最新补件：[跨构件调用索引、fullscreen标志及performFinishAnimation](cross-artifact-followup/README.md)。
 
 最新补件：[manager／输入消费者／全 DEX 定向引用／failsafe 武装点](ownership-followup/README.md)。

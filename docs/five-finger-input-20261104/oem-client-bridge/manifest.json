@@ -1,0 +1,67 @@
+{
+  "hardware_success_claimed": false,
+  "source_jar_sha256": "c7cd0e506d1dd1b0de7c713b68e9508b2ce358ce76efb559138ad9c9fe1b4c99",
+  "accepted_launcher_sha256": "bdd74a3218e51a2b0a19d66bed5dae1d53c7b7794038bd1835b801c070a28b9d",
+  "device_hashes_matched": true,
+  "read_only_device_file_copy": true,
+  "input_power_or_reboot_actions": false,
+  "accepted_launcher_targeted_references_equal_previous_research_copy": true,
+  "files": [
+    {
+      "file": "accepted-launcher-provenance.json",
+      "sha256": "efa1ea426af07e0ffe98cfbbc5780423be25def314313dd74994fb244ede813a"
+    },
+    {
+      "file": "accepted-launcher-references.json",
+      "sha256": "a602bac54ab79583502597d383e44532161612be915ab11ac1455661a7f91b9f"
+    },
+    {
+      "file": "accepted-launcher-scope.json",
+      "sha256": "e8f62a3bb9d3f7992975068d9c14c520d30d9e1832b831fb9c5a43b1cb773c2b"
+    },
+    {
+      "file": "IOplusActivityTaskManager$Stub$Proxy.md",
+      "sha256": "6da6129eff001a513e9cf77404622d53809038123614456c738315bcf96efc97"
+    },
+    {
+      "file": "IOplusActivityTaskManager-transaction160.md",
+      "sha256": "3e7bd9d820bc19bad5eb09f74424827d4eb23c7823842b92be4ace736710e4a5"
+    },
+    {
+      "file": "oem-framework-references.json",
+      "sha256": "f428c7b31708e0cdef38758ee0fcc0347a63b16c4948eb0be51af0de6af2cee2"
+    },
+    {
+      "file": "oem-framework-scope.json",
+      "sha256": "a660e78749794ce3beb0ab3159ea8e27fc0d748c452654dc3fc1100e1b538d51"
+    },
+    {
+      "file": "OplusActivityManager.md",
+      "sha256": "3ebb97cbb343d40d124d9d58d94e1a70493eb89bdceb3c9dfec529b848ce7ef8"
+    },
+    {
+      "file": "OplusActivityTaskManager.md",
+      "sha256": "53e33f7f0d251069acca6d64878434f70cd0b019d990aaf1811be7ce218d22bc"
+    },
+    {
+      "file": "OplusActivityTaskManagerServiceEnhance.md",
+      "sha256": "22cfd4b52b14f4a6b780ca8423ab0075866745df44085dd1d7e9e38bd8282d1c"
+    },
+    {
+      "file": "provenance.json",
+      "sha256": "24ba75bcba321c6fbf340be28e1ed2fa414527fe3b93d694f9faec6d2ff235e3"
+    },
+    {
+      "file": "README.md",
+      "sha256": "167d9604bf7e13001486a164f38f16a4a6630d79124ddd51e4b9fb6e83f1a50d"
+    },
+    {
+      "file": "RecentsAnimationControllerCompat.md",
+      "sha256": "d3f38b75f30da3da861c549a848c0aeda5000ddcf881d4eeed7ca21a833a2745"
+    },
+    {
+      "file": "RecentsViewAnimUtil.md",
+      "sha256": "99553a7c04f26f71d2839785faadf1a499bcc821409c8f41379b8e48bb578603"
+    }
+  ]
+}

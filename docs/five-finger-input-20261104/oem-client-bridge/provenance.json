@@ -1,0 +1,8 @@
+{
+  "path": "/system/framework/oplus-framework.jar",
+  "sha256": "c7cd0e506d1dd1b0de7c713b68e9508b2ce358ce76efb559138ad9c9fe1b4c99",
+  "device_hash_matched": true,
+  "oplus_services_device_hash": "a5928b090b68085bd2f32d9ecd39d76d1f4919ffee7072a071ef978232f46136",
+  "read_only_file_copy": true,
+  "input_or_power_actions": false
+}
