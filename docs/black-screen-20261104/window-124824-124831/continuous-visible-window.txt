@@ -1,0 +1,1555 @@
+Window inclusive 12:48:24.000 through12:48:31.999. ALL available matching records retained in chronological order; unrelated payloads omitted. Main-buffer coverage missing; not a complete all-buffer window.
+11-04 12:48:24.600  2303  2742 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:24.601  2303  2742 I OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:24.601  2303  2742 W OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:24.601  2303  2742 D OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:24.601  2303  2742 D StrategyBlackscreenshot: [unrelated payload omitted]
+11-04 12:48:24.604  2303  2742 I PhoneWindowManagerExtImpl: setSceneAction Start CPU boost-1
+11-04 12:48:24.604  2303  2742 I intercept_power: [ACTION_DOWN,0,1]
+11-04 12:48:24.613  2303  2742 E Biometrics/Fingerprint/Extension: [unrelated payload omitted]
+11-04 12:48:24.614  2303  2742 E Orms_ManagerInner: [unrelated payload omitted]
+11-04 12:48:24.615  2303  2742 D OplusPowerManagerHelper: [isFaceAutoUnlockEnabled]
+11-04 12:48:24.615  2303  2742 E OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:24.615  2303  2742 D OplusFeatureAOD: [unrelated payload omitted]
+11-04 12:48:24.616  2303  2742 D OplusPowerManagerHelper: scheduleNotifyStopDream
+11-04 12:48:24.616  2303  2742 D OplusPowerManagerHelper: [onWakeUp]
+11-04 12:48:24.616  2303  2472 D OplusPowerManagerHelper: handleMessage:102
+11-04 12:48:24.616  2303  2472 D OplusPowerManagerHelper: MSG_STOP_DEAM
+11-04 12:48:24.616  2303  2742 E OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:24.616  2303  2742 D OplusPowerManagerHelper: [requestKeyguard]
+11-04 12:48:24.616  2303  2742 I PowerGroup: Waking up power group from Asleep (groupId=0, uid=1000, reason=WAKE_REASON_POWER_BUTTON, details=android.policy:POWER)...
+11-04 12:48:24.616  2303  2742 D PowerManagerService: userActivityNoUpdateLocked: groupId=0, eventTime=15694909, event=other, flags=0x0, uid=1000
+11-04 12:48:24.617  2303  2742 I InputManager: displayId:0, displayInteractive:true
+11-04 12:48:24.617  2303  2742 I PowerManagerService: Waking up from Asleep (uid=1000, reason=WAKE_REASON_POWER_BUTTON, details=android.policy:POWER)...
+11-04 12:48:24.617  2303  2748 I FlexibleWindowManagerService: mInteractivetrue
+11-04 12:48:24.618  2303  2472 I screen_toggled: [unrelated payload omitted]
+11-04 12:48:24.619  2303  2742 D OplusScreenOffTorchHelper: [unrelated payload omitted]
+11-04 12:48:24.619  2303  2742 D DpcExtImpl[display=0]: setBrightnessNoAnimation, noAnimation = true
+11-04 12:48:24.619  2303  2742 D DisplayPowerController[display=0]: requestPowerState: policy=BRIGHT, useProximitySensor=false, screenBrightnessOverride=-1.0, useAutoBrightness=false, screenAutoBrightnessAdjustmentOverride=NaN, screenLowPowerBrightnessFactor=1.0, blockScreenOn=false, lowPowerMode=false, boostScreenBrightness=false, dozeScreenBrightness=NaN, dozeScreenState=UNKNOWN, dozeScreenStateReason=DEFAULT_POLICY, useNormalBrightnessForDoze=false, waitForNegativeProximity=false displayReady=false pendingRequest=true
+11-04 12:48:24.619  2303  2742 D DisplayManagerServiceExtImpl: request size(1,1),dpc=com.android.server.display.DisplayPowerController@33aa8bb size(0,1),flags=0X200F,id(0,0,local:4630947161651687041),enable=true,ready=false,waitForNegativeProximity=false policy=BRIGHT,useProximitySensor=false,dozeState=UNKNOWN,screenBrightnessOverride=-1.000000,useAuto=false,lowPower=false,lowPowerFactor=1.000000
+11-04 12:48:24.620  2303  2742 D OplusScreenTimeEvent: [unrelated payload omitted]
+11-04 12:48:24.620  2303  2459 D BatteryExternalStatsWorker: [unrelated payload omitted]
+11-04 12:48:24.625  2303  2472 D OplusDisplayState: setScreenState = 2 isPrimary = true
+11-04 12:48:24.625  2303  2472 D OplusBrightnessAmbientAdapter: [unrelated payload omitted]
+11-04 12:48:24.625  2303  2472 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:24.625  2303  2479 D VRR [OPlusRefreshRateService]: [unrelated payload omitted]
+11-04 12:48:24.625  2303  2472 D LuxEvent: [unrelated payload omitted]
+11-04 12:48:24.625  2303  2472 D LuxEvent: [unrelated payload omitted]
+11-04 12:48:24.625  2303  2472 D OplusFeatureBrightnessBarController: [unrelated payload omitted]
+11-04 12:48:24.625  2303  2472 D DisplayPowerState[display=0]: setScreenState changed:OFF->ON
+11-04 12:48:24.625  2303  2472 I DisplayPowerController[display=0]: Blocking screen on until initial contents have been drawn.
+11-04 12:48:24.625  2303  2472 D WindowManager: screenTurnedOn  Display{#0 state=OFF size=2944x1840 ROTATION_90}
+11-04 12:48:24.625  2303  2472 D WindowManager: Remove SleepToken: tag=Display-off, displayId=0
+11-04 12:48:24.626  2303  2473 D ActivityManager: Async freezing 22566 [APP]:webview_service
+11-04 12:48:24.626  2303  2473 D ActivityManager: Async freezing 21854 [APP]
+11-04 12:48:24.626  2303  3855 D KEYLOG_PhoneWindowManager: mKeyguardDelegate.ShowListener.onDrawn.
+11-04 12:48:24.626  2303  2473 D ActivityManager: Async freezing 10379 [APP]
+11-04 12:48:24.626  2303  2430 W KEYLOG_PhoneWindowManager: Setting mKeyguardDrawComplete
+11-04 12:48:24.626  2303  2473 D ActivityManager: Async freezing 11345 [APP]:push
+11-04 12:48:24.626  2303  2473 D ActivityManager: Async freezing 27573 [APP]
+11-04 12:48:24.627  2303  2430 I WindowManager: Window{106d98a u0 NotificationShade} state from HAS_DRAWN to DRAW_PENDING; reason: requestDrawIfNeeded
+11-04 12:48:24.627  2303  2473 D ActivityManager: Async freezing 23738 [APP]
+11-04 12:48:24.627  2303  2472 I DisplayPowerController: Window Manager Policy screenTurningOn complete
+11-04 12:48:24.627  2303  2472 D DisplayPowerController[display=0]: animateScreenStateChange screen on blocked blocker=com.android.server.display.DisplayPowerController$ScreenOnUnblocker@fbedb81
+11-04 12:48:24.627  2303  2472 D AutomaticController[display=0]: setAutoStrategyEnabled: enable=true, mAutoStrategyEnable=false
+11-04 12:48:24.627  2303  2473 D ActivityManager: Async freezing 21645 [APP]:clockWidget
+11-04 12:48:24.627  2303  2430 I WindowManager: Waiting for drawn Window{106d98a u0 NotificationShade}: removed=false visible=true mHasSurface=true drawState=1
+11-04 12:48:24.627  2303  2472 I DisplayBrightnessStrategySelector: Changing the DisplayBrightnessStrategy from ScreenOffBrightnessStrategy to AutomaticBrightnessStrategy for display 0
+11-04 12:48:24.627  2303  2473 D ActivityManager: Async freezing 27280 [APP]
+11-04 12:48:24.627  2303  2430 D WindowManager: waitForAllWindowsDrawn displayId=-1,false,message={ when=-4h21m35s29ms what=7 arg1=-1 target=com.android.server.policy.PhoneWindowManager$PolicyHandler }
+11-04 12:48:24.627  2303  2472 D OplusFeatureReduceBrightness: [unrelated payload omitted]
+11-04 12:48:24.627  2303  2473 D ActivityManager: Async freezing 28026 com.oplus.remotecontrol
+11-04 12:48:24.628  2303  2472 D OplusFeatureDimPolicy[0]: [unrelated payload omitted]
+11-04 12:48:24.628  2303  2472 D OplusFeatureReduceBrightness: [unrelated payload omitted]
+11-04 12:48:24.628  2303  2472 D OplusBrightnessAmbientAdapter: [unrelated payload omitted]
+11-04 12:48:24.628  2303  2433 I WindowManager: Waiting for drawn Window{106d98a u0 NotificationShade}: removed=false visible=true mHasSurface=true drawState=1
+11-04 12:48:24.629  2303  2473 D ActivityManager: Async freezing 27429 com.oplus.romupdate
+11-04 12:48:24.629  2303  2473 D ActivityManager: Async freezing 28064 com.oplus.account
+11-04 12:48:24.629  2303  2473 D ActivityManager: Async freezing 21381 com.oplus.aiunit
+11-04 12:48:24.629  2303  2473 D ActivityManager: Async freezing 27479 com.android.statementservice
+11-04 12:48:24.630  2303  2473 D ActivityManager: Async freezing 27257 [APP]
+11-04 12:48:24.630  2303  3861 I sysui_multi_action: [757,127,758,1]
+11-04 12:48:24.630  2303  3861 I sysui_multi_action: [757,804,799,note_load,801,0,802,1]
+11-04 12:48:24.630  2303  3861 I notification_panel_revealed: [unrelated payload omitted]
+11-04 12:48:24.630  2303  2473 D ActivityManager: Async freezing 27282 com.oplus.screenshot
+11-04 12:48:24.631  2303  5172 D CoreBackPreview: [unrelated payload omitted]
+11-04 12:48:24.631  2303  2473 D ActivityManager: Async freezing 27011 [APP]
+11-04 12:48:24.631  2303  2473 D ActivityManager: Async freezing 22568 com.android.adservices.api
+11-04 12:48:24.631  2303  2473 D ActivityManager: Async freezing 23257 com.android.permissioncontroller
+11-04 12:48:24.631  2303  2477 D LuxEvent: [unrelated payload omitted]
+11-04 12:48:24.631  2303  2477 D LuxEvent: [unrelated payload omitted]
+11-04 12:48:24.631  2303  2473 D ActivityManager: Async freezing 21222 com.android.settings.intelligence
+11-04 12:48:24.631  2303  2472 D DpcExtImpl[display=0]: Animating brightness: hdrBrightness target=222.0->6536.0454,sdrBrightness target=222.0->6536.0454,rate=6400->0,rate type = dim->dim,byUser=false local:4630947161651687041 , brightness from dpc = 7064.3125
+11-04 12:48:24.632  2303  2472 I sysui_multi_action: [757,1696,758,6,759,3]
+11-04 12:48:24.632  2303  2472 D DisplayPowerController[display=0]: updatePowerStateInternal policy:OFF->BRIGHT,state:OFF->ON policy=BRIGHT, useProximitySensor=false, screenBrightnessOverride=-1.0, useAutoBrightness=false, screenAutoBrightnessAdjustmentOverride=NaN, screenLowPowerBrightnessFactor=1.0, blockScreenOn=false, lowPowerMode=false, boostScreenBrightness=false, dozeScreenBrightness=NaN, dozeScreenState=UNKNOWN, dozeScreenStateReason=DEFAULT_POLICY, useNormalBrightnessForDoze=false
+11-04 12:48:24.632  2303  2473 D ActivityManager: Async freezing 22285 [APP]:ocs
+11-04 12:48:24.632  2303  2472 D DisplayPowerController[display=0]: animateScreenStateChange screen on blocked blocker=com.android.server.display.DisplayPowerController$ScreenOnUnblocker@fbedb81
+11-04 12:48:24.632  2303  2472 D OplusFeatureReduceBrightness: [unrelated payload omitted]
+11-04 12:48:24.632  2303  2477 D ProximityEvent: [unrelated payload omitted]
+11-04 12:48:24.632  2303  2477 D ProximityEvent: [unrelated payload omitted]
+11-04 12:48:24.632  2303  2472 D DisplayPowerState[display=0]: updateRunnable run fadeLevle=0.0 state=ON brightness changed:6536.0454->-1.0
+11-04 12:48:24.632  2303  2886 D DisplayPowerState[display=0]: Updating screen state: id=0, state=ON, backlight=-1.0, sdrBacklight=-1.0
+11-04 12:48:24.632  2303 31228 W ContextImpl: [unrelated payload omitted]
+11-04 12:48:24.634  2303  2886 D DisplayAdapterExt: sendDisplayDeviceEventLocked event=2,now=51752062,timestamp=51752062 device:[id=local:4630947161651687041,stack=-1],isFirst=true,activeMode=2,state=ON,commitState=OFF,devInfo:null
+11-04 12:48:24.634  2303  2886 I FoldScreenSwitching_poweron_start: 15695036
+11-04 12:48:24.635  2303  2473 W ContextImpl: [unrelated payload omitted]
+11-04 12:48:24.636  3079  3193 D ShellSplitScreen: [unrelated payload omitted]
+11-04 12:48:24.637  2303  2432 I DisplayDeviceRepository: Display device changed state: "内置屏幕", ON
+11-04 12:48:24.637  2303  2432 D LogicalDisplayMapper: Display device changed diff=2
+11-04 12:48:24.637  2303  2432 D LogicalDisplayExt: set displayInfo flag FLAG_ROTATES_WITH_CONTENT
+11-04 12:48:24.637  2303  2432 D DisplayManagerServiceExtImpl: scheduleTraversalLocked intraversal=false
+11-04 12:48:24.637  2303  2432 I DisplayManagerServiceExtImpl: handle logical display changed logicalDisplay=id=0,stack=0,content=true,displayInfo{stack=0,type=1,id=0,uId=local:4630947161651687041,state=ON,pkg=null}
+11-04 12:48:24.637  2303  2473 I power_screen_broadcast_send: 1
+11-04 12:48:24.637  2303  2473 D NotifierExtImpl: [unrelated payload omitted]
+11-04 12:48:24.637  2303  2473 D OplusPowerManagerServiceEnhance: notifyScreenOnOff on=true
+11-04 12:48:24.637  2303  2432 D DisplayManagerService: Delivering display event: displayId=0, event=BASIC_CHANGED
+11-04 12:48:24.638  2303  2430 D WindowManager: DeferredDisplayUpdater: partially applying DisplayInfo(1840 x 2944) immediately
+11-04 12:48:24.639  3079  3079 W VRI[NotificationShade]: [unrelated payload omitted]
+11-04 12:48:24.640  2303  2430 D FSS_FoldScreenBlackCoverController: [unrelated payload omitted]
+11-04 12:48:24.640  2303  2432 D DisplayManagerService: MSG_REQUEST_TRAVERSAL pendingCompleted=false
+11-04 12:48:24.641  3079  3079 W VRI[NotificationShade]: [unrelated payload omitted]
+11-04 12:48:24.642  2947  2947 D CastManagerService: [unrelated payload omitted]
+11-04 12:48:24.642  3079  3079 I viewroot_draw_event: [VRI[NotificationShade],Resumed drawing after screen turned on]
+11-04 12:48:24.645  2303  2430 D DisplayManagerService: performTraversalInternal pendingTraversal
+11-04 12:48:24.645  2303  2430 D DisplayDevice: setLayerStackLocked id=local:4630947161651687041 token=android.os.BinderProxy@f1a3779 stack=-1->0
+11-04 12:48:24.645  2303  2430 I DisplayDevice: [0] Layerstack set to 0 for local:4630947161651687041
+11-04 12:48:24.646  2303  2830 I MR2ServiceImpl: [unrelated payload omitted]
+11-04 12:48:24.647   750   750 I auditd  : [unrelated payload omitted]
+11-04 12:48:24.647   750   750 I auditd  : [unrelated payload omitted]
+11-04 12:48:24.647   750   750 I auditd  : [unrelated payload omitted]
+11-04 12:48:24.647   750   750 I auditd  : [unrelated payload omitted]
+11-04 12:48:24.647   750   750 I auditd  : [unrelated payload omitted]
+11-04 12:48:24.648  3079  3079 I viewroot_draw_event: [VRI[NotificationShade],reportDrawFinished seqId=0]
+11-04 12:48:24.649  2303  2459 D BatteryExternalStatsWorker: [unrelated payload omitted]
+11-04 12:48:24.653  3230  3230 D OplusDataNetworkControllerImpl/0: [unrelated payload omitted]
+11-04 12:48:24.653  3230  3230 D OplusDataNetworkControllerImpl/0: [unrelated payload omitted]
+11-04 12:48:24.653  3230  3230 D OplusDataNetworkControllerImpl/0: [unrelated payload omitted]
+11-04 12:48:24.654  3230  3230 D SSCtr   : [unrelated payload omitted]
+11-04 12:48:24.654  2303  2694 V AlarmManager: [unrelated payload omitted]
+11-04 12:48:24.655  2303  2694 V AlarmManager: [unrelated payload omitted]
+11-04 12:48:24.658  2303  2964 D OAppNetControlService: [unrelated payload omitted]
+11-04 12:48:24.658  2303  2459 D BatteryExternalStatsWorker: [unrelated payload omitted]
+11-04 12:48:24.660  3230  3230 D RILJ    : [unrelated payload omitted]
+11-04 12:48:24.660  3230  3230 D DeviceStateMonitor: [unrelated payload omitted]
+11-04 12:48:24.660  3230  3230 D OplusNetworkPowerState: shouldSkipSignalStrengthReports feature not enable
+11-04 12:48:24.660  3230  3230 D RILJ    : [unrelated payload omitted]
+11-04 12:48:24.660  3230  3230 D RILJ    : [unrelated payload omitted]
+11-04 12:48:24.661  3230  3722 D RILJ    : [unrelated payload omitted]
+11-04 12:48:24.661  3230  3722 D RilRequest: [unrelated payload omitted]
+11-04 12:48:24.661  3230  3722 D RILJ    : [unrelated payload omitted]
+11-04 12:48:24.661  3230  3722 D RilRequest: [unrelated payload omitted]
+11-04 12:48:24.661  3230  3722 D RILJ    : [unrelated payload omitted]
+11-04 12:48:24.661  3230  3722 D RilRequest: [unrelated payload omitted]
+11-04 12:48:24.662  2303  2440 D AppProfilerExtImpl: [unrelated payload omitted]
+11-04 12:48:24.669  2303  2430 I WindowManager: Waiting for drawn Window{106d98a u0 NotificationShade}: removed=false visible=true mHasSurface=true drawState=1
+11-04 12:48:24.669  2303  2432 D DisplayManagerService: Delivering display event: displayId=0, event=EVENT_DISPLAY_STATE_CHANGED
+11-04 12:48:24.671  2303  2931 E OplusBatteryService: [unrelated payload omitted]
+11-04 12:48:24.672  2303  2433 I WindowManager: Waiting for drawn Window{106d98a u0 NotificationShade}: removed=false visible=true mHasSurface=true drawState=1
+11-04 12:48:24.672  2303  2931 E OplusBatteryService: [unrelated payload omitted]
+11-04 12:48:24.672  2303  5831 V WindowManager: Relayout Window{106d98a u0 NotificationShade}: viewVisibility=0, oldvis=0, req=2944x1840 , apr = 0, vsysui=, x=0, y=0
+11-04 12:48:24.673  2303  5831 I WindowManager: Waiting for drawn Window{106d98a u0 NotificationShade}: removed=false visible=true mHasSurface=true drawState=1
+11-04 12:48:24.673  2303  5831 D WindowManager: NFW_findFocusedWindowIfNeeded:Window{106d98a u0 NotificationShade} mCurrentFocus:Window{106d98a u0 NotificationShade}
+11-04 12:48:24.674  2303  5831 I WindowManager: Window{106d98a u0 NotificationShade} state from DRAW_PENDING to COMMIT_DRAW_PENDING; reason: finishDrawingLocked
+11-04 12:48:24.674  3079  3079 I viewroot_draw_event: [VRI[StatusBar],Resumed drawing after screen turned on]
+11-04 12:48:24.674  2303  2433 D WindowManager: NFW_setClientVisible:WallpaperWindowToken{c6e1931 showWhenLocked=true} clientVisible:true
+11-04 12:48:24.674 11386 11386 I viewroot_draw_event: [VRI[Taskbar],Resumed drawing after screen turned on]
+11-04 12:48:24.675  3230  3230 D RILJ    : [unrelated payload omitted]
+11-04 12:48:24.675  2303  2742 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:24.675  2303  2742 I OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:24.675  2303  2742 W OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:24.675  2303  2742 D OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:24.675  2303  2433 I WindowManager: Window{106d98a u0 NotificationShade} state from COMMIT_DRAW_PENDING to READY_TO_SHOW; reason: commitFinishDrawingLocked
+11-04 12:48:24.675  3230  3230 D SSCtr   : [unrelated payload omitted]
+11-04 12:48:24.675  2303  2433 I WindowManager: Window{106d98a u0 NotificationShade} state from READY_TO_SHOW to HAS_DRAWN; reason: performShowLocked
+11-04 12:48:24.675  3230  3230 D NetworkTypeController: [unrelated payload omitted]
+11-04 12:48:24.675  2303  2742 D StrategyBlackscreenshot: [unrelated payload omitted]
+11-04 12:48:24.675  3230  3230 D NetworkTypeController: [unrelated payload omitted]
+11-04 12:48:24.675  3230  3230 D NetworkTypeController: [unrelated payload omitted]
+11-04 12:48:24.675  3230  3230 D OplusNetworkManagerImpl: [unrelated payload omitted]
+11-04 12:48:24.675  3230  3230 D OplusNetworkManagerImpl: [unrelated payload omitted]
+11-04 12:48:24.675  3230  3230 D OplusNetworkManagerImpl: [unrelated payload omitted]
+11-04 12:48:24.675  3230  3230 D Phone-0 : [unrelated payload omitted]
+11-04 12:48:24.675  3230  3230 D OplusNetworkManagerImpl: [unrelated payload omitted]
+11-04 12:48:24.675  2303  2433 I WindowManager: Waiting for drawn Window{106d98a u0 NotificationShade}: removed=false visible=true mHasSurface=true drawState=4
+11-04 12:48:24.675  3230  3722 D RILJ    : [unrelated payload omitted]
+11-04 12:48:24.675  3230  3722 D RilRequest: [unrelated payload omitted]
+11-04 12:48:24.675  3230  3230 D OplusNetworkUtils: [unrelated payload omitted]
+11-04 12:48:24.675  3230  3230 D OplusNetworkUtils: [unrelated payload omitted]
+11-04 12:48:24.675  2303  2430 W KEYLOG_PhoneWindowManager: All windows drawn on display -1
+11-04 12:48:24.675  3230  3230 D OplusNetworkManagerImpl: [unrelated payload omitted]
+11-04 12:48:24.675  2303  2430 D FSS_FoldScreenBlackCoverController: [unrelated payload omitted]
+11-04 12:48:24.676  2303  2742 I intercept_power: [ACTION_UP,0,0]
+11-04 12:48:24.676  2303  2742 D PhoneWindowManagerExtImpl: send check wallet message failed by switch close
+11-04 12:48:24.676  2303  2742 I HwShutdownRecord: [unrelated payload omitted]
+11-04 12:48:24.676  2303  2459 D BatteryExternalStatsWorker: [unrelated payload omitted]
+11-04 12:48:24.676  2303  2742 I HwShutdownRecord: [unrelated payload omitted]
+11-04 12:48:24.677  3230  3722 E RILJ    : [unrelated payload omitted]
+11-04 12:48:24.677  2303  2433 I wm_wallpaper_surface: [unrelated payload omitted]
+11-04 12:48:24.679  2303  2477 D SensorDelegate: [unrelated payload omitted]
+11-04 12:48:24.679  2303  2477 E SensorDelegate: [unrelated payload omitted]
+11-04 12:48:24.679  2303  2477 D SensorDelegate: [unrelated payload omitted]
+11-04 12:48:24.679  2303  2477 D SensorDelegate: [unrelated payload omitted]
+11-04 12:48:24.679  2303  2430 I WindowManager: Finished screen turning on...0
+11-04 12:48:24.679  2303  2430 D DpcExtImpl[display=0]: ScreenOnUnblocker, onScreenOn
+11-04 12:48:24.679  2303  2472 I DisplayPowerController[display=0]: Unblocked screen on after 54 ms
+11-04 12:48:24.680  3230 31231 D OplusUiccManagerImpl: [unrelated payload omitted]
+11-04 12:48:24.680  2303  2472 D DisplayPowerState[display=0]: setColorFadeLevel: level=1.0
+11-04 12:48:24.680  2303  2459 D BatteryStatsImplExtImpl: [unrelated payload omitted]
+11-04 12:48:24.680  2303  2459 D BatteryStatsImplExtImpl: [unrelated payload omitted]
+11-04 12:48:24.680  2303  2430 V SinglePowerKeyMonitor: p keyrule onPress. isXiaoBuFloat = false isUnderWaterGraining = false
+11-04 12:48:24.680  2303  2430 D PhoneWindowManagerExtImpl: send powerPress, interactive=true downTime=15694909
+11-04 12:48:24.680  2303  2430 D KEYLOG_PhoneWindowManager: powerPress: eventTime=15694909 interactive=true count=1 mShortPressOnPowerBehavior=1 mShouldEarlyShortPressOnPower=false
+11-04 12:48:24.680  2303  2430 V KEYLOG_PhoneWindowManager: Ignoring short press of power button because the device is not interactive. interactive=true, beganFromNonInteractive=true
+11-04 12:48:24.683  2303  2472 D OplusFeatureReduceBrightness: [unrelated payload omitted]
+11-04 12:48:24.686  2303  2879 D OplusBatteryManager: [unrelated payload omitted]
+11-04 12:48:24.690  2303  5831 D OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:24.691  2303  5831 D OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:24.691  4889  5858 W ContextImpl: [unrelated payload omitted]
+11-04 12:48:24.697  2303  3861 W ActivityManager: Unable to start service Intent { xflg=0x4 cmp=[APP] (has extras) mCallingUid=1000 } U=0: not found
+11-04 12:48:24.706  2303  2694 D OplusAlarmAdjustment: [unrelated payload omitted]
+11-04 12:48:24.706  2303  2694 D OplusAlarmAdjustMap: [unrelated payload omitted]
+11-04 12:48:24.709  2303  2694 D AlarmWakeupCheck: [unrelated payload omitted]
+11-04 12:48:24.713  2303  2892 E AppOps  : [unrelated payload omitted]
+11-04 12:48:24.724  2303  2830 I MR2ServiceImpl: [unrelated payload omitted]
+11-04 12:48:24.725  2303  5172 E AppOps  : [unrelated payload omitted]
+11-04 12:48:24.729  2303  5172 E AppOps  : [unrelated payload omitted]
+11-04 12:48:24.733  3230  3230 D SST     : [unrelated payload omitted]
+11-04 12:48:24.735  2303  2892 E AppOps  : [unrelated payload omitted]
+11-04 12:48:24.744  2303  3861 W BroadcastQueue: [unrelated payload omitted]
+11-04 12:48:24.744  2303  2303 I battery_saving_stats: [unrelated payload omitted]
+11-04 12:48:24.744  2303  3707 W BroadcastQueue: [unrelated payload omitted]
+11-04 12:48:24.747  2303  2964 D CommSceneService: [unrelated payload omitted]
+11-04 12:48:24.747  2303  2964 E CommSceneService: [unrelated payload omitted]
+11-04 12:48:24.747  2303  2964 D OSysNetControlService: [unrelated payload omitted]
+11-04 12:48:24.751  2303  2940 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:24.751  2303  2940 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:24.751  2303  2940 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:24.751  2303  2940 I GameManagerServiceExt-GameManagerTopState: [unrelated payload omitted]
+11-04 12:48:24.751  2303  2940 I GameManagerServiceExt-GameManagerServiceExt: [unrelated payload omitted]
+11-04 12:48:24.753  2303  2754 W OplusStorageManagerFeature: [unrelated payload omitted]
+11-04 12:48:24.754  2303  2754 W OplusStorageManagerFeature: [unrelated payload omitted]
+11-04 12:48:24.754   700 31240 D vold    : [unrelated payload omitted]
+11-04 12:48:24.754   700 31240 D vold    : [unrelated payload omitted]
+11-04 12:48:24.755  2303  2754 E OplusStorageManagerFeature: [unrelated payload omitted]
+11-04 12:48:24.755  2303  2754 E OplusStorageManagerFeature: [unrelated payload omitted]
+11-04 12:48:24.755  2303  2754 E OplusStorageManagerFeature: [unrelated payload omitted]
+11-04 12:48:24.755  2303  2754 E OplusStorageManagerFeature: [unrelated payload omitted]
+11-04 12:48:24.755  2303  2754 E OplusStorageManagerFeature: [unrelated payload omitted]
+11-04 12:48:24.755  2303  2754 E OplusStorageManagerFeature: [unrelated payload omitted]
+11-04 12:48:24.755  2303  2754 E OplusStorageManagerFeature: [unrelated payload omitted]
+11-04 12:48:24.755  2303  2754 E OplusStorageManagerFeature: [unrelated payload omitted]
+11-04 12:48:24.755  2303  2754 E OplusStorageManagerFeature: [unrelated payload omitted]
+11-04 12:48:24.755  2303  2754 E OplusStorageManagerFeature: [unrelated payload omitted]
+11-04 12:48:24.755  2303  2754 E OplusStorageManagerFeature: [unrelated payload omitted]
+11-04 12:48:24.755  2303  2754 E OplusStorageManagerFeature: [unrelated payload omitted]
+11-04 12:48:24.755  2303  2754 E OplusStorageManagerFeature: [unrelated payload omitted]
+11-04 12:48:24.755  2303  2447 I am_wtf  : [unrelated payload omitted]
+11-04 12:48:24.756  2303  2825 I power_screen_broadcast_done: [1,119,1]
+11-04 12:48:24.757  2303  2477 D OplusDisplayBrightnessBroadcastReceiver: onReceive action = android.intent.action.TIME_TICK , listeners = [com.android.server.display.color.eyeprotect.manager.AiCurveManager$RhythmBroadcastReceiverWithUpgradeUI@9aa4d36, com.android.server.display.feature.ambience.events.event.TimeEvent$TimeChangeReceiver@a9d24fa]
+11-04 12:48:24.762  3230  3230 I LocalBus: [unrelated payload omitted]
+11-04 12:48:24.769  3230  6014 D NetworkTypeController: [unrelated payload omitted]
+11-04 12:48:24.770  3230  6014 D NetworkTypeController: [unrelated payload omitted]
+11-04 12:48:24.770  3230  3732 D TelephonyCountryDetector: [unrelated payload omitted]
+11-04 12:48:24.770  3230  3732 D TelephonyCountryDetector: [unrelated payload omitted]
+11-04 12:48:24.770  3230  6014 D OplusNetworkManagerImpl: [unrelated payload omitted]
+11-04 12:48:24.770  3230  6014 D OplusNetworkManagerImpl: [unrelated payload omitted]
+11-04 12:48:24.770  3230  6014 D OplusNetworkManagerImpl: [unrelated payload omitted]
+11-04 12:48:24.770  3230  6014 D Phone-0 : [unrelated payload omitted]
+11-04 12:48:24.770  3230  6014 D OplusNetworkManagerImpl: [unrelated payload omitted]
+11-04 12:48:24.770  3230  6014 D OplusNetworkUtils: [unrelated payload omitted]
+11-04 12:48:24.770  3230  6014 D OplusNetworkUtils: [unrelated payload omitted]
+11-04 12:48:24.770  3230  6014 D OplusNetworkManagerImpl: [unrelated payload omitted]
+11-04 12:48:24.770  3230  6449 D TelephonyCountryDetector: [unrelated payload omitted]
+11-04 12:48:24.770  3230  6449 D TelephonyCountryDetector: [unrelated payload omitted]
+11-04 12:48:24.770  3230  6449 D TelephonyCountryDetector: [unrelated payload omitted]
+11-04 12:48:24.771  3230  6449 D TelephonyCountryDetector: [unrelated payload omitted]
+11-04 12:48:24.980  3230 31231 D OplusNetworkPowerState: [0] PerformScreenOn timeout and force start.
+11-04 12:48:24.984  3230 31231 D OplusNetworkPowerState: [0] -------------------------SCRENN ON----------------------------------
+11-04 12:48:24.984  3230 31231 D OplusNetworkPowerState: [0] IS_ACTIVE_PHONE = false, DATA_CALL_COUNT = 0, NO_SERVICE_TIME = 0, SUB_NO_SERVICE_TIME = 0, SMS_SEND_COUNT = 0, NITZ_COUNT = 0
+11-04 12:48:24.984  3230 31231 D OplusNetworkPowerState: [0] SEARCH_COUNT = 0, SEARCH_CDMA_COUNT = 0, RRC_COUNT = 0, RRC_DURATION = 0
+11-04 12:48:24.984  3230 31231 D OplusNetworkPowerState: [0] RILJ_TOP = Null
+11-04 12:48:24.984  3230 31231 D OplusNetworkPowerState: [0] CallCell_TOP = Null
+11-04 12:48:24.984  3230 31231 D OplusNetworkPowerState: [0] CDMA_REGSTATE = 0/0
+11-04 12:48:24.984  3230 31231 D OplusNetworkPowerState: [0]
+11-04 12:48:25.077  2303  2671 I commit_sys_config_file: [unrelated payload omitted]
+11-04 12:48:25.258  2303  2477 D OplusBrightnessSceneAdapter: [unrelated payload omitted]
+11-04 12:48:25.500  2303  2399 I ActivityManager: Death received, pid = 27984, processName = [APP]:cards for thread android.os.BinderProxy@7c8ac40
+11-04 12:48:25.501  2303  6015 I ActivityManager: Process [APP]:cards (pid 27984) has died: svcb SVC
+11-04 12:48:25.501  2303  6015 I am_proc_died: [0,27984,[APP]:cards,800,10]
+11-04 12:48:25.505  2303  6015 D ActivityManager: Async freezing 27879 com.oplus.linker
+11-04 12:48:25.505  2303  6015 D ActivityManager: Async freezing 27961 com.oplus.padconnect
+11-04 12:48:25.505  2303  6015 D ActivityManager: Async freezing 27876 [APP]
+11-04 12:48:25.695  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:25.696  2303  2477 D OplusBrightnessAmbientAdapter[StabilityProcess]: [unrelated payload omitted]
+11-04 12:48:25.795  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:25.893  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:25.995  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:26.380  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:26.395  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:26.493  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:26.595  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:26.595  2303  2477 D OplusFeatureBrightnessBarController: [unrelated payload omitted]
+11-04 12:48:26.596  2303  2472 D AutomaticController[display=0]: brightness changed!!!finalLux:4.39, weightLux:4.39, automaticLux:4.39, lastFinalLux:13.93, lastAutomaticLux:13.93, deviceDirection:Darkening, environmentDirection:Darkening, scene:StableScene, accelerateScale:1.0, updateProcess:[LargeChange], luxQueue:[13.0, 8.0, 8.0, 7.0, 7.0, 4.0, 3.0], [(13.93, 354.2306, 7064.3125)->(4.39, 327.7292, 6816.7095)], drag:(2.0, 318.58, 6721.0)
+11-04 12:48:26.596  2303  2472 D AutomaticController[display=0]: Detailed Statistics:PhoneState{TimeEvent{event:CALENDER_TIME id:1}-12:48:25, LuxEvent{event:MAIN_LUX lux:3.0}, ProximityEvent{event:FAR id:1}, MotionEvent{event:MOTIONLESS id:0}, InOutDoorEvent{event:UNCERTAIN id:2}, DarkModeEvent{event:BRIGHT_MODE id:1}, NetworkEvent{event:WIFI id:0}}
+11-04 12:48:26.597  2303  2472 D OplusFeatureReduceBrightness: [unrelated payload omitted]
+11-04 12:48:26.599  2303  2472 D AnimationProvider[display=0][Primary][AnimationDuration]: putStringForUser ProviderInfo:
+11-04 12:48:26.599  2303  2472 D AnimationProvider[display=0][Primary][AnimationDuration]: 	 mType = immediately
+11-04 12:48:26.599  2303  2472 D AnimationProvider[display=0][Primary][AnimationDuration]: 	 mAnimStartTime = 51754026
+11-04 12:48:26.599  2303  2472 D AnimationProvider[display=0][Primary][AnimationDuration]: 	 mPendingDb = false
+11-04 12:48:26.599  2303  2472 D AnimationProvider[display=0][Primary][AnimationDuration]: 	 mStartBtn = 0
+11-04 12:48:26.599  2303  2472 D AnimationProvider[display=0][Primary][AnimationDuration]: 	 mScaleStartBtn = 6300
+11-04 12:48:26.599  2303  2472 D AnimationProvider[display=0][Primary][AnimationDuration]: 	 mProviderBtn = 6300
+11-04 12:48:26.599  2303  2472 D AnimationProvider[display=0][Primary][AnimationDuration]: 	 mProviderNit = 278.409
+11-04 12:48:26.599  2303  2472 D AnimationProvider[display=0][Primary][AnimationDuration]: 	 mDuration = 0
+11-04 12:48:26.599  2303  2472 D AnimationProvider[display=0][Primary][AnimationDuration]: 	 mAnimStartBtn = 6300
+11-04 12:48:26.599  2303  2472 D OplusFeatureReduceBrightness: [unrelated payload omitted]
+11-04 12:48:26.599  2303  2472 D OplusBrightnessAmbientAdapter: [unrelated payload omitted]
+11-04 12:48:26.600  2303  2472 D DpcExtImpl[display=0]: Animating brightness: hdrBrightness target=6536.0454->6300.901,sdrBrightness target=6536.0454->6300.901,rate=0->0,rate type = dim->boost,byUser=false local:4630947161651687041 , brightness from dpc = 6816.7095
+11-04 12:48:26.600  2303  2472 D OplusFeatureReduceBrightness: [unrelated payload omitted]
+11-04 12:48:26.623  2303  2473 E HidlDisplayPanelFeature: getHidlDisplayPanelFeatureService error
+11-04 12:48:26.624  2303  2473 W OplusScreenTimeEvent: [unrelated payload omitted]
+11-04 12:48:26.624  2303  2473 I screen_on_took: [unrelated payload omitted]
+11-04 12:48:26.695  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:26.695  2303  2477 D OplusBrightnessSceneAdapter: [unrelated payload omitted]
+11-04 12:48:26.695  2303  2477 D OplusBrightnessAmbientAdapter[StabilityProcess]: [unrelated payload omitted]
+11-04 12:48:26.794  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:26.896  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:26.995  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:27.094  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:27.190  2303  2742 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:27.190  2303  2742 I OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:27.190  2303  2742 W OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:27.190  2303  2742 D OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:27.191  2303  2742 D StrategyUnusedPhoneDetection: [unrelated payload omitted]
+11-04 12:48:27.191  2303  2742 D StrategyBlackscreenshot: [unrelated payload omitted]
+11-04 12:48:27.191  2303  2742 I intercept_power: [ACTION_DOWN,0,1]
+11-04 12:48:27.195  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:27.295  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:27.374  2303  2742 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:27.374  2303  2742 I OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:27.374  2303  2742 W OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:27.375  2303  2742 D OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:27.375  2303  2742 D StrategyBlackscreenshot: [unrelated payload omitted]
+11-04 12:48:27.375  2303  2742 I intercept_power: [ACTION_UP,0,0]
+11-04 12:48:27.375  2303  2742 D PhoneWindowManagerExtImpl: send check wallet message failed by switch close
+11-04 12:48:27.375  2303  2742 I HwShutdownRecord: [unrelated payload omitted]
+11-04 12:48:27.375  2303  2742 I HwShutdownRecord: [unrelated payload omitted]
+11-04 12:48:27.394  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:27.495  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:27.595  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:27.694  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:27.796  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:27.823  2303  2742 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:27.823  2303  2742 I OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:27.823  2303  2742 W OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:27.823  2303  2742 D OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:27.823  2303  2742 D StrategyUnusedPhoneDetection: [unrelated payload omitted]
+11-04 12:48:27.824  2303  2742 D StrategyBlackscreenshot: [unrelated payload omitted]
+11-04 12:48:27.824  2303  2742 I intercept_power: [ACTION_DOWN,0,1]
+11-04 12:48:27.859  2303  3185 W ActivityManager: pid 26320 com.oplus.powermonitor sent binder code 128 with flags 2 to frozen apps and got error -74
+11-04 12:48:27.860  2303  2688 W ActivityManager: pid 10379 received async transactions while frozen
+11-04 12:48:27.860  2303  2688 W ActivityManager: pid 11345 received async transactions while frozen
+11-04 12:48:27.860  2303  2688 W ActivityManager: pid 21222 received async transactions while frozen
+11-04 12:48:27.860  2303  2688 W ActivityManager: pid 21381 received async transactions while frozen
+11-04 12:48:27.860  2303  2688 W ActivityManager: pid 21645 received async transactions while frozen
+11-04 12:48:27.860  2303  2688 W ActivityManager: pid 21854 received async transactions while frozen
+11-04 12:48:27.860  2303  2688 W ActivityManager: pid 22285 received async transactions while frozen
+11-04 12:48:27.860  2303  2688 W ActivityManager: pid 22566 received async transactions while frozen
+11-04 12:48:27.860  2303  2688 W ActivityManager: pid 22568 received async transactions while frozen
+11-04 12:48:27.860  2303  2688 W ActivityManager: pid 23257 received async transactions while frozen
+11-04 12:48:27.860  2303  2688 W ActivityManager: pid 23738 received async transactions while frozen
+11-04 12:48:27.860  2303  2688 W ActivityManager: pid 27011 received async transactions while frozen
+11-04 12:48:27.862  2303  2688 W ActivityManager: pid 27257 received async transactions while frozen
+11-04 12:48:27.862  2303  2688 W ActivityManager: pid 27280 received async transactions while frozen
+11-04 12:48:27.862  2303  2688 W ActivityManager: pid 27282 received async transactions while frozen
+11-04 12:48:27.862  2303  2688 W ActivityManager: pid 27429 received async transactions while frozen
+11-04 12:48:27.862  2303  2688 W ActivityManager: pid 27479 received async transactions while frozen
+11-04 12:48:27.862  2303  2688 W ActivityManager: pid 27573 received async transactions while frozen
+11-04 12:48:27.862  2303  2688 W ActivityManager: pid 28026 received async transactions while frozen
+11-04 12:48:27.862  2303  2688 W ActivityManager: pid 28064 received async transactions while frozen
+11-04 12:48:27.863 26320 26346 D ActivityThread: [unrelated payload omitted]
+11-04 12:48:27.867   750   750 I auditd  : [unrelated payload omitted]
+11-04 12:48:27.867   750   750 I auditd  : [unrelated payload omitted]
+11-04 12:48:27.867   750   750 I auditd  : [unrelated payload omitted]
+11-04 12:48:27.867   750   750 I auditd  : [unrelated payload omitted]
+11-04 12:48:27.867   750   750 I auditd  : [unrelated payload omitted]
+11-04 12:48:27.896  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:27.995  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:28.022  2303  2742 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:28.023  2303  2742 I OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:28.023  2303  2742 W OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:28.023  2303  2742 D OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:28.023  2303  2742 D StrategyBlackscreenshot: [unrelated payload omitted]
+11-04 12:48:28.023  2303  2742 I intercept_power: [ACTION_UP,0,0]
+11-04 12:48:28.023  2303  2742 D PhoneWindowManagerExtImpl: send check wallet message failed by switch close
+11-04 12:48:28.024  2303  2742 I HwShutdownRecord: [unrelated payload omitted]
+11-04 12:48:28.024  2303  2742 I HwShutdownRecord: [unrelated payload omitted]
+11-04 12:48:28.095  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:28.195  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:28.208  2303  2742 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:28.208  2303  2742 I OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:28.208  2303  2742 W OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:28.208  2303  2742 D OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:28.209  2303  2742 D StrategyUnusedPhoneDetection: [unrelated payload omitted]
+11-04 12:48:28.209  2303  2742 D StrategyBlackscreenshot: [unrelated payload omitted]
+11-04 12:48:28.209  2303  2742 I intercept_power: [ACTION_DOWN,0,1]
+11-04 12:48:28.294  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:28.355  2303  2742 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:28.355  2303  2742 I OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:28.355  2303  2742 W OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:28.355  2303  2742 D OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:28.355  2303  2742 D StrategyBlackscreenshot: [unrelated payload omitted]
+11-04 12:48:28.355  2303  2742 I intercept_power: [ACTION_UP,0,0]
+11-04 12:48:28.356  2303  2742 D PhoneWindowManagerExtImpl: send check wallet message failed by switch close
+11-04 12:48:28.356  2303  2742 I HwShutdownRecord: [unrelated payload omitted]
+11-04 12:48:28.356  2303  2742 I HwShutdownRecord: [unrelated payload omitted]
+11-04 12:48:28.395  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:28.431  2303  2696 V AlarmManager: [unrelated payload omitted]
+11-04 12:48:28.496  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:28.548  2303  2742 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:28.548  2303  2742 I OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:28.548  2303  2742 W OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:28.548  2303  2742 D OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:28.548  2303  2742 D StrategyUnusedPhoneDetection: [unrelated payload omitted]
+11-04 12:48:28.548  2303  2742 D StrategyBlackscreenshot: [unrelated payload omitted]
+11-04 12:48:28.549  2303  2742 I intercept_power: [ACTION_DOWN,0,1]
+11-04 12:48:28.594  2303  2477 D OplusBrightnessPhoneStateManager: [unrelated payload omitted]
+11-04 12:48:28.662  2303  2742 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:28.662  2303  2742 I OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:28.662  2303  2742 W OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:28.662  2303  2742 D OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:28.662  2303  2742 D StrategyBlackscreenshot: [unrelated payload omitted]
+11-04 12:48:28.663  2303  2742 I intercept_power: [ACTION_UP,0,0]
+11-04 12:48:28.663  2303  2742 D PhoneWindowManagerExtImpl: send check wallet message failed by switch close
+11-04 12:48:28.663  2303  2742 I HwShutdownRecord: [unrelated payload omitted]
+11-04 12:48:28.663  2303  2742 I HwShutdownRecord: [unrelated payload omitted]
+11-04 12:48:28.920  2303  2742 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:28.920  2303  2742 I OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:28.920  2303  2742 W OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:28.920  2303  2742 D OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:28.921  2303  2742 D StrategyUnusedPhoneDetection: [unrelated payload omitted]
+11-04 12:48:28.921  2303  2742 D StrategyBlackscreenshot: [unrelated payload omitted]
+11-04 12:48:28.921  2303  2742 I intercept_power: [ACTION_DOWN,0,1]
+11-04 12:48:29.076  2303  2742 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:29.076  2303  2742 I OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:29.076  2303  2742 W OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:29.076  2303  2742 D OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:29.077  2303  2742 D StrategyBlackscreenshot: [unrelated payload omitted]
+11-04 12:48:29.077  2303  2742 I intercept_power: [ACTION_UP,0,0]
+11-04 12:48:29.077  2303  2742 D PhoneWindowManagerExtImpl: send check wallet message failed by switch close
+11-04 12:48:29.078  2303  2742 I HwShutdownRecord: [unrelated payload omitted]
+11-04 12:48:29.078  2303  2742 I HwShutdownRecord: [unrelated payload omitted]
+11-04 12:48:29.233  2303  2742 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:29.233  2303  2742 I OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:29.233  2303  2742 W OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:29.233  2303  2742 D OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:29.233  2303  2742 D StrategyUnusedPhoneDetection: [unrelated payload omitted]
+11-04 12:48:29.233  2303  2742 D StrategyBlackscreenshot: [unrelated payload omitted]
+11-04 12:48:29.234  2303  2742 I intercept_power: [ACTION_DOWN,0,1]
+11-04 12:48:29.473  2303  3151 W ActivityManager: pid 2303 system sent binder code 1 with flags 1 to frozen apps and got error -32
+11-04 12:48:29.473  2303  3151 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-04 12:48:29.498  2303  2732 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:29.501 11386 11386 D ActivityThread: [unrelated payload omitted]
+11-04 12:48:29.697  2303  2440 D AppProfilerExtImpl: [unrelated payload omitted]
+11-04 12:48:30.234  2303  2430 I WindowManager: Display id 0 rotation changed to ROTATION_0 (0) from ROTATION_90 (1), lastOrientation = SCREEN_ORIENTATION_UNSPECIFIED (-1) lastOrientationSource = null
+11-04 12:48:30.234  2303  2886 I FoldScreenSwitching_poweron_end: 15700636
+11-04 12:48:30.235  2303  2886 D DisplayAdapterExt: sendDisplayDeviceEventLocked event=2,now=51757663,timestamp=51757663 device:[id=local:4630947161651687041,stack=0],isFirst=true,activeMode=2,state=ON,commitState=ON,devInfo:null
+11-04 12:48:30.235  2303  2432 I DisplayDeviceRepositoryExtImpl: Display device changed committed state: "内置屏幕", ON
+11-04 12:48:30.236  2303  2432 D LogicalDisplayMapper: Display device changed diff=4
+11-04 12:48:30.236  2303  2432 D LogicalDisplayExt: set displayInfo flag FLAG_ROTATES_WITH_CONTENT
+11-04 12:48:30.236  2303  2432 D DpcExtImpl[display=0]: setBrightnessNoAnimation, noAnimation = false
+11-04 12:48:30.236  2303  2432 D DisplayManagerService: Delivering display event: displayId=0, event=EVENT_DISPLAY_COMMITTED_STATE_CHANGED
+11-04 12:48:30.236  2303  2432 W ActivityManager: pid 2303 system sent binder code 1 with flags 1 to frozen apps and got error -32
+11-04 12:48:30.236  2303  2432 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-04 12:48:30.237  2303  2472 D OplusFeatureReduceBrightness: [unrelated payload omitted]
+11-04 12:48:30.239  2303  2472 W ActivityManager: pid 2303 system sent binder code 5 with flags 1 to frozen apps and got error -32
+11-04 12:48:30.239  2303  2472 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-04 12:48:30.301  2303  2854 E BiometricService: [unrelated payload omitted]
+11-04 12:48:30.301  2303  2852 I OplusSplitScreenManagerService: [unrelated payload omitted]
+11-04 12:48:30.301  2303  3183 W BiometricStateCallback: [unrelated payload omitted]
+11-04 12:48:30.301  2303  2536 W AuthenticationStateListeners: [unrelated payload omitted]
+11-04 12:48:30.302  2303  3855 I StatusBarManagerService: [unrelated payload omitted]
+11-04 12:48:30.302  2303  2898 W BiometricStateCallback: [unrelated payload omitted]
+11-04 12:48:30.302  2303  5834 E BiometricService: [unrelated payload omitted]
+11-04 12:48:30.302  2303  5831 E LockoutResetTracker: [unrelated payload omitted]
+11-04 12:48:30.302  2303  3861 I StatusBarManagerService: [unrelated payload omitted]
+11-04 12:48:30.302  2303  3777 W BiometricStateCallback: [unrelated payload omitted]
+11-04 12:48:30.303  2303  3645 W BiometricStateCallback: [unrelated payload omitted]
+11-04 12:48:30.303  2303  5166 I OplusAppSwitchManagerService: [unrelated payload omitted]
+11-04 12:48:30.303  2303  5166 I OplusAppSwitchManagerService: [unrelated payload omitted]
+11-04 12:48:30.303  2303  5166 I OplusAppSwitchStateDispatcher: [unrelated payload omitted]
+11-04 12:48:30.303  2303  5166 I OplusAppSwitchManagerService: [unrelated payload omitted]
+11-04 12:48:30.303  2303  5166 I OplusAppSwitchStateDispatcher: [unrelated payload omitted]
+11-04 12:48:30.303  2303  5166 I OplusAppSwitchManagerService: [unrelated payload omitted]
+11-04 12:48:30.303  2303  5166 I OplusAppSwitchStateDispatcher: [unrelated payload omitted]
+11-04 12:48:30.303  2303  5166 I OplusAppSwitchManagerService: [unrelated payload omitted]
+11-04 12:48:30.303  2303  5166 I OplusAppSwitchStateDispatcher: [unrelated payload omitted]
+11-04 12:48:30.304  2303  5166 I OplusAppSwitchManagerService: [unrelated payload omitted]
+11-04 12:48:30.304  2303  5166 I OplusAppSwitchManagerService: [unrelated payload omitted]
+11-04 12:48:30.304  2303  5166 I OplusAppSwitchStateDispatcher: [unrelated payload omitted]
+11-04 12:48:30.304  2303  5166 I OplusAppSwitchManagerService: [unrelated payload omitted]
+11-04 12:48:30.304  2303  3835 W ActivityManager: pid 11386 com.android.launcher sent binder code 10 with flags 1 to frozen apps and got error -32
+11-04 12:48:30.304  2303  5166 I OplusAppSwitchStateDispatcher: [unrelated payload omitted]
+11-04 12:48:30.304  2303  3835 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-04 12:48:30.305  2303  2671 I commit_sys_config_file: [unrelated payload omitted]
+11-04 12:48:30.312  2303  3713 D NotificationListeners: [unrelated payload omitted]
+11-04 12:48:30.313  2303  5834 I OplusSplitScreenManagerService: [unrelated payload omitted]
+11-04 12:48:30.315  2303  5831 E LockoutResetTracker: [unrelated payload omitted]
+11-04 12:48:30.320  2303  2399 E LockoutResetTracker: [unrelated payload omitted]
+11-04 12:48:30.320  2303  2399 E LockoutResetTracker: [unrelated payload omitted]
+11-04 12:48:30.321  2303  5830 I MR2ServiceImpl: [unrelated payload omitted]
+11-04 12:48:30.321  2303  3831 I MR2ServiceImpl: [unrelated payload omitted]
+11-04 12:48:30.322  2303  3831 I OplusSplitScreenManagerService: [unrelated payload omitted]
+11-04 12:48:30.322  2303  5830 I ActivityManager: Death received, pid = 3079, processName = com.android.systemui for thread android.os.BinderProxy@9d53841
+11-04 12:48:30.322  2303  5172 W ActivityManager: pid 2303 system sent binder code 5 with flags 1 to frozen apps and got error -32
+11-04 12:48:30.322  2303  5172 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-04 12:48:30.322  2303  2303 W Looper  : [unrelated payload omitted]
+11-04 12:48:30.322  2303  2303 W Looper  : [unrelated payload omitted]
+11-04 12:48:30.323  2303  2303 W Looper  : [unrelated payload omitted]
+11-04 12:48:30.323  2303  3864 I MR2ServiceImpl: [unrelated payload omitted]
+11-04 12:48:30.324  2303  2442 D UAF-VIP_RES: [unrelated payload omitted]
+11-04 12:48:30.324  2303  2430 W ActivityManager: pid 2303 system sent binder code 2 with flags 1 to frozen apps and got error -32
+11-04 12:48:30.324  2303  2430 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-04 12:48:30.325  5611  5611 I binder_sample: [unrelated payload omitted]
+11-04 12:48:30.325  2303  3167 I ActivityManager: Process com.android.systemui (pid 3079) has died: pers PERU
+11-04 12:48:30.328  2303  3167 I am_proc_died: [0,3079,com.android.systemui,-800,1]
+11-04 12:48:30.330  2303  2852 I OplusMediaControlService: [unrelated payload omitted]
+11-04 12:48:30.330  2303  2852 I OplusMediaControlService: [unrelated payload omitted]
+11-04 12:48:30.330  2303  2852 I OplusMediaControlService: [unrelated payload omitted]
+11-04 12:48:30.333  2303  2671 I commit_sys_config_file: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.334  2303  2430 E TransitionController: [unrelated payload omitted]
+11-04 12:48:30.338  2303  2472 W WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:30.338  2303  2472 W WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:30.338  2303  2472 W WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:30.338  2303  2472 W WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:30.338  2303  2472 W WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:30.338  2303  2472 W WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:30.338  2303  2472 W WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:30.338  2303  2472 W WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:30.338  2303  2472 W WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:30.338  2303  2472 W WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:30.338  2303  2472 W WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:30.338  2303  2472 W WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:30.338  2303  2472 W WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:30.338  2303  2472 W WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:30.338  2303  2472 W WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:30.338  2303  2472 W WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:30.338  2303  2472 W WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:30.338  2303  2472 W WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:30.338  2303  2472 W WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:30.339  2303  2432 W DisplayManagerService: Failed to notify process 3079 that displays changed, assuming it died.
+11-04 12:48:30.339  2303  2432 W DisplayManagerService: android.os.DeadObjectException
+11-04 12:48:30.339  2303  2432 W DisplayManagerService: 	at android.os.BinderProxy.transactNative(Native Method)
+11-04 12:48:30.339  2303  2432 W DisplayManagerService: 	at android.os.BinderProxy.transact(BinderProxy.java:685)
+11-04 12:48:30.339  2303  2432 W DisplayManagerService: 	at android.hardware.display.IDisplayManagerCallback$Stub$Proxy.onDisplayEvent(IDisplayManagerCallback.java:138)
+11-04 12:48:30.339  2303  2432 W DisplayManagerService: 	at com.android.server.display.DisplayManagerService$CallbackRecord.transmitDisplayEvent(DisplayManagerService.java:4851)
+11-04 12:48:30.339  2303  2432 W DisplayManagerService: 	at com.android.server.display.DisplayManagerService$CallbackRecord.notifyDisplayEventAsync(DisplayManagerService.java:4832)
+11-04 12:48:30.339  2303  2432 W DisplayManagerService: 	at com.android.server.display.DisplayManagerService.deliverEventFlagged(DisplayManagerService.java:4034)
+11-04 12:48:30.339  2303  2432 W DisplayManagerService: 	at com.android.server.display.DisplayManagerService.deliverDisplayEvent(DisplayManagerService.java:3996)
+11-04 12:48:30.339  2303  2432 W DisplayManagerService: 	at com.android.server.display.DisplayManagerService.-$$Nest$mdeliverDisplayEvent(Unknown Source:0)
+11-04 12:48:30.339  2303  2432 W DisplayManagerService: 	at com.android.server.display.DisplayManagerService$DisplayManagerHandler.handleMessage(DisplayManagerService.java:4513)
+11-04 12:48:30.339  2303  2432 W DisplayManagerService: 	at android.os.Handler.dispatchMessage(Handler.java:115)
+11-04 12:48:30.339  2303  2432 W DisplayManagerService: 	at android.os.Looper.loopOnce(Looper.java:298)
+11-04 12:48:30.339  2303  2432 W DisplayManagerService: 	at android.os.Looper.loop(Looper.java:408)
+11-04 12:48:30.339  2303  2432 W DisplayManagerService: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+11-04 12:48:30.339  2303  2432 W DisplayManagerService: 	at com.android.server.ServiceThread.run(ServiceThread.java:49)
+11-04 12:48:30.339  2303  2472 W ActivityManager: pid 2303 system sent binder code 12 with flags 1 to frozen apps and got error -32
+11-04 12:48:30.339  2303  2472 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-04 12:48:30.339  2303  2461 W WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:30.339  2303  2472 W KeyguardServiceWrapper: Remote Exception
+11-04 12:48:30.339  2303  2472 W KeyguardServiceWrapper: android.os.DeadObjectException
+11-04 12:48:30.339  2303  2472 W KeyguardServiceWrapper: 	at android.os.BinderProxy.transactNative(Native Method)
+11-04 12:48:30.339  2303  2472 W KeyguardServiceWrapper: 	at android.os.BinderProxy.transact(BinderProxy.java:685)
+11-04 12:48:30.339  2303  2472 W KeyguardServiceWrapper: 	at com.android.internal.policy.IKeyguardService$Stub$Proxy.onScreenTurnedOn(IKeyguardService.java:727)
+11-04 12:48:30.339  2303  2472 W KeyguardServiceWrapper: 	at com.android.server.policy.keyguard.KeyguardServiceWrapper.onScreenTurnedOn(KeyguardServiceWrapper.java:172)
+11-04 12:48:30.339  2303  2472 W KeyguardServiceWrapper: 	at com.android.server.policy.keyguard.KeyguardServiceDelegate.onScreenTurnedOn(KeyguardServiceDelegate.java:443)
+11-04 12:48:30.339  2303  2472 W KeyguardServiceWrapper: 	at com.android.server.policy.PhoneWindowManager.screenTurnedOn(PhoneWindowManager.java:7059)
+11-04 12:48:30.339  2303  2472 W KeyguardServiceWrapper: 	at com.android.server.display.DisplayPowerController.updatePowerStateInternal(DisplayPowerController.java:2456)
+11-04 12:48:30.339  2303  2472 W KeyguardServiceWrapper: 	at com.android.server.display.DisplayPowerController.updatePowerState(DisplayPowerController.java:1732)
+11-04 12:48:30.339  2303  2472 W KeyguardServiceWrapper: 	at com.android.server.display.DisplayPowerController.-$$Nest$mupdatePowerState(Unknown Source:0)
+11-04 12:48:30.339  2303  2472 W KeyguardServiceWrapper: 	at com.android.server.display.DisplayPowerController$DisplayControllerHandler.handleMessage(DisplayPowerController.java:3970)
+11-04 12:48:30.339  2303  2472 W KeyguardServiceWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:115)
+11-04 12:48:30.339  2303  2472 W KeyguardServiceWrapper: 	at android.os.Looper.loopOnce(Looper.java:298)
+11-04 12:48:30.339  2303  2472 W KeyguardServiceWrapper: 	at android.os.Looper.loop(Looper.java:408)
+11-04 12:48:30.339  2303  2472 W KeyguardServiceWrapper: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+11-04 12:48:30.339  2303  2472 W KeyguardServiceWrapper: 	at com.android.server.ServiceThread.run(ServiceThread.java:49)
+11-04 12:48:30.340  2303  2472 D OplusFeaturePanoramicBrightness: [unrelated payload omitted]
+11-04 12:48:30.340  2303  2472 D DisplayPowerController[display=0]: screenTurnedOn state=2 brightnessState=6816.7095 mustNotify=true
+11-04 12:48:30.340  2303  2472 D DpcExtImpl[display=0]: RECORD:onUpdatePowerState policy:3 state:2 brightness:6816
+11-04 12:48:30.341  3230  3230 D SST     : [unrelated payload omitted]
+11-04 12:48:30.341  2303  2472 W PowerManagerService: Screen on took 5833 ms. groupId = 0
+11-04 12:48:30.341  2303  2472 D OplusPowerManagerHelper: [onWakeUpFinish]
+11-04 12:48:30.341  2303  2472 E OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:30.341  2303  2472 D OplusFeatureAOD: [unrelated payload omitted]
+11-04 12:48:30.342  2303  2472 D OplusFeatureReduceBrightness: [unrelated payload omitted]
+11-04 12:48:30.342  2303  2434 D SurfaceAnimationRunner: [unrelated payload omitted]
+11-04 12:48:30.342  2303  2434 D SurfaceAnimationRunner: [unrelated payload omitted]
+11-04 12:48:30.342  2303  2434 D SurfaceAnimationRunner: [unrelated payload omitted]
+11-04 12:48:30.342  2303  2434 D SurfaceAnimationRunner: [unrelated payload omitted]
+11-04 12:48:30.343  2303  2430 D AsyncRotation@536ed8a: [unrelated payload omitted]
+11-04 12:48:30.343  2303  2430 W Looper  : [unrelated payload omitted]
+11-04 12:48:30.343  2303  2741 I WindowManager: WINDOW DIED Window{8819f5a u0 com.android.systemui.wallpapers.ImageWallpaper}
+11-04 12:48:30.343  2303  2430 V SinglePowerKeyMonitor: p keyrule onPress. isXiaoBuFloat = false isUnderWaterGraining = false
+11-04 12:48:30.343  2303  2430 D PhoneWindowManagerExtImpl: sendGoToSleepDelayMessage, will return, mPowerKeyDownTimes.size() = 5
+11-04 12:48:30.343  2303  2741 I WindowManager: Window{8819f5a u0 com.android.systemui.wallpapers.ImageWallpaper} state from HAS_DRAWN to NO_SURFACE; reason: destroySurface
+11-04 12:48:30.344  2303  2430 V SinglePowerKeyMonitor: p keyrule onPress. isXiaoBuFloat = false isUnderWaterGraining = false
+11-04 12:48:30.344  2303  2430 D PhoneWindowManagerExtImpl: sendGoToSleepDelayMessage, will return, mPowerKeyDownTimes.size() = 5
+11-04 12:48:30.345  2303  2741 D WindowManager: NFW_findFocusedWindowIfNeeded:Window{106d98a u0 NotificationShade} mCurrentFocus:Window{106d98a u0 NotificationShade}
+11-04 12:48:30.345  2303  3777 W BiometricStateCallback: [unrelated payload omitted]
+11-04 12:48:30.345  2303  2898 W BiometricStateCallback: [unrelated payload omitted]
+11-04 12:48:30.345  2303  3645 W BiometricStateCallback: [unrelated payload omitted]
+11-04 12:48:30.345  2303  3183 W BiometricStateCallback: [unrelated payload omitted]
+11-04 12:48:30.347  2303  2742 V OplusConfineModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.347  2303  2536 W AuthenticationStateListeners: [unrelated payload omitted]
+11-04 12:48:30.348  2303  2536 W AuthenticationStateListeners: [unrelated payload omitted]
+11-04 12:48:30.348  2303  2536 W AuthenticationStateListeners: [unrelated payload omitted]
+11-04 12:48:30.348  2303  2742 D OplusInterceptActivityHelper: [unrelated payload omitted]
+11-04 12:48:30.349  2303  2434 D SurfaceAnimationRunner: [unrelated payload omitted]
+11-04 12:48:30.349  2303  2434 D SurfaceAnimationRunner: [unrelated payload omitted]
+11-04 12:48:30.350  2303  2742 E atms_intercept: [unrelated payload omitted]
+11-04 12:48:30.351  2303  2742 I ActivityTaskManager: START u0 {act=oplus.intent.action.LAUNCH_SOS_HELPER xflg=0x4 pkg=com.oplus.sos mCallingUid=1000} with LAUNCH_MULTIPLE from uid 1000 result code=-91
+11-04 12:48:30.351  2303  2472 I sysui_multi_action: [757,198,758,1,759,1,1359,5834,1694,1]
+11-04 12:48:30.351  2303  2472 I power_screen_state: [1,0,0,0,5834]
+11-04 12:48:30.351  2303  2741 I WindowManager: WINDOW DIED Window{ad0b93a u0 StatusBar}
+11-04 12:48:30.351  2303  2461 W Looper  : [unrelated payload omitted]
+11-04 12:48:30.351  2303  2442 I UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:30.351  2303  2461 W WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:30.351  2303  2741 I WindowManager: Window{ad0b93a u0 StatusBar} state from HAS_DRAWN to NO_SURFACE; reason: destroySurface
+11-04 12:48:30.352  2303  2741 W ActivityManager: pid 2303 system sent binder code 15 with flags 1 to frozen apps and got error -32
+11-04 12:48:30.352  2303  2741 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-04 12:48:30.352  2303  2742 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:30.352  2303  2742 I OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:30.352  2303  2742 W OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:30.353  2303  2742 D OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:30.353  2303  2430 V SinglePowerKeyMonitor: underWaterCameraStatus = false
+11-04 12:48:30.353  2303  2742 D StrategyBlackscreenshot: [unrelated payload omitted]
+11-04 12:48:30.353  2303  2742 I intercept_power: [ACTION_UP,0,0]
+11-04 12:48:30.353  2303  2742 D PhoneWindowManagerExtImpl: send check wallet message failed by switch close
+11-04 12:48:30.353  2303  2461 W ActivityManager: pid 2303 system sent binder code 10 with flags 1 to frozen apps and got error -32
+11-04 12:48:30.353  2303  2461 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-04 12:48:30.354  2303  2742 I HwShutdownRecord: [unrelated payload omitted]
+11-04 12:48:30.354  2303  2742 I HwShutdownRecord: [unrelated payload omitted]
+11-04 12:48:30.355  2303  2741 D WindowStateExtImpl: [unrelated payload omitted]
+11-04 12:48:30.356  2303  2742 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:30.358  2303  2741 D DisplayPolicyExtImpl: getInvalidNavigationBarHeight: barHeight=46
+11-04 12:48:30.358  2303  2741 D WindowManager: NFW_findFocusedWindowIfNeeded:Window{106d98a u0 NotificationShade} mCurrentFocus:Window{106d98a u0 NotificationShade}
+11-04 12:48:30.358  2303  2741 I WindowManager: WINDOW DIED Window{106d98a u0 NotificationShade}
+11-04 12:48:30.358  2303  2461 W WallpaperManagerServiceExt: [unrelated payload omitted]
+11-04 12:48:30.358  2303  2461 W WallpaperManagerServiceExt: [unrelated payload omitted]
+11-04 12:48:30.358  2303  2461 W WallpaperManagerServiceExt: [unrelated payload omitted]
+11-04 12:48:30.358  2303  2461 W WallpaperManagerServiceExt: [unrelated payload omitted]
+11-04 12:48:30.358  2303  2461 W WallpaperManagerServiceExt: [unrelated payload omitted]
+11-04 12:48:30.358  2303  2461 W WallpaperManagerServiceExt: [unrelated payload omitted]
+11-04 12:48:30.358  2303  2461 W WallpaperManagerServiceExt: [unrelated payload omitted]
+11-04 12:48:30.358  2303  2461 W WallpaperManagerServiceExt: [unrelated payload omitted]
+11-04 12:48:30.358  2303  2461 W WallpaperManagerServiceExt: [unrelated payload omitted]
+11-04 12:48:30.358  2303  2461 W WallpaperManagerServiceExt: [unrelated payload omitted]
+11-04 12:48:30.358  2303  2461 W WallpaperManagerServiceExt: [unrelated payload omitted]
+11-04 12:48:30.358  2303  2461 W WallpaperManagerServiceExt: [unrelated payload omitted]
+11-04 12:48:30.358  2303  2461 W WallpaperManagerServiceExt: [unrelated payload omitted]
+11-04 12:48:30.358  2303  2461 W WallpaperManagerServiceExt: [unrelated payload omitted]
+11-04 12:48:30.358  2303  2461 W WallpaperManagerServiceExt: [unrelated payload omitted]
+11-04 12:48:30.358  2303  2461 W WallpaperManagerServiceExt: [unrelated payload omitted]
+11-04 12:48:30.358  2303  2461 W WallpaperManagerServiceExt: [unrelated payload omitted]
+11-04 12:48:30.358  2303  2461 W WallpaperManagerServiceExt: [unrelated payload omitted]
+11-04 12:48:30.358  2303  2461 W WallpaperManagerServiceExt: [unrelated payload omitted]
+11-04 12:48:30.358  2303  2742 I OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:30.358  2303  2742 W OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:30.359  2303  2742 D OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:30.359  2303  2742 D StrategyUnusedPhoneDetection: [unrelated payload omitted]
+11-04 12:48:30.359  2303  2741 I WindowManager: Window{106d98a u0 NotificationShade} state from HAS_DRAWN to NO_SURFACE; reason: destroySurface
+11-04 12:48:30.359  2303  2742 D StrategyBlackscreenshot: [unrelated payload omitted]
+11-04 12:48:30.359  2303  2442 I UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:30.359  2303  2442 I UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:30.359  2303  2742 I intercept_power: [ACTION_DOWN,0,1]
+11-04 12:48:30.359  2303  2461 W Looper  : [unrelated payload omitted]
+11-04 12:48:30.360  2303  2741 D WindowManager: NFW_findFocusedWindowIfNeeded:null mCurrentFocus:Window{106d98a u0 NotificationShade}
+11-04 12:48:30.360  2303  2741 D WindowManager: attachImeScreenshotOnTargetIfNeeded, mImeHiding = false, requestedVisibleTypes = -9
+11-04 12:48:30.360  2303  2741 D DisplayContentExtImpl: target is same with the last, remove the ime snapshot immediately.
+11-04 12:48:30.362  2303  2742 D KEYLOG_PhoneWindowManager: Skip power key gesture for other policy has handled it.
+11-04 12:48:30.362  2303  2741 V WindowManager: Changing focus from Window{106d98a u0 NotificationShade} to null,diplayid=0
+11-04 12:48:30.362  2303  2742 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:30.362  2303  2742 I OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:30.362  2303  2742 W OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:30.362  2303  2742 D OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:30.362  2303  2742 D StrategyBlackscreenshot: [unrelated payload omitted]
+11-04 12:48:30.362  2303  2742 I intercept_power: [ACTION_UP,1,0]
+11-04 12:48:30.362  2303  2742 D PhoneWindowManagerExtImpl: send check wallet message failed by switch close
+11-04 12:48:30.362  2303  2432 V WindowManager: Unknown focus tokens, dropping reportFocusChanged
+11-04 12:48:30.363  2303  3835 V WindowManager: Unregistering active transition player android.os.BinderProxy@cb1f808 at index=0 leaving 0 in stack
+11-04 12:48:30.364  2303  2742 I HwShutdownRecord: [unrelated payload omitted]
+11-04 12:48:30.364  2303  2742 I HwShutdownRecord: [unrelated payload omitted]
+11-04 12:48:30.364  2303  3835 E Transition: [unrelated payload omitted]
+11-04 12:48:30.364  2303  3835 D OplusTransitionController: [unrelated payload omitted]
+11-04 12:48:30.364  2303  3835 D OplusTransitionController: [unrelated payload omitted]
+11-04 12:48:30.364  2303  3835 D OplusTransitionController: [unrelated payload omitted]
+11-04 12:48:30.364  2303  3835 D OplusTransitionController: [unrelated payload omitted]
+11-04 12:48:30.364  2303  3835 D OplusTransitionController: [unrelated payload omitted]
+11-04 12:48:30.365  2303  2742 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:30.365  2303  2742 I OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:30.365  2303  2742 W OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:30.365  2303  2742 D OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:30.365  2303  2742 D StrategyUnusedPhoneDetection: [unrelated payload omitted]
+11-04 12:48:30.365  2303  2742 D StrategyBlackscreenshot: [unrelated payload omitted]
+11-04 12:48:30.365  2303  2742 I intercept_power: [ACTION_DOWN,0,1]
+11-04 12:48:30.367  2303  3835 E OplusAppQuickStart_AppQuickStartController: [unrelated payload omitted]
+11-04 12:48:30.367  2303  3835 D KEYLOG_PhoneWindowManager: setKeyguardOccludedLw occluded=false,false,false
+11-04 12:48:30.367  2303  2742 D KEYLOG_PhoneWindowManager: Skip power key gesture for other policy has handled it.
+11-04 12:48:30.368  2303  2742 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:30.368  2303  2742 I OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:30.368  2303  2742 W OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:30.368  2303  2742 D OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:30.368  2303  2742 D StrategyBlackscreenshot: [unrelated payload omitted]
+11-04 12:48:30.368  2303  2742 I intercept_power: [ACTION_UP,1,0]
+11-04 12:48:30.368  2303  2742 D PhoneWindowManagerExtImpl: send check wallet message failed by switch close
+11-04 12:48:30.368  2303  2742 I HwShutdownRecord: [unrelated payload omitted]
+11-04 12:48:30.368  2303  2742 I HwShutdownRecord: [unrelated payload omitted]
+11-04 12:48:30.370  2303  2742 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:30.370  2303  2742 I OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:30.370  2303  2742 W OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:30.370  2303  2742 D OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:30.370  2303  2742 D StrategyUnusedPhoneDetection: [unrelated payload omitted]
+11-04 12:48:30.370  2303  2742 D StrategyBlackscreenshot: [unrelated payload omitted]
+11-04 12:48:30.370  2303  2742 I intercept_power: [ACTION_DOWN,0,1]
+11-04 12:48:30.372  2303  2742 D KEYLOG_PhoneWindowManager: Skip power key gesture for other policy has handled it.
+11-04 12:48:30.373  2303  2742 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:30.373  2303  2742 I OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:30.373  2303  2742 W OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:30.373  2303  2742 D OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:30.373  2303  2742 D StrategyBlackscreenshot: [unrelated payload omitted]
+11-04 12:48:30.373  2303  2742 I intercept_power: [ACTION_UP,1,0]
+11-04 12:48:30.373  2303  2742 D PhoneWindowManagerExtImpl: send check wallet message failed by switch close
+11-04 12:48:30.374  2303  2742 I HwShutdownRecord: [unrelated payload omitted]
+11-04 12:48:30.374  2303  2742 I HwShutdownRecord: [unrelated payload omitted]
+11-04 12:48:30.377  2303  5831 I wm_task_removed: [unrelated payload omitted]
+11-04 12:48:30.378  2303  5831 I wm_task_removed: [unrelated payload omitted]
+11-04 12:48:30.380  2303  5831 D ActivityTaskManager: notifyTaskRemoved, task: Task{ca2a96b #5 type=undefined} trace:com.android.server.wm.RecentTasks.notifyTaskRemoved:566 com.android.server.wm.RecentTasks.remove:1512 com.android.server.wm.Task.cleanUpResourcesForDestroy:798 com.android.server.wm.Task.onParentChanged:1214 com.android.server.wm.WindowContainer.setParent:753
+11-04 12:48:30.381  2303  5831 I wm_task_removed: [unrelated payload omitted]
+11-04 12:48:30.383  2303  5831 D ActivityTaskManager: notifyTaskRemoved, task: Task{ed0dd62 #4 type=undefined} trace:com.android.server.wm.RecentTasks.notifyTaskRemoved:566 com.android.server.wm.RecentTasks.remove:1512 com.android.server.wm.Task.cleanUpResourcesForDestroy:798 com.android.server.wm.Task.onParentChanged:1214 com.android.server.wm.WindowContainer.setParent:753
+11-04 12:48:30.384  2303  5831 D OplusMirageWindowManagerService: onTaskRemoved displayid:0 taskId:3 callers:com.android.server.wm.MirageWindowManagerExtImpl.onTaskRemoved:47 com.android.server.wm.TaskDisplayArea.removeChildTask:391 com.android.server.wm.TaskDisplayArea.removeChild:380 com.android.server.wm.WindowContainer.removeImmediately:1052 com.android.server.wm.TaskFragment.removeImmediately:3761
+11-04 12:48:30.384  2303  5831 I OplusScreenSecurityMask: [unrelated payload omitted]
+11-04 12:48:30.384  2303  5831 D ActivityTaskManager: notifyTaskRemoved, task: Task{650770a #3 type=undefined} trace:com.android.server.wm.RecentTasks.notifyTaskRemoved:566 com.android.server.wm.RecentTasks.remove:1512 com.android.server.wm.Task.cleanUpResourcesForDestroy:798 com.android.server.wm.Task.onParentChanged:1214 com.android.server.wm.WindowContainer.setParent:753
+11-04 12:48:30.389  2303  3189 D DisplayAreaOrganizerController: Organizer died before sending onDisplayAreaVanished
+11-04 12:48:30.389  2303  2393 I Quality : [unrelated payload omitted]
+11-04 12:48:30.391  2303  3831 D DisplayAreaOrganizerController: Organizer died before sending onDisplayAreaVanished
+11-04 12:48:30.392  2303  2433 I input_focus: [unrelated payload omitted]
+11-04 12:48:30.392  2303  3167 D CompatChangeReporter: [unrelated payload omitted]
+11-04 12:48:30.392  2303  2430 W Looper  : [unrelated payload omitted]
+11-04 12:48:30.393  2303  5834 I WindowManager: WIN DEATH: Window{e974ace u0 ColorSideGestureRight_displayId_0}
+11-04 12:48:30.393  2303  3167 I am_schedule_service_restart: [0,com.android.systemui/.keyguard.KeyguardService,0]
+11-04 12:48:30.393  2303  3167 I am_schedule_service_restart: [0,com.android.systemui/.dump.SystemUIAuxiliaryDumpService,0]
+11-04 12:48:30.393  2303  3167 I am_schedule_service_restart: [0,com.android.systemui/.SystemUIService,0]
+11-04 12:48:30.393  2303  3167 I am_schedule_service_restart: [0,com.android.systemui/.wallpapers.ImageWallpaper,0]
+11-04 12:48:30.394  2303  5834 D WindowManager: NFW_findFocusedWindowIfNeeded:null mCurrentFocus:null
+11-04 12:48:30.394  2303  5834 I WindowManager: WIN DEATH: Window{9f0f6f7 u0 ColorSideGestureLeft_displayId_0}
+11-04 12:48:30.394  2303  5834 I WindowManager: WIN DEATH: Window{9de76d4 u0 OplusPrivacyIconTopRight}
+11-04 12:48:30.394  2303  5834 I WindowManager: WIN DEATH: Window{5d0fd86 u0 OplusPrivacyIconTopLeft}
+11-04 12:48:30.395  2303  5834 D WindowManager: NFW_findFocusedWindowIfNeeded:null mCurrentFocus:null
+11-04 12:48:30.395  2303  5834 I WindowManager: WIN DEATH: Window{c6e786a u0 ShellDropTarget}
+11-04 12:48:30.396  2303  2732 W ActivityTaskManager: callingPackage for (uid=1000, pid=2303) is ambiguous: [android, com.oplus.appplatform, com.android.providers.settings, com.android.server.telecom, com.oplus.athena, com.android.location.fused]
+11-04 12:48:30.398  2303  3167 I am_uid_stopped: [unrelated payload omitted]
+11-04 12:48:30.398  2303  3167 W ActivityManager: Re-adding persistent process ProcessRecord{f8dfe4d 3079:com.android.systemui/u0a127}
+11-04 12:48:30.399  2303  3167 I am_uid_running: [unrelated payload omitted]
+11-04 12:48:30.399  2303  2442 W UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:30.399  2303  2442 I UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:30.399  2303  2442 I UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:30.399  2303  2442 I UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:30.399  2303  2442 I UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:30.399  2303  2442 I UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:30.399  2303  2442 I UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:30.399  2303  3167 D OplusDexOptimizeManager: [unrelated payload omitted]
+11-04 12:48:30.410  2303  2732 D WindowManager: NFW_setClientVisible:ActivityRecord{29718687 u0 [APP] clientVisible:true
+11-04 12:48:30.410  2303  2732 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.410  2303  2732 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.410  2303  2732 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.410  2303  2732 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.410  2303  2732 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.410  2303  2732 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.410  2303  2732 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.411  2303  2732 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.411  2303  2732 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:30.412  2303  2732 D FlexibleWindowManagerService: isIgnoreAppearedAcrossTask:false
+11-04 12:48:30.412  2303  2732 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:30.412  2303  2732 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:30.412  2303  2732 D FlexibleWindowManagerService: no reused task found for ActivityRecord{29718687 u0 [APP] t-1}
+11-04 12:48:30.412  2303  2982 D OplusZoomSettingsObserver: [unrelated payload omitted]
+11-04 12:48:30.412  2303  2732 D ActivityTaskManager: Temporarily retain top process state for launching app
+11-04 12:48:30.413  2303  2923 D OplusZoomSettingsObserver: [unrelated payload omitted]
+11-04 12:48:30.413  2303  2732 I wm_task_created: [unrelated payload omitted]
+11-04 12:48:30.413  2303  2982 D FloatHandleController: [unrelated payload omitted]
+11-04 12:48:30.413  2303  2982 D OplusZoomSettingsObserver: [unrelated payload omitted]
+11-04 12:48:30.413  2303  2923 D FloatHandleController: [unrelated payload omitted]
+11-04 12:48:30.413  2303  2923 D OplusZoomSettingsObserver: [unrelated payload omitted]
+11-04 12:48:30.414  2303  2732 I wm_task_windowing_mode_changed: [unrelated payload omitted]
+11-04 12:48:30.415  2303  2732 D TaskExtImpl: [unrelated payload omitted]
+11-04 12:48:30.416  2303  2732 D CompatChangeReporter: [unrelated payload omitted]
+11-04 12:48:30.416  2303  2732 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.416  2303  2732 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.416  2303  2732 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.416  2303  2732 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.416  2303  2732 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.416  2303  2732 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.416  2303  2732 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.416  2303  2732 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.416  2303  2732 D CompactWindowManagerService: shortComponentName = [APP]
+11-04 12:48:30.417  2303  2732 D DisplayPolicyExtImpl: getInvalidNavigationBarHeight: barHeight=46
+11-04 12:48:30.418  2303  2732 D SecondaryPageStartupPolicy: [unrelated payload omitted]
+11-04 12:48:30.418  2303  2732 I wm_task_moved: [unrelated payload omitted]
+11-04 12:48:30.418  2303  2732 I wm_task_to_front: [unrelated payload omitted]
+11-04 12:48:30.418  2303  2732 I wm_create_task: [unrelated payload omitted]
+11-04 12:48:30.418  2303  2732 I wm_create_activity: [unrelated payload omitted]
+11-04 12:48:30.418  2303  2732 D OplusStartingWindowManager: we don't revise window flags for system activity :ActivityRecord{29718687 u0 [APP] t104}
+11-04 12:48:30.418  2303  2732 D ActivityTaskManager: validateStartingWindowTheme:  Pkg=[APP], Translucent=true, Floating=false, ShowWallpaper=false, Disable=false, LaunchSource=1, Prev=null, LaunchedFromPackage=android
+11-04 12:48:30.418  2303  2732 D OplusAlwaysAliveManager: [unrelated payload omitted]
+11-04 12:48:30.418  2303  2732 D ActivityTaskManager: addStartingWindow for ActivityRecord{29718687 u0 [APP] t104}, mainWin=null, state=INITIALIZING, isKeyguardLocked=true, isKeyguardGoingAway=false
+11-04 12:48:30.418  2303  2732 D ActivityTaskManager: getStartingWindowType: , newTask=true, taskSwitch=true, processRunning=false, allowTaskSnapshot=true, activityCreated=false, activityAllDrawn=false, snapshot exist: false
+11-04 12:48:30.418  2303  2732 D ActivityRecordExtImpl: [unrelated payload omitted]
+11-04 12:48:30.418  2303  2732 D ActivityTaskManager: skip addStartingWindow due to resolvedTheme: 0, theme: 2131953953
+11-04 12:48:30.418  2303  2442 W UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:30.418  2303  2442 W UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:30.419  2303  2732 D RefreshRate: [unrelated payload omitted]
+11-04 12:48:30.419  2303  2872 D JobSchedulerServiceExtImpl: [unrelated payload omitted]
+11-04 12:48:30.419  2303  2732 D ActivityTaskManager: notifyTaskAdded, task: Task{112ffbb #104 type=standard A=10208:[APP]} trace:com.android.server.wm.RecentTasks.add:1392 com.android.server.wm.ActivityStarter.startActivityInner:2983 com.android.server.wm.ActivityStarter.startActivityUnchecked:2152 com.android.server.wm.ActivityStarter.executeRequest:1906 com.android.server.wm.ActivityStarter.execute:1004
+11-04 12:48:30.420  2303  2732 I ActivityTaskManager: START u0 {act=heytap.speechassist.action.LOCK_SCREEN_UI flg=0x10000000 xflg=0x4 cmp=[APP] (has extras) mCallingUid=1000} with LAUNCH_SINGLE_INSTANCE from uid 1000 (BAL_ALLOW_ALLOWLISTED_UID (Important callingUid)) result code=0
+11-04 12:48:30.422  2303  3167 I InsensibleTaskController: [unrelated payload omitted]
+11-04 12:48:30.426  2303  2448 I am_proc_start: [0,31266,10127,com.android.systemui,restart,com.android.systemui,NULL]
+11-04 12:48:30.426  2303  2448 I ActivityManager: Start proc 31266:com.android.systemui/u0a127 for restart com.android.systemui
+11-04 12:48:30.427  2303  2430 I ActivityManager: ProcessObserver broadcast disabled
+11-04 12:48:30.428  2303  2448 W ContextImpl: [unrelated payload omitted]
+11-04 12:48:30.429  2303  5834 I BLASTSyncEngine: onCommitted syncId: 461, timeout: false ran: false
+11-04 12:48:30.430  2303  3255 I am_uid_running: [unrelated payload omitted]
+11-04 12:48:30.432  2303  2540 I MemoryOperationUtils: [unrelated payload omitted]
+11-04 12:48:30.435  2303  2432 W ActivityManager: setHasOverlayUi called on unknown pid: 3079
+11-04 12:48:30.435  2303  3472 D ActivityManager: Async freezing 4140 com.oplus.blur
+11-04 12:48:30.436  2303  2432 V UsbDeviceManager: [unrelated payload omitted]
+11-04 12:48:30.436  2303  2432 D OplusAccessControlManagerService: [unrelated payload omitted]
+11-04 12:48:30.448  2303  2448 I am_proc_start: [0,31278,10208,[APP],top-activity,{[APP]},NULL]
+11-04 12:48:30.448  2303  2448 I ActivityManager: Start proc 31278:[APP] for top-activity {[APP]}
+11-04 12:48:30.448  2303  2430 I ActivityManager: ProcessObserver broadcast disabled
+11-04 12:48:30.448  2303  2442 W QosScheduler: [unrelated payload omitted]
+11-04 12:48:30.449  2303  2540 I MemoryOperationUtils: [unrelated payload omitted]
+11-04 12:48:30.453  2303  3472 I WindowManager: Window{26fd15a u0 OplusOSEdgeFloatBar} state from HAS_DRAWN to NO_SURFACE; reason: destroySurface
+11-04 12:48:30.454  2303  3472 D WindowStateExtImpl: [unrelated payload omitted]
+11-04 12:48:30.454  2303  3472 D WindowManager: NFW_findFocusedWindowIfNeeded:null mCurrentFocus:null
+11-04 12:48:30.454  2303  3864 I am_proc_bound: [0,31266,com.android.systemui]
+11-04 12:48:30.456  2303  3864 D ActivityTaskManagerServiceExtImpl: preBindApplication record is null
+11-04 12:48:30.459  2303  3864 I am_uid_active: [unrelated payload omitted]
+11-04 12:48:30.466  2303  5828 D CoreBackPreview: [unrelated payload omitted]
+11-04 12:48:30.467  2303  3472 D ActivityManager: Async freezing 5246 [APP]:edgepanel
+11-04 12:48:30.467  2303  5828 I am_proc_bound: [0,31278,[APP]]
+11-04 12:48:30.469  2303  3472 I WindowManager: Window{6bd6302 u0 Taskbar} state from HAS_DRAWN to NO_SURFACE; reason: destroySurface
+11-04 12:48:30.469  2303  2442 W SmartWindowScene: [unrelated payload omitted]
+11-04 12:48:30.469  2303  3472 D WindowStateExtImpl: [unrelated payload omitted]
+11-04 12:48:30.469  2303  3472 I DisplayPolicyExtImpl: remove Taskbar window:Window{6bd6302 u0 Taskbar}
+11-04 12:48:30.469  2303  3472 D WindowManager: NFW_findFocusedWindowIfNeeded:null mCurrentFocus:null
+11-04 12:48:30.473  2303  5828 I am_uid_active: [unrelated payload omitted]
+11-04 12:48:30.473  2303  3861 D OplusConfineModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.474  2303  5828 D WindowManager: rotation(ROTATION_0) no changed  displayId = 0, lastOrientation = -1
+11-04 12:48:30.480  2303  5828 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.480  2303  5828 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.480  2303  5828 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.480  2303  5828 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.480  2303  5828 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.480  2303  5828 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.480  2303  5828 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.480  2303  5828 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.480  2303  5828 D CompactWindowManagerService: shortComponentName = [APP]
+11-04 12:48:30.481  2303  5828 I wm_restart_activity: [unrelated payload omitted]
+11-04 12:48:30.481  2303  5828 D OplusDexOptimizeManager: [unrelated payload omitted]
+11-04 12:48:30.482  2303  5828 D ActivityTaskManager: onWindowFocusChanged Task{112ffbb #104 type=standard A=10208:[APP]} would transfer to compact
+11-04 12:48:30.482  2303  2442 W UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:30.483 31278 31299 I [3]     : [unrelated payload omitted]
+11-04 12:48:30.483  2303  2442 I UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:30.483  2303  5828 D ActivityTaskManager: NFW_setLastResumedActivityUncheckLocked:true r:ActivityRecord{29718687 u0 [APP] t104} currentFocus:null
+11-04 12:48:30.483  2303  5828 D WindowManager: NFW_findFocusedWindowIfNeeded:null mCurrentFocus:null
+11-04 12:48:30.483  2303  5828 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:30.483  2303  5828 D OplusFlexibleDCSManager: [unrelated payload omitted]
+11-04 12:48:30.483  2303  5828 I wm_set_resumed_activity: [unrelated payload omitted]
+11-04 12:48:30.483  2303  5828 I OplusAppSwitchManagerService: [unrelated payload omitted]
+11-04 12:48:30.483  2303  5828 I OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:30.483  2303  5828 I GameManagerServiceExt-GameManagerServiceExt: [unrelated payload omitted]
+11-04 12:48:30.483  2303  2479 D VRR [OPlusRefreshRateService]: [unrelated payload omitted]
+11-04 12:48:30.484  2303  2479 D VRR [OPlusExternalRefreshRateManager]: [unrelated payload omitted]
+11-04 12:48:30.484  2303  3528 D OplusEapManager: [unrelated payload omitted]
+11-04 12:48:30.484  2303  2442 W UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:30.484  2303  2477 D OplusAppSwitchListener: [unrelated payload omitted]
+11-04 12:48:30.484  2303  2477 D OplusAppSwitchListener: [unrelated payload omitted]
+11-04 12:48:30.484  2303  2477 D OplusFeatureReduceBrightness: [unrelated payload omitted]
+11-04 12:48:30.485  2303  5828 I wm_pause_activity: [unrelated payload omitted]
+11-04 12:48:30.485  2303  3528 D OplusAppSwitchRuleInfo: [unrelated payload omitted]
+11-04 12:48:30.485 31278 31293 I [4]     : [unrelated payload omitted]
+11-04 12:48:30.485  2303  3864 W ActivityManager: Unable to start service Intent { xflg=0x4 cmp=[APP] (has extras) mCallingUid=10233 } U=0: not found
+11-04 12:48:30.486  2303  2479 D VRR [OPlusRefreshRateService]: [unrelated payload omitted]
+11-04 12:48:30.486  2303  2479 D VRR [OPlusExternalRefreshRateManager]: [unrelated payload omitted]
+11-04 12:48:30.486  2303  3528 D OplusEapManager: [unrelated payload omitted]
+11-04 12:48:30.486  2303  3528 D OplusAppSwitchRuleInfo: [unrelated payload omitted]
+11-04 12:48:30.486  5246 31298 E ActivityThread: [unrelated payload omitted]
+11-04 12:48:30.487  5246 31298 E ActivityThread: [unrelated payload omitted]
+11-04 12:48:30.488  2303  3795 D DragAndDropDispatcherManagerService: [unrelated payload omitted]
+11-04 12:48:30.488  2303  3795 D DragAndDropDispatcherManagerService: [unrelated payload omitted]
+11-04 12:48:30.488  2303  2459 E OplusThermalStats: [unrelated payload omitted]
+11-04 12:48:30.488  2303  3528 D OplusAppSwitchRuleInfo: [unrelated payload omitted]
+11-04 12:48:30.488  2303  3864 D CompatChangeReporter: [unrelated payload omitted]
+11-04 12:48:30.489  2303  2477 D OplusAppSwitchListener: [unrelated payload omitted]
+11-04 12:48:30.489  2303  2477 D OplusFeatureReduceBrightness: [unrelated payload omitted]
+11-04 12:48:30.489  2303  2477 D OplusFeatureReduceBrightness: [unrelated payload omitted]
+11-04 12:48:30.489 31278 31278 V Configuration: [unrelated payload omitted]
+11-04 12:48:30.489  2303  3528 D OplusAppSwitchRuleInfo: [unrelated payload omitted]
+11-04 12:48:30.489  2303  3528 D OplusAppSwitchRuleInfo: [unrelated payload omitted]
+11-04 12:48:30.490  2947  3264 W ContextImpl: [unrelated payload omitted]
+11-04 12:48:30.491  2303  2472 D OplusFeatureReduceBrightness: [unrelated payload omitted]
+11-04 12:48:30.491  2303  2472 D OplusFeatureReduceBrightness: [unrelated payload omitted]
+11-04 12:48:30.491  2303  2472 D OplusFeatureReduceBrightness: [unrelated payload omitted]
+11-04 12:48:30.491  2303  3864 W ActivityManager: Unable to start service Intent { xflg=0x4 cmp=[APP] (has extras) mCallingUid=1000 } U=0: not found
+11-04 12:48:30.492  2303  2432 D OplusBatteryManager: [unrelated payload omitted]
+11-04 12:48:30.492  2303  2432 D BatteryStatsImplExtImpl: [unrelated payload omitted]
+11-04 12:48:30.492  2303  2432 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:30.492  2303  2432 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:30.492  2303  2432 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:30.493  2303  2838 D BackgroundInstallControlService: [unrelated payload omitted]
+11-04 12:48:30.494  2303  2303 I JobServiceContext: [unrelated payload omitted]
+11-04 12:48:30.494  2303  2303 I NotificationHistoryJob: [unrelated payload omitted]
+11-04 12:48:30.496  2303 31304 I NotificationHistoryJob: [unrelated payload omitted]
+11-04 12:48:30.500  2303  2303 D OplusSmartDozeHelper: [unrelated payload omitted]
+11-04 12:48:30.501  2303  2303 D OplusSmartDozeHelper: [unrelated payload omitted]
+11-04 12:48:30.505  2303  3862 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:30.506  2303  3862 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:30.506  2303  3862 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:30.542  2303  3864 I OplusAppSwitchManagerService: [unrelated payload omitted]
+11-04 12:48:30.542  2303  3864 I OplusAppSwitchStateDispatcher: [unrelated payload omitted]
+11-04 12:48:30.544  5246  6110 D OplusPowerManager: unregisterScreenStatusListener listener=[APP]@5416d02
+11-04 12:48:30.593 31266 31266 I Quality : [unrelated payload omitted]
+11-04 12:48:30.645  2303  2671 I commit_sys_config_file: [unrelated payload omitted]
+11-04 12:48:30.650  2303  3862 W PackageManager: [unrelated payload omitted]
+11-04 12:48:30.670  2303  5828 I OplusFeatureConfigManagerService: [unrelated payload omitted]
+11-04 12:48:30.671  2303  5828 I OplusFeatureConfigManagerService: [unrelated payload omitted]
+11-04 12:48:30.671  2303  3185 I OplusFeatureConfigManagerService: [unrelated payload omitted]
+11-04 12:48:30.672  2303  3185 I OplusFeatureConfigManagerService: [unrelated payload omitted]
+11-04 12:48:30.672  2303  5828 I OplusFeatureConfigManagerService: [unrelated payload omitted]
+11-04 12:48:30.672  2303  3185 I OplusFeatureConfigManagerService: [unrelated payload omitted]
+11-04 12:48:30.673  2303  3862 I OplusFeatureConfigManagerService: [unrelated payload omitted]
+11-04 12:48:30.674  2303  3864 I OplusFeatureConfigManagerService: [unrelated payload omitted]
+11-04 12:48:30.674  2303  3862 I OplusFeatureConfigManagerService: [unrelated payload omitted]
+11-04 12:48:30.674  2303  3862 I OplusFeatureConfigManagerService: [unrelated payload omitted]
+11-04 12:48:30.675  2303  3864 I OplusFeatureConfigManagerService: [unrelated payload omitted]
+11-04 12:48:30.675  2303  3862 I OplusFeatureConfigManagerService: [unrelated payload omitted]
+11-04 12:48:30.675  2303  3864 I OplusFeatureConfigManagerService: [unrelated payload omitted]
+11-04 12:48:30.676  2303  3185 I OplusFeatureConfigManagerService: [unrelated payload omitted]
+11-04 12:48:30.683  2303  3185 I OplusFeatureConfigManagerService: [unrelated payload omitted]
+11-04 12:48:30.684  2303  5828 I OplusFeatureConfigManagerService: [unrelated payload omitted]
+11-04 12:48:30.684 31278 31278 I Quality : [unrelated payload omitted]
+11-04 12:48:30.684  2303  3185 I OplusDevicePolicyManagerService: [unrelated payload omitted]
+11-04 12:48:30.685  2303  3862 I OplusDevicePolicyManagerService: [unrelated payload omitted]
+11-04 12:48:30.686  2303  3864 I OplusDevicePolicyManagerService: [unrelated payload omitted]
+11-04 12:48:30.686  2303  3185 I OplusDevicePolicyManagerService: [unrelated payload omitted]
+11-04 12:48:30.686  2303  5828 I OplusDevicePolicyManagerService: [unrelated payload omitted]
+11-04 12:48:30.692 31278 31278 D ResourcesManagerExtImpl: [unrelated payload omitted]
+11-04 12:48:30.718  2303  5828 I ActivityManager: Flag disabled. Ignoring finishAttachApplication from uid: 10208. pid: 31278
+11-04 12:48:30.719  2303  5828 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:30.719  2303  5828 D OplusKeyEventManagerService: [unrelated payload omitted]
+11-04 12:48:30.719  2303  5828 D OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:30.719  1368  1368 I auditd  : [unrelated payload omitted]
+11-04 12:48:30.722 31278 31278 D ResourcesManagerExtImpl: [unrelated payload omitted]
+11-04 12:48:30.723 31278 31332 I DisplayManager: Choreographer implicitly registered for the refresh rate.
+11-04 12:48:30.723  1368  1368 I auditd  : [unrelated payload omitted]
+11-04 12:48:30.724  2303  3862 V DisplayManagerService: FrozenStateChangeCallback not supported for pid 31278
+11-04 12:48:30.727  2303  2442 W UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:30.731  2303  3862 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.731  2303  3862 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.731  2303  3862 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.736  2303  3185 I OplusAppSwitchManagerService: [unrelated payload omitted]
+11-04 12:48:30.736  2303  3185 I OplusAppSwitchStateDispatcher: [unrelated payload omitted]
+11-04 12:48:30.746  2303  3185 V DisplayManagerService: FrozenStateChangeCallback not supported for pid 31266
+11-04 12:48:30.747 31266 31266 D OplusInputMethodUtil: [unrelated payload omitted]
+11-04 12:48:30.747 31266 31266 D OplusInputMethodUtil: [unrelated payload omitted]
+11-04 12:48:30.747 31266 31266 D OplusInputMethodUtil: [unrelated payload omitted]
+11-04 12:48:30.747 31266 31266 D OplusInputMethodUtil: [unrelated payload omitted]
+11-04 12:48:30.747 31266 31266 D OplusInputMethodUtil: [unrelated payload omitted]
+11-04 12:48:30.747 31266 31266 D OplusInputMethodUtil: [unrelated payload omitted]
+11-04 12:48:30.752 31266 31266 V WindowManagerShell: Adding init callback for OneHandedController
+11-04 12:48:30.752 31266 31266 I OneHandedController: [unrelated payload omitted]
+11-04 12:48:30.753 31266 31266 V WindowManagerShell: Adding init callback for RootTaskDisplayAreaOrganizer
+11-04 12:48:30.753 31266 31266 V WindowManagerShell: Adding init callback for HomeTransitionObserver
+11-04 12:48:30.756 31266 31266 V WindowManagerShell: Adding init callback for DefaultTransitionHandler
+11-04 12:48:30.756 31266 31266 V WindowManagerShell: addHandler: Default
+11-04 12:48:30.756 31266 31266 V WindowManagerShell: addHandler: Remote
+11-04 12:48:30.756 31266 31266 V WindowManagerShell: Adding init callback for Transitions
+11-04 12:48:30.760 31266 31266 V WindowManagerShell: addHandler: FullscreenTaskOperations$TransitionHandler
+11-04 12:48:30.760 31266 31266 V WindowManagerShell: addHandler: FlexibleTaskTransitionHandler
+11-04 12:48:30.761  2303  5828 D FSS_FoldScreenSwitchingManager: [unrelated payload omitted]
+11-04 12:48:30.761 31266 31266 V WindowManagerShell: addHandler: OnePuttTransitionHandler
+11-04 12:48:30.762 31266 31266 V WindowManagerShell: addHandler: FlexibleWindowTransitionHandler
+11-04 12:48:30.763  2303  3185 D FSS_FoldScreenSwitchingManager: [unrelated payload omitted]
+11-04 12:48:30.763 31266 31266 V WindowManagerShell: addHandler: FlexibleActivityTransitionHandler
+11-04 12:48:30.765 31266 31266 V WindowManagerShell: Adding init callback for DragAndDropController
+11-04 12:48:30.770 31266 31266 V WindowManagerShell: Adding init callback for BubbleController
+11-04 12:48:30.778 31266 31266 V WindowManagerShell: Adding init callback for MultiInstanceHelper
+11-04 12:48:30.782 31266 31266 V WindowManagerShell: Adding init callback for DefaultHomePackageSupplier
+11-04 12:48:30.782 31266 31266 V WindowManagerShell: Adding init callback for UserProfileContexts
+11-04 12:48:30.783 31266 31266 V WindowManagerShell: Adding init callback for WindowDecorTaskResourceLoader
+11-04 12:48:30.785 31266 31266 V WindowManagerShell: Adding init callback for ZoomController
+11-04 12:48:30.786  2303  5828 I wm_finish_activity: [unrelated payload omitted]
+11-04 12:48:30.787  2303  5828 I wm_task_moved: [unrelated payload omitted]
+11-04 12:48:30.787  2303  5828 I wm_task_to_front: [unrelated payload omitted]
+11-04 12:48:30.787  2303  3862 W FlexibleTaskListenerController: [unrelated payload omitted]
+11-04 12:48:30.788  2303  5828 I wm_focused_root_task: [unrelated payload omitted]
+11-04 12:48:30.788 31278 31278 I wm_on_create_called: [unrelated payload omitted]
+11-04 12:48:30.789 31266 31266 V WindowManagerShell: Adding init callback for RecentsTransitionHandler
+11-04 12:48:30.790 31266 31266 V WindowManagerShell: Adding init callback for CaptionWindowDecorViewModel
+11-04 12:48:30.791 31266 31266 V WindowManagerShell: Adding init callback for SplitScreenController
+11-04 12:48:30.792 31266 31266 V WindowManagerShell: addHandler: FullscreenTaskOperations$TransitionHandler
+11-04 12:48:30.793 31266 31266 V WindowManagerShell: Adding init callback for FullscreenTaskWindowDecorController
+11-04 12:48:30.793 31266 31266 V WindowManagerShell: Adding init callback for FullscreenTaskTransitionObserver
+11-04 12:48:30.793 31266 31266 V WindowManagerShell: Adding init callback for FullscreenTaskListener
+11-04 12:48:30.794 31266 31266 V WindowManagerShell: Adding init callback for FreeformTaskTransitionStarterInitializer
+11-04 12:48:30.795 31266 31266 V WindowManagerShell: Adding init callback for ActivityEmbeddingController
+11-04 12:48:30.798 31278 31278 D ActivityThread: [unrelated payload omitted]
+11-04 12:48:30.799 31278 31278 D ActivityThread: [unrelated payload omitted]
+11-04 12:48:30.799  2303  3864 D RefreshRate: [unrelated payload omitted]
+11-04 12:48:30.799  2303  2872 D JobSchedulerServiceExtImpl: [unrelated payload omitted]
+11-04 12:48:30.799  2303  2872 D JobSchedulerServiceExtImpl: [unrelated payload omitted]
+11-04 12:48:30.800  2303  3864 D ActivityTaskManager: setAppVisibility(Token{8906792 ActivityRecord{191680481 u0 [APP] t103}}, visible=true):  visible=false mVisibleRequested=false
+11-04 12:48:30.800  2303  3864 D WindowManager: NFW_setClientVisible:ActivityRecord{191680481 u0 [APP] t103} clientVisible:true
+11-04 12:48:30.800  2303  3864 D ActivityTaskManager: commitVisibility: ActivityRecord{191680481 u0 [APP] t103}: visible=true visibleRequested=true, isInTransition=false
+11-04 12:48:30.800  2303  3864 D WindowManager: NFW_findFocusedWindowIfNeeded:null mCurrentFocus:null
+11-04 12:48:30.800  2303  3864 I OplusAppSwitchManagerService: [unrelated payload omitted]
+11-04 12:48:30.801  2303  3415 I OPM     : [unrelated payload omitted]
+11-04 12:48:30.801  2303  3864 D ActivityTaskManager: onWindowFocusChanged Task{31fe0c0 #103 type=standard A=10326:[APP]} would transfer to compact
+11-04 12:48:30.801  2303  2442 I UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:30.801  2303  3864 D ActivityTaskManager: NFW_setLastResumedActivityUncheckLocked:true r:ActivityRecord{191680481 u0 [APP] t103} currentFocus:null
+11-04 12:48:30.801  2303  3864 D WindowManager: NFW_findFocusedWindowIfNeeded:null mCurrentFocus:null
+11-04 12:48:30.801  2303  3864 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:30.801  2303  3864 D OplusFlexibleDCSManager: [unrelated payload omitted]
+11-04 12:48:30.801  2303  3864 I wm_set_resumed_activity: [unrelated payload omitted]
+11-04 12:48:30.801  2303  3864 I OplusJoystickManager: [unrelated payload omitted]
+11-04 12:48:30.801  2303  3864 I GameManagerServiceExt-GameManagerServiceExt: [unrelated payload omitted]
+11-04 12:48:30.801  2303  3528 D OplusEapManager: [unrelated payload omitted]
+11-04 12:48:30.801  2303  2432 D BatteryStatsImplExtImpl: [unrelated payload omitted]
+11-04 12:48:30.801  2303  3864 D ActivityTaskManager: setAppVisibility(Token{8906792 ActivityRecord{191680481 u0 [APP] t103}}, visible=false):  visible=true mVisibleRequested=true
+11-04 12:48:30.802  2303  3864 D ActivityTaskManager: commitVisibility: ActivityRecord{191680481 u0 [APP] t103}: visible=false visibleRequested=false, isInTransition=false
+11-04 12:48:30.802  2303  3864 D WindowManager: NFW_findFocusedWindowIfNeeded:null mCurrentFocus:null
+11-04 12:48:30.802  2303  3864 I wm_add_to_stopping: [unrelated payload omitted]
+11-04 12:48:30.802  2303  3528 D OplusAppSwitchRuleInfo: [unrelated payload omitted]
+11-04 12:48:30.802  2303  2479 D VRR [OPlusRefreshRateService]: [unrelated payload omitted]
+11-04 12:48:30.803  2303  2477 D OplusAppSwitchListener: [unrelated payload omitted]
+11-04 12:48:30.803  2303  2477 D OplusAppSwitchListener: [unrelated payload omitted]
+11-04 12:48:30.803  2303  2459 E OplusThermalStats: [unrelated payload omitted]
+11-04 12:48:30.803  2303  2477 D OplusFeatureReduceBrightness: [unrelated payload omitted]
+11-04 12:48:30.803  2303  2477 D OplusAppSwitchListener: [unrelated payload omitted]
+11-04 12:48:30.803  2303  3528 D OplusEapManager: [unrelated payload omitted]
+11-04 12:48:30.803  2303  2477 D OplusFeatureReduceBrightness: [unrelated payload omitted]
+11-04 12:48:30.803  2303  2477 D OplusFeatureReduceBrightness: [unrelated payload omitted]
+11-04 12:48:30.803  2303  3528 D OplusAppSwitchRuleInfo: [unrelated payload omitted]
+11-04 12:48:30.804  2303  3528 D OplusAppSwitchRuleInfo: [unrelated payload omitted]
+11-04 12:48:30.804  2303  3528 D OplusAppSwitchRuleInfo: [unrelated payload omitted]
+11-04 12:48:30.805 31266 31266 V WindowManagerShell: Adding init callback for PipTransition
+11-04 12:48:30.805  2303  2472 D OplusFeatureReduceBrightness: [unrelated payload omitted]
+11-04 12:48:30.805  2303  2472 D OplusFeatureReduceBrightness: [unrelated payload omitted]
+11-04 12:48:30.805  2303  2472 D OplusFeatureReduceBrightness: [unrelated payload omitted]
+11-04 12:48:30.805  2303  3864 D WindowManager: rotation(ROTATION_0) no changed  displayId = 0, lastOrientation = -1
+11-04 12:48:30.805  2303  2479 D VRR [OPlusRefreshRateService]: [unrelated payload omitted]
+11-04 12:48:30.806  2303  2479 D VRR [OPlusExternalRefreshRateManager]: [unrelated payload omitted]
+11-04 12:48:30.806 31266 31266 V WindowManagerShell: Adding init callback for PerfHintController
+11-04 12:48:30.806  2303  3864 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.806  2303  3864 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.806  2303  3864 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.806  2303  3864 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.806  2303  3864 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.806  2303  3864 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.806  2303  3864 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.806  2303  3864 D OplusCompatModeManagerService: [unrelated payload omitted]
+11-04 12:48:30.806  2303  3864 D CompactWindowManagerService: shortComponentName = [APP]
+11-04 12:48:30.808  2303  3864 I wm_resume_activity: [unrelated payload omitted]
+11-04 12:48:30.808  2303  3864 I wm_pause_activity: [unrelated payload omitted]
+11-04 12:48:30.809  2303  2432 I am_uid_active: [unrelated payload omitted]
+11-04 12:48:30.809  2303  2429 I sysui_multi_action: [757,803,799,window_time_0,802,281]
+11-04 12:48:30.813 28399 28902 I [3]     : [unrelated payload omitted]
+11-04 12:48:30.813 31266 31266 V WindowManagerShell: Adding init callback for PipTransition
+11-04 12:48:30.813  2303  2432 D OplusBatteryManager: [unrelated payload omitted]
+11-04 12:48:30.813  2303  2432 D BatteryStatsImplExtImpl: [unrelated payload omitted]
+11-04 12:48:30.813  2303  2838 D BackgroundInstallControlService: [unrelated payload omitted]
+11-04 12:48:30.813 31266 31266 V WindowManagerShell: Adding init callback for KeyguardTransitionHandler
+11-04 12:48:30.813 31266 31266 V WindowManagerShell: Adding init callback for DefaultMixedHandler
+11-04 12:48:30.814  2303  2432 I wm_destroy_activity: [unrelated payload omitted]
+11-04 12:48:30.814  2303  2838 D BackgroundInstallControlService: [unrelated payload omitted]
+11-04 12:48:30.815 31278 31293 I [6]     : [unrelated payload omitted]
+11-04 12:48:30.815 31278 31278 D ActivityThread: [unrelated payload omitted]
+11-04 12:48:30.816  2303  2442 I UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:30.816  2303  2432 D ActivityManager: Async freezing 31278 [APP]
+11-04 12:48:30.817  2303  2432 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:30.817  2303  2432 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:30.817  2303  2432 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:30.817 31266 31266 V WindowManagerShell: Adding init callback for StartingWindowController
+11-04 12:48:30.818 31266 31266 V WindowManagerShell: Adding init callback for ProtoLogController
+11-04 12:48:30.818  2303  2442 I UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:30.818  2303  2442 I UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:30.818 31266 31266 V WindowManagerShell: Adding init callback for TransitionStateHolder
+11-04 12:48:30.819  2303  2432 W ProcessStats: [unrelated payload omitted]
+11-04 12:48:30.821 28399 28399 I wm_on_restart_called: [unrelated payload omitted]
+11-04 12:48:30.822 31266 31266 V WindowManagerShell: Adding init callback for BackAnimationController
+11-04 12:48:30.822 31266 31266 V WindowManagerShell: addHandler: BackAnimationController$BackTransitionHandler
+11-04 12:48:30.823 31266 31266 V WindowManagerShell: Adding init callback for ShellCrashHandler
+11-04 12:48:30.824 31266 31266 V WindowManagerShell: Adding init callback for PipTouchHandler
+11-04 12:48:30.824 31266 31266 V WindowManagerShell: Adding init callback for DevicePostureController
+11-04 12:48:30.825 31266 31266 V WindowManagerShell: Adding init callback for TabletopModeController
+11-04 12:48:30.825 31266 31266 V WindowManagerShell: Adding init callback for PipController
+11-04 12:48:30.825  2303  5834 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:30.825  2303  5834 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:30.825  2303  5834 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:30.825 31266 31266 V WindowManagerShell: Adding init callback for RootDisplayAreaOrganizer
+11-04 12:48:30.826 31266 31317 V WindowManagerShell: Initializing Shell Components: 44
+11-04 12:48:30.827 31266 31317 V WindowManagerShell: 	DisplayChangeController init took 0ms
+11-04 12:48:30.827 31266 31317 V WindowManagerShell: 	DisplayController init took 1ms
+11-04 12:48:30.829 31266 31317 V WindowManagerShell: 	DisplayInsetsController init took 1ms
+11-04 12:48:30.829 31266 31317 V WindowManagerShell: 	DisplayImeController init took 1ms
+11-04 12:48:30.829 31266 31317 V WindowManagerShell: Adding command class dump for ShellController
+11-04 12:48:30.830 31266 31317 V WindowManagerShell: Adding dump callback for ShellController
+11-04 12:48:30.830 31266 31317 V WindowManagerShell: 	ShellController init took 0ms
+11-04 12:48:30.830 31266 31317 V WindowManagerShell: Adding command class compatui for CompatUIShellCommandHandler
+11-04 12:48:30.830 31266 31317 V WindowManagerShell: 	CompatUIController init took 0ms
+11-04 12:48:30.830 31266 31317 V WindowManagerShell: Adding dump callback for TaskStackTransitionObserver
+11-04 12:48:30.830 31266 31317 V WindowManagerShell: 	TaskStackTransitionObserver init took 1ms
+11-04 12:48:30.830 31266 31317 V WindowManagerShell: Adding external interface from RecentTasksController with key com.android.wm.shell.recents.IRecentTasks
+11-04 12:48:30.830 31266 31317 V WindowManagerShell: Adding dump callback for RecentTasksController
+11-04 12:48:30.830 31266 31317 V WindowManagerShell: Adding command class recents for RecentTasksController
+11-04 12:48:30.835 31266 31317 V WindowManagerShell: 	RecentTasksController init took 5ms
+11-04 12:48:30.835 31266 31317 V WindowManagerShell: Adding dump callback for ShellTaskOrganizer
+11-04 12:48:30.838  2303  3472 I netstats_mobile_sample: [unrelated payload omitted]
+11-04 12:48:30.838  2303  3472 I netstats_wifi_sample: [unrelated payload omitted]
+11-04 12:48:30.840 31266 31317 V WindowManagerShell: 	ShellTaskOrganizer init took 5ms
+11-04 12:48:30.840 31266 31317 V WindowManagerShell: Adding dump callback for OneHandedController
+11-04 12:48:30.861 28399 28399 I wm_on_start_called: [unrelated payload omitted]
+11-04 12:48:30.862 31266 31317 D OneHandedController: [unrelated payload omitted]
+11-04 12:48:30.864 31266 31317 D OneHandedState: [unrelated payload omitted]
+11-04 12:48:30.865 28399 28399 D ActivityThread: [unrelated payload omitted]
+11-04 12:48:30.865 28399 28399 D ResourcesManagerExtImpl: [unrelated payload omitted]
+11-04 12:48:30.871 31266 31317 V WindowManagerShell: Adding external interface from OneHandedController with key com.android.wm.shell.onehanded.IOneHanded
+11-04 12:48:30.874 31266 31317 V WindowManagerShell: 	OneHandedController init took 33ms
+11-04 12:48:30.876 31266 31317 V WindowManagerShell: 	RootTaskDisplayAreaOrganizer init took 2ms
+11-04 12:48:30.877 31266 31317 V WindowManagerShell: 	HomeTransitionObserver init took 0ms
+11-04 12:48:30.886 28399 28399 I wm_on_resume_called: [unrelated payload omitted]
+11-04 12:48:30.900 31266 31317 V WindowManagerShell: 	DefaultTransitionHandler init took 23ms
+11-04 12:48:30.900 31266 31317 V WindowManagerShell: Adding external interface from Transitions with key com.android.wm.shell.shared.IShellTransitions
+11-04 12:48:30.909  2303  3610 V WindowManager: Registering transition player android.os.BinderProxy@28130e1
+11-04 12:48:30.910 31266 31317 V WindowManagerShell: Adding command class transitions for Transitions
+11-04 12:48:30.910 31266 31317 V WindowManagerShell: Adding dump callback for Transitions
+11-04 12:48:30.910 31266 31317 V WindowManagerShell: 	Transitions init took 10ms
+11-04 12:48:30.910 31266 31317 V WindowManagerShell: Adding external interface from DragAndDropController with key com.android.wm.shell.draganddrop.IDragAndDrop
+11-04 12:48:30.910 31266 31317 V WindowManagerShell: Adding dump callback for DragAndDropController
+11-04 12:48:30.910 31266 31317 V ShellDragAndDrop: [unrelated payload omitted]
+11-04 12:48:30.911 31266 31317 V WindowManagerShell: 	DragAndDropController init took 1ms
+11-04 12:48:30.917 31266 31317 V WindowManagerShell: Adding external interface from BubbleController with key com.android.wm.shell.bubbles.IBubbles
+11-04 12:48:30.917 31266 31317 V WindowManagerShell: Adding dump callback for BubbleController
+11-04 12:48:30.917 31266 31317 V WindowManagerShell: 	BubbleController init took 6ms
+11-04 12:48:30.917 31266 31317 V WindowManagerShell: Adding command class multi-instance for MultiInstanceHelper
+11-04 12:48:30.917 31266 31317 V WindowManagerShell: 	MultiInstanceHelper init took 0ms
+11-04 12:48:30.918 31266 31317 V WindowManagerShell: 	DefaultHomePackageSupplier init took 1ms
+11-04 12:48:30.920 31266 31317 V WindowManagerShell: 	UserProfileContexts init took 1ms
+11-04 12:48:30.920 31266 31317 V WindowManagerShell: Adding dump callback for WindowDecorTaskResourceLoader
+11-04 12:48:30.920 31266 31317 V WindowManagerShell: 	WindowDecorTaskResourceLoader init took 0ms
+11-04 12:48:30.936 31266 31377 E ActivityThread: [unrelated payload omitted]
+11-04 12:48:30.939 31266 31317 E OplusCustomizeRestrictionManager: [unrelated payload omitted]
+11-04 12:48:30.940 31266 31379 E ActivityThread: [unrelated payload omitted]
+11-04 12:48:30.941  2303  3610 W ActivityManager: Unable to start service Intent { xflg=0x4 cmp=[APP] (has extras) mCallingUid=10127 } U=0: not found
+11-04 12:48:30.948 31266 31317 V WindowManagerShell: addHandler: ZoomTransitionController
+11-04 12:48:30.949  2303  3610 W OplusZoomTaskController: [unrelated payload omitted]
+11-04 12:48:30.949 31266 31317 V WindowManagerShell: 	ZoomController init took 30ms
+11-04 12:48:30.949 31266 31317 V WindowManagerShell: addHandler: RecentsTransitionHandler
+11-04 12:48:30.949 31266 31317 V WindowManagerShell: 	RecentsTransitionHandler init took 0ms
+11-04 12:48:30.950 31266 31317 V WindowManagerShell: 	CaptionWindowDecorViewModel init took 0ms
+11-04 12:48:30.950 31266 31317 V WindowManagerShell: Adding dump callback for SplitScreenController
+11-04 12:48:30.950 31266 31317 V WindowManagerShell: Adding command class splitscreen for SplitScreenController
+11-04 12:48:30.950 31266 31317 V WindowManagerShell: Adding external interface from SplitScreenController with key com.android.wm.shell.splitscreen.ISplitScreen
+11-04 12:48:30.951  2303  3610 I wm_task_created: [unrelated payload omitted]
+11-04 12:48:30.952  2303  3610 I wm_task_windowing_mode_changed: [unrelated payload omitted]
+11-04 12:48:30.953 31266 31317 D ShellSplitScreen: [unrelated payload omitted]
+11-04 12:48:30.953 28399 28399 I wm_on_top_resumed_gained_called: [unrelated payload omitted]
+11-04 12:48:30.953  2303  3185 I wm_task_created: [unrelated payload omitted]
+11-04 12:48:30.954  2303  3185 I wm_task_windowing_mode_changed: [unrelated payload omitted]
+11-04 12:48:30.954 28399 28399 I wm_on_top_resumed_lost_called: [unrelated payload omitted]
+11-04 12:48:30.956  2303  3185 I wm_task_windowing_mode_changed: [unrelated payload omitted]
+11-04 12:48:30.961  2303  2433 D OplusSplitScreenManagerService: [unrelated payload omitted]
+11-04 12:48:30.962  2303  2433 D FlexibleWindowManagerService: onFlexibleWindowTaskAppeared: task = 105, visible = false
+11-04 12:48:30.962  2303  2433 D OplusFlexibleWindowMinimizedManagerHelper: [unrelated payload omitted]
+11-04 12:48:30.962  2303  2433 D OplusFlexibleDragToSplitAnimController: [unrelated payload omitted]
+11-04 12:48:30.962  2303  2433 D FlexibleWindowManagerService: onFlexibleWindowTaskAppeared: return for no top none finishing activity
+11-04 12:48:30.962  2303  2433 D OplusSplitScreenManagerService: [unrelated payload omitted]
+11-04 12:48:30.963  2303  2433 D FlexibleWindowManagerService: onFlexibleWindowTaskAppeared: task = 106, visible = false
+11-04 12:48:30.963  2303  2433 D OplusFlexibleWindowMinimizedManagerHelper: [unrelated payload omitted]
+11-04 12:48:30.963  2303  2433 D OplusFlexibleDragToSplitAnimController: [unrelated payload omitted]
+11-04 12:48:30.963  2303  2433 D FlexibleWindowManagerService: onFlexibleWindowTaskAppeared: return for no top none finishing activity
+11-04 12:48:30.964  2303  3185 I wm_task_created: [unrelated payload omitted]
+11-04 12:48:30.964  2303  3185 I wm_task_windowing_mode_changed: [unrelated payload omitted]
+11-04 12:48:30.965  2303  5830 E OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:30.966  2303  3610 I OplusStatusBarManagerServiceEnhance: [unrelated payload omitted]
+11-04 12:48:30.967  2303  3185 I wm_task_windowing_mode_changed: [unrelated payload omitted]
+11-04 12:48:30.968  2303  3185 E OplusCustomizeRestrictionManagerService: [unrelated payload omitted]
+11-04 12:48:30.968 31266 31317 D ShellSplitScreen: [unrelated payload omitted]
+11-04 12:48:30.969  2303  2433 D OplusSplitScreenManagerService: [unrelated payload omitted]
+11-04 12:48:30.969 31266 31317 D ShellSplitScreen: [unrelated payload omitted]
+11-04 12:48:30.969 31266 31317 V WindowManagerShell: addHandler: StageCoordinator
+11-04 12:48:30.969  2303  2433 D FlexibleWindowManagerService: onFlexibleWindowTaskAppeared: task = 107, visible = false
+11-04 12:48:30.969  2303  2433 D OplusFlexibleWindowMinimizedManagerHelper: [unrelated payload omitted]
+11-04 12:48:30.969  2303  2433 D OplusFlexibleDragToSplitAnimController: [unrelated payload omitted]
+11-04 12:48:30.970  2303  2433 D FlexibleWindowManagerService: onFlexibleWindowTaskAppeared: return for no top none finishing activity
+11-04 12:48:30.971 28399 28399 I wm_on_paused_called: [unrelated payload omitted]
+11-04 12:48:30.971  2303  5830 I wm_add_to_stopping: [unrelated payload omitted]
+11-04 12:48:30.973  2303  2432 D BatteryStatsImplExtImpl: [unrelated payload omitted]
+11-04 12:48:30.974  2303  2432 I wm_stop_activity: [unrelated payload omitted]
+11-04 12:48:30.975 28399 28902 I [5]     : [unrelated payload omitted]
+11-04 12:48:30.976  2303  2838 D BackgroundInstallControlService: [unrelated payload omitted]
+11-04 12:48:30.980  2303  3185 V WindowManager: Relayout Window{840f652 u0 [APP]}: viewVisibility=0, oldvis=8, req=2944x1840 , apr = 8, vsysui=LAYOUT_FULLSCREEN LIGHT_STATUS_BAR LIGHT_NAVIGATION_BAR, x=0, y=0
+11-04 12:48:30.981  2303  3185 I WindowManager: Window{840f652 u0 [APP]} state from NO_SURFACE to DRAW_PENDING; reason: resetDrawState
+11-04 12:48:30.983  2303  3185 D WindowManager: NFW_findFocusedWindowIfNeeded:null mCurrentFocus:null
+11-04 12:48:30.984 28399 28399 D VRI[MainFragmentActivity]: [unrelated payload omitted]
+11-04 12:48:30.985 28399 28399 W VRI[MainFragmentActivity]: [unrelated payload omitted]
+11-04 12:48:30.993 28399 28399 I viewroot_draw_event: [VRI[MainFragmentActivity],Start draw after previous draw not visible]
+11-04 12:48:30.993 28399 28399 I viewroot_draw_event: [VRI[MainFragmentActivity],Resumed drawing after screen turned on]
+11-04 12:48:31.000  2303  3835 I OplusAppSwitchManagerService: [unrelated payload omitted]
+11-04 12:48:31.000  2303  3835 I OplusAppSwitchStateDispatcher: [unrelated payload omitted]
+11-04 12:48:31.004  2303  3185 W ActivityManager: Unable to start service Intent { xflg=0x4 cmp=[APP] (has extras) mCallingUid=10127 } U=0: not found
+11-04 12:48:31.012  2303  3472 D OplusSplitScreenManagerService: [unrelated payload omitted]
+11-04 12:48:31.012  2303  3472 V OplusMirageWindowStateMonitor: [unrelated payload omitted]
+11-04 12:48:31.013  2303  3472 I GameManagerServiceExt-GameManagerTopState: [unrelated payload omitted]
+11-04 12:48:31.013 31266 31381 D ShellTaskOrganizerExt: [unrelated payload omitted]
+11-04 12:48:31.013  2303  2303 D OplusSplitScreenManagerService: [unrelated payload omitted]
+11-04 12:48:31.015  2303  2303 D OplusSplitScreenManagerService: [unrelated payload omitted]
+11-04 12:48:31.015  2303  2303 D OplusSplitScreenManagerService: [unrelated payload omitted]
+11-04 12:48:31.016 31266 31381 D ShellTaskOrganizerExt: [unrelated payload omitted]
+11-04 12:48:31.017 31266 31317 D SplitScreenUtils: [unrelated payload omitted]
+11-04 12:48:31.019 31266 31317 V WindowManagerShell: 	SplitScreenController init took 70ms
+11-04 12:48:31.021 28399 28399 I viewroot_draw_event: [VRI[MainFragmentActivity],reportDrawFinished seqId=0]
+11-04 12:48:31.022  2303  5830 I WindowManager: Window{840f652 u0 [APP]} state from DRAW_PENDING to COMMIT_DRAW_PENDING; reason: finishDrawingLocked
+11-04 12:48:31.022  2303  5830 D OplusTransitionAnimationManager: [unrelated payload omitted]
+11-04 12:48:31.023 31266 31317 V WindowManagerShell: 	FullscreenTaskWindowDecorController init took 3ms
+11-04 12:48:31.023 31266 31317 V WindowManagerShell: 	FullscreenTaskTransitionObserver init took 0ms
+11-04 12:48:31.023 31266 31317 V WindowManagerShell: 	FullscreenTaskListener init took 0ms
+11-04 12:48:31.023 31266 31317 V WindowManagerShell: 	FreeformTaskTransitionStarterInitializer init took 0ms
+11-04 12:48:31.025  2303  5830 D SecondaryPageStartupPolicy: [unrelated payload omitted]
+11-04 12:48:31.025 31266 31317 V WindowManagerShell: addHandler: ActivityEmbeddingController
+11-04 12:48:31.025 31266 31317 V WindowManagerShell: 	ActivityEmbeddingController init took 0ms
+11-04 12:48:31.025 31266 31317 V WindowManagerShell: addHandler: PipTransition
+11-04 12:48:31.025 31266 31317 V WindowManagerShell: 	PipTransition init took 0ms
+11-04 12:48:31.026 31266 31317 V WindowManagerShell: Adding dump callback for PerfHintController
+11-04 12:48:31.035  2303  3835 D LockSettingsServiceExtImpl: [unrelated payload omitted]
+11-04 12:48:31.035  2303  3835 W LockSettingsServiceExtImpl: [unrelated payload omitted]
+11-04 12:48:31.038 31266 31317 V WindowManagerShell: 	PerfHintController init took 13ms
+11-04 12:48:31.038 31266 31317 V WindowManagerShell: 	PipTransition init took 0ms
+11-04 12:48:31.038 31266 31317 V WindowManagerShell: addHandler: KeyguardTransitionHandler
+11-04 12:48:31.038 31266 31317 V WindowManagerShell: 	KeyguardTransitionHandler init took 0ms
+11-04 12:48:31.038 31266 31317 V WindowManagerShell: addHandler: DefaultMixedHandler
+11-04 12:48:31.038 31266 31317 V WindowManagerShell: 	DefaultMixedHandler init took 0ms
+11-04 12:48:31.038 31266 31317 V WindowManagerShell: Adding external interface from StartingWindowController with key com.android.wm.shell.startingsurface.IStartingWindow
+11-04 12:48:31.038 31266 31317 V WindowManagerShell: 	StartingWindowController init took 0ms
+11-04 12:48:31.038 31266 31317 V WindowManagerShell: Adding command class protolog for ProtoLogController
+11-04 12:48:31.038 31266 31317 V WindowManagerShell: 	ProtoLogController init took 0ms
+11-04 12:48:31.038 31266 31317 V WindowManagerShell: 	TransitionStateHolder init took 0ms
+11-04 12:48:31.039 31266 31317 V WindowManagerShell: Adding external interface from BackAnimationController with key com.android.wm.shell.back.IBackAnimation
+11-04 12:48:31.039 31266 31317 V WindowManagerShell: Adding dump callback for BackAnimationController
+11-04 12:48:31.039 31266 31317 V WindowManagerShell: 	BackAnimationController init took 0ms
+11-04 12:48:31.039 31266 31317 V WindowManagerShell: 	ShellCrashHandler init took 0ms
+11-04 12:48:31.039  2303  3185 D LockSettingsService: [unrelated payload omitted]
+11-04 12:48:31.039  2303  3185 D LockSettingsStorage: [unrelated payload omitted]
+11-04 12:48:31.044 28399 28399 I wm_on_stop_called: [unrelated payload omitted]
+11-04 12:48:31.044 31266 31317 V WindowManagerShell: 	PipTouchHandler init took 6ms
+11-04 12:48:31.044 31266 31317 V WindowManagerShell: 	DevicePostureController init took 0ms
+11-04 12:48:31.044 31266 31317 V WindowManagerShell: 	TabletopModeController init took 0ms
+11-04 12:48:31.044 31266 31317 V WindowManagerShell: Adding dump callback for PipController
+11-04 12:48:31.047 31266 31317 V WindowManagerShell: Adding external interface from PipController with key com.android.wm.shell.common.pip.IPip
+11-04 12:48:31.047 31266 31317 V WindowManagerShell: 	PipController init took 3ms
+11-04 12:48:31.049 31266 31317 V WindowManagerShell: 	RootDisplayAreaOrganizer init took 2ms
+11-04 12:48:31.049 31266 31317 V ShellDragAndDrop: [unrelated payload omitted]
+11-04 12:48:31.052  2303  3610 V WindowManager: Relayout Window{840f652 u0 [APP]}: viewVisibility=4, oldvis=0, req=2944x1840 , apr = 8, vsysui=LAYOUT_FULLSCREEN LIGHT_STATUS_BAR LIGHT_NAVIGATION_BAR, x=0, y=0
+11-04 12:48:31.053  2303  3610 D WindowManager: NFW_findFocusedWindowIfNeeded:null mCurrentFocus:null
+11-04 12:48:31.054 28399 28399 D VRI[MainFragmentActivity]: [unrelated payload omitted]
+11-04 12:48:31.054 28399 28399 I viewroot_draw_event: [VRI[MainFragmentActivity],Not drawing due to not visible. Reason=View.INVISIBLE]
+11-04 12:48:31.055  2303  3610 D WindowManager: NFW_setClientVisible:ActivityRecord{191680481 u0 [APP] t103} clientVisible:false
+11-04 12:48:31.056  2303  2838 D BackgroundInstallControlService: [unrelated payload omitted]
+11-04 12:48:31.056  2303  3610 I WindowManager: Window{840f652 u0 [APP]} state from COMMIT_DRAW_PENDING to NO_SURFACE; reason: destroySurface
+11-04 12:48:31.057  2303  3610 D OplusStartingWindowManager: skip remove starting window for activity = ActivityRecord{191680481 u0 [APP] t103} ,ar != topActivityContainsStartingWindow on activityStopped
+11-04 12:48:31.058  2303  2442 W UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:31.058  2303  2442 W UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:31.058  2303  2442 W UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:31.058  2303  2442 W UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:31.058 31266 31317 I DisplayManager: Implicitly registering for refresh rate
+11-04 12:48:31.060  2303  3610 D RecentTasksExtImpl: [unrelated payload omitted]
+11-04 12:48:31.060  2303  2872 D JobSchedulerServiceExtImpl: [unrelated payload omitted]
+11-04 12:48:31.070  2303  3864 D RefreshRate: [unrelated payload omitted]
+11-04 12:48:31.071  2303  3864 I WindowManager: addWindow: New client android.os.BinderProxy@2f2cc7a : window=Window{1a75888 u0 ShellDropTarget}
+11-04 12:48:31.073 31266 31317 D ShellSplitScreen: [unrelated payload omitted]
+11-04 12:48:31.074 31266 31317 D ShellSplitScreen: [unrelated payload omitted]
+11-04 12:48:31.074 31266 31317 D ShellSplitScreen: [unrelated payload omitted]
+11-04 12:48:31.075 31266 31317 D ShellSplitScreen: [unrelated payload omitted]
+11-04 12:48:31.075 31266 31317 D ShellSplitScreen: [unrelated payload omitted]
+11-04 12:48:31.076 31266 31317 D ShellSplitScreen: [unrelated payload omitted]
+11-04 12:48:31.076  2303  3610 E TransitionChain: [unrelated payload omitted]
+11-04 12:48:31.077  2303  3610 I wm_task_removed: [unrelated payload omitted]
+11-04 12:48:31.077  2303  3610 D OplusMirageWindowManagerService: onTaskRemoved displayid:0 taskId:106 callers:com.android.server.wm.MirageWindowManagerExtImpl.onTaskRemoved:47 com.android.server.wm.TaskDisplayArea.removeChildTask:391 com.android.server.wm.TaskDisplayArea.removeChild:380 com.android.server.wm.WindowContainer.reparent:707 com.android.server.wm.Task.reparent:3227
+11-04 12:48:31.077  2303  3610 I OplusScreenSecurityMask: [unrelated payload omitted]
+11-04 12:48:31.077  2303  3610 I wm_task_moved: [unrelated payload omitted]
+11-04 12:48:31.077  2303  3610 I wm_task_removed: [unrelated payload omitted]
+11-04 12:48:31.077  2303  3610 D OplusMirageWindowManagerService: onTaskRemoved displayid:0 taskId:107 callers:com.android.server.wm.MirageWindowManagerExtImpl.onTaskRemoved:47 com.android.server.wm.TaskDisplayArea.removeChildTask:391 com.android.server.wm.TaskDisplayArea.removeChild:380 com.android.server.wm.WindowContainer.reparent:707 com.android.server.wm.Task.reparent:3227
+11-04 12:48:31.077  2303  3610 I OplusScreenSecurityMask: [unrelated payload omitted]
+11-04 12:48:31.077  2303  3610 I wm_task_moved: [unrelated payload omitted]
+11-04 12:48:31.079 31266 31317 D OneHandedController: [unrelated payload omitted]
+11-04 12:48:31.080  2303  2433 D OplusSplitScreenManagerService: [unrelated payload omitted]
+11-04 12:48:31.081  2303  2433 I TaskOrganizerController: [unrelated payload omitted]
+11-04 12:48:31.081  2303  2433 D OplusFlexibleDragToSplitAnimController: [unrelated payload omitted]
+11-04 12:48:31.081  2303  2433 E FlexibleWindowManagerService: notifyTaskObserverToAttachController not need to notify!
+11-04 12:48:31.081  2303  2433 I FlexibleWindowManagerService: onFlexibleWindowTaskInfoChanged, return for cur task not embedded
+11-04 12:48:31.081  2303  2433 D OplusSplitScreenManagerService: [unrelated payload omitted]
+11-04 12:48:31.081  2303  2433 I TaskOrganizerController: [unrelated payload omitted]
+11-04 12:48:31.081  2303  2433 D OplusFlexibleDragToSplitAnimController: [unrelated payload omitted]
+11-04 12:48:31.082  2303  2433 I FlexibleWindowManagerService: onFlexibleWindowTaskInfoChanged, return for cur task not embedded
+11-04 12:48:31.082  2303  2433 D OplusSplitScreenManagerService: [unrelated payload omitted]
+11-04 12:48:31.082  2303  2433 I TaskOrganizerController: [unrelated payload omitted]
+11-04 12:48:31.082  2303  2433 D OplusFlexibleDragToSplitAnimController: [unrelated payload omitted]
+11-04 12:48:31.082  2303  2433 E FlexibleWindowManagerService: notifyTaskObserverToAttachController not need to notify!
+11-04 12:48:31.082  2303  3864 V WindowManager: Relayout Window{1a75888 u0 ShellDropTarget}: viewVisibility=4, oldvis=4, req=2944x1840 , apr = 0, vsysui=, x=0, y=0
+11-04 12:48:31.082  2303  3864 D WindowManager: NFW_findFocusedWindowIfNeeded:null mCurrentFocus:null
+11-04 12:48:31.082 31278 31278 I wm_on_destroy_called: [unrelated payload omitted]
+11-04 12:48:31.083  2303  3835 D ActivityTaskManager: removeAppToken: ActivityRecord{29718687 u0 [APP] t104 f}} delayed=false parent=Task{112ffbb #104 type=standard A=10208:[APP]} animating=false Callers=com.android.server.wm.DisplayContent.removeAppToken:1732 com.android.server.wm.ActivityRecord.removeFromHistory:4970 com.android.server.wm.ActivityRecord.destroyed:5060 com.android.server.wm.ActivityClientController.activityDestroyed:339
+11-04 12:48:31.083  2303  3835 I wm_task_removed: [unrelated payload omitted]
+11-04 12:48:31.084 31266 31317 I viewroot_draw_event: [VRI[ShellDropTarget],Not drawing due to not visible. Reason=View.INVISIBLE]
+11-04 12:48:31.084 31266 31317 D ShellSplitScreen: [unrelated payload omitted]
+11-04 12:48:31.085  2303  3835 D OplusMirageWindowManagerService: onTaskRemoved displayid:0 taskId:104 callers:com.android.server.wm.MirageWindowManagerExtImpl.onTaskRemoved:47 com.android.server.wm.TaskDisplayArea.removeChildTask:391 com.android.server.wm.TaskDisplayArea.removeChild:380 com.android.server.wm.WindowContainer.removeImmediately:1052 com.android.server.wm.TaskFragment.removeImmediately:3761
+11-04 12:48:31.085  2303  3835 I OplusScreenSecurityMask: [unrelated payload omitted]
+11-04 12:48:31.085  2303  2838 D BackgroundInstallControlService: [unrelated payload omitted]
+11-04 12:48:31.085 31266 31317 D ShellSplitScreen: [unrelated payload omitted]
+11-04 12:48:31.085  2303  3835 D ActivityTaskManager: notifyTaskRemoved, task: Task{112ffbb #104 type=standard A=10208:[APP]} trace:com.android.server.wm.RecentTasks.notifyTaskRemoved:566 com.android.server.wm.RecentTasks.remove:1512 com.android.server.wm.Task.cleanUpResourcesForDestroy:798 com.android.server.wm.Task.onParentChanged:1214 com.android.server.wm.WindowContainer.setParent:753
+11-04 12:48:31.087  2303  2442 W UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:31.087  2303  2442 W UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:31.090  2303  2433 D OplusFlexibleWindowMinimizedManagerHelper: [unrelated payload omitted]
+11-04 12:48:31.090  2303  2433 D OplusFlexibleDragToSplitAnimController: [unrelated payload omitted]
+11-04 12:48:31.090  2303  2433 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:31.090  2303  2433 D FlexibleWindowManagerService: notifyFlexibleTaskVanish taskId : 104 is not taskEmbedded
+11-04 12:48:31.090  2303  2433 D FlexibleWindowManagerService: onFlexibleWindowTaskVanished: task = 104,size:1
+11-04 12:48:31.091 31266 31317 D FlexibleSeekBarManager: [unrelated payload omitted]
+11-04 12:48:31.092 11386 11628 E EmbeddedWindowTaskOrganizer: [unrelated payload omitted]
+11-04 12:48:31.117  2303  2303 W ActivityManager: pid 2303 system sent binder code 3 with flags 1 to frozen apps and got error -32
+11-04 12:48:31.117  2303  2303 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-04 12:48:31.119  2303  5831 D LockSettingsService: [unrelated payload omitted]
+11-04 12:48:31.121  2303  2303 D TrustManagerService: [unrelated payload omitted]
+11-04 12:48:31.121  2303  2303 W ActivityManager: pid 2303 system sent binder code 3 with flags 1 to frozen apps and got error -32
+11-04 12:48:31.121  2303  2303 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-04 12:48:31.192  2303  3864 D OplusConfineModeManagerService: [unrelated payload omitted]
+11-04 12:48:31.207  2303  3835 D RateLimit: [unrelated payload omitted]
+11-04 12:48:31.208  2303  3835 I am_uid_running: [unrelated payload omitted]
+11-04 12:48:31.214 31266 31425 W FeatureConnector: [unrelated payload omitted]
+11-04 12:48:31.214 31266 31425 W FeatureConnector: [unrelated payload omitted]
+11-04 12:48:31.216  2303  3864 D TelephonyRegistry: [unrelated payload omitted]
+11-04 12:48:31.219  2303  2448 I am_proc_start: [0,31428,10241,[APP],content provider,{[APP]},{ callingPackage = com.android.launcher }]
+11-04 12:48:31.219  2303  2448 I ActivityManager: Start proc 31428:[APP] for content provider {[APP]}
+11-04 12:48:31.220  2303  2430 I ActivityManager: ProcessObserver broadcast disabled
+11-04 12:48:31.221  2303  2540 I MemoryOperationUtils: [unrelated payload omitted]
+11-04 12:48:31.243  2303  5831 I am_proc_bound: [0,31428,[APP]]
+11-04 12:48:31.244  2303  5831 D ActivityTaskManagerServiceExtImpl: preBindApplication record is null
+11-04 12:48:31.247  2303  5831 I am_uid_active: [unrelated payload omitted]
+11-04 12:48:31.256 31428 31428 V Configuration: [unrelated payload omitted]
+11-04 12:48:31.265  2303  5831 I OplusDevicePolicyManagerService: [unrelated payload omitted]
+11-04 12:48:31.266 31266 31266 V OplusCustomizeCacheManager: [unrelated payload omitted]
+11-04 12:48:31.266 31266 31266 D OplusCustomizeCacheManager: [unrelated payload omitted]
+11-04 12:48:31.266 31266 31266 V OplusCustomizeCacheManager: [unrelated payload omitted]
+11-04 12:48:31.276  2303  3864 D RateLimit: [unrelated payload omitted]
+11-04 12:48:31.277  2303  5830 I DisplayPolicyExtImpl: add Taskbar window:Window{74c5d8 u0 Taskbar}
+11-04 12:48:31.277  2303  5830 I WindowManager: addWindow: New client android.os.BinderProxy@6fc58fd : window=Window{74c5d8 u0 Taskbar}
+11-04 12:48:31.278  2303  5830 D DisplayPolicyExtImpl: getInvalidNavigationBarHeight: barHeight=46
+11-04 12:48:31.280  2303  3610 D TelephonyRegistry: [unrelated payload omitted]
+11-04 12:48:31.282  2303  3835 D LockSettingsService: [unrelated payload omitted]
+11-04 12:48:31.282  2303  3835 D LockSettingsService: [unrelated payload omitted]
+11-04 12:48:31.286  2303  5830 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:31.286  2303  5830 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:31.286  2303  5830 D FlexibleTaskController: [unrelated payload omitted]
+11-04 12:48:31.287  2303  3610 I OplusStatusBarManagerServiceEnhance: [unrelated payload omitted]
+11-04 12:48:31.288  2303  2448 I am_proc_start: [0,31458,10212,com.oplus.pantanal.ums:utrace_core,service,{com.oplus.pantanal.ums/com.oplus.utrace.core.UTraceService},{ callingPackage = com.android.systemui, serviceType = bindService }]
+11-04 12:48:31.288  2303  2448 I ActivityManager: Start proc 31458:com.oplus.pantanal.ums:utrace_core/u0a212 for service {com.oplus.pantanal.ums/com.oplus.utrace.core.UTraceService}
+11-04 12:48:31.288  2303  2430 I ActivityManager: ProcessObserver broadcast disabled
+11-04 12:48:31.289  2303  2540 I MemoryOperationUtils: [unrelated payload omitted]
+11-04 12:48:31.293  2303  5831 D CoreBackPreview: [unrelated payload omitted]
+11-04 12:48:31.294  2303  5830 D DisplayPolicyExtImpl: getInvalidNavigationBarHeight: barHeight=46
+11-04 12:48:31.295  2303  5830 D DisplayPolicyExtImpl: getInvalidNavigationBarHeight: barHeight=46
+11-04 12:48:31.295 31428 31428 D ResourcesManagerExtImpl: [unrelated payload omitted]
+11-04 12:48:31.295  2303  5830 V WindowManager: Relayout Window{74c5d8 u0 Taskbar}: viewVisibility=0, oldvis=0, req=2944x800 , apr = 0, vsysui=, x=0, y=0
+11-04 12:48:31.295  2303  5830 I WindowManager: Window{74c5d8 u0 Taskbar} state from NO_SURFACE to DRAW_PENDING; reason: resetDrawState
+11-04 12:48:31.295  2303  2442 W SmartWindowScene: [unrelated payload omitted]
+11-04 12:48:31.296  2303  5830 D WindowManager: NFW_findFocusedWindowIfNeeded:null mCurrentFocus:null
+11-04 12:48:31.296  2303  2442 W SmartWindowScene: [unrelated payload omitted]
+11-04 12:48:31.303 11386 11386 I viewroot_draw_event: [VRI[Taskbar],reportDrawFinished seqId=0]
+11-04 12:48:31.305  2303  5830 I WindowManager: Window{74c5d8 u0 Taskbar} state from DRAW_PENDING to COMMIT_DRAW_PENDING; reason: finishDrawingLocked
+11-04 12:48:31.309  2303  5831 D DisplayPolicyExtImpl: getInvalidNavigationBarHeight: barHeight=46
+11-04 12:48:31.309  2303  5831 V WindowManager: Relayout Window{74c5d8 u0 Taskbar}: viewVisibility=0, oldvis=0, req=0x800 , apr = 0, vsysui=, x=0, y=0
+11-04 12:48:31.310  2303  5831 D WindowManager: NFW_findFocusedWindowIfNeeded:null mCurrentFocus:null
+11-04 12:48:31.310  2303  5830 I am_proc_bound: [0,31458,com.oplus.pantanal.ums:utrace_core]
+11-04 12:48:31.312  2303  5830 D ActivityTaskManagerServiceExtImpl: preBindApplication record is null
+11-04 12:48:31.312  2303  3795 W ContentProviderHelper: [unrelated payload omitted]
+11-04 12:48:31.312 11386 11386 I viewroot_draw_event: [VRI[Taskbar],reportDrawFinished seqId=0]
+11-04 12:48:31.313  2303  3835 V WindowManager: Relayout Window{74c5d8 u0 Taskbar}: viewVisibility=0, oldvis=0, req=0x800 , apr = 0, vsysui=
+11-04 12:48:31.313  2303  3835 D WindowManager: NFW_findFocusedWindowIfNeeded:null mCurrentFocus:null
+11-04 12:48:31.315 11386 11386 I viewroot_draw_event: [VRI[Taskbar],reportDrawFinished seqId=0]
+11-04 12:48:31.319 31458 31458 V Configuration: [unrelated payload omitted]
+11-04 12:48:31.339  2303  3835 I ActivityManager: Flag disabled. Ignoring finishAttachApplication from uid: 10241. pid: 31428
+11-04 12:48:31.351  2303  2430 I PhoneWindowManagerExtImpl: run: mPowerKeyForbidden
+11-04 12:48:31.365  2303  3185 D ActivityManager: Cancel freezing 27429 com.oplus.romupdate
+11-04 12:48:31.366  2303  3185 D ActivityManager: pid 27429 com.oplus.romupdate received async transactions while frozen
+11-04 12:48:31.366  2303  3185 D ActivityManager: sync unfroze 27429 com.oplus.romupdate for 7
+11-04 12:48:31.366  2303  3185 I am_uid_active: [unrelated payload omitted]
+11-04 12:48:31.367  2303  2688 D ActivityManager: reportOneUidFrozenStateChanged uid 10271 frozen = false
+11-04 12:48:31.367  2303  2688 I am_unfreeze: [unrelated payload omitted]
+11-04 12:48:31.372 31458 31458 D ResourcesManagerExtImpl: [unrelated payload omitted]
+11-04 12:48:31.386  2303  5830 D CompatChangeReporter: [unrelated payload omitted]
+11-04 12:48:31.387  2303  5830 I ActivityManager: Flag disabled. Ignoring finishAttachApplication from uid: 10212. pid: 31458
+11-04 12:48:31.396  2303  5830 D TelephonyRegistry: [unrelated payload omitted]
+11-04 12:48:31.431  2303  3835 E ClipboardService: [unrelated payload omitted]
+11-04 12:48:31.465 31266 31266 I Quality : [unrelated payload omitted]
+11-04 12:48:31.476  2303  3835 I WindowManager: addWindow: New client android.os.BinderProxy@bee768e : window=Window{dd822bc u0 OplusPrivacyIconTopLeft}
+11-04 12:48:31.488  2303  3835 I WindowManager: addWindow: New client android.os.BinderProxy@95f6d9a : window=Window{362aea8 u0 OplusPrivacyIconTopRight}
+11-04 12:48:31.497  2303  3185 V WindowManager: Relayout Window{dd822bc u0 OplusPrivacyIconTopLeft}: viewVisibility=8, oldvis=0, req=12x12 , apr = 0, vsysui=LAYOUT_STABLE, x=0, y=0
+11-04 12:48:31.498  2303  3185 D WindowManager: NFW_findFocusedWindowIfNeeded:null mCurrentFocus:null
+11-04 12:48:31.500 31266 31459 I viewroot_draw_event: [VRI[OplusPrivacyIconTopLeft],Not drawing due to not visible. Reason=View.GONE]
+11-04 12:48:31.501  2303  3185 V WindowManager: Relayout Window{362aea8 u0 OplusPrivacyIconTopRight}: viewVisibility=8, oldvis=0, req=12x12 , apr = 0, vsysui=LAYOUT_STABLE, x=0, y=0
+11-04 12:48:31.501  2303  3185 D WindowManager: NFW_findFocusedWindowIfNeeded:null mCurrentFocus:null
+11-04 12:48:31.502  2303  3835 D RateLimit: [unrelated payload omitted]
+11-04 12:48:31.503 31266 31459 I viewroot_draw_event: [VRI[OplusPrivacyIconTopRight],Not drawing due to not visible. Reason=View.GONE]
+11-04 12:48:31.503  2303  3835 I am_uid_running: [unrelated payload omitted]
+11-04 12:48:31.504  2303  3835 D DisplayPolicyExtImpl: getInvalidNavigationBarHeight: barHeight=46
+11-04 12:48:31.506  2303  3185 V WindowManager: Relayout Window{dd822bc u0 OplusPrivacyIconTopLeft}: viewVisibility=8, oldvis=8, req=12x12 , apr = 0, vsysui=LAYOUT_STABLE
+11-04 12:48:31.508  2303  3835 V WindowManager: Relayout Window{362aea8 u0 OplusPrivacyIconTopRight}: viewVisibility=8, oldvis=8, req=12x12 , apr = 0, vsysui=LAYOUT_STABLE
+11-04 12:48:31.515  2303  2448 I am_proc_start: [0,31518,10177,com.oplus.ovoicemanager.wakeup,service,{com.oplus.ovoicemanager.wakeup/com.oplus.ovoicemanager.wakeup.train.OVoiceTrainService},{ callingPackage = [APP], serviceType = bindService }]
+11-04 12:48:31.516  2303  2448 I ActivityManager: Start proc 31518:com.oplus.ovoicemanager.wakeup/u0a177 for service {com.oplus.ovoicemanager.wakeup/com.oplus.ovoicemanager.wakeup.train.OVoiceTrainService}
+11-04 12:48:31.516  2303  2430 I ActivityManager: ProcessObserver broadcast disabled
+11-04 12:48:31.516  2303  2540 I MemoryOperationUtils: [unrelated payload omitted]
+11-04 12:48:31.519  2303  3835 I OplusZoomWindowRUSConfigManager: [unrelated payload omitted]
+11-04 12:48:31.520  2303  3835 I OplusZoomWindowRUSConfigManager: [unrelated payload omitted]
+11-04 12:48:31.520  2303  3835 I OplusZoomWindowRUSConfigManager: [unrelated payload omitted]
+11-04 12:48:31.542  2303  3795 I am_proc_bound: [0,31518,com.oplus.ovoicemanager.wakeup]
+11-04 12:48:31.544  2303  3795 D ActivityTaskManagerServiceExtImpl: preBindApplication record is null
+11-04 12:48:31.557 31518 31518 V Configuration: [unrelated payload omitted]
+11-04 12:48:31.601 31518 31518 D ResourcesManagerExtImpl: [unrelated payload omitted]
+11-04 12:48:31.616  2303  2303 D OplusSplitScreenManagerService: [unrelated payload omitted]
+11-04 12:48:31.625  2303  5830 I OplusFeatureConfigManagerService: [unrelated payload omitted]
+11-04 12:48:31.625  2303  5830 D OplusFeatureConfigManagerService: [unrelated payload omitted]
+11-04 12:48:31.626  2303  2436 D OplusFeatureConfigManagerService: [unrelated payload omitted]
+11-04 12:48:31.626  2303  3795 D WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:31.628  2303  3795 D WallpaperManagerService: [unrelated payload omitted]
+11-04 12:48:31.629  2303  3185 D BiometricStateCallback: [unrelated payload omitted]
+11-04 12:48:31.630  2303  3185 D BiometricStateCallback: [unrelated payload omitted]
+11-04 12:48:31.631  2303  3864 D OplusUserManagerServiceEnhance: [unrelated payload omitted]
+11-04 12:48:31.645  2303  3835 W PackageManager: [unrelated payload omitted]
+11-04 12:48:31.661  2303  3835 I MR2ServiceImpl: [unrelated payload omitted]
+11-04 12:48:31.682  2303  3864 I ActivityManager: Flag disabled. Ignoring finishAttachApplication from uid: 10177. pid: 31518
+11-04 12:48:31.685 31266 31550 I sysui_multi_action: [757,213,758,4,759,-1]
+11-04 12:48:31.690  2303  3795 E ActivityManager: FGS logic changed: [WIU changed] Orig WIU:ACTIVITY_STARTER New WIU:DENIED Orig BFSL:ACTIVITY_STARTER New BFSL:FGS_BINDING cmp: {com.oplus.ovoicemanager.wakeup/com.oplus.ovoicemanager.wakeup.train.OVoiceTrainService} sdk: 33
+11-04 12:48:31.694  2303  3795 I ActivityManager: Background started FGS: Allowed [callingPackage: com.oplus.ovoicemanager.wakeup; callingUid: 10177; uidState: SVC ; uidBFSL: n/a; intent: Intent { act=com.oplus.intent.action.OVoiceTrainService pkg=com.oplus.ovoicemanager.wakeup mCallingUid=10208 }; code:FGS_BINDING; tempAllowListReason:<null>; allowWiu:-1; targetSdkVersion:33; callerTargetSdkVersion:33; startForegroundCount:0; bindFromPackage:[APP]: isBindService:false]
+11-04 12:48:31.694  2303  2447 I am_wtf  : [unrelated payload omitted]
+11-04 12:48:31.695  2303  3795 W ActivityManager: Starting FGS with type microphone code=4 callerApp=ProcessRecord{bbe714a 31518:com.oplus.ovoicemanager.wakeup/u0a177} targetSDK=33 requiredPermissions=all of the permissions allOf=true [android.permission.FOREGROUND_SERVICE_MICROPHONE] any of the permissions allOf=false [android.permission.CAPTURE_AUDIO_HOTWORD, android.permission.CAPTURE_AUDIO_OUTPUT, android.permission.CAPTURE_MEDIA_OUTPUT, android.permission.CAPTURE_TUNER_AUDIO_INPUT, android.permission.CAPTURE_VOICE_COMMUNICATION_OUTPUT, android.permission.RECORD_AUDIO]  and the app must be in the eligible state/exemptions to access the foreground only permission
+11-04 12:48:31.695  2303  2447 I am_wtf  : [unrelated payload omitted]
+11-04 12:48:31.696  2303  3795 I am_foreground_service_start: [unrelated payload omitted]
+11-04 12:48:31.697  2303  3795 I am_uid_active: [unrelated payload omitted]
+11-04 12:48:31.700  2303  5830 I OplusKeyEventUtil: [unrelated payload omitted]
+11-04 12:48:31.705  2303  5831 W ActivityManager: Receiver with filter android.content.IntentFilter@39d5f67 already registered for pid 31266, callerPackage is com.android.systemui
+11-04 12:48:31.735  2303  3185 W ActivityManager: Foreground service started from background can not have location/camera/microphone access: service com.oplus.ovoicemanager.wakeup/.service.WakeupService
+11-04 12:48:31.735  2303  3185 I ActivityManager: Background started FGS: Allowed [callingPackage: com.oplus.ovoicemanager.wakeup; callingUid: 10177; uidState: FGS ; uidBFSL: [BFSL]; intent: Intent { cmp=com.oplus.ovoicemanager.wakeup/.service.WakeupService mCallingUid=10177 }; code:PROC_STATE_FGS; tempAllowListReason:<null>; allowWiu:-1; targetSdkVersion:33; callerTargetSdkVersion:33; startForegroundCount:0; bindFromPackage:null: isBindService:false]
+11-04 12:48:31.735  2303  3185 W ActivityManager: Starting FGS with type microphone code=4 callerApp=ProcessRecord{bbe714a 31518:com.oplus.ovoicemanager.wakeup/u0a177} targetSDK=33 requiredPermissions=all of the permissions allOf=true [android.permission.FOREGROUND_SERVICE_MICROPHONE] any of the permissions allOf=false [android.permission.CAPTURE_AUDIO_HOTWORD, android.permission.CAPTURE_AUDIO_OUTPUT, android.permission.CAPTURE_MEDIA_OUTPUT, android.permission.CAPTURE_TUNER_AUDIO_INPUT, android.permission.CAPTURE_VOICE_COMMUNICATION_OUTPUT, android.permission.RECORD_AUDIO]  and the app must be in the eligible state/exemptions to access the foreground only permission
+11-04 12:48:31.735  2303  2447 I am_wtf  : [unrelated payload omitted]
+11-04 12:48:31.735  2303  3185 I am_foreground_service_start: [unrelated payload omitted]
+11-04 12:48:31.736  2303  3472 D RateLimit: [unrelated payload omitted]
+11-04 12:48:31.737  2303  3472 I am_uid_running: [unrelated payload omitted]
+11-04 12:48:31.738  2303  3472 I ActivityManager: com.android.providers.contacts is exempt from freezer
+11-04 12:48:31.747  2303  2448 I am_proc_start: [0,31565,10072,android.process.acore,content provider,{com.android.providers.contacts/com.android.providers.contacts.ContactsProvider2},{ callingPackage = com.android.systemui }]
+11-04 12:48:31.747  2303  2448 I ActivityManager: Start proc 31565:android.process.acore/u0a72 for content provider {com.android.providers.contacts/com.android.providers.contacts.ContactsProvider2}
+11-04 12:48:31.747  2303  2430 I ActivityManager: ProcessObserver broadcast disabled
+11-04 12:48:31.748  2303  2540 I MemoryOperationUtils: [unrelated payload omitted]
+11-04 12:48:31.754  2303  3185 D OplusCustomizeCacheManager: [unrelated payload omitted]
+11-04 12:48:31.756  2303  3185 W OplusCustomizeService: [unrelated payload omitted]
+11-04 12:48:31.756 31266 31266 E OplusCustomizeSecurityManager: [unrelated payload omitted]
+11-04 12:48:31.757  2303  3185 D OplusCustomizeCacheManager: [unrelated payload omitted]
+11-04 12:48:31.757  2303  3185 W OplusCustomizeService: [unrelated payload omitted]
+11-04 12:48:31.757 31266 31266 E OplusCustomizeSecurityManager: [unrelated payload omitted]
+11-04 12:48:31.757 31266 31266 E OplusCustomizeSecurityManager: [unrelated payload omitted]
+11-04 12:48:31.758 31266 31266 D OplusCustomizeControlerManager: [unrelated payload omitted]
+11-04 12:48:31.758 31266 31266 D OplusCustomizeControlerManager: [unrelated payload omitted]
+11-04 12:48:31.760  2303  3472 I OplusDevicePolicyManagerService: [unrelated payload omitted]
+11-04 12:48:31.761  2303  3472 I OplusDevicePolicyManagerService: [unrelated payload omitted]
+11-04 12:48:31.762  2303  3472 I OplusDevicePolicyManagerService: [unrelated payload omitted]
+11-04 12:48:31.763  2303  3472 I OplusDevicePolicyManagerService: [unrelated payload omitted]
+11-04 12:48:31.764  2303  3185 I am_proc_bound: [0,31565,android.process.acore]
+11-04 12:48:31.766  2303  3185 D ActivityTaskManagerServiceExtImpl: preBindApplication record is null
+11-04 12:48:31.767  2303  3185 I am_uid_active: [unrelated payload omitted]
+11-04 12:48:31.778 31565 31565 V Configuration: [unrelated payload omitted]
+11-04 12:48:31.780  2303  2432 V UsbDeviceManager: [unrelated payload omitted]
+11-04 12:48:31.780  2303  2432 D OplusAccessControlManagerService: [unrelated payload omitted]
+11-04 12:48:31.803 31565 31565 D ResourcesManagerExtImpl: [unrelated payload omitted]
+11-04 12:48:31.815  2303  3795 I sysui_multi_action: [757,127,758,2]
+11-04 12:48:31.816  2303  3795 I notification_panel_hidden: [unrelated payload omitted]
+11-04 12:48:31.824  2303  3864 D AccessibilityManagerService: [unrelated payload omitted]
+11-04 12:48:31.829 31565 31565 D OplusInputMethodUtil: [unrelated payload omitted]
+11-04 12:48:31.829 31565 31565 D OplusInputMethodUtil: [unrelated payload omitted]
+11-04 12:48:31.829 31565 31565 D OplusInputMethodUtil: [unrelated payload omitted]
+11-04 12:48:31.829 31565 31565 D OplusInputMethodUtil: [unrelated payload omitted]
+11-04 12:48:31.829 31565 31565 D OplusInputMethodUtil: [unrelated payload omitted]
+11-04 12:48:31.829 31565 31565 D OplusInputMethodUtil: [unrelated payload omitted]
+11-04 12:48:31.831  2303  3795 I OplusMediaControlService: [unrelated payload omitted]
+11-04 12:48:31.832  2303  3795 D OplusMediaControlService: [unrelated payload omitted]
+11-04 12:48:31.832  2303  3795 V OplusMediaControlService: [unrelated payload omitted]
+11-04 12:48:31.832  2303  3795 I OplusMediaControlService: [unrelated payload omitted]
+11-04 12:48:31.832  2303  3795 I OplusMediaControlService: [unrelated payload omitted]
+11-04 12:48:31.832  2303  3795 I OplusMediaControlService: [unrelated payload omitted]
+11-04 12:48:31.833  2303  3185 I OplusMediaControlService: [unrelated payload omitted]
+11-04 12:48:31.835  2303  3864 I OplusMediaControlService: [unrelated payload omitted]
+11-04 12:48:31.843  2303  3185 D OplusUserManagerServiceEnhance: [unrelated payload omitted]
+11-04 12:48:31.855  2303  3864 I OplusStatusBarManagerServiceEnhance: [unrelated payload omitted]
+11-04 12:48:31.858  2303  2303 I notification_enqueue: [unrelated payload omitted]
+11-04 12:48:31.858  2303  2303 D NotificationService--OplusNotificationManagerServiceExtImpl: [unrelated payload omitted]
+11-04 12:48:31.858  2303  2303 D NotificationService: [unrelated payload omitted]
+11-04 12:48:31.861  2303  2303 I sysui_multi_action: [757,1501,758,1,793,6,794,0,795,6,796,10002,806,com.android.systemui,857,INS,858,1,947,0,1500,0,1641,sys]
+11-04 12:48:31.861  2303  2303 I sysui_multi_action: [757,804,799,note_interruptive,801,0,802,1]
+11-04 12:48:31.868  2303  2303 W NotificationHistory: [unrelated payload omitted]
+11-04 12:48:31.871  2303  2442 W QosScheduler: [unrelated payload omitted]
+11-04 12:48:31.874  2303  3835 D OplusConfineModeManagerService: [unrelated payload omitted]
+11-04 12:48:31.883 31565 31602 D ActivityThread: [unrelated payload omitted]
+11-04 12:48:31.903  2303  3472 D CountryDetector: [unrelated payload omitted]
+11-04 12:48:31.904  2303  2440 W TelephonyRegistry: [unrelated payload omitted]
+11-04 12:48:31.913  2303  3185 I OplusDevicePolicyManagerService: [unrelated payload omitted]
+11-04 12:48:31.918  2303  3610 I ActivityManager: Flag disabled. Ignoring finishAttachApplication from uid: 10072. pid: 31565
+11-04 12:48:31.924  2303  3610 I StatusBarManagerService: [unrelated payload omitted]
+11-04 12:48:31.945  2303  3610 D OplusUserManagerServiceEnhance: [unrelated payload omitted]
+11-04 12:48:31.950  2303  2442 I UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:31.961  2303  3610 I WindowManager: addWindow: New client android.os.BinderProxy@6c39461 : window=Window{8013a12 u0 ColorSideGestureLeft_displayId_0}
+11-04 12:48:31.969  2303  3610 I WindowManager: addWindow: New client android.os.BinderProxy@4cd26f8 : window=Window{e624236 u0 NotificationShade}
+11-04 12:48:31.979  2303  3864 I WindowManager: addWindow: New client android.os.BinderProxy@829baa4 : window=Window{b084bc2 u0 ColorSideGestureRight_displayId_0}
+11-04 12:48:31.981  2303  2442 I UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:31.981  2303  2442 W UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:31.981  2303  2442 W UserAwareMgr: [unrelated payload omitted]
+11-04 12:48:31.993  2303  3795 I WindowManager: addWindow: New client android.os.BinderProxy@fa7ba3c : window=Window{c1da4e6 u0 StatusBar}
+11-04 12:48:31.994  2303  3795 D DisplayPolicyExtImpl: getInvalidNavigationBarHeight: barHeight=46
+11-04 12:48:31.995  2303  3185 V WindowManager: Relayout Window{8013a12 u0 ColorSideGestureLeft_displayId_0}: viewVisibility=8, oldvis=8, req=158x2140 , apr = 0, vsysui=, x=0, y=-300
+11-04 12:48:31.995  2303  3185 D WindowManager: NFW_findFocusedWindowIfNeeded:null mCurrentFocus:null
+11-04 12:48:31.996 31266 31535 I viewroot_draw_event: [VRI[ColorSideGestureLeft_displayId_0],Not drawing due to not visible. Reason=View.GONE]
+11-04 12:48:31.997  2303  3185 V WindowManager: Relayout Window{b084bc2 u0 ColorSideGestureRight_displayId_0}: viewVisibility=8, oldvis=8, req=158x2140 , apr = 0, vsysui=, x=2786, y=-300
+11-04 12:48:31.997  2303  3185 D WindowManager: NFW_findFocusedWindowIfNeeded:null mCurrentFocus:null
+11-04 12:48:31.998 31266 31535 I viewroot_draw_event: [VRI[ColorSideGestureRight_displayId_0],Not drawing due to not visible. Reason=View.GONE]
+11-04 12:48:31.999  2303  3795 V WindowManager: Relayout Window{8013a12 u0 ColorSideGestureLeft_displayId_0}: viewVisibility=8, oldvis=8, req=158x2140 , apr = 0, vsysui=

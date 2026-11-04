@@ -1,0 +1,54 @@
+{
+  "hardware_success_claimed": false,
+  "window": "2026-11-04 12:48:24.000--12:48:31.999 +08:00",
+  "unique_visible_rows": 1554,
+  "raw_marker_counts": {
+    "OplusAppWatchdog": 0,
+    "render_thread_block_timeout": 0,
+    "AndroidRuntime": 0,
+    "FATAL_EXCEPTIONS": 0,
+    "F_priority_any_tag": 0,
+    "screen_on_blocked": 2,
+    "keyguard_drawn_literal": 0,
+    "AM_pid3079_death": 1,
+    "keyguard_drawn_any_spelling": 1,
+    "screen_drawn_any_spelling": 2
+  },
+  "sources": [
+    {
+      "source": "android-log.txt",
+      "sha256": "6bc552df5821343a598dc18b2429fc848ed172696f91c23901f9053bdc74fc78",
+      "total_lines": 25062,
+      "window_rows": 1626,
+      "buffer_first_markers": {
+        "radio": "11-04 09:26:55.627",
+        "events": "11-04 12:12:30.716",
+        "system": "11-04 12:40:54.218",
+        "main": "11-04 12:48:34.534"
+      }
+    },
+    {
+      "source": "systemui-old-pid-log.txt",
+      "sha256": "1b708ad4d960b91a700864189f74bd2f9665ccc6a608a09bb61d0b826e1e1d57",
+      "total_lines": 1671,
+      "window_rows": 6,
+      "buffer_first_markers": {
+        "radio": "11-04 02:50:54.131",
+        "events": "11-04 12:12:31.384",
+        "system": "11-04 12:43:01.852"
+      }
+    },
+    {
+      "source": "systemui-crash-buffer.txt",
+      "sha256": "14a50ff49da4ceb64afd8556e54f2b08f644c66367443db20fc03e3c1689a9a7",
+      "total_lines": 78,
+      "window_rows": 0,
+      "buffer_first_markers": {
+        "crash": "11-04 00:31:54.115"
+      }
+    }
+  ],
+  "coverage": "main marker first visible at12:48:34.534, after target window; missing main data cannot be treated as verified absence",
+  "physical_screen_recovered": "unknown_user_not_at_tablet",
+  "new_wake_or_reboot_actions": false
+}
