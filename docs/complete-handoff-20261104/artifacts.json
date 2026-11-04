@@ -1,0 +1,50 @@
+[
+  {
+    "label": "SystemUI",
+    "filename": "SystemUI-current.apk",
+    "bytes": 94819741,
+    "sha256": "8ad70cc761213ed3854650f1f477a010fb443b39f96c48c0de62c347f2f39b4a",
+    "device_file_hash_verified": true,
+    "old_SystemUI_pid3079_mapping_proven": false
+  },
+  {
+    "label": "framework",
+    "filename": "framework-bars.jar",
+    "bytes": 49893990,
+    "sha256": "43f4802b768dd7e464c0b01c5b779a22cb9c2b068c7346eae97eef7e87fa4b4d",
+    "device_file_hash_verified": true,
+    "old_SystemUI_pid3079_mapping_proven": null
+  },
+  {
+    "label": "services",
+    "filename": "services.jar",
+    "bytes": 39884849,
+    "sha256": "90948f136d8621cf86be52f7899bec5490e53a1a548f169a9fc90be890143520",
+    "device_file_hash_verified": true,
+    "old_SystemUI_pid3079_mapping_proven": null
+  },
+  {
+    "label": "oplus-framework",
+    "filename": "oplus-framework.jar",
+    "bytes": 10535923,
+    "sha256": "c7cd0e506d1dd1b0de7c713b68e9508b2ce358ce76efb559138ad9c9fe1b4c99",
+    "device_file_hash_verified": true,
+    "old_SystemUI_pid3079_mapping_proven": null
+  },
+  {
+    "label": "oplus-services",
+    "filename": "oplus-services.jar",
+    "bytes": 10155303,
+    "sha256": "a5928b090b68085bd2f32d9ecd39d76d1f4919ffee7072a071ef978232f46136",
+    "device_file_hash_verified": true,
+    "old_SystemUI_pid3079_mapping_proven": null
+  },
+  {
+    "label": "Launcher",
+    "filename": "OplusLauncher-accepted.apk",
+    "bytes": 87798739,
+    "sha256": "bdd74a3218e51a2b0a19d66bed5dae1d53c7b7794038bd1835b801c070a28b9d",
+    "device_file_hash_verified": true,
+    "old_SystemUI_pid3079_mapping_proven": null
+  }
+]
