@@ -11,7 +11,11 @@ def main():
     status={'state':'starting','read_only':True,'wake_input_reboot':False,'started':datetime.datetime.now().isoformat()}
     def save(**kwargs):
         status.update(kwargs);status['updated']=datetime.datetime.now().isoformat()
-        target=root/'status.json';tmp=root/'status.tmp';tmp.write_text(json.dumps(status,indent=2),encoding='utf-8');tmp.replace(target)
+        target=root/'status.json';tmp=root/'status.tmp';tmp.write_text(json.dumps(status,indent=2),encoding='utf-8')
+        try:tmp.replace(target)
+        except PermissionError:
+            # Windows readers can briefly deny rename. Metadata must not stop log capture.
+            pass
     cmds={'input':'dumpsys input','window':'dumpsys window','power-display':'dumpsys power; dumpsys display',
           'kernel':"su -mm -c 'dmesg'",'touch-state':"su -mm -c 'cat /proc/uptime; cat /sys/module/nt36xxx/parameters/r94_wake_state; cat /proc/interrupts'",
           'systemui-exit':'dumpsys activity exit-info com.android.systemui'}
