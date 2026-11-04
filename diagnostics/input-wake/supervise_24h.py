@@ -4,11 +4,12 @@ import argparse,ctypes,datetime,json,os,subprocess,sys,time
 from monitor_24h import metadata
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--adb',required=True);p.add_argument('--serial',required=True);p.add_argument('--out',required=True);args=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--adb',required=True);p.add_argument('--serial',required=True);p.add_argument('--out',required=True);p.add_argument('--until');args=p.parse_args()
     root=Path(args.out).resolve();root.mkdir(parents=True,exist_ok=False);(root/'runs').mkdir()
     (root/'capture-now.cmd').write_text('@echo off\n> "%~dp0capture-now" echo user-report\n',encoding='ascii')
     (root/'stop.cmd').write_text('@echo off\n> "%~dp0stop" echo user-stop\n',encoding='ascii')
-    deadline=time.monotonic()+24*3600;end=datetime.datetime.now()+datetime.timedelta(hours=24)
+    end=datetime.datetime.fromisoformat(args.until) if args.until else datetime.datetime.now()+datetime.timedelta(hours=24)
+    deadline=time.monotonic()+max(0,min((end-datetime.datetime.now()).total_seconds(),24*3600))
     awake=bool(ctypes.windll.kernel32.SetThreadExecutionState(0x80000001)) if os.name=='nt' else False
     status={'planned_end':end.isoformat(),'started':datetime.datetime.now().isoformat(),'state':'starting','pc_sleep_inhibited':awake,'read_only':True,'tablet_input_wake_reboot':False}
     def save(**values):status.update(values);status['updated']=datetime.datetime.now().isoformat();metadata(root/'status.json',status)

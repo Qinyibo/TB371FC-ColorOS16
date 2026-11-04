@@ -1,6 +1,6 @@
 # 本地24小时只读监控（不调用AI）
 
-这是独立Python程序，不调用模型/API，不消耗持续token。`supervise_24h.py` 在电脑后台管理 `monitor_24h.py`，最多24小时自动结束；临时阻止电脑自动睡眠，结束释放，不改Windows长期电源策略，电脑屏幕可熄灭。
+这是独立Python程序，不调用模型/API，不消耗持续token。**长时间运行请由Windows任务计划程序启动 `start_scheduled_monitor.py`，避免只依赖聊天工具创建的后台进程。**`supervise_24h.py` 在电脑后台管理 `monitor_24h.py`，最多24小时自动结束；临时阻止电脑自动睡眠，结束释放，不改Windows长期电源策略，电脑屏幕可熄灭。
 
 ```text
 python supervise_24h.py --adb <adb.exe> --serial <设备序列号> --out <不存在的电脑目录>
@@ -31,3 +31,11 @@ python supervise_24h.py --adb <adb.exe> --serial <设备序列号> --out <不存
 ## 原两小时工具
 
 `record_until_incident.py` 为原始有限记录器；当前24小时任务使用上述新入口，勿混淆其状态文件或重复启动。
+
+## Windows任务托管与固定截止时间
+
+入口 `start_scheduled_monitor.py --adb <adb> --serial <设备> --workspace <工作区> --until <ISO本地截止时间>`。由Windows任务计划执行pythonw.exe，设置单实例、异常退出重试、允许电池运行、StartWhenAvailable，任务本身不调用AI。需要当前用户保持登录，关机/注销/断线期间不能保证取到数据。
+
+每次任务启动创建新的数据目录，保留此前目录并更新工作区outputs/latest-monitor24h.txt；supervise_24h.py接受--until，不会因重启任务把截止时间延后24小时。任务的重试次数有限，数据是否持续写入仍以最近时间戳/文件增长为准。
+
+2026-11-04旧的聊天后台进程在约17:09中断且没有终止栈；18:24:56已转到Windows任务计划恢复，原截止时间11月5日13:51不变。17:09至18:25前后存在采集缺口，不声称全程连续。此前数据保留。
