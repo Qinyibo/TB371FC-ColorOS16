@@ -1,6 +1,7 @@
 """24-hour PC-only diagnostics. No tablet input, wake, reset or property writes."""
 from pathlib import Path
 import argparse,concurrent.futures,ctypes,datetime,json,os,queue,re,shutil,subprocess,threading,time
+NO_WINDOW = subprocess.CREATE_NO_WINDOW if os.name=='nt' else 0
 
 DEATH=re.compile(rb'Process com\.android\.systemui \(pid \d+\) has died')
 def now():return datetime.datetime.now().isoformat()
@@ -55,7 +56,7 @@ def main():
     def read(command,timeout=12):
         began=now()
         try:
-            q=subprocess.run(adb+['shell',command],capture_output=True,timeout=timeout)
+            q=subprocess.run(adb+['shell',command],capture_output=True,timeout=timeout,creationflags=NO_WINDOW)
             return {'started':began,'finished':now(),'rc':q.returncode,'stdout':q.stdout.decode('utf-8',errors='replace'),'stderr':q.stderr.decode('utf-8',errors='replace')}
         except subprocess.TimeoutExpired as exc:return {'started':began,'finished':now(),'timeout':timeout,'stdout':(exc.stdout or b'').decode('utf-8',errors='replace')}
     def snapshot(full=False):
@@ -70,7 +71,7 @@ def main():
     def start_reader():
         nonlocal proc,generation,remote_pid
         generation+=1;gen=generation;remote_pid=None
-        proc=subprocess.Popen(adb+['shell','echo PC_24H_PID=$$; exec logcat -v threadtime -b main -b system -b events -b crash -T 1'],stdout=subprocess.PIPE,stderr=subprocess.DEVNULL)
+        proc=subprocess.Popen(adb+['shell','echo PC_24H_PID=$$; exec logcat -v threadtime -b main -b system -b events -b crash -T 1'],stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,creationflags=NO_WINDOW)
         local=proc
         def reader():
             try:
@@ -82,7 +83,7 @@ def main():
         if remote_pid and proc is not None and proc.poll() is None:
             # Verified, single PID belonging to this recorder, not Android services.
             command=cleanup_command(remote_pid)
-            try:subprocess.run(adb+['shell',command],capture_output=True,timeout=4)
+            try:subprocess.run(adb+['shell',command],capture_output=True,timeout=4,creationflags=NO_WINDOW)
             except subprocess.TimeoutExpired:pass
         if proc is not None:
             try:proc.wait(timeout=2)
@@ -105,7 +106,7 @@ def main():
         while time.monotonic()<deadline and not (root/'stop').exists():
             tick=time.monotonic();reasons=[]
             if proc is None and tick>=retry_at:
-                try:q=subprocess.run(adb+['get-state'],capture_output=True,timeout=5)
+                try:q=subprocess.run(adb+['get-state'],capture_output=True,timeout=5,creationflags=NO_WINDOW)
                 except subprocess.TimeoutExpired:q=None
                 if q is not None and q.returncode==0 and q.stdout.strip()==b'device':
                     start_reader();event('connected');save(state='recording',connected=True);next_probe=0;next_snapshot=0

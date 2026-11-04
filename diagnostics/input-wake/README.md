@@ -39,3 +39,5 @@ python supervise_24h.py --adb <adb.exe> --serial <设备序列号> --out <不存
 每次任务启动创建新的数据目录，保留此前目录并更新工作区outputs/latest-monitor24h.txt；supervise_24h.py接受--until，不会因重启任务把截止时间延后24小时。任务的重试次数有限，数据是否持续写入仍以最近时间戳/文件增长为准。
 
 2026-11-04旧的聊天后台进程在约17:09中断且没有终止栈；18:24:56已转到Windows任务计划恢复，原截止时间11月5日13:51不变。17:09至18:25前后存在采集缺口，不声称全程连续。此前数据保留。
+
+后台启动约束：pythonw主入口之外，全部subprocess.run/Popen都必须传Windows CREATE_NO_WINDOW，避免ADB控制台每次探测弹窗；已有回归检查覆盖全部调用点。

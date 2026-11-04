@@ -1,9 +1,15 @@
-import json,tempfile,unittest
+import ast,json,tempfile,unittest
 from pathlib import Path
 from unittest.mock import patch
 from monitor_24h import Ring,metadata,reasons_for,cleanup_command
 
 class MonitorTests(unittest.TestCase):
+    def test_all_background_children_hide_windows_console(self):
+        for name in ['monitor_24h.py','supervise_24h.py','start_scheduled_monitor.py']:
+            tree=ast.parse(Path(__file__).with_name(name).read_text(encoding='utf-8'))
+            for node in ast.walk(tree):
+                if isinstance(node,ast.Call) and isinstance(node.func,ast.Attribute) and isinstance(node.func.value,ast.Name) and node.func.value.id=='subprocess' and node.func.attr in ['run','Popen']:
+                    self.assertTrue(any(k.arg=='creationflags' and isinstance(k.value,ast.Name) and k.value.id=='NO_WINDOW' for k in node.keywords),name)
     def test_cleanup_has_no_embedded_null(self):
         command=cleanup_command('12345')
         self.assertNotIn(chr(0),command)

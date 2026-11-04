@@ -2,6 +2,7 @@
 from pathlib import Path
 import argparse,ctypes,datetime,json,os,subprocess,sys,time
 from monitor_24h import metadata
+NO_WINDOW = subprocess.CREATE_NO_WINDOW if os.name=='nt' else 0
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--adb',required=True);p.add_argument('--serial',required=True);p.add_argument('--out',required=True);p.add_argument('--until');args=p.parse_args()
@@ -17,7 +18,7 @@ def main():
     try:
         while time.monotonic()<deadline and not (root/'stop').exists():
             n+=1;run=root/'runs'/('run-%04d'%n);remaining=max((deadline-time.monotonic())/3600,0.001)
-            proc=subprocess.Popen([sys.executable,'-u',str(Path(__file__).with_name('monitor_24h.py')),'--adb',args.adb,'--serial',args.serial,'--out',str(run),'--hours',str(remaining)],stdout=subprocess.DEVNULL,stderr=(root/('run-%04d.stderr'%n)).open('wb'))
+            proc=subprocess.Popen([sys.executable,'-u',str(Path(__file__).with_name('monitor_24h.py')),'--adb',args.adb,'--serial',args.serial,'--out',str(run),'--hours',str(remaining)],stdout=subprocess.DEVNULL,stderr=(root/('run-%04d.stderr'%n)).open('wb'),creationflags=NO_WINDOW)
             (root/'latest-run.txt').write_text(str(run),encoding='utf-8');save(state='running',active_run=str(run),child_pid=proc.pid,run_number=n)
             while proc.poll() is None and time.monotonic()<deadline and not (root/'stop').exists():
                 marker=root/'capture-now'
