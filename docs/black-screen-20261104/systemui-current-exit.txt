@@ -1,0 +1,5 @@
+Current incident exit record; older unrelated exits omitted.
+ApplicationExitInfo #0:
+          timestamp=2026-11-04 12:48:30.396 pid=3079 realUid=10127 packageUid=10127 definingUid=10127 user=0
+          process=com.android.systemui reason=1 (EXIT_SELF) subreason=0 (UNKNOWN) status=10
+          importance=100 pss=0.00 rss=170MB description= state=empty trace=null

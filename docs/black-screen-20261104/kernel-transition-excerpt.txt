@@ -1,0 +1,17 @@
+Selected retained dmesg transitions, not a complete boot log. Monotonic kernel timestamps differ from wallclock and include no invented mapping.
+[15556.120520] [NVT-ts] nvt_resume_fw_restore 3957: R94_PREPARED full_fw_verified IRQ_CLOSED
+[15556.719745] [drm:dsi_display_enable] [msm-dsi-info]: R94_DISPLAY_PREPARED waiting_real_first_frame id=20
+[15556.728615] [NVT-ts] nvt_check_fw_reset_state 964: R94_REAL_READY state=0xA1 retry=0
+[15556.728670] [NVT-ts] nvt_panel_resume_commit 4081: R94_NATIVE_COMPLETE_COMMITTED real_REK_verified IRQ_OPEN
+[15618.048445] [NVT-ts] nvt_resume_fw_restore 3957: R94_PREPARED full_fw_verified IRQ_CLOSED
+[15618.633122] [drm:dsi_display_enable] [msm-dsi-info]: R94_DISPLAY_PREPARED waiting_real_first_frame id=21
+[15618.641883] [NVT-ts] nvt_check_fw_reset_state 964: R94_REAL_READY state=0xA1 retry=0
+[15618.641935] [NVT-ts] nvt_panel_resume_commit 4081: R94_NATIVE_COMPLETE_COMMITTED real_REK_verified IRQ_OPEN
+[15695.132117] [NVT-ts] nvt_resume_fw_restore 3957: R94_PREPARED full_fw_verified IRQ_CLOSED
+[15700.526245] [drm:dsi_display_enable] [msm-dsi-info]: R94_DISPLAY_PREPARED waiting_real_first_frame id=22
+[15700.538305] [NVT-ts] nvt_check_fw_reset_state 964: R94_REAL_READY state=0xA1 retry=0
+[15700.538316] [NVT-ts] nvt_panel_resume_commit 4081: R94_NATIVE_COMPLETE_COMMITTED real_REK_verified IRQ_OPEN
+[15721.595168] [NVT-ts] nvt_resume_fw_restore 3957: R94_PREPARED full_fw_verified IRQ_CLOSED
+[15722.228719] [drm:dsi_display_enable] [msm-dsi-info]: R94_DISPLAY_PREPARED waiting_real_first_frame id=23
+[15722.237483] [NVT-ts] nvt_check_fw_reset_state 964: R94_REAL_READY state=0xA1 retry=0
+[15722.237544] [NVT-ts] nvt_panel_resume_commit 4081: R94_NATIVE_COMPLETE_COMMITTED real_REK_verified IRQ_OPEN

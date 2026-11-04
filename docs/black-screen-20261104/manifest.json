@@ -1,0 +1,24 @@
+{
+  "hardware_success_claimed": false,
+  "first_snapshot_after_usb_triggered_wake": true,
+  "software_wake_command_sent": false,
+  "reboot": false,
+  "files": [
+    {
+      "file": "kernel-transition-excerpt.txt",
+      "sha256": "75ae32f27403104ec18ea8d232cca4286ac1a085d1334928372dd66de6a018ff"
+    },
+    {
+      "file": "power-systemui-timeline.txt",
+      "sha256": "9cd265627be342d94ac238ace2bbb2b31cd08e6ec72089a6d4667599ec46f468"
+    },
+    {
+      "file": "README.md",
+      "sha256": "17753047a1ad7dd602659542ca2fa7a3ac412732ff612ad41000dd0e6025dee2"
+    },
+    {
+      "file": "systemui-current-exit.txt",
+      "sha256": "d5ab9239e776f7878f4e978d642e3deb6569528e55a99169274b2f34c8a13da7"
+    }
+  ]
+}
