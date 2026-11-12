@@ -1,0 +1,29 @@
+{
+  "state": "V18A_OFFLINE_VERIFIED_DEVICE_TEST_DEFERRED_BY_USER",
+  "source_v18_original_clean_flash_exit": 0,
+  "same_kernel39_boot_systemui_stable_first_boot": {
+    "state": "KERNEL39_CLEAN_FIRST_BOOT_SYSTEMUI_REGISTERED_CORE_STABLE_45S",
+    "time": "2026-10-19T00:35:42.643948+08:00",
+    "identity": [
+      "1",
+      "HA1W0JA3",
+      "spinel",
+      "Linux localhost 4.19.325-perf+ #39 SMP PREEMPT Sun Oct 18 2026 23:00:00 +0800 aarch64 Toybox",
+      "0faaa6ce-4d66-4ea6-9a3e-730cc94f701d",
+      "2408",
+      "4629",
+      "1682"
+    ],
+    "stable_seconds": 47.5,
+    "user_setup_complete": true,
+    "charging_fix_physical_wall_test_pending": true
+  },
+  "source_v18_missing_modules_cause": "outer r91-rom/SHA256SUMS referenced stale module-delivery/delivery.sh hash",
+  "source_v18_modules_recovered_live_by_exact_one_file_reversible_bind": true,
+  "corrected_v18a_outer_inner_checksum_manifests_extracted_and_executed": true,
+  "corrected_v18a_clean_flash_tested": false,
+  "kernel39_native_vivo_wall_charge_tested": false,
+  "injected_gesture_and_subsequent_reboot_tested": false,
+  "user_latest_constraint": "User is currently using tablet; postpone further interaction/reboot/flash until handed back",
+  "no_device_actions_in_final_offline_archive_step": true
+}

@@ -1,0 +1,80 @@
+{
+  "state": "V22A_NATIVE_PEN_COMM_IMAGE_READBACK_LABELS_CLOSURES_FSCK_SHA_PASS_NOT_FLASHED",
+  "images": {
+    "system_a": {
+      "path": "D:/TB371FC-release/v22a-pen-comm-native-build/system_a-candidate.img",
+      "bytes": 9932111872,
+      "sha256": "2c31a0c5d2865fbf805bdad100a20d90be3784c86ee06ccd0a76fa2ee948be78"
+    },
+    "system_ext_a": {
+      "path": "D:/TB371FC-release/v22a-pen-comm-native-build/system_ext_a-candidate.img",
+      "bytes": 2013265920,
+      "sha256": "09c6d1c4531b918fb0fb01d91951782c02516867753e62c030c0d2811cf541cb"
+    },
+    "vendor_a": {
+      "path": "D:/TB371FC-release/v22a-pen-comm-native-build/vendor_a-candidate.img",
+      "bytes": 899739648,
+      "sha256": "2bc961b4868a5d5a770c7d2129ab4226beb7dfc86cbf183ae26fe2febca436a8"
+    }
+  },
+  "services_target_sha256": "90948f136d8621cf86be52f7899bec5490e53a1a548f169a9fc90be890143520",
+  "original_signed_APKs_preserved_for_first_scan": true,
+  "only_existing_pen_init_replaced": true,
+  "comm_only_oneshot_removed": true,
+  "scoped_platform_contexts_appended": true,
+  "changed_services_caches_removed": [
+    {
+      "path": "/system/framework/services.jar.fsv_meta",
+      "sha256": "d72a5627b8a9972cd77d343150e1c46349642fc9c08756590f946959aedc679c",
+      "bytes": 319488
+    },
+    {
+      "path": "/system/framework/services.jar.prof",
+      "sha256": "b94dd0c69568c1e5ce82a24196bb498548322f47cf51247d39a814ce3ab097eb",
+      "bytes": 105264
+    },
+    {
+      "path": "/system/framework/services.jar.prof.fsv_meta",
+      "sha256": "6503ca7e591726ee64d4c09785a073206b4db95ed6642b1f21cc25e0fd699628",
+      "bytes": 8192
+    },
+    {
+      "path": "/system/framework/oat/arm64/services.ocomp.art.fsv_meta",
+      "sha256": "092354c033f9ba2c4b9ee3ce4678c0e70e93ffa0a12b867549acca49f62532cd",
+      "bytes": 8192
+    },
+    {
+      "path": "/system/framework/oat/arm64/services.ocomp.art",
+      "sha256": "48be0bf8862efd1760753570834723d1d23bc5c6593eb75ad62c7e27ae7b526a",
+      "bytes": 299008
+    },
+    {
+      "path": "/system/framework/oat/arm64/services.ocomp.odex",
+      "sha256": "4de7b0032d4d3ceead24233088a839a96722aa6a554b4fd22468e0da868d7edf",
+      "bytes": 27375960
+    },
+    {
+      "path": "/system/framework/oat/arm64/services.ocomp.odex.fsv_meta",
+      "sha256": "34af0fce1d0a45e6013ba9336325569b00204b3ad1d1af294f68e19e9a2a0382",
+      "bytes": 131072
+    },
+    {
+      "path": "/system/framework/oat/arm64/services.ocomp.vdex",
+      "sha256": "6012b2c883de6cee6f16ec51954653c408c523466393ac91809ea53547d07a38",
+      "bytes": 451708
+    },
+    {
+      "path": "/system/framework/oat/arm64/services.ocomp.vdex.fsv_meta",
+      "sha256": "f1795875af43544ea66c528d166fdeb06e4b93ae8b8cd0c7c4eb9cb96364347d",
+      "bytes": 8192
+    }
+  ],
+  "v22_refresh_privacy_seed_SystemUI_OTA_preserved": true,
+  "new_selinux_permission_rules_added": false,
+  "device_actions": 0,
+  "full_clean_first_boot_pass": false,
+  "refresh_jar_sha256": "7ea250fb0b7b00830a48b6ad111c795dc3adfcbb0d7b8c5a261f63d309b29762",
+  "refresh_xml_sha256": "d38f4cf981136e82933e26501ed1cd7f7b4b27d19dbe27446f835586b374a88f",
+  "kernel43_unchanged": true,
+  "time": "2026-10-24T23:46:20.867845+08:00"
+}

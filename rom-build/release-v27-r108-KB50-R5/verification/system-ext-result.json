@@ -1,0 +1,34 @@
+{
+  "state": "V21_NATIVE_CAMERA_COMPANION029_BOTH_MANIFESTS_UI_OTA_FSCK_PASS",
+  "path": "D:/TB371FC-release/v21-wake43-build/system_ext-wake43.img",
+  "sha256": "413661222759ce86c34dd6591f03719a839b179946f3f2335f6e1146c717172a",
+  "source_sha256": "2064d08bf8b2782f36b0222a03b64cf6d0dd8698a6f6d30afeb4f1865511b3d6",
+  "candidate_sha256": "413661222759ce86c34dd6591f03719a839b179946f3f2335f6e1146c717172a",
+  "both_real_manifest_closures_pass": true,
+  "OTA_removal_preserved": true,
+  "bytes": 2013265920,
+  "changed_paths": [
+    "/etc/r94-native/module-delivery/SHA256SUMS",
+    "/etc/r94-native/module-delivery/modules/r94_speaker_direction/customize.sh",
+    "/etc/r94-native/module-delivery/modules/r94_speaker_direction/direction.so",
+    "/etc/r94-native/module-delivery/modules/r94_speaker_direction/directionctl",
+    "/etc/r94-native/module-delivery/modules/r94_speaker_direction/module.prop",
+    "/etc/r94-native/module-delivery/modules/r94_speaker_direction/service.sh"
+  ],
+  "unchanged_seed_files_readback": 33,
+  "SystemUI_and_preopt_unchanged": [
+    {
+      "path": "/priv-app/SystemUI/SystemUI.apk",
+      "sha256": "ea6aa3ac6686cd8aa793265a1b86c8abe6f4d949c1ba901d3eb186da62ac28f0"
+    },
+    {
+      "path": "/priv-app/SystemUI/oat/arm64/SystemUI.odex",
+      "sha256": "aabb73817a4fd0bccafef5ecc46619bfa09f01e0d6a35e7efa197f345b21cdd7"
+    },
+    {
+      "path": "/priv-app/SystemUI/oat/arm64/SystemUI.vdex",
+      "sha256": "00d9a0c436c9223f698b0f396e05a76c6c7ed806c990699bfe8ad02db827d51e"
+    }
+  ],
+  "charging_daemon_or_extra_module_added": false
+}

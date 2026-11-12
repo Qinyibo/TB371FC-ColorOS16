@@ -1,0 +1,65 @@
+{
+  "state": "9_REAL_LIBSELINUX_LABEL_LOOKUPS_AND_EXISTING_POLICY_TYPES_PASS",
+  "cases": [
+    {
+      "path": "/data/local/r94-pen-native-v4",
+      "before": "u:object_r:system_data_file:s0",
+      "after": "u:object_r:shell_data_file:s0",
+      "pass": true
+    },
+    {
+      "path": "/data/local/r94-pen-native-v4/bootstrap.log",
+      "before": "u:object_r:system_data_file:s0",
+      "after": "u:object_r:shell_data_file:s0",
+      "pass": true
+    },
+    {
+      "path": "/data/local/r94-pen-native-v4/ipe",
+      "before": "u:object_r:system_data_file:s0",
+      "after": "u:object_r:system_file:s0",
+      "pass": true
+    },
+    {
+      "path": "/data/local/r94-pen-native-v4/ipe/IPeManager.apk",
+      "before": "u:object_r:system_data_file:s0",
+      "after": "u:object_r:system_file:s0",
+      "pass": true
+    },
+    {
+      "path": "/data/local/r94-pen-native-v4/ws/WirelessSettings.apk",
+      "before": "u:object_r:system_data_file:s0",
+      "after": "u:object_r:system_file:s0",
+      "pass": true
+    },
+    {
+      "path": "/data/local/r94-pen-native-v40/ipe/X.apk",
+      "before": "u:object_r:system_data_file:s0",
+      "after": "u:object_r:system_data_file:s0",
+      "pass": true
+    },
+    {
+      "path": "/data/local/r94-pen-native-v4/ipe_other/X.apk",
+      "before": "u:object_r:system_data_file:s0",
+      "after": "u:object_r:system_data_file:s0",
+      "pass": true
+    },
+    {
+      "path": "/data/local/tmp/X.apk",
+      "before": "u:object_r:shell_data_file:s0",
+      "after": "u:object_r:shell_data_file:s0",
+      "pass": true
+    },
+    {
+      "path": "/data/system/users/0/settings_system.xml",
+      "before": "u:object_r:system_data_file:s0",
+      "after": "u:object_r:system_data_file:s0",
+      "pass": true
+    }
+  ],
+  "whole_existing_text_rules_preserved": true,
+  "only_scoped_cache_paths_added": true,
+  "host_compiled_binary_shipped": false,
+  "new_permission_rules_added": false,
+  "device_restorecon_performed": false,
+  "full_ROM_first_boot_pass": false
+}

@@ -1,0 +1,20 @@
+{
+  "state": "V21_WAKE43_CAMERA_PRIVATE_OFFLINE_CANDIDATE",
+  "kernel": 43,
+  "physical_double_tap_pass": false,
+  "random_hard_black_screen_root_cause_confirmed": false,
+  "original_script_clean_flash_pass": false,
+  "kernel40_sleep_order_included": false,
+  "async_HWC_cache_included": false,
+  "device_actions": 0,
+  "camera_APK_preloaded": false,
+  "next_test": [
+    "original packaged scripts only",
+    "first boot/SystemUI/module seed/native camera properties",
+    "actual short/long sleep finger double-tap and cover negatives",
+    "touch/rotation/sleep-wake and fault evidence",
+    "same vivo charger",
+    "front/back photo/video save and playback",
+    "affected friend device boot compatibility"
+  ]
+}

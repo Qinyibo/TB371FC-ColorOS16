@@ -1,0 +1,22 @@
+{
+  "state": "NINE_CURRENT_KERNEL43_MODULE_IMPORTS_AND_DEPENDENCY_METADATA_CLOSED_IMAGE_INTEGRATION_PENDING",
+  "import_checks": 609,
+  "CRC_mismatches": 0,
+  "module_count": 9,
+  "module_files": {
+    "lcd.ko": "2772dfaa7ed3c8325524020e7d31b67199bf3cee300271299164a5127933f0a7",
+    "llcc_perfmon.ko": "38ea8e7d5b0b4c44d0f98eaeb9d5198d03338f8e674f82c4e7725e6396f988aa",
+    "modules.alias": "395fd8cf2f56c3c26ac96e84a38d00630ced3115671b3a275fa29392ed50d903",
+    "modules.builtin": "ea4401e5c5ac944a99e1aca971774f9dbd15a719d102843d7a13eefbc363ae43",
+    "modules.dep": "8443b77a46c659b777960400c39ab1003ac6103af07db0381ddcbc4b0b592407",
+    "modules.load": "2eea834b0cd27675e155ad6c91472df88e1495da79e71c63bed672e5704f75c2",
+    "modules.softdep": "6743f924f04484504917ae39077111b9a653c6774e1b440fb013174c77af94d2",
+    "mpq-adapter.ko": "9f53edeb427bfd4d7c43851910858f51f9affad30e3eb0e7208adc7b8d12d750",
+    "mpq-dmx-hw-plugin.ko": "f674e3b744499b854001040635d96e8c80ca04a9c342e4968abe6c491f74c3f0",
+    "msm_11ad_proxy.ko": "eedc4898231dec2174d07a0c94a3614e216fb0881feeaada24213762904c5968",
+    "rdbg.ko": "5524bca346275cfb52f50814db9b938926bbcb74ffc2064a168a44185f33d96e",
+    "usf_dlkm.ko": "346073caf4512319f1ddbaedb0f63188cd2b7c72e4a50247aa70c1ee6fcad8fc",
+    "wigig_sensing.ko": "7d9460a77c0c5774717fdaec937b66089adb8eee7589d368669fb4754183197c",
+    "wil6210.ko": "6c851c24896a282ac799b3994dee411bc65990b6d13698fb9f7d70e4ba411e62"
+  }
+}

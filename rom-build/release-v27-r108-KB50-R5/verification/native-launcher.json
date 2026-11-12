@@ -1,0 +1,46 @@
+{
+  "launcher_sha256": "bdd74a3218e51a2b0a19d66bed5dae1d53c7b7794038bd1835b801c070a28b9d",
+  "launcher_path": "/system_ext/priv-app/OplusLauncher/OplusLauncher.apk",
+  "bootstrap_sha256": "7facf5dfdfb578b5385f8186f9382a1f630f957b7b1b7303d309f4163968a9ed",
+  "partitions": {
+    "system_a": {
+      "bytes": 9932111872,
+      "before_sha256": "f37e1063c1033459cfa7ed0de9b7a22e53a4269414e89d63b8df82baa9c32885",
+      "sha256": "8e119e3c515440837f7be591b182b1ef163f804bef1312e2c310025e5fc88b7b"
+    },
+    "system_ext_a": {
+      "bytes": 2013265920,
+      "before_sha256": "d9341f23e31a62221e8339487c86f26a2e5e6b000aa04704a2d11ea72747f2d9",
+      "sha256": "c82350bf2bfd31163c7d7bb95c4904d5d7cb7ace955decaaef9f668707b9d40c"
+    }
+  },
+  "removed_launcher_artifacts": [
+    "/priv-app/OplusLauncher/OplusLauncher.apk.prof",
+    "/priv-app/OplusLauncher/oat/arm64/OplusLauncher.odex",
+    "/priv-app/OplusLauncher/oat/arm64/OplusLauncher.vdex",
+    "/priv-app/OplusLauncher/oat/arm64/OplusLauncher.art"
+  ],
+  "filesystem_check": "e2fsck -fn passed",
+  "first_desktop_verified": false,
+  "source_archive_sha256": "463862c4b35024ef9b876cd0a7b0d254285b544f24609032600e1d91e334fa7c",
+  "changed_sparse_parts": [
+    "super.part0001.sparse.img",
+    "super.part0189.sparse.img",
+    "super.part0190.sparse.img",
+    "super.part0201.sparse.img",
+    "super.part0205.sparse.img",
+    "super.part0249.sparse.img",
+    "super.part0250.sparse.img",
+    "super.part0297.sparse.img",
+    "super.part0303.sparse.img",
+    "super.part0325.sparse.img",
+    "super.part0326.sparse.img",
+    "super.part0327.sparse.img",
+    "super.part0328.sparse.img",
+    "super.part0337.sparse.img",
+    "super.part0338.sparse.img",
+    "super.part0341.sparse.img",
+    "super.part0353.sparse.img",
+    "super.part0356.sparse.img"
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "changes": [
+    {
+      "image": "system_a.img",
+      "path": "/my_stock/app/AssistantScreen/AssistantScreen.apk",
+      "old_sha256": "c8e7396f691b146d630764e3037e7a41f92170c725e1661272406c41c7c6a628",
+      "sha256": "afbcf730467bf727d3dfd18d503a5050fdaabaecad5a54052847574074344823"
+    },
+    {
+      "image": "system_a.img",
+      "path": "/system/etc/r94-animation-v1/assistant-boot-patch.json",
+      "old_sha256": null,
+      "sha256": "37a99cf25df631761cebb56ebd6332cdb65b0240c6a873b1b37479e99b11c0bf"
+    },
+    {
+      "image": "system_a.img",
+      "path": "/system/etc/r94-animation-v1/assistant.recipe.gz",
+      "old_sha256": null,
+      "sha256": "39141963bec00ef49a8e256b48c4f77feae1f4eabb668bbe49c45dccc5500582"
+    },
+    {
+      "image": "system_a.img",
+      "path": "/system/etc/r94-animation-v1/bind-readonly",
+      "old_sha256": null,
+      "sha256": "bbddefc1e0ef51fb58557daec59419933e3c8b636fd6cbe7a73c082369156d0c"
+    },
+    {
+      "image": "system_a.img",
+      "path": "/system/etc/r94-animation-v1/bootstrap.jar",
+      "old_sha256": null,
+      "sha256": "ff416f671bf09b839b2d889312ef85c90bd68c2e8515bfaf4e5ec89edcd760f7"
+    },
+    {
+      "image": "system_a.img",
+      "path": "/system/etc/r94-animation-v1/bootstrap.sh",
+      "old_sha256": null,
+      "sha256": "ba3233fa3b588a019637af99f0bdd1321cea461f41a6730830a2eed0b877e95d"
+    },
+    {
+      "image": "system_a.img",
+      "path": "/system/etc/r94-animation-v1/launcher.recipe.gz",
+      "old_sha256": null,
+      "sha256": "0e66a68177c14faa135f95ee0f2d2860f89b83f2e7fed8aa44987385b744706d"
+    },
+    {
+      "image": "system_a.img",
+      "path": "/system/etc/r94-animation-v1/manifest.properties",
+      "old_sha256": null,
+      "sha256": "6738fb51106a27fac9d500ae9ac044a73f88361fcc9a965ef2c8d6dc1e4c2ed0"
+    },
+    {
+      "image": "system_a.img",
+      "path": "/system/etc/r94-animation-v1/settings.recipe.gz",
+      "old_sha256": null,
+      "sha256": "3f3045e078d254cd847f887ee184f8d1c0dfd0dd5d9a186353eb90321ba26b14"
+    },
+    {
+      "image": "system_ext_a.img",
+      "path": "/etc/r91-rom/SHA256SUMS",
+      "old_sha256": "9875ad438a4275796756f6f6c797083af01a4c3c33c03a95c1653e290dc0e214",
+      "sha256": "1f4182bbe821d9598364abd18a0d982f9bb2af451a8855891eac6f170c2dfbd6"
+    },
+    {
+      "image": "system_ext_a.img",
+      "path": "/etc/r91-rom/apply.sh",
+      "old_sha256": "a261a1471ac1beb1ae879926b361edbf9a05abc887c3ee7044b89d8bbfba2c0d",
+      "sha256": "e127d961575603d5773662d2adbe91db4f00023bebf2f2fea13828a844c26020"
+    },
+    {
+      "image": "system_a.img",
+      "path": "/system/build.prop",
+      "old_sha256": "e989583dd92847cd14ef6d8e686aa2a41f5c11dd3a288740e3b192438e8259f5",
+      "sha256": "eb5f02f674a0ec3da81055f0b45601e1de5af026b2d50540a206320535b34c24"
+    },
+    {
+      "image": "vendor_a.img",
+      "path": "/etc/init/r94-commcenterd.rc",
+      "old_sha256": "2847c6b11827ffc078693dda2df78ca25f5341c8138509e284bcba12511dc490",
+      "sha256": "108b8e120855988fd22d5c7f0201f38b94ee1257d85c0212eaa30177a232a742"
+    }
+  ],
+  "images": {
+    "system_a": {
+      "path": "D:/TB371FC-release/v24-build/system_a.img",
+      "sha256": "d45f1ab38b3df56becade456561596a2d3329387ad76ba154785e30e49e44ae4",
+      "bytes": 9932111872
+    },
+    "system_ext_a": {
+      "path": "D:/TB371FC-release/v24-build/system_ext_a.img",
+      "sha256": "3d7b5eeb6dfc9600dbca78dfc137032d95830e726336f21ffeabbfa3ef6b4642",
+      "bytes": 2013265920
+    },
+    "vendor_a": {
+      "path": "D:/TB371FC-release/v24-build/vendor_a.img",
+      "sha256": "9486a4a7ac6b25fbfaab0f6fed6b5fc0867b072fd6ffa0db63ea4f6056570776",
+      "bytes": 899739648
+    }
+  }
+}

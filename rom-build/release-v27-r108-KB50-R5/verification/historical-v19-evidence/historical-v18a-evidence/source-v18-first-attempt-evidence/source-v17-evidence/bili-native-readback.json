@@ -1,0 +1,18 @@
+{
+  "state": "V17_BILI_NATIVE_DEFAULT_RULES_READBACK_PASS",
+  "installed": true,
+  "magicwindow_default_active": true,
+  "parsed_native_draggable": true,
+  "live_exception_present": true,
+  "original_APK_sha256": "c6158906f3f3741f6ea3fc20186c49437dfa48ea11036e161578772fac903261",
+  "original_app_unchanged": true,
+  "original_AutoLayout_engine_verified": true,
+  "homepage_experiment_not_installed": true,
+  "UI_divider_drag_tested": true,
+  "matching_final_XML_bytes_live_verified": true,
+  "temporary_XML_validation_override": true,
+  "divider_right_pane_left_before": 1059,
+  "divider_right_pane_left_after": 1473,
+  "real_cloud_update_recovery_pass": true,
+  "test_scope": "Final XML and exact module tested on running device; last seed integration verified offline, not a fresh flash of final image."
+}

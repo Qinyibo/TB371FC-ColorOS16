@@ -1,0 +1,20 @@
+{
+  "state": "NATIVE_BILI_TWO_CORRECT_SEPARATE_CONFIG_FILES_VALIDATED",
+  "source_sha256": "0eafe38d8cd6f04c717d2bb0cc90a5bee66d4fdeedae0e92803309809ea1f490",
+  "sha256": "2551f6aacd97aa020cea35e8f823c843a3bd543e3658de36985852d28c5684fa",
+  "bytes": 1366537,
+  "target": "/my_product/etc/fantasy/sys_fantasy_window_managed.xml",
+  "fullorientation_source_sha256": "390082848d077f7e8eca814726e3cb33f857a0db2ae9f7f399a1ba226b8b5a1e",
+  "fullorientation_sha256": "a2991a58e3398d3017f9d804dca7c4ff20ce226420311e32245a2f040967b97c",
+  "fullorientation_target": "/my_product/etc/fantasy/sys_full_orientation_managed.xml",
+  "only_package_changed": "tv.danmaku.bili",
+  "other_packages_and_root_metadata_identical": true,
+  "default_choice": "magicwindow",
+  "draggable": true,
+  "user_ratio_not_forced": true,
+  "live_fullscreen_relaunch_exception": "com.bilibili.bililive.room.ui.roomv3.LiveRoomActivityV3",
+  "orientation_relaunch_exception_kept": true,
+  "homepage_autolayout_not_added": true,
+  "original_app_not_modified": true,
+  "single_Bili_entry_per_file": true
+}

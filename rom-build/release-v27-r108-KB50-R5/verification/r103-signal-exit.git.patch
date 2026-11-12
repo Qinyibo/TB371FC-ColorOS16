@@ -1,0 +1,66 @@
+From 3bb16146970db387a7dd5fdd9d8786e21ee236b5 Mon Sep 17 00:00:00 2001
+From: Codex <codex@localhost>
+Date: Tue, 3 Nov 2026 08:51:54 +0800
+Subject: [PATCH] signal: recheck group exit on every get_signal iteration
+
+Backport upstream e7f7c99ba911f56bc338845c1cd72954ba591707.
+ptrace_signal may drop siglock and continue without reaching relock.
+Keep existing JOBCTL_TRAP_FREEZE and frozen-counter cleanup unchanged.
+
+Own multi-thread ptrace-signal-stop/freeze/SIGKILL probe reproduces
+the old r102 zombie plus do_freezer_trap sleeper. Same four-case probe
+passes on r103; normal boot, root/Enforcing and Douyin feed verified.
+No package whitelist, watchdog, freezer disable or timing workaround.
+Image SHA256:f15a09327a506dc445ceaa42dafc5a0a19fc3f3af9df37886af9fe34f8dfea60
+Boot SHA256:fa31bcc2d836560cc2b11b5f2336257a3cafec5491ce269eb88469e61c212d01
+Build host override:r103-freezer-exit. Config and Module.symvers unchanged.
+Unflashed r100 HID candidate excluded. No long-term/all-app claim.
+---
+ kernel/signal.c | 28 ++++++++++++++--------------
+ 1 file changed, 14 insertions(+), 14 deletions(-)
+
+diff --git a/kernel/signal.c b/kernel/signal.c
+index dc727aff2..c9a730278 100644
+--- a/kernel/signal.c
++++ b/kernel/signal.c
+@@ -2508,23 +2508,23 @@ relock:
+ 		goto relock;
+ 	}
+ 
+-	/* Has this task already been marked for death? */
+-	if (signal_group_exit(signal)) {
+-		ksig->info.si_signo = signr = SIGKILL;
+-		sigdelset(&current->pending.signal, SIGKILL);
+-		trace_signal_deliver(SIGKILL, SEND_SIG_NOINFO,
+-				&sighand->action[SIGKILL - 1]);
+-		recalc_sigpending();
+-		current->jobctl &= ~JOBCTL_TRAP_FREEZE;
+-		spin_unlock_irq(&sighand->siglock);
+-		if (unlikely(cgroup_task_frozen(current)))
+-			cgroup_leave_frozen(true);
+-		goto fatal;
+-	}
+-
+ 	for (;;) {
+ 		struct k_sigaction *ka;
+ 
++		/* Has this task already been marked for death? */
++		if (signal_group_exit(signal)) {
++			ksig->info.si_signo = signr = SIGKILL;
++			sigdelset(&current->pending.signal, SIGKILL);
++			trace_signal_deliver(SIGKILL, SEND_SIG_NOINFO,
++					&sighand->action[SIGKILL - 1]);
++			recalc_sigpending();
++			current->jobctl &= ~JOBCTL_TRAP_FREEZE;
++			spin_unlock_irq(&sighand->siglock);
++			if (unlikely(cgroup_task_frozen(current)))
++				cgroup_leave_frozen(true);
++			goto fatal;
++		}
++
+ 		if (unlikely(current->jobctl & JOBCTL_STOP_PENDING) &&
+ 		    do_signal_stop(0))
+ 			goto relock;
+-- 
+2.43.0
+

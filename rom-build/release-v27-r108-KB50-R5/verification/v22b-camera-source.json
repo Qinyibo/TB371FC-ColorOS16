@@ -1,0 +1,17 @@
+{
+  "state": "MINIMAL_COMPLETION_STATUS_V7_BUILT_NOT_TESTED",
+  "sha256": "0c72c201cef16bb4e187257690d7963b3c49c13dfa990ebb3cc1b53da57e7b7e",
+  "bytes": 235702464,
+  "version_code": 160070001,
+  "changed_original_class": "com/zui/camera/video/recorder/MediaRecorderWrapper.smali",
+  "changed_original_method": "onInfo(MediaRecorder,int,int)",
+  "preserved_payload_members": 2599,
+  "new_helper_or_forced_success": false,
+  "onError_and_isEncodeSuccess_unchanged": true,
+  "normal_completion_status": [
+    0,
+    -1011
+  ],
+  "unexpected_nonzero_status_preserves_error": true,
+  "v6_hypothesis_withdrawn": "actual map was present; one successful early completion was incorrectly marked error because mStopping was false"
+}

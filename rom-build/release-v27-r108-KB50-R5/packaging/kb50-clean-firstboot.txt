@@ -1,0 +1,20 @@
+2026-11-12T15:43:16.0321383+08:00
+7b193939-4b7f-4de7-9de4-3b6b477f5047
+1
+Linux version 4.19.325-perf+ (tb371fc-offline@r108-force-rek-keyboard-bias-wake-idle-ab) (Ubuntu clang version 21.1.8 (++20251221032922+2078da43e25a-1~exp1~20251221153059.70), GNU ld (GNU Binutils for Ubuntu) 2.42) #50 SMP PREEMPT Tue Nov 10 2026 21:00:00 +0800
+_a
+OPD2413_16.0.0.210(CN01)
+0
+0
+31.1:MAGISK:R (31100)
+package:/system/app/ZuiCamera/ZuiCamera.apk
+    codePath=/system/app/ZuiCamera
+    primaryCpuAbi=arm64-v8a
+    versionCode=160070001 minSdk=33 targetSdk=33
+0c72c201cef16bb4e187257690d7963b3c49c13dfa990ebb3cc1b53da57e7b7e  /system/app/ZuiCamera/ZuiCamera.apk
+package:/system/app/Magisk/Magisk.apk
+    codePath=/system/app/Magisk
+    primaryCpuAbi=arm64-v8a
+    versionCode=31100 minSdk=24 targetSdk=37
+89cefac0a318afa39fb3880c45c87b036c05bc1ebf02a7a715b7f8d7c26ac6e7  /system/app/Magisk/Magisk.apk
+FIRST_BOOT_PRELOAD_PASS

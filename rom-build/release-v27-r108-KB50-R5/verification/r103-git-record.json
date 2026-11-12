@@ -1,0 +1,10 @@
+{
+  "base": "d981748399d68a57bcbe5faeb25c196589d9bc9c",
+  "ref": "refs/heads/local/r103-reviewed",
+  "commit": "3bb16146970db387a7dd5fdd9d8786e21ee236b5",
+  "tree": "14a6df4cfd60a13e3c7ae5f2b92a9342167e4c22",
+  "main_unchanged": true,
+  "keyboard_candidate_included": false,
+  "upstream": "e7f7c99ba911f56bc338845c1cd72954ba591707",
+  "patch_sha256": "5b728e55b4218db5fc6a94274c30f13ff5039cfeb4a6519158ea4cf3a69bd15c"
+}

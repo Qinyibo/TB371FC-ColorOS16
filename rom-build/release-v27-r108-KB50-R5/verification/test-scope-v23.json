@@ -1,0 +1,16 @@
+{
+  "state": "V23_OFFLINE_IMAGE_VERIFIED_PHYSICAL_PENDING",
+  "original_seven_scripts": {
+    "1-\u8fde\u63a5\u68c0\u67e5.cmd": "c8c61e85008b68dfb745ef0d3cc00ea50231ed07e745162fa89a18914ac87f5c",
+    "2-\u5237\u524d\u68c0\u67e5.cmd": "450cd1df03a5d049ccfa0847d655d634a838d48b72c60b8b44f56bfdafce613a",
+    "\u6253\u5f00\u9a71\u52a8\u8f85\u52a9\u5de5\u5177.cmd": "36b940334fe17a9448203e8e38f57c53a9b07da849ae071d4b04a8ee42838cb1",
+    "\u6838\u9a8cROM.cmd": "145fc145489eb9447b0b1bdfec80ea6e5b4099814dddae069afb4f0fdce581a3",
+    "\u6e05\u7a7a\u6570\u636e\u5237\u5165.cmd": "6dc79d84c422741e2ff314b18006e5520397ec4fb91110d6130a4e62f8fb2a00",
+    "scripts/Check-Connection.ps1": "7bc258065a686a797e3c000f0222fe19f93aaaea0265c4a3c99064b0307fd829",
+    "scripts/Invoke-R91-Clean.ps1": "d1c972a5d485997b04356d341f41c43f645f8a4ba722d7cbc7cfd1cb1bac44c7"
+  },
+  "double_wipe_authorized": true,
+  "clean_flash_pass": false,
+  "smoothness_user_accepted": false,
+  "paired_phone_and_pen_hardware_verified": false
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "width": 1280,
+    "height": 720,
+    "planes": 3,
+    "format": 35,
+    "y_bytes": 921600,
+    "y_row_stride": 1280,
+    "state": "PASS",
+    "mode": "api2-yuv",
+    "lens": 0,
+    "uid": 10328,
+    "elapsed_ms": 819
+  },
+  {
+    "width": 1280,
+    "height": 720,
+    "planes": 3,
+    "format": 35,
+    "y_bytes": 921600,
+    "y_row_stride": 1280,
+    "state": "PASS",
+    "mode": "api2-yuv",
+    "lens": 1,
+    "uid": 10328,
+    "elapsed_ms": 694
+  }
+]

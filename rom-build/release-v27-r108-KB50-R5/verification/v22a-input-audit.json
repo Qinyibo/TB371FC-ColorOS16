@@ -1,0 +1,22 @@
+{
+  "state": "V22A_BASE_SERVICES_ORIGINAL_APKS_INIT_AND_TEXT_LABEL_SOURCE_MATCH_PASS",
+  "original_apks_and_services": {
+    "/system/framework/services.jar": "1ebf1d7f6e564d0be1e4f9273df1e2ebd174b72cb68dbed99928f7cbc59aa3d1",
+    "/my_product/priv-app/IPeManager/IPeManager.apk": "aa85fdc365304282a0d5a4fdb434ba24cd4e03946242096d4ca2fafde7333c9c",
+    "/priv-app/WirelessSettings/WirelessSettings.apk": "212ca0b56089b932e46363224a9f3a80a48362cd86e50e8999840a457020d8e2"
+  },
+  "only_existing_pen_RC_replaced": [
+    "r94-pen-native-v1.rc"
+  ],
+  "comm_only_oneshot_removed": true,
+  "platform_contexts_text_preserved": true,
+  "compiled_context_sibling_exists": false,
+  "scoped_contexts_append": "/data/local/r94-pen-native-v4 u:object_r:shell_data_file:s0\n/data/local/r94-pen-native-v4/bootstrap\\.log u:object_r:shell_data_file:s0\n/data/local/r94-pen-native-v4/(ipe|ws)(/.*)? u:object_r:system_file:s0\n",
+  "host_label_tools": {
+    "sefcontext_compile": null,
+    "matchpathcon": null,
+    "seinfo": "/usr/bin/seinfo"
+  },
+  "device_actions": 0,
+  "physical_pen_or_phone_pass": false
+}

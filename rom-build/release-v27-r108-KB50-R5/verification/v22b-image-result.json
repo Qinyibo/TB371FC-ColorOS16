@@ -1,0 +1,96 @@
+{
+  "state": "V22B_NATIVE_FIRSTBOOT_CAMERA_ART_READBACK_LABELS_CLOSURES_FSCK_SHA_PASS_NOT_FLASHED",
+  "new_files_and_replacements": [
+    {
+      "path": "/system/app/ZuiCameraSeed/ZuiCameraSeed.apk",
+      "sha256": "3019d0e8d7815a5e0a5b60dafed7803172954e42883e5ae17c109401e020d511",
+      "context": "u:object_r:system_file:s0",
+      "mode": "0100644"
+    },
+    {
+      "path": "/system/etc/r94-camera-v7/ZuiCamera.apk.xz",
+      "sha256": "47c319d28086f0d9819ecb8404f27c5694c90d8dc843a01bdf67f6a4f753793c",
+      "context": "u:object_r:system_file:s0",
+      "mode": "0100644"
+    },
+    {
+      "path": "/system/etc/r94-camera-v7/install-once.sh",
+      "sha256": "afe2dceb0d0ec030d64e2a602ba6e30408f70b058a51fc28f6ef19bebc968e87",
+      "context": "u:object_r:system_file:s0",
+      "mode": "0100755"
+    },
+    {
+      "path": "/etc/r91-rom/apply.sh",
+      "sha256": "ecb7756c801d68c7fa712a91b00ae04a6f66890bd42a197b7873ef0935291d27",
+      "context": "u:object_r:system_file:s0",
+      "mode": "0100755"
+    },
+    {
+      "path": "/etc/r91-rom/SHA256SUMS",
+      "sha256": "bb3063cbe0719d679ad4dcde4a6888263c5ef060ec7f73d9fb792ae115a9f001",
+      "context": "u:object_r:system_file:s0",
+      "mode": "0100644"
+    }
+  ],
+  "removed_only_old_camera": [
+    {
+      "path": "/my_product/app/Camera/Camera.apk",
+      "sha256": "398f8e43c54acf6896b1434d2266e9a5484db8033eb2e57e59401e8bf9959960",
+      "bytes": 4884210
+    },
+    {
+      "path": "/my_product/app/Camera/oat/arm64/Camera.odex",
+      "sha256": "ebe72048a2ae92c09c8c249936ec522f46381183dd5c75d39a96f75a7c93df03",
+      "bytes": 15567768
+    },
+    {
+      "path": "/my_product/app/Camera/oat/arm64/Camera.vdex",
+      "sha256": "ef6946cd455c89dc6960613136e43976d6ae9cef2035567fa1c1f0157eb046fa",
+      "bytes": 7086120
+    }
+  ],
+  "firstboot_guard_and_asset_closure_pass": true,
+  "new_init_service_or_SELinux_rule": false,
+  "source_v7_CAMERA_APK": {
+    "state": "EXACT_V7_CAMERA_XZ_ROUNDTRIP_PASS",
+    "path": "D:\\TB371FC-release\\v22b-firstboot-publication-build\\ZuiCamera-v7.apk.xz",
+    "bytes": 111800644,
+    "compressed_sha256": "47c319d28086f0d9819ecb8404f27c5694c90d8dc843a01bdf67f6a4f753793c",
+    "apk_sha256": "0c72c201cef16bb4e187257690d7963b3c49c13dfa990ebb3cc1b53da57e7b7e",
+    "APK_bytes": 235702464,
+    "seconds": 106.70300000000134
+  },
+  "original_kernel43_and_vendor_preserved": true,
+  "clean_ROM_firstboot_tested": false,
+  "images": {
+    "system_a": {
+      "path": "D:\\TB371FC-release\\v22b-firstboot-publication-build\\system_a-candidate.img",
+      "bytes": 9932111872,
+      "sha256": "7ca0dd781f6e78348ec914800e1036acb3847ee05af176538cd21329f2fc4f00"
+    },
+    "system_ext_a": {
+      "path": "D:\\TB371FC-release\\v22b-firstboot-publication-build\\system_ext_a-candidate.img",
+      "bytes": 2013265920,
+      "sha256": "cf98c6d6bb2fe8a466c1ae622caa49684e35bc59b84674865156ce7be90560e4"
+    }
+  },
+  "kernel43_unchanged": true,
+  "final_policy": {
+    "state": "NATIVE_CAMERA_ASH_FD_LOCK_AND_ART_PROFILE_POLICY_READBACK_FSCK_PASS",
+    "changes": [
+      {
+        "path": "/system/etc/r94-camera-v7/install-once.sh",
+        "sha256": "6e4a8b40086bd10e24cbe07de508dba5db17493710c22c517b9aa0c23ed4affc",
+        "context": "u:object_r:system_file:s0",
+        "mode": "0100755"
+      },
+      {
+        "path": "/etc/init/r94-native-config.rc",
+        "sha256": "f0031d1e0170951f31eda4d3bcb1747c244bda264969a99f34297846dbf212e3",
+        "context": "u:object_r:system_file:s0",
+        "mode": "0100644"
+      }
+    ],
+    "new_permissions_or_daemon": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "exact_archive_clean_flash_pass": false,
+  "device_modified_by_packaging": false,
+  "capsule_user_accepted": true,
+  "usb_fixed": false,
+  "black_screen_root_cause_fixed": false,
+  "black_bar_device_retest": false,
+  "diagnostic_apk_included": false
+}

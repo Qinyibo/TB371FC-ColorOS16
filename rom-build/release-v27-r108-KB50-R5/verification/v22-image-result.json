@@ -1,0 +1,79 @@
+{
+  "state": "V22_IMAGE_NATIVE_REFRESH_PRIVACY_SEED_OCOMP_CLEANUP_CLOSURES_FSCK_PASS_NOT_FLASHED",
+  "time": "2026-10-24T22:53:26.712614+08:00",
+  "images": {
+    "system_a": {
+      "path": "D:/TB371FC-release/v22-refresh-privacy-build/system_a-candidate.img",
+      "bytes": 9932111872,
+      "sha256": "84ac332b47d492c6b2261170c3dcdba048994956d020d7ef032e8fb03f3efe26"
+    },
+    "system_ext_a": {
+      "path": "D:/TB371FC-release/v22-refresh-privacy-build/system_ext_a-candidate.img",
+      "bytes": 2013265920,
+      "sha256": "7fb47475013464df2c7b5e7a6c03b768bca1b4cdeb2d5834e37d5a12103dbfe0"
+    }
+  },
+  "refresh_jar_sha256": "7ea250fb0b7b00830a48b6ad111c795dc3adfcbb0d7b8c5a261f63d309b29762",
+  "refresh_xml_sha256": "d38f4cf981136e82933e26501ed1cd7f7b4b27d19dbe27446f835586b374a88f",
+  "changed_server_jar_preopt_removed": [
+    {
+      "path": "/system/framework/oplus-services.jar.fsv_meta",
+      "sha256": "957cebcf548ca10ea81bd52384830023b0d62f3fc71ac63363f0bd667a639fa3",
+      "bytes": 200704
+    },
+    {
+      "path": "/system/framework/oplus-services.jar.prof",
+      "sha256": "bd4afd26bb3c2d416c48c6ff83999f9e9af0892f5f387649dceedd56148a872c",
+      "bytes": 74261
+    },
+    {
+      "path": "/system/framework/oplus-services.jar.prof.fsv_meta",
+      "sha256": "0374aeffc6ee38c9ca7f3323c6ff0946c79ba5d672e10528b8d240dd80b3b2de",
+      "bytes": 8192
+    },
+    {
+      "path": "/system/framework/oat/arm64/oplus-services.ocomp.art",
+      "sha256": "a35006071fb06762ef379c1ac2b1182d50b70c92d080391fcd6f588622d8d28d",
+      "bytes": 200704
+    },
+    {
+      "path": "/system/framework/oat/arm64/oplus-services.ocomp.odex",
+      "sha256": "c06d5a8418f92b2982e033e864d39f9b86090fcdd45fcb5b993a3ba3c527a68f",
+      "bytes": 28531608
+    },
+    {
+      "path": "/system/framework/oat/arm64/oplus-services.ocomp.vdex",
+      "sha256": "06dbe511347963c93c51179f72104c8a5dac6801ba5f33038920d529f0a8609a",
+      "bytes": 265192
+    },
+    {
+      "path": "/system/framework/oat/arm64/oplus-services.ocomp.art.fsv_meta",
+      "sha256": "d7054a82084446b0f812bd7989966847ea2aaa972d696feaa37c7b44e4970c54",
+      "bytes": 8192
+    },
+    {
+      "path": "/system/framework/oat/arm64/oplus-services.ocomp.odex.fsv_meta",
+      "sha256": "18d8eedbf39a69e62d412ea9c287c83581bb8e181a248d7834a92d8b9a752de8",
+      "bytes": 139264
+    },
+    {
+      "path": "/system/framework/oat/arm64/oplus-services.ocomp.vdex.fsv_meta",
+      "sha256": "df22e17d20afaf4df93e22413d209e5a9c595490422e4ebc43abe9fcc54e4640",
+      "bytes": 8192
+    }
+  ],
+  "kernel43_unchanged": true,
+  "accepted_UI_and_OTA_files_unchanged": {
+    "/priv-app/SystemUI/SystemUI.apk": "ea6aa3ac6686cd8aa793265a1b86c8abe6f4d949c1ba901d3eb186da62ac28f0",
+    "/priv-app/SystemUI/oat/arm64/SystemUI.odex": "aabb73817a4fd0bccafef5ecc46619bfa09f01e0d6a35e7efa197f345b21cdd7",
+    "/priv-app/SystemUI/oat/arm64/SystemUI.vdex": "00d9a0c436c9223f698b0f396e05a76c6c7ed806c990699bfe8ad02db827d51e",
+    "/app/OTA/OTA.apk": "ce7d4a1ed6b34f23c7fc972a86974ebf53be53c1627c623c826a4b852e0b0d9c"
+  },
+  "old_seed_assets_preserved": true,
+  "both_startup_checksum_closures_verified": true,
+  "privacy_first_boot_device_pass": false,
+  "full_ROM_device_pass": false,
+  "device_actions": 0,
+  "server_profile_regenerated_by_ART_after_clean_boot": true,
+  "only_changed_jar_compilation_metadata_removed": true
+}

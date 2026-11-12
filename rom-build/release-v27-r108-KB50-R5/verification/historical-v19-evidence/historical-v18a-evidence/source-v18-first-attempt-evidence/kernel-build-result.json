@@ -1,0 +1,16 @@
+{
+  "state": "KERNEL39_NATIVE_CHARGING_BUILD_BOOT_READBACK_CRC_AND_GUARDS_PASS",
+  "kernel": 39,
+  "image_sha256": "f85bf23ec97e3dc66cb124c60418a290db5b710fe16f932a251741f5cd560d52",
+  "boot_sha256": "d5b8e5f3570db0fec17a715d86c89d0f7adba708fbc4903d02406fa74b966efd",
+  "source_sha256": "27d9254115b7375ce4f247e58324b7dac06a82a7815eecc819994ed5eb4b5502",
+  "all_export_CRCs_equal_to38": true,
+  "exports": 13080,
+  "touch_display_speaker_sources_unchanged": true,
+  "ramdisk_and_fixed_v17_DTB_preserved": true,
+  "actual_DWC3_cases": 37,
+  "actual_native_companion_cases": 16,
+  "new_charging_daemon_or_Magisk_module": false,
+  "physical_boot_tested": false,
+  "vivo_wall_charge_tested_on_this_kernel": false
+}

@@ -1,0 +1,73 @@
+--- v18a/apply.sh
++++ candidate/apply.sh
+@@ -1,6 +1,6 @@
+ #!/system/bin/sh
+ # Launcher is directly preinstalled. This existing service retains only its
+-# previous Assistant/OTA bindings and once-only initial setup defaults.
++# Assistant bindings and once-only initial setup defaults. OTA is a static notice app.
+ set -eu
+ umask 077
+ rom=${R91_ROM_ROOT:-/system_ext/etc/r91-rom}
+@@ -31,7 +31,7 @@
+ # A changed base ROM must never receive stale candidates or stale ART files.
+ test "$(sha256sum /system_ext/priv-app/OplusLauncher/OplusLauncher.apk | cut -d ' ' -f 1)" = 1f04f79c4564c58b03673f4ca575e270f08bc10d926ccc6509797aef15cb5024 || { echo R91_ROM_BASE_GUARD_FAILED_1; exit 1; }
+ test "$(sha256sum "$assistant_target" | cut -d ' ' -f 1)" = c8e7396f691b146d630764e3037e7a41f92170c725e1661272406c41c7c6a628 || { echo R91_ROM_BASE_GUARD_FAILED_2; exit 1; }
+-test "$(sha256sum "$ota_target" | cut -d ' ' -f 1)" = 80301efa8b915f8e183367d5fef40c3107713cade9ecb6fbab55ddb39ad50e6a || { echo R91_ROM_BASE_GUARD_FAILED_3; exit 1; }
++test "$(sha256sum "$ota_target" | cut -d ' ' -f 1)" = ce7d4a1ed6b34f23c7fc972a86974ebf53be53c1627c623c826a4b852e0b0d9c || { echo R91_ROM_BASE_GUARD_FAILED_3; exit 1; }
+ test "$(sha256sum /system/framework/oplus-services.jar | cut -d ' ' -f 1)" = e18e0e4df08b541b85c3e45b2be4de3af17ade1d21cdb4f8808b723d8d05a454 || { echo R91_ROM_BASE_GUARD_FAILED_4; exit 1; }
+ echo R91_ROM_NATIVE_BASE_IDENTITIES_OK
+ 
+@@ -59,7 +59,6 @@
+     for s in art dex vdex; do umount -l "$assistant_prefix.$s" || true; done
+     umount -l /my_stock/priv-app/KeKeMarket/KeKeMarket.apk || true
+     umount -l "$assistant_target" || true
+-    umount -l "$ota_target" || true
+     touch "$base/disabled"
+     run_am force-stop com.coloros.assistantscreen || true
+     exit 1
+@@ -97,41 +96,10 @@
+     first_defaults=1
+     apply_defaults
+ fi
+-# Keep updater components disabled without disabling system update_engine/COTA.
+-cmd package disable --user 0 com.oplus.ota/com.oplus.ota.service.OTAService
+-cmd package disable --user 0 com.oplus.ota/com.oplus.ota.push.OtaPushService
+-cmd package disable --user 0 com.oplus.ota/com.oplus.ota.download.AutoDownloadJobService
+-cmd package disable --user 0 com.oplus.ota/com.oplus.ota.strategy.ConnectivityJobService
+-cmd package disable --user 0 com.oplus.ota/com.oplus.ota.compatibility.CompatibilityService
+-cmd package disable --user 0 com.oplus.ota/com.oplus.otaui.activity.OtaInstallCheckActivity
+-cmd package disable --user 0 com.oplus.ota/com.oplus.ota.strategy.StrategyReceiver
+-cmd package disable --user 0 com.oplus.ota/com.oplus.ota.strategy.UpgradeInviteReceiver
+-cmd package disable --user 0 com.oplus.ota/com.oplus.ota.enterprise.EnterpriseOTAService
+-cmd package disable --user 0 com.oplus.ota/com.oplus.ota.enterprise.download.EnterpriseDownloadService
+-cmd package disable --user 0 com.oplus.ota/com.oplus.ota.enterprise.EnterpriseJobService
+-cmd package disable --user 0 com.oplus.ota/com.oplus.otaui.activity.AppointmentActivity
+-cmd package disable --user 0 com.oplus.ota/com.oplus.otaui.activity.AgreementActivity
+-cmd package disable --user 0 com.oplus.ota/com.oplus.otaui.activity.UpgradeInviteActivity
+-cmd package disable --user 0 com.oplus.ota/com.oplus.otaui.activity.ContributorsListActivity
+-cmd package disable --user 0 com.oplus.ota/com.oplus.otaui.enterprise.ui.EnterpriseEntryActivity
+-cmd package disable --user 0 com.oplus.ota/com.oplus.otaui.enterprise.ui.PackageInfoActivity
+-cmd package disable --user 0 com.oplus.ota/com.oplus.otaui.enterprise.ui.LegalActivity
+-cmd package disable --user 0 com.oplus.ota/com.oplus.otaui.enterprise.ui.EnterpriseDownloadActivity
+-cmd package disable --user 0 com.oplus.ota/com.oplus.otaui.questionnaire.QuestionnaireEntryActivity
+-cmd package disable --user 0 com.oplus.ota/com.oplus.otaui.questionnaire.QuestionnaireImpressionActivity
+-cmd package disable --user 0 com.oplus.ota/com.oplus.otaui.questionnaire.QuestionnaireFeedbackActivity
+-cmd package disable --user 0 com.oplus.ota/com.oplus.otaui.activity.OtaFeedbackActivity
+-cmd package disable --user 0 com.oplus.ota/com.oplus.otaui.activity.OpexUpdateActivity
+-cmd package disable --user 0 com.oplus.ota/com.oplus.ota.backuprestore.OtaBRPluginService
+-cmd package disable --user 0 com.oplus.ota/com.platform.usercenter.account.ams.provider.AcAccountBaseSdkInitProvider
+-cmd package disable --user 0 com.oplus.ota/com.platform.usercenter.account.ams.provider.AcAccountSdkInitProvider
+-cmd package disable --user 0 com.oplus.ota/com.heytap.usercenter.accountsdk.utils.UCAccountSDKInitProvider
+-cmd package disable --user 0 com.oplus.ota/com.heytap.usercenter.accountsdk.utils.app.UserCenterOperateReceiver
+-cmd package disable --user 0 com.oplus.ota/com.customer.feedback.sdk.activity.FeedbackActivity
+-cmd jobscheduler cancel -u 0 com.oplus.ota || true
+-run_am force-stop com.oplus.ota
+-mount -o bind "$rom/ota/OTA.apk" "$ota_target" || rollback ota_bind
+-"$rom/ota/bind-readonly" || rollback ota_readonly
++# The donor updater has been replaced in the image, before first package scan.
++# This notice APK has zero requested permissions/services/receivers/providers.
++# No late bind and no boot-time component-disable window remains.
++echo R94_OTA_NATIVE_NOTICE_ONLY_NO_DONOR_UPDATER
+ 
+ # Stop only Assistant before replacing its previously accepted code.
+ run_am force-stop com.coloros.assistantscreen || rollback stop_assistant

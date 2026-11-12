@@ -1,0 +1,74 @@
+{
+  "state": "V17_READY_IMAGES_NATIVE_BILI_EVENT_SEED_ALL_LP_PASS",
+  "path": "D:\\TB371FC-release\\R94T-v17-ready-TEST",
+  "images": [
+    {
+      "name": "super",
+      "path": "images/super-R94.img",
+      "bytes": 12884901888,
+      "sha256": "a32355956a9371b60e6517033339a012fe9ddd9abb78bc109a0e4e008a54da15"
+    },
+    {
+      "name": "boot",
+      "path": "images/boot_a.img",
+      "bytes": 100663296,
+      "sha256": "4c6e8be34d597d5e1afe2679725dcbaa7ab4b119792864661454d6d1004d069e"
+    },
+    {
+      "name": "vbmeta",
+      "path": "images/vbmeta_a.img",
+      "bytes": 65536,
+      "sha256": "5faf802f3d821512505c42a9fa0dba5b969f135fd5ec3bf6686e8448e741a169"
+    },
+    {
+      "name": "vbmeta_system",
+      "path": "images/vbmeta_system_a.img",
+      "bytes": 65536,
+      "sha256": "848f04a7cf01cbfc68640ece4895e1aa00c6ba5cbf385c81b395f51da0829fef"
+    }
+  ],
+  "logical_partitions": [
+    {
+      "name": "odm_a",
+      "sha256": "eec06da5d0fbab6808028cc7341a495ed810de30b7f931db988ca664a9525a17",
+      "bytes": 15138816
+    },
+    {
+      "name": "product_a",
+      "sha256": "8f590c8e5c7a94d3d350c54b4eea6e6597d56d9f5eba4d0373ac5fd55d481bcd",
+      "bytes": 16777216
+    },
+    {
+      "name": "system_a",
+      "sha256": "b9f0b131435a7eb403c9516183ab3195307aed37e5702ec1ef4778587f7ddc1e",
+      "bytes": 9932111872
+    },
+    {
+      "name": "system_ext_a",
+      "sha256": "23a196acd7c7a1ad270722b84248354a5a05aa716d816d52d75a5599a6f15ef5",
+      "bytes": 2013265920
+    },
+    {
+      "name": "vendor_a",
+      "sha256": "d318e5fe3381de5951665074da51a82a4e884a5f9fbaed2e1eb5a4acaa8ec1d1",
+      "bytes": 899739648
+    }
+  ],
+  "changed_from_core": [
+    "system_a"
+  ],
+  "changed_from_v16": [
+    "system_a",
+    "system_ext_a"
+  ],
+  "source_core_super_sha256": "79864fd80bcb96a061c1c4eefff247f6a9fd0e9e9dd175ed505de45ead3e7235",
+  "six_lp_metadata_copies_and_padding_unchanged": true,
+  "source_core_unchanged": true,
+  "original_seven_scripts_unchanged": true,
+  "SystemUI_exact_core_tested_candidate": true,
+  "bili_app_modified": false,
+  "homepage_experiment_included": false,
+  "physical_final_flash_tested": false,
+  "native_seed_default_enabled": true,
+  "exact_last_package_clean_flashed": false
+}

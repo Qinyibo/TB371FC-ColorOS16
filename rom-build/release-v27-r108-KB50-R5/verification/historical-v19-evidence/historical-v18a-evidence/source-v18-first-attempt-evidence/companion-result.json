@@ -1,0 +1,16 @@
+{
+  "state": "NATIVE_HELPER_REPRODUCED_AND_BUILD39_WHITELIST_UPDATED",
+  "old_native_source_reproduces_shipped_binaries": true,
+  "java_and_call_guard_unchanged": true,
+  "other_modules_and_delivery_script_unchanged": true,
+  "native_charging_module_included": false,
+  "changed_files": [
+    "SHA256SUMS",
+    "modules/r94_speaker_direction/customize.sh",
+    "modules/r94_speaker_direction/direction.so",
+    "modules/r94_speaker_direction/directionctl",
+    "modules/r94_speaker_direction/module.prop",
+    "modules/r94_speaker_direction/README.md",
+    "modules/r94_speaker_direction/service.sh"
+  ]
+}

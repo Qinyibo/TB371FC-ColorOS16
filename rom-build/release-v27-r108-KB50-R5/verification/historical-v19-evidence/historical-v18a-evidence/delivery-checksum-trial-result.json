@@ -1,0 +1,11 @@
+{
+  "state": "STALE_OUTER_DELIVERY_HASH_REPRODUCED_AND_REVERSIBLE_BIND_TRIAL_PASS",
+  "new_outer_file_sha256": "812a31c518ae6d86832c37718bceec9ea92841e69d2552c8e277135ed8518f0f",
+  "changed_path": "/system_ext/etc/r91-rom/SHA256SUMS",
+  "on_device_fix": "Reversible one-file bind until reflash/reboot; not permanent ROM write",
+  "native_apply_rc": 0,
+  "modules_seeded": 4,
+  "inner_and_outer_hashes_pass": true,
+  "permanent_ROM_package_fix_pending": true,
+  "time": "2026-10-19T00:44:07.000883+08:00"
+}

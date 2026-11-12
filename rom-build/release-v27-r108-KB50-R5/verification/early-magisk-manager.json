@@ -1,0 +1,16 @@
+{
+  "baseline_sha256": "2bbe6b4b9dc7670be3e72f0dd0a369bb26f09adddd0da7e606dcc4af20078499",
+  "system_ext_sha256": "d9341f23e31a62221e8339487c86f26a2e5e6b000aa04704a2d11ea72747f2d9",
+  "system_ext_bytes": 2013265920,
+  "original_apply_sha256": "b6e0c302181e8710b45616823c8e291223fdcf2a5850bbe0147cee19a9ca1b5e",
+  "apply_sha256": "3e7bc9053a78044e630367815492fb615b002138b973e7f0bb9984556778befa",
+  "launch": "After Setup Wizard, parallel to launcher initialization and dexopt.",
+  "filesystem_check": "e2fsck -fn passed",
+  "runtime_verified": false,
+  "system_ext_start": 9965666304,
+  "changed_sparse_parts": [
+    "super.part0297.sparse.img",
+    "super.part0303.sparse.img",
+    "super.part0337.sparse.img"
+  ]
+}

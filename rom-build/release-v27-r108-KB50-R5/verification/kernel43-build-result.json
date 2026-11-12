@@ -1,0 +1,13 @@
+{
+  "state": "KERNEL43_COMPILE_BOOT_READBACK_CONFIG_AND_EXPORTS_PASS_NOT_FLASHED",
+  "image_sha256": "c234e5c0ed600369816fb98f5d4a54748dc46bc4dcd5bff07529c82e165a2519",
+  "boot_sha256": "09d3c1bd67946575de8b0dad434f651e746747da2686fa227719142ad47cfbbe",
+  "export_table_unchanged": true,
+  "export_count": 13080,
+  "config_preserved": true,
+  "fixed_v17_DTB_and_Magisk_ramdisk_preserved": true,
+  "source_sha256": "c871a208c627cfbeecd38e03d5d33b76a53a13c6d710ad8ea80eaaff13ad1b67",
+  "physical_tested": false,
+  "DSI_sleep_order_experiment40_included": false,
+  "async_HWC_status_cache_included": false
+}

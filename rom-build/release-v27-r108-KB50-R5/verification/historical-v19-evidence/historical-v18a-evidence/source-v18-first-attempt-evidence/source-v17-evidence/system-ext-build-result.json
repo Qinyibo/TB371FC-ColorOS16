@@ -1,0 +1,11 @@
+{
+  "state": "V17_SYSTEM_EXT_READBACK_MODE_LABEL_FSCK_PASS",
+  "path": "D:/TB371FC-release/v17-build/system_ext-v17.img",
+  "bytes": 2013265920,
+  "sha256": "c64e15b204ec0f535236a54b7d82aacf575a4febe0a132e2666f022d546e3413",
+  "source_sha256": "076aa5e9ac610cbd4eb0344ce8dfb2de1731fc2e9686f38df06bc5648c123197",
+  "only_changed_path": "/priv-app/SystemUI/SystemUI.apk",
+  "APK_sha256": "ea6aa3ac6686cd8aa793265a1b86c8abe6f4d949c1ba901d3eb186da62ac28f0",
+  "same_v16_DEX_and_preopt": true,
+  "source_v16_unchanged": true
+}

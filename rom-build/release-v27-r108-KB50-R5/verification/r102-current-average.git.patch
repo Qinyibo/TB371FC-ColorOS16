@@ -1,0 +1,89 @@
+From d981748399d68a57bcbe5faeb25c196589d9bc9c Mon Sep 17 00:00:00 2001
+From: Codex <codex@localhost>
+Date: Mon, 2 Nov 2026 18:45:54 +0800
+Subject: [PATCH] power: supply: expose normalized average current on battery
+ interface
+
+Share the existing instantaneous-current conversion for CURRENT_AVG.
+Keep MM8013 raw/cache values and charger cutoff consumers unchanged.
+Do not alter output on failed supplier reads.
+
+Validated29 extracted-helper/dispatch cases and built Image with original
+r99 HID code, matching config and Module.symvers. The r100 HID candidate
+remains unflashed. Normal r102 boot verified Health reads battery/current_avg.
+Image SHA256:88c89d140042fe5103bd7ac7c516cb8b35a4e77af9ba26de1873197114bd8c43
+Boot SHA256:1d84543e6e3c026aaf0560e79c45f73a90c7e2efa7dc876c4395022ccbbaa9e9
+Build identity requires KBUILD_BUILD_HOST=r102-batt-avg override; default
+build entry is unchanged. No full charging-cycle or power-efficiency claim.
+---
+ drivers/power/supply/qcom/qpnp-smb5.c |  4 +++-
+ drivers/power/supply/qcom/smb5-lib.c  | 11 ++++++-----
+ drivers/power/supply/qcom/smb5-lib.h  |  5 +++--
+ 3 files changed, 12 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/power/supply/qcom/qpnp-smb5.c b/drivers/power/supply/qcom/qpnp-smb5.c
+index cc3935037..b74e78325 100644
+--- a/drivers/power/supply/qcom/qpnp-smb5.c
++++ b/drivers/power/supply/qcom/qpnp-smb5.c
+@@ -1759,6 +1759,7 @@ static enum power_supply_property smb5_batt_props[] = {
+ 	POWER_SUPPLY_PROP_VOLTAGE_MAX,
+ 	POWER_SUPPLY_PROP_VOLTAGE_QNOVO,
+ 	POWER_SUPPLY_PROP_CURRENT_NOW,
++	POWER_SUPPLY_PROP_CURRENT_AVG,
+ 	POWER_SUPPLY_PROP_CURRENT_QNOVO,
+ 	POWER_SUPPLY_PROP_CONSTANT_CHARGE_CURRENT_MAX,
+ 	POWER_SUPPLY_PROP_CONSTANT_CHARGE_CURRENT,
+@@ -1858,7 +1859,8 @@ static int smb5_batt_get_prop(struct power_supply *psy,
+ 				QNOVO_VOTER);
+ 		break;
+ 	case POWER_SUPPLY_PROP_CURRENT_NOW:
+-		rc = smblib_get_batt_current_now(chg, val);
++	case POWER_SUPPLY_PROP_CURRENT_AVG:
++		rc = smblib_get_batt_current(chg, psp, val);
+ 		break;
+ 	case POWER_SUPPLY_PROP_CURRENT_QNOVO:
+ 		val->intval = get_client_vote_locked(chg->fcc_votable,
+diff --git a/drivers/power/supply/qcom/smb5-lib.c b/drivers/power/supply/qcom/smb5-lib.c
+index 1ce87c5c0..8b797af54 100644
+--- a/drivers/power/supply/qcom/smb5-lib.c
++++ b/drivers/power/supply/qcom/smb5-lib.c
+@@ -2521,14 +2521,15 @@ int smblib_get_prop_batt_charge_done(struct smb_charger *chg,
+ 	return 0;
+ }
+ 
+-int smblib_get_batt_current_now(struct smb_charger *chg,
+-					union power_supply_propval *val)
++int smblib_get_batt_current(struct smb_charger *chg,
++				   enum power_supply_property psp,
++				   union power_supply_propval *val)
+ {
+ 	int rc;
+-	rc = smblib_get_prop_from_exfg(chg,
+-		POWER_SUPPLY_PROP_CURRENT_NOW, val);
++	rc = smblib_get_prop_from_exfg(chg, psp, val);
+ 
+-	if (!chg->exfg_psy){
++	/* The battery interface uses positive current for net charging. */
++	if (!rc && !chg->exfg_psy) {
+ 		val->intval *= (-1);
+ 	}
+ 
+diff --git a/drivers/power/supply/qcom/smb5-lib.h b/drivers/power/supply/qcom/smb5-lib.h
+index d6062bba2..44306a6a9 100644
+--- a/drivers/power/supply/qcom/smb5-lib.h
++++ b/drivers/power/supply/qcom/smb5-lib.h
+@@ -731,8 +731,9 @@ int smblib_get_prop_batt_charge_type(struct smb_charger *chg,
+ 				union power_supply_propval *val);
+ int smblib_get_prop_batt_charge_done(struct smb_charger *chg,
+ 				union power_supply_propval *val);
+-int smblib_get_batt_current_now(struct smb_charger *chg,
+-					union power_supply_propval *val);
++int smblib_get_batt_current(struct smb_charger *chg,
++				   enum power_supply_property psp,
++				   union power_supply_propval *val);
+ int smblib_get_prop_batt_health(struct smb_charger *chg,
+ 				union power_supply_propval *val);
+ int smblib_get_prop_system_temp_level(struct smb_charger *chg,
+-- 
+2.43.0
+

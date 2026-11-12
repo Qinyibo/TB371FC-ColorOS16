@@ -1,0 +1,8 @@
+{
+  "state": "BILI_NATIVE_TWO_SEPARATE_XML_SYSTEM_A_READBACK_FSCK_PASS",
+  "bytes": 9932111872,
+  "sha256": "b9f0b131435a7eb403c9516183ab3195307aed37e5702ec1ef4778587f7ddc1e",
+  "xml_sha256": "2551f6aacd97aa020cea35e8f823c843a3bd543e3658de36985852d28c5684fa",
+  "fullorientation_sha256": "a2991a58e3398d3017f9d804dca7c4ff20ce226420311e32245a2f040967b97c",
+  "both_files_verified_modes_labels": true
+}

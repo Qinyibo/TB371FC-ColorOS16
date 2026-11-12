@@ -1,0 +1,39 @@
+2026-11-12T19:25:21.5529964+08:00
+5b4791a9-85ba-4d28-9187-a6af0065e21f
+1
+Linux version 4.19.325-perf+ (tb371fc-offline@r108-force-rek-keyboard-bias-wake-idle-ab) (Ubuntu clang version 21.1.8 (++20251221032922+2078da43e25a-1~exp1~20251221153059.70), GNU ld (GNU Binutils for Ubuntu) 2.42) #50 SMP PREEMPT Tue Nov 10 2026 21:00:00 +0800
+_a
+0
+31.1:MAGISK:R (31100)
+package:/system/app/ZuiCamera/ZuiCamera.apk
+MAGISK_SYSTEM_APP_ABSENT
+89cefac0a318afa39fb3880c45c87b036c05bc1ebf02a7a715b7f8d7c26ac6e7  /system/etc/r94-magisk-manager/Magisk-v31.1.apk
+0c72c201cef16bb4e187257690d7963b3c49c13dfa990ebb3cc1b53da57e7b7e  /system/app/ZuiCamera/ZuiCamera.apk
+Post setup 2026-11-12T19:57:48.7084456+08:00
+1
+1
+4
+stacked
+package:/data/app/~~nUlQtPS968D_b4hYUwy_QA==/com.topjohnwu.magisk-yXD4g2pnMyrHFqC4YiqTYQ==/base.apk
+89cefac0a318afa39fb3880c45c87b036c05bc1ebf02a7a715b7f8d7c26ac6e7  /data/app/~~nUlQtPS968D_b4hYUwy_QA==/com.topjohnwu.magisk-yXD4g2pnMyrHFqC4YiqTYQ==/base.apk
+    versionCode=31100 minSdk=24 targetSdk=37
+    pkgFlags=[ HAS_CODE ALLOW_CLEAR_USER_DATA ]
+--------- beginning of main
+  1889.405 29417 29417 I R94FirstBoot: R94_ANIMATION_DEXOPT_DONE
+  1890.730 29521 29521 I R94FirstBoot: R94_MAGISK_MANAGER_READY
+31.1:MAGISK:R (31100)
+
+Magisk environment check
+Linux version 4.19.325-perf+ (tb371fc-offline@r108-force-rek-keyboard-bias-wake-idle-ab) (Ubuntu clang version 21.1.8 (++20251221032922+2078da43e25a-1~exp1~20251221153059.70), GNU ld (GNU Binutils for Ubuntu) 2.42) #50 SMP PREEMPT Tue Nov 10 2026 21:00:00 +0800
+31.1:MAGISK:R (31100)
+package:/data/app/~~nUlQtPS968D_b4hYUwy_QA==/com.topjohnwu.magisk-yXD4g2pnMyrHFqC4YiqTYQ==/base.apk
+package:/system/app/ZuiCamera/ZuiCamera.apk
+stacked
+Post-repair app and launcher verified 2026-11-12T20:01:44.2410286+08:00
+e947e065-024e-499e-b1b8-373be83234ea
+31.1:MAGISK:R (31100)
+stacked
+1
+    codePath=/data/app/~~nUlQtPS968D_b4hYUwy_QA==/com.topjohnwu.magisk-yXD4g2pnMyrHFqC4YiqTYQ==
+    initiatingPackageName=com.android.shell
+      firstInstallTime=2025-01-01 00:31:30

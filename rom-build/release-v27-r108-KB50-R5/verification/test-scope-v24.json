@@ -1,0 +1,14 @@
+{
+  "exact_full_archive_clean_flash_pass": false,
+  "boot_component_flashed": true,
+  "short_wake_tests_passed": [
+    2,
+    10,
+    30
+  ],
+  "long_idle_fixed": false,
+  "animation_controller27_manual_pass_before_reboot": true,
+  "post_reboot_stack_manual_pass": false,
+  "paired_phone_shared_data_pass": false,
+  "power_tuning_added": false
+}

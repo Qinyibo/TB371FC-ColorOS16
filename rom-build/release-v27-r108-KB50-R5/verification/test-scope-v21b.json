@@ -1,0 +1,10 @@
+{
+  "state": "V21B_VENDOR_MODULE_CONSISTENCY_OFFLINE_ONLY",
+  "physical_boot_tested": false,
+  "random_black_screen_fixed": false,
+  "physical_double_tap_verified": false,
+  "friend_boot_causality_proven": false,
+  "v21_kernel43_system_and_system_ext_unchanged": true,
+  "original_seven_scripts_unchanged": true,
+  "device_actions": 0
+}

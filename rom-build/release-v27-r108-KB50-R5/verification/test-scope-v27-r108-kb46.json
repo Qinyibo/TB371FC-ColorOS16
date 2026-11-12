@@ -1,0 +1,10 @@
+{
+  "state": "CANDIDATE",
+  "kernel_boot_on_v27_device_verified": true,
+  "exact_archive_clean_flash_verified_at_pack_time": false,
+  "exact_archive_first_boot_verified_at_pack_time": false,
+  "physical_key_trackpad_and_reseat_verified": false,
+  "intermittent_touch_root_cause_fixed": false,
+  "low_frequency_wake_failure_ruled_out": false,
+  "tinno_vintf_pair_included_for_manual_install": true
+}

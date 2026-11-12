@@ -1,0 +1,40 @@
+{
+  "state": "INDEPENDENT_IMAGES_READBACK_CLOSURE_FSCK_PASS",
+  "changes": [
+    {
+      "payload": "SystemUI.apk",
+      "sha256": "8ad70cc761213ed3854650f1f477a010fb443b39f96c48c0de62c347f2f39b4a",
+      "partition": "system_ext_a",
+      "target": "/priv-app/SystemUI/SystemUI.apk",
+      "mode": "0644",
+      "expected_before": "56bc35af0c908ec00151ec792f3df048985d1cf0db06260b6a86f42614d76928",
+      "before_sha256": "56bc35af0c908ec00151ec792f3df048985d1cf0db06260b6a86f42614d76928"
+    }
+  ],
+  "removed_preloads": [
+    "/my_product/del-app/HeytapReader",
+    "/my_product/del-app/HotGamesFolder",
+    "/my_stock/del-app/Gamecenter",
+    "/my_stock/del-app/OPCommunity",
+    "/my_stock/del-app/OPPOStore",
+    "/my_stock/del-app/KeKeUserCenterMember"
+  ],
+  "removed_stale_companions": [],
+  "images": {
+    "system_a": {
+      "path": "D:\\TB371FC-release\\v26-r104-build\\system_a.img",
+      "sha256": "241ac209972c2250c8f9cf8a3f23af23a8053993a9447964b30f956ee5787fbc",
+      "bytes": 9932111872
+    },
+    "system_ext_a": {
+      "path": "D:\\TB371FC-release\\v26-r104-build\\system_ext_a.img",
+      "sha256": "98860133d284b55ea533818609bc2088994876b8dafef82a1275d23832055b6a",
+      "bytes": 2013265920
+    },
+    "vendor_a": {
+      "path": "D:\\TB371FC-release\\v26-r104-build\\vendor_a.img",
+      "sha256": "78959e36b12aebb30996a94fbe4cf3e4ed53bfb57f2aacdc3c37544494d2ac1b",
+      "bytes": 899739648
+    }
+  }
+}

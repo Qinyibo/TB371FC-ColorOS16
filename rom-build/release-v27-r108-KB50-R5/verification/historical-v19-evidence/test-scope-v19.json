@@ -1,0 +1,20 @@
+{
+  "state": "V19_OFFLINE_CANDIDATE_NO_PHYSICAL_ACCEPTANCE",
+  "exact_v19_clean_first_boot": false,
+  "settings_OTA_entry": false,
+  "online_and_reboot": false,
+  "kernel39_real_vivo_wall_charge": false,
+  "no_device_actions": true,
+  "historical_evidence": "verification/historical-v18a-evidence; applies to named older builds only",
+  "unchanged_from_v18a": [
+    "boot",
+    "vbmeta",
+    "vbmeta_system",
+    "system_a",
+    "vendor_a",
+    "product_a",
+    "odm_a",
+    "all seven original host scripts"
+  ],
+  "required_next_test": "User hands tablet back; original packaged scripts only. Record updater package/entry, module delivery, SystemUI/input, reboot and absence of update checks/downloads/notifications."
+}

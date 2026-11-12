@@ -1,0 +1,9 @@
+{
+  "state": "COLD_PRIVATE_EXISTING_SCOPED_LABELS_EXACT_APKS_RESTRICTIVE_UMASK_PASS",
+  "cache_root_expected_label": "shell_data_file",
+  "only_published_app_children_expected_label": "system_file",
+  "parent_system_file_assumption_retracted": "Actual ROM contexts intentionally keep root and log shell_data_file; no expanded label rule is necessary.",
+  "no_global_properties_or_binds_changed": true,
+  "script_sha256": "9f17191b5458bb29653f9f875d2b1237dc5fe09d52d0a022e9acfb1940b62bcb",
+  "full_clean_ROM_boot_tested": false
+}

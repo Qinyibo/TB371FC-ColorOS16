@@ -1,0 +1,33 @@
+{
+  "state": "INDEPENDENT_VENDOR43_MODULE_PAYLOAD_CALLERS_MODES_LABELS_READBACK_FSCK_PASS",
+  "path": "D:/TB371FC-release/v21b-vendor-module-build/vendor-modules43.img",
+  "sha256": "bb1be4d4b8015c60af65c8c88eca3c24ad67774adae602e23f1cb3151aeb97ef",
+  "source_sha256": "d318e5fe3381de5951665074da51a82a4e884a5f9fbaed2e1eb5a4acaa8ec1d1",
+  "bytes": 899739648,
+  "nine_modules_with609_CRC_checks": true,
+  "32_builtin_groups_link_proven": true,
+  "original40_legacy_KOs_replaced_with9_actual_modules": true,
+  "candidate_files": {
+    "etc/init/netmgrd.rc": "9dcce58a189d8979dc8a5a5b194d673e596144633244797d53aa7f09415ef249",
+    "etc/init/hw/init.target.rc": "e6763a583f9fa87a9ce1092651638b7be9c0e15b15c4bd2b04e3ffe6df1e93fc",
+    "lib/modules/lcd.ko": "2772dfaa7ed3c8325524020e7d31b67199bf3cee300271299164a5127933f0a7",
+    "lib/modules/llcc_perfmon.ko": "38ea8e7d5b0b4c44d0f98eaeb9d5198d03338f8e674f82c4e7725e6396f988aa",
+    "lib/modules/modules.alias": "395fd8cf2f56c3c26ac96e84a38d00630ced3115671b3a275fa29392ed50d903",
+    "lib/modules/modules.builtin": "ea4401e5c5ac944a99e1aca971774f9dbd15a719d102843d7a13eefbc363ae43",
+    "lib/modules/modules.dep": "8443b77a46c659b777960400c39ab1003ac6103af07db0381ddcbc4b0b592407",
+    "lib/modules/modules.load": "2eea834b0cd27675e155ad6c91472df88e1495da79e71c63bed672e5704f75c2",
+    "lib/modules/modules.softdep": "6743f924f04484504917ae39077111b9a653c6774e1b440fb013174c77af94d2",
+    "lib/modules/mpq-adapter.ko": "9f53edeb427bfd4d7c43851910858f51f9affad30e3eb0e7208adc7b8d12d750",
+    "lib/modules/mpq-dmx-hw-plugin.ko": "f674e3b744499b854001040635d96e8c80ca04a9c342e4968abe6c491f74c3f0",
+    "lib/modules/msm_11ad_proxy.ko": "eedc4898231dec2174d07a0c94a3614e216fb0881feeaada24213762904c5968",
+    "lib/modules/rdbg.ko": "5524bca346275cfb52f50814db9b938926bbcb74ffc2064a168a44185f33d96e",
+    "lib/modules/usf_dlkm.ko": "346073caf4512319f1ddbaedb0f63188cd2b7c72e4a50247aa70c1ee6fcad8fc",
+    "lib/modules/wigig_sensing.ko": "7d9460a77c0c5774717fdaec937b66089adb8eee7589d368669fb4754183197c",
+    "lib/modules/wil6210.ko": "6c851c24896a282ac799b3994dee411bc65990b6d13698fb9f7d70e4ba411e62"
+  },
+  "conditional_RMNET_runtime_actions_preserved_not_fixed": true,
+  "friend_device_boot_causality_unproven": true,
+  "included_in_v21": false,
+  "device_actions": 0,
+  "physically_tested": false
+}

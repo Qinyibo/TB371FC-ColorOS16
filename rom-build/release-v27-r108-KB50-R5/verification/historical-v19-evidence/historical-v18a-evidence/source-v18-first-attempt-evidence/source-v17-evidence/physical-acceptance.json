@@ -1,0 +1,91 @@
+{
+  "state": "V17_CLEAN_FLASH_FIRST_BOOT_REBOOT_UI_GESTURES_PASS",
+  "time": "2026-10-18T18:59:06.553139+08:00",
+  "tested_serial": "HA1W0JA3",
+  "scope": "Identical repaired SystemUI/boot/kernel clean-flashed through original CMD; final native Bili module and XML live-tested. Last module-seed integration offline-verified, not clean-flashed again.",
+  "last_ready_image_set": [
+    {
+      "name": "super",
+      "path": "images/super-R94.img",
+      "bytes": 12884901888,
+      "sha256": "a32355956a9371b60e6517033339a012fe9ddd9abb78bc109a0e4e008a54da15"
+    },
+    {
+      "name": "boot",
+      "path": "images/boot_a.img",
+      "bytes": 100663296,
+      "sha256": "4c6e8be34d597d5e1afe2679725dcbaa7ab4b119792864661454d6d1004d069e"
+    },
+    {
+      "name": "vbmeta",
+      "path": "images/vbmeta_a.img",
+      "bytes": 65536,
+      "sha256": "5faf802f3d821512505c42a9fa0dba5b969f135fd5ec3bf6686e8448e741a169"
+    },
+    {
+      "name": "vbmeta_system",
+      "path": "images/vbmeta_system_a.img",
+      "bytes": 65536,
+      "sha256": "848f04a7cf01cbfc68640ece4895e1aa00c6ba5cbf385c81b395f51da0829fef"
+    }
+  ],
+  "exact_last_package_clean_flashed": false,
+  "identical_SystemUI_original_CMD_clean_flash_exit": 0,
+  "identical_SystemUI_userdata_and_metadata_wiped": true,
+  "systemui_registered_on_clean_scan": true,
+  "SystemUI_APK_sha256": "ea6aa3ac6686cd8aa793265a1b86c8abe6f4d949c1ba901d3eb186da62ac28f0",
+  "post_setup_gesture_injection_checks": {
+    "edge_back_from_wlan_to_settings": true,
+    "bottom_home_gesture": true,
+    "top_pull_notification_shade": true,
+    "classic_control_center": true,
+    "separate_control_center": true,
+    "sleep_and_wake": true,
+    "systemui_systemserver_surfaceflinger_stable": true
+  },
+  "subsequent_reboot": {
+    "state": "V17_SUBSEQUENT_REBOOT_SYSTEMUI_AND_HOME_STABLE_60_SECONDS",
+    "old_boot_id": "27d77745-36e4-4146-89e0-1de1f37597ce",
+    "new_boot_id": "20141eb5-ce96-400a-87a2-b24115420241",
+    "core": [
+      "2286",
+      "3073",
+      "1394"
+    ],
+    "stable_seconds": 69.3,
+    "systemui_registered": true,
+    "home_focus": "mCurrentFocus=Window{ce2f092 u0 com.android.launcher/com.android.launcher.Launcher}"
+  },
+  "native_bilibili_default": {
+    "state": "V17_BILI_NATIVE_DEFAULT_RULES_READBACK_PASS",
+    "installed": true,
+    "magicwindow_default_active": true,
+    "parsed_native_draggable": true,
+    "live_exception_present": true,
+    "original_APK_sha256": "c6158906f3f3741f6ea3fc20186c49437dfa48ea11036e161578772fac903261",
+    "original_app_unchanged": true,
+    "original_AutoLayout_engine_verified": true,
+    "homepage_experiment_not_installed": true,
+    "UI_divider_drag_tested": true,
+    "matching_final_XML_bytes_live_verified": true,
+    "temporary_XML_validation_override": true,
+    "divider_right_pane_left_before": 1059,
+    "divider_right_pane_left_after": 1473,
+    "real_cloud_update_recovery_pass": true,
+    "test_scope": "Final XML and exact module tested on running device; last seed integration verified offline, not a fresh flash of final image."
+  },
+  "Bilibili_cloud_update_trial": {
+    "state": "BILI_NATIVE_EVENT_RULES_AND_CLOUD_REFRESH_RECOVERY_PASS",
+    "event_driven_observer_registered": true,
+    "draggable_live_rules_still_parsed": true,
+    "cloud_broadcast_result": "Broadcasting: Intent { act=oplus.intent.action.ROM_UPDATE_CONFIG_SUCCESS flg=0x400000 (has extras) }\r\nBroadcast completed: result=0\r\n",
+    "rule_apply_count_before": 3,
+    "rule_apply_count_after": 4,
+    "idle_poll": false,
+    "existing_ratio_and_layout_choice_preserved": true,
+    "original_app_not_modified": true
+  },
+  "physical_touch_hardware_proven": false,
+  "other_devices_tested": false,
+  "other_communication_and_intermittent_touch_bugs_fixed": false
+}

@@ -1,0 +1,29 @@
+{
+  "baseline_sha256": "78959e36b12aebb30996a94fbe4cf3e4ed53bfb57f2aacdc3c37544494d2ac1b",
+  "vendor_sha256": "ae4b291db68eda3ed1155aa2b32a019c30983c7c8379f5f83faa8bc8eac2168f",
+  "vendor_bytes": 899739648,
+  "files": {
+    "/etc/vintf/compatibility_matrix.xml": "d7bfce3deb6f5df2947764ac683d91ace8cc05fec16c0d42797aff314d2facf6",
+    "/etc/vintf/manifest/vendor.qti.hardware.tinno_keyboard@1.0-service.xml": "395ed46476f518024cedde39ab0c2951a5ba98465bca70383eb8bc245f03e985"
+  },
+  "service_files": {
+    "/bin/hw/vendor.qti.hardware.tinno_keyboard@1.0-service": "ecab16f62865259dbfdeb66bd7fe1ac64a8e3643196ee2427a31e782e4cb67ff",
+    "/etc/init/vendor.qti.hardware.tinno_keyboard@1.0-service.rc": "fda67320bc3d088424c424ec339ad0376a278491c71dd51fb5f37302de3d4212"
+  },
+  "filesystem_check": "e2fsck -fn passed",
+  "source_archive_sha256": "b980c2163a8c96ca6e4ea00e088e2becfcce13da2ea6d334fe30d9fd7b98f6c9",
+  "vendor_start": 11978932224,
+  "changed_sparse_parts": [
+    "super.part0357.sparse.img",
+    "super.part0361.sparse.img",
+    "super.part0365.sparse.img",
+    "super.part0368.sparse.img",
+    "super.part0373.sparse.img"
+  ],
+  "vbmeta": {
+    "vbmeta": "5faf802f3d821512505c42a9fa0dba5b969f135fd5ec3bf6686e8448e741a169",
+    "vbmeta_system": "848f04a7cf01cbfc68640ece4895e1aa00c6ba5cbf385c81b395f51da0829fef"
+  },
+  "inherited_top_level_avb_flags": 3,
+  "runtime_verified": false
+}

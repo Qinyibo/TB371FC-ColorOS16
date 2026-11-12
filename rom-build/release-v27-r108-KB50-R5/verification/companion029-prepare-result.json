@@ -1,0 +1,6 @@
+{
+  "state": "COMPANION029_BUILT_OFFLINE_NOT_INSTALLED",
+  "only_kernel43_whitelist_and_integrity_hashes_changed": true,
+  "audio_sources_and_java_direction_unchanged": true,
+  "actual_sound_or_call_acceptance": false
+}

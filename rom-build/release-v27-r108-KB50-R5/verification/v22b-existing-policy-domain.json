@@ -1,0 +1,35 @@
+{
+  "state": "EXISTING_MAGISK_INIT_TRANSITION_AND_SHELL_ENTRYPOINT_ALLOWED",
+  "new_rules_added": false,
+  "actual_init_launch_tested": false,
+  "rows": [
+    {
+      "query": [
+        "--allow",
+        "-s",
+        "init",
+        "-t",
+        "magisk",
+        "-c",
+        "process",
+        "-p",
+        "transition"
+      ],
+      "result": "allow init magisk:process { dyntransition execheap execmem execstack fork getattr getcap getpgid getrlimit getsched getsession noatsecure ptrace rlimitinh setcap setcurrent setexec setfscreate setkeycreate setpgid setrlimit setsched setsockcreate share sigchld siginh sigkill signal signull sigstop transition };"
+    },
+    {
+      "query": [
+        "--allow",
+        "-s",
+        "magisk",
+        "-t",
+        "shell_exec",
+        "-c",
+        "file",
+        "-p",
+        "entrypoint"
+      ],
+      "result": "allow magisk file_type:file { append audit_access create entrypoint execmod execute execute_no_trans getattr ioctl link lock map mounton open quotaon read relabelfrom relabelto rename setattr unlink watch watch_mount watch_reads watch_sb watch_with_perm write };"
+    }
+  ]
+}

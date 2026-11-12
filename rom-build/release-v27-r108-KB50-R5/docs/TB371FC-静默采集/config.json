@@ -1,0 +1,6 @@
+{
+  "adb": "C:\\Users\\Administrator\\Documents\\Codex\\2026-11-10\\kan-x\\outputs\\TB371FC-静默采集\\tools\\adb.exe",
+  "serial": "HA1W0JA3",
+  "log_directory": "D:/TB371FC-wake-logs",
+  "existing_device_directory": "/data/local/tmp/tb-wake-trace-20261111-091313"
+}

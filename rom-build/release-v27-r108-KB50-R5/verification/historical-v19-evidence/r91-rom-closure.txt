@@ -1,0 +1,7 @@
+apply.sh: OK
+assistant/AssistantScreen.apk: OK
+assistant/AssistantScreen.art: OK
+assistant/AssistantScreen.dex: OK
+assistant/AssistantScreen.vdex: OK
+assistant/bind-readonly: OK
+../r94-native/module-delivery/delivery.sh: OK

@@ -1,0 +1,28 @@
+{
+  "state": "FIRST_START_DELIVERY_CANDIDATE_TEST_READY_NOT_INSTALLED_NOT_IN_FULL_ROM",
+  "time": "2026-10-24T22:15:16.686523+08:00",
+  "archive": "D:\\TB371FC-release\\TB371FC-privacy-firstboot-delivery-0.1.1-20261024-UNTESTED.zip",
+  "sha256": "30123893cb86edcc07f6458604ef56b56074ae8d5dec7c95eb17d293b8f0d524",
+  "bytes": 1013967,
+  "members": 23,
+  "preserved_accepted_payload": {
+    "bin/pms-backing": "8f26f8aefb00c099500d36d7bf4b4f5d3f63e0e75c90184f3eac9075bc7d4e6d",
+    "bin/pms-gateway": "463f1a1128bff068422f5a6f0e9da0cc195653c5066908ab4ae7961dd5dfb6b6",
+    "bin/owner-back": "57f06b30db466ff972837c525cd7c35572a3dcf51fd45f9d038dc0d3a2545e1f",
+    "bin/owner-gate": "57f06b30db466ff972837c525cd7c35572a3dcf51fd45f9d038dc0d3a2545e1f",
+    "sepolicy.rule": "8dac80d4b01c06aa4f0abf469ed99d5a2c0972f724e6a6f60b316e1ede5a1a50",
+    "guard.sh": "c02135ec7474e4c7d2cb6b755612a4a0a8f32bcf28e3ef75495ce8c8094294ac",
+    "config.sh": "e2aa61b918a334b84b10744bc6d762a32ae7e586a12f8a0258480eaead1a2976",
+    "service.sh": "b20454274e3a82e6d1a24143fff00411317832b068fa4b02caf5460a54238af3",
+    "control.sh": "ca4eb1e1b475c9dfd4ebef38f7b5a208008b20e5a1c722d4afe362421d327938",
+    "uninstall.sh": "8cf53ae39a75dd533590cfe731b307c10de0a3da37539eba0ba7e915f9cc2050",
+    "action.sh": "739196512f117ccdc3727c9106228ee178104330e10d3c6f958f3c2652a91277"
+  },
+  "new_loader_safety_cases": 13,
+  "actual_device_nonlive_policy_compilation_and_types_probe_pass": true,
+  "current_installed_module_unchanged": true,
+  "existing_credentials_read_reset_or_migrated": false,
+  "actual_clean_first_boot_pass": false,
+  "backend_auth_logic_changed": false,
+  "does_not_replace_running_default_service": true
+}

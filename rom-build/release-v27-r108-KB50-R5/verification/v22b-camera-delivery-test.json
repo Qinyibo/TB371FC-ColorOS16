@@ -1,0 +1,9 @@
+{
+  "state": "EXACT_CAMERA_XZ_REAL_PM_STDIN_INSTALL_SYSTEM_FLAG_AND_MARKER_CORRUPTION_GUARDS_PASS",
+  "fresh_factory_first_boot": false,
+  "same_signed_system_base_exists": true,
+  "actual_camera_update_reinstalled_from_verified_XZ_stream": true,
+  "marker_second_run_skipped": true,
+  "bad_archive_rejected": true,
+  "no_signature_check_relaxed": true
+}

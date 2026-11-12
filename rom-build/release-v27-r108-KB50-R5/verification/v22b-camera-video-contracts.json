@@ -1,0 +1,36 @@
+{
+  "implicit_default_system_camera": true,
+  "tests": {
+    "back": {
+      "bytes": 13597049,
+      "tracks": [
+        "{track-id=1, level=1, mime=video/avc, frame-count=76, profile=1, language=```, color-standard=1, display-width=1920, csd-1=java.nio.HeapByteBuffer[pos=0 lim=8 cap=8], color-transfer=3, durationUs=2942700, display-height=1080, width=1920, color-range=2, max-input-size=801666, frame-rate=26, height=1080, csd-0=java.nio.HeapByteBuffer[pos=0 lim=22 cap=22]}",
+        "{max-bitrate=96000, sample-rate=48000, track-id=2, durationUs=3021300, mime=audio/mp4a-latm, profile=2, channel-count=2, bitrate=96000, language=```, aac-profile=2, max-input-size=408, csd-0=java.nio.HeapByteBuffer[pos=0 lim=2 cap=2]}"
+      ],
+      "duration_ms": "3021",
+      "decoded_width": 1920,
+      "decoded_height": 1080,
+      "state": "PASS",
+      "mode": "video-intent",
+      "lens": 0,
+      "uid": 10328,
+      "elapsed_ms": 11878
+    },
+    "front": {
+      "bytes": 21882408,
+      "tracks": [
+        "{track-id=1, level=1, mime=video/avc, frame-count=8, profile=1, language=```, color-standard=1, display-width=3840, csd-1=java.nio.HeapByteBuffer[pos=0 lim=8 cap=8], color-transfer=3, durationUs=1508100, display-height=2160, width=3840, color-range=2, max-input-size=4044753, frame-rate=5, height=2160, csd-0=java.nio.HeapByteBuffer[pos=0 lim=22 cap=22]}",
+        "{max-bitrate=96000, sample-rate=48000, track-id=2, durationUs=3021300, mime=audio/mp4a-latm, profile=2, channel-count=2, bitrate=96000, language=```, aac-profile=2, max-input-size=464, csd-0=java.nio.HeapByteBuffer[pos=0 lim=2 cap=2]}"
+      ],
+      "duration_ms": "3021",
+      "decoded_width": 3840,
+      "decoded_height": 2160,
+      "state": "PASS",
+      "mode": "video-intent",
+      "lens": 1,
+      "uid": 10328,
+      "elapsed_ms": 16126
+    }
+  },
+  "all_apps_accepted": false
+}

@@ -1,0 +1,45 @@
+{
+  "app": {
+    "ipe": {
+      "source_sha256": "aa85fdc365304282a0d5a4fdb434ba24cd4e03946242096d4ca2fafde7333c9c",
+      "target_sha256": "43585b82be1f50899ae50e378439655c3947d2bae2e64bad0de456148883d94b",
+      "patched_or_added_methods": 16,
+      "target": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-21\\https-wasddestroy-site-tb710fu-doc-generic-4\\work\\pen-v3\\build\\ipe\\IPeManager.apk"
+    },
+    "ws": {
+      "source_sha256": "212ca0b56089b932e46363224a9f3a80a48362cd86e50e8999840a457020d8e2",
+      "target_sha256": "2e7327f1b4bdc4b504ad076a86684fd46c2891436b1e7a4bfd1abcb1754d1cce",
+      "patched_or_added_methods": 1,
+      "target": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-21\\https-wasddestroy-site-tb710fu-doc-generic-4\\work\\pen-v3\\build\\ws\\WirelessSettings.apk"
+    }
+  },
+  "system": {
+    "base_sha256": "1ebf1d7f6e564d0be1e4f9273df1e2ebd174b72cb68dbed99928f7cbc59aa3d1",
+    "target_sha256": "90948f136d8621cf86be52f7899bec5490e53a1a548f169a9fc90be890143520",
+    "patched_methods": 2,
+    "extra_dex": "classes5.dex",
+    "dex": {
+      "classes.dex": {
+        "changed": false,
+        "source_sha256": "4dedb708dfd9d1c6a38fbba3ad73c9766721bcdf6cfb93075ff2c44853fa5282"
+      },
+      "classes2.dex": {
+        "changed": false,
+        "source_sha256": "cc15cbcf3f01243256f1bb33fdefe2bcf44fddb36495359dd97bc850ab8a5f2b"
+      },
+      "classes3.dex": {
+        "changed": true,
+        "source_sha256": "618bda514252a744a768dbacb57b9a1426a76d61e65f16bb7058bf6566677952"
+      },
+      "classes4.dex": {
+        "changed": false,
+        "source_sha256": "086c3e9864b935daaf9647803bd931ce4f93a8b4eec101fec721a7933c0572d9"
+      }
+    },
+    "not_physical_tested": true
+  },
+  "physical_pen_tested": false,
+  "real_phone_tested": false,
+  "normal_boot_passed": true,
+  "full_rom_flash_tested": false
+}

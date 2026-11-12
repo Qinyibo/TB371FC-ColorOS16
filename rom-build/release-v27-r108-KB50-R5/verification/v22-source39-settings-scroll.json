@@ -1,0 +1,25 @@
+{
+  "state": "MEASURED_FINITE_SETTINGS_SCROLL",
+  "root_invocations_during_measurement": 0,
+  "swipes": 4,
+  "total_frames_rendered": 872,
+  "reported_janky_frames": 1,
+  "reported_janky_percent": "0.11%",
+  "valid_frame_stats_tail_count": 118,
+  "p50_ms": 7.138497,
+  "p95_ms": 7.90666,
+  "p99_ms": 11.465338,
+  "tail_frames_gt50ms": 0,
+  "tail_frames_gt100ms": 0,
+  "actual_rates_hz": [
+    144.0,
+    144.0
+  ],
+  "power_awake": true,
+  "sf_power_modes": [
+    "On"
+  ],
+  "longterm_silkiness_or_all_apps_proven": false,
+  "comparison_to_original_policy_before_change": false,
+  "note": "One real scroll sample; framestats is a finite ring buffer, global total can differ. No blind scheduler/CPU/GPU changes."
+}

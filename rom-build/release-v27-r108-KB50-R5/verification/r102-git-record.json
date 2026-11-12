@@ -1,0 +1,10 @@
+{
+  "base": "4bb7828afb1b213fbb789ac8cf6b4ab2dc1a3263",
+  "ref": "refs/heads/local/r102-reviewed",
+  "commit": "d981748399d68a57bcbe5faeb25c196589d9bc9c",
+  "tree": "5bdff4185614b9abbe52b94f989ba7035004bb30",
+  "main_unchanged": true,
+  "keyboard_candidate_included": false,
+  "build_source_has_unflashed_keyboard_candidate": true,
+  "patch_sha256": "2e3c02c3e1d729bc6a3646693423282d049bbf676b0a8f1c3d235fc0a1028241"
+}

@@ -1,0 +1,434 @@
+--- black42/nt36xxx.h
++++ wake43/nt36xxx.h
+@@ -222,6 +222,7 @@
+ 	uint8_t *xbuf;
+ 	struct mutex xbuf_lock;
+ 	bool irq_enabled;
++	bool irq_wake_enabled;
+ 	bool pen_support;
+ 	bool stylus_resol_double;
+ 	uint8_t x_gang_num;
+--- black42/nt36xxx.c
++++ wake43/nt36xxx.c
+@@ -283,6 +283,28 @@
+ 	NVT_LOG("enable=%d, desc->depth=%d\n", enable, desc->depth);
+ }
+ 
++/* ts->lock owns exactly one wake reference. A failed disable retains both
++ * kernel wake_depth and this flag; a later transition retries release and an
++ * intervening gesture suspend reuses it instead of incrementing the depth. */
++static int nvt_irq_wake_ctrl_locked(bool enable)
++{
++    int ret;
++
++    lockdep_assert_held(&ts->lock);
++    if (ts->irq_wake_enabled == enable)
++        return 0;
++    if (!ts->client || ts->client->irq <= 0)
++        return -EINVAL;
++    ret = enable ? enable_irq_wake(ts->client->irq) :
++                   disable_irq_wake(ts->client->irq);
++    if (!ret)
++        ts->irq_wake_enabled = enable;
++    else
++        NVT_ERR("R94_IRQ_WAKE_FAILED enable=%d ret=%d owned=%d\n",
++                enable, ret, ts->irq_wake_enabled);
++    return ret;
++}
++
+ #if defined(CONFIG_DRM_PANEL) && NVT_TOUCH_WDT_RECOVERY
+ /* Never drain a threaded IRQ from that same IRQ or while holding ts->lock.
+  * The normal display resume owns asleep firmware recovery. This one-shot
+@@ -294,6 +316,9 @@
+     if (READ_ONCE(nvt_wdt_sleep_work_ready) && !READ_ONCE(bTouchIsAwake) &&
+         READ_ONCE(nvt_wdt_deferred_epoch) == READ_ONCE(nvt_sleep_epoch)) {
+         nvt_irq_enable(false);
++        mutex_lock(&ts->lock);
++        (void)nvt_irq_wake_ctrl_locked(false);
++        mutex_unlock(&ts->lock);
+         NVT_LOG("R94_SLEEP_WDT_IRQ_CLOSED epoch=%u\n", nvt_sleep_epoch);
+     }
+     mutex_unlock(&nvt_panel_transition_lock);
+@@ -310,6 +335,7 @@
+      * PREPARE/COMMIT owns recovery and must not be cancelled by old work. */
+     nvt_irq_enable(false);
+     mutex_lock(&ts->lock);
++    (void)nvt_irq_wake_ctrl_locked(false);
+     bTouchIsAwake = 0;
+     WRITE_ONCE(nvt_panel_resume_failed, true);
+     nvt_panel_suspend_from_awake = false;
+@@ -327,6 +353,9 @@
+     mutex_lock(&nvt_panel_transition_lock);
+     WRITE_ONCE(nvt_wdt_sleep_work_ready, false);
+     nvt_irq_enable(false);
++    mutex_lock(&ts->lock);
++    (void)nvt_irq_wake_ctrl_locked(false);
++    mutex_unlock(&ts->lock);
+     mutex_unlock(&nvt_panel_transition_lock);
+     cancel_work_sync(&nvt_wdt_sleep_work);
+ }
+@@ -1475,50 +1504,84 @@
+ static int nvt_hall_pm = 0;
+ static int nvt_hall_pm_status = 0;
+ /* Spinel code for OSPINEL-486 by zhangyd22 at 2023/7/10 end */
++/* Hall work is cancelled under the panel owner. It must trylock, never
++ * block on that owner. PM suspend also owns this mutex before publishing
++ * dev_pm_suspend, so IRQ draining cannot race a new PM-completion wait. */
++static bool nvt_hall_sleep_update(void)
++{
++    uint8_t buf[2] = { EVENT_MAP_HOST_CMD, 0x11 };
++    int ret = 0, wake_ret;
++    bool handled = true;
++
++#if defined(CONFIG_DRM_PANEL)
++    if (!mutex_trylock(&nvt_panel_transition_lock))
++        return false;
++#endif
++    if (READ_ONCE(nvt_stopping) || READ_ONCE(bTouchIsAwake) ||
++        READ_ONCE(nvt_panel_resume_pending) || READ_ONCE(nvt_panel_resume_failed)) {
++        WRITE_ONCE(nvt_hall_pm, 0);
++        WRITE_ONCE(nvt_hall_pm_status, 0);
++        goto out_owner;
++    }
++    if (gpio_get_value(1275) != 0) {
++        WRITE_ONCE(hall_status, 1);
++        WRITE_ONCE(nvt_hall_pm, 0);
++        WRITE_ONCE(nvt_hall_pm_status, 0);
++        goto out_owner;
++    }
++    if (READ_ONCE(ts->dev_pm_suspend)) {
++        WRITE_ONCE(nvt_hall_pm, 1);
++        handled = false;
++        goto out_owner;
++    }
++    if (READ_ONCE(nvt_hall_pm_status) == 1 && READ_ONCE(hall_status) == 0) {
++        WRITE_ONCE(nvt_hall_pm, 0);
++        goto out_owner;
++    }
++
++    nvt_irq_enable(false);
++    mutex_lock(&ts->lock);
++    wake_ret = nvt_irq_wake_ctrl_locked(false);
++    ret = nvt_set_page(ts->mmap->EVENT_BUF_ADDR | EVENT_MAP_HOST_CMD);
++    if (!ret)
++        ret = CTP_SPI_WRITE(ts->client, buf, sizeof(buf));
++    if (ret) {
++        /* One failed attempt per sleep epoch. Keep IRQ closed and recover at
++         * the next native PREPARE, rather than rewriting 0x11 every second. */
++        WRITE_ONCE(nvt_panel_resume_failed, true);
++        NVT_ERR("R94_HALL_SLEEP_FAILED %d IRQ_CLOSED next_PREPARE\n", ret);
++    }
++    WRITE_ONCE(hall_status, 0);
++    WRITE_ONCE(nvt_hall_pm, 0);
++    WRITE_ONCE(nvt_hall_pm_status, 1);
++    NVT_LOG("R94_HALL_SLEEP_CLOSED cmd_ret=%d wake_ret=%d owned=%d\n",
++            ret, wake_ret, ts->irq_wake_enabled);
++    mutex_unlock(&ts->lock);
++out_owner:
++#if defined(CONFIG_DRM_PANEL)
++    mutex_unlock(&nvt_panel_transition_lock);
++#endif
++    return handled;
++}
++
+ static void nvt_hall_check_func(struct work_struct *work)
+ {
+-	uint8_t buf[4] = {0};
+-	int hall_work_status = -1;
+-	static int timer0 = 0;
+-	unsigned int timer = jiffies_to_msecs(jiffies - timer0);
+-
+-	hall_work_status = gpio_get_value(1275);
+-
+-	if(!READ_ONCE(nvt_stopping) && bTouchIsAwake == 0){
+-	/* Spinel code for OSPINEL-486 by zhangyd22 at 2023/7/10 start */
+-		if ((timer > NVT_HALL_WORK_DELAY) && (hall_status != hall_work_status)) {
+-			if (ts->dev_pm_suspend == true) {
+-				nvt_hall_pm = 1;
+-				NVT_LOG("The status of pm is suspend");
+-			} else {
+-				if (nvt_hall_pm_status == 1) {
+-					NVT_LOG("The status of double click has changed");
+-					hall_status = 0;
+-				} else if (hall_work_status == 0){
+-					NVT_LOG("The keyboard close!");
+-					mutex_lock(&ts->lock);
+-					if (!READ_ONCE(nvt_stopping) && !bTouchIsAwake &&
+-                        !nvt_panel_resume_pending && !nvt_panel_resume_failed &&
+-                        !nvt_set_page(ts->mmap->EVENT_BUF_ADDR | EVENT_MAP_HOST_CMD)) {
+-						buf[0] = EVENT_MAP_HOST_CMD;
+-						buf[1] = 0x11;
+-						CTP_SPI_WRITE(ts->client, buf, 2);
+-					}
+-					mutex_unlock(&ts->lock);
+-					hall_status = 0;
+-					timer0 = jiffies;
+-				} else {
+-					NVT_LOG("The keyboard open!");
+-					hall_status = 1;
+-				}
+-			}
+-		}
+-	/* Spinel code for OSPINEL-486 by zhangyd22 at 2023/7/10 end */
+-	}
+-
+-	if (!READ_ONCE(nvt_stopping))
+-	queue_delayed_work(nvt_hall_check_wq, &nvt_hall_check_work,
+-			msecs_to_jiffies(NVT_HALL_WORK_DELAY));
++    int hall_work_status = gpio_get_value(1275);
++    static unsigned long timer0;
++    unsigned int timer = jiffies_to_msecs(jiffies - timer0);
++    bool deferred = READ_ONCE(nvt_hall_pm) && !READ_ONCE(nvt_hall_pm_status);
++
++    if (!READ_ONCE(nvt_stopping) && !READ_ONCE(bTouchIsAwake) &&
++        ((timer > NVT_HALL_WORK_DELAY && READ_ONCE(hall_status) != hall_work_status) || deferred)) {
++        if (READ_ONCE(ts->dev_pm_suspend)) {
++            WRITE_ONCE(nvt_hall_pm, 1);
++        } else if (nvt_hall_sleep_update()) {
++            timer0 = jiffies;
++        }
++    }
++    if (!READ_ONCE(nvt_stopping))
++        queue_delayed_work(nvt_hall_check_wq, &nvt_hall_check_work,
++                           msecs_to_jiffies(NVT_HALL_WORK_DELAY));
+ }
+ #endif
+ /* Spinel code for OSPINEL-3680 by zhangyd22 at 2023/5/11 end */
+@@ -2722,6 +2785,7 @@
+ 	// 	NVT_ERR("Failed to select default pinstate, r:%d", ret);
+ 
+ 	mutex_init(&ts->lock);
++	ts->irq_wake_enabled = false;
+ 	mutex_init(&ts->xbuf_lock);
+ 
+ 	//---eng reset before TP_RESX high
+@@ -3188,6 +3252,7 @@
+     WRITE_ONCE(nvt_stopping, true);
+     nvt_irq_enable(false);
+     mutex_lock(&ts->lock);
++    (void)nvt_irq_wake_ctrl_locked(false);
+     bTouchIsAwake = 0;
+     mutex_unlock(&ts->lock);
+ #if defined(CONFIG_DRM_PANEL)
+@@ -3425,6 +3490,11 @@
+ 	nvt_esd_check_enable(false);
+ #endif
+ 	mutex_lock(&ts->lock);
++	(void)nvt_irq_wake_ctrl_locked(false);
++#if NVT_HALL_CHECK
++	WRITE_ONCE(nvt_hall_pm, 0);
++	WRITE_ONCE(nvt_hall_pm_status, 0);
++#endif
+ 	if (bTouchIsAwake) {
+ 		nvt_panel_suspend_from_awake = true;
+ 		nvt_panel_suspend_pending_abort = false;
+@@ -3472,6 +3542,7 @@
+     nvt_irq_enable(false);
+     nvt_release_touches();
+     mutex_lock(&ts->lock);
++    (void)nvt_irq_wake_ctrl_locked(false);
+     ret = nvt_update_firmware(BOOT_UPDATE_FIRMWARE_NAME);
+     if (!ret)
+         ret = nvt_check_fw_reset_state(RESET_STATE_REK);
+@@ -3509,6 +3580,11 @@
+ #endif
+ 	nvt_irq_enable(false);
+ 	mutex_lock(&ts->lock);
++	(void)nvt_irq_wake_ctrl_locked(false);
++#if NVT_HALL_CHECK
++	WRITE_ONCE(nvt_hall_pm, 0);
++	WRITE_ONCE(nvt_hall_pm_status, 0);
++#endif
+ 	bTouchIsAwake = 0;
+ 	nvt_panel_suspend_from_awake = false;
+ 	nvt_panel_suspend_pending_abort = false;
+@@ -3527,7 +3603,7 @@
+ 	uint8_t buf[4] = {0};
+ 	/* Spinel code for OSPINEL-6824 by gaobw1 at 2023/6/8 start */
+ 	int hall_work_status = -1;
+-	int ret = 0;
++	int ret = 0, wake_ret = 0, sleep_ret;
+ 	bool gesture_active = false;
+ 	bool direct_awake = READ_ONCE(bTouchIsAwake);
+ 	bool was_awake = direct_awake || nvt_panel_suspend_from_awake;
+@@ -3567,6 +3643,11 @@
+ 	mutex_lock(&ts->lock);
+ 
+ 	NVT_LOG("start\n");
++	wake_ret = nvt_irq_wake_ctrl_locked(false);
++#if NVT_HALL_CHECK
++	WRITE_ONCE(nvt_hall_pm, 0);
++	WRITE_ONCE(nvt_hall_pm_status, 0);
++#endif
+ 
+ #if defined(CONFIG_DRM_PANEL) && NVT_TOUCH_WDT_RECOVERY
+     WRITE_ONCE(nvt_sleep_epoch, READ_ONCE(nvt_sleep_epoch) + 1);
+@@ -3599,7 +3680,18 @@
+ 		ret = CTP_SPI_WRITE(ts->client, buf, 2);
+ 		if (ret)
+ 			goto suspend_mode_done;
+-		enable_irq_wake(ts->client->irq);
++		ret = nvt_irq_wake_ctrl_locked(true);
++		if (ret) {
++			/* Failed wake arming must not leave a gesture IRQ active.
++			 * Keep its original error even if the deep-sleep fallback works. */
++			gesture_active = false;
++			buf[0] = EVENT_MAP_HOST_CMD;
++			buf[1] = 0x11;
++			sleep_ret = CTP_SPI_WRITE(ts->client, buf, 2);
++			if (sleep_ret)
++				ret = sleep_ret;
++			goto suspend_mode_done;
++		}
+ 		NVT_LOG("Enabled touch wakeup gesture\n");
+ /* Spinel code for OSPINEL-486 by zhangyd22 at 2023/7/10 start */
+ 		nvt_hall_pm = 0;
+@@ -3626,6 +3718,10 @@
+ #endif // WAKEUP_GESTURE
+ 
+ suspend_mode_done:
++	if (!ret && !gesture_active && wake_ret)
++		ret = wake_ret;
++	if (ret)
++		WRITE_ONCE(nvt_panel_resume_failed, true);
+ 	mutex_unlock(&ts->lock);
+ #if WAKEUP_GESTURE
+ 	/* Only a successfully armed gesture mode permits the asleep IRQ. */
+@@ -3662,6 +3758,9 @@
+ /* Spinel code for OSPINEL-3680 by zhangyd22 at 2023/5/11 end */
+ 
+ 	if (bTouchIsAwake) {
++		mutex_lock(&ts->lock);
++		(void)nvt_irq_wake_ctrl_locked(false);
++		mutex_unlock(&ts->lock);
+ 		NVT_LOG("Touch is already resume\n");
+ 		return 0;
+ 	}
+@@ -3670,6 +3769,7 @@
+ 	mutex_lock(&ts->lock);
+ 
+ 	NVT_LOG("start\n");
++	(void)nvt_irq_wake_ctrl_locked(false);
+ 
+ 	// ret = pinctrl_select_state(nt36672_pinctrl, nt36672_spi_mode_default);
+ 	// if (ret < 0)
+@@ -3769,12 +3869,20 @@
+     if (nvt_panel_resume_pending)
+         return nvt_panel_resume_id == id ? 0 : -EBUSY;
+     if (bTouchIsAwake && !READ_ONCE(nvt_runtime_fw_failed)) {
++        mutex_lock(&ts->lock);
++        (void)nvt_irq_wake_ctrl_locked(false);
++        mutex_unlock(&ts->lock);
+         nvt_panel_resume_id = id;
+         return 0;
+     }
+     nvt_panel_resume_id = id;
+     nvt_irq_enable(false);
+     mutex_lock(&ts->lock);
++    (void)nvt_irq_wake_ctrl_locked(false);
++#if NVT_HALL_CHECK
++    WRITE_ONCE(nvt_hall_pm, 0);
++    WRITE_ONCE(nvt_hall_pm_status, 0);
++#endif
+     if (READ_ONCE(nvt_runtime_fw_failed))
+         bTouchIsAwake = 0;
+     if (bTouchIsAwake || nvt_panel_resume_pending) {
+@@ -3839,6 +3947,7 @@
+         NVT_ERR("R94_NATIVE_COMPLETE_REK_FAILED %d IRQ_CLOSED_DISPLAY_RETAINED\n", ret);
+         goto out;
+     }
++    (void)nvt_irq_wake_ctrl_locked(false);
+     WRITE_ONCE(nvt_runtime_fw_failed, false);
+     bTouchIsAwake = 1;
+     nvt_panel_resume_armed = false;
+@@ -3874,6 +3983,11 @@
+         mutex_unlock(&ts->lock);
+         return 0;
+     }
++    (void)nvt_irq_wake_ctrl_locked(false);
++#if NVT_HALL_CHECK
++    WRITE_ONCE(nvt_hall_pm, 0);
++    WRITE_ONCE(nvt_hall_pm_status, 0);
++#endif
+     nvt_panel_resume_id = 0;
+     nvt_panel_resume_armed = false;
+     nvt_panel_suspend_from_awake = false;
+@@ -3966,7 +4080,7 @@
+ 	}
+ 	return 0;
+ }
+-/* Neither the IRQ thread nor cancelled hall/ESD work takes this mutex. */
++/* IRQ/ESD work do not take this owner; cancelled Hall work only trylocks it. */
+ static int nvt_drm_panel_notifier_callback(struct notifier_block *self,
+                                          unsigned long event, void *data)
+ {
+@@ -4096,8 +4210,14 @@
+ {
+ 	pr_info("%s:++\n", __func__);
+ 
+-	ts->dev_pm_suspend = true;
++#if defined(CONFIG_DRM_PANEL)
++	mutex_lock(&nvt_panel_transition_lock);
++#endif
+ 	reinit_completion(&ts->dev_pm_resume_completion);
++	WRITE_ONCE(ts->dev_pm_suspend, true);
++#if defined(CONFIG_DRM_PANEL)
++	mutex_unlock(&nvt_panel_transition_lock);
++#endif
+ 
+ 	pr_info("%s:--\n", __func__);
+ 	return 0;
+@@ -4105,32 +4225,14 @@
+ /* Spinel code for OSPINEL-486 by zhangyd22 at 2023/7/10 start */
+ static int nvt_ts_pm_resume(struct device *dev)
+ {
+-	pr_info("%s:++\n", __func__);
+-
+-	ts->dev_pm_suspend = false;
+-	complete(&ts->dev_pm_resume_completion);
+-
+-	if (nvt_hall_pm == 1 && nvt_gesture_flag == 1 && nvt_hall_pm_status == 0) {
+-		if ( gpio_get_value(1275) == 0) {
+-			uint8_t buf[4] = {0};
+-			NVT_LOG("The keyboard still close!");
+-			mutex_lock(&ts->lock);
+-			if (!READ_ONCE(nvt_stopping) && !bTouchIsAwake &&
+-                !nvt_panel_resume_pending && !nvt_panel_resume_failed &&
+-                !nvt_set_page(ts->mmap->EVENT_BUF_ADDR | EVENT_MAP_HOST_CMD)) {
+-				buf[0] = EVENT_MAP_HOST_CMD;
+-				buf[1] = 0x11;
+-				CTP_SPI_WRITE(ts->client, buf, 2);
+-				nvt_hall_pm_status = 1;
+-			}
+-			mutex_unlock(&ts->lock);
+-		}
+-
+-	}
+-
+-
+-	pr_info("%s:--\n", __func__);
+-	return 0;
++    /* Release any IRQ thread waiting for PM before trying the panel owner. */
++    WRITE_ONCE(ts->dev_pm_suspend, false);
++    complete(&ts->dev_pm_resume_completion);
++#if NVT_HALL_CHECK
++    if (READ_ONCE(nvt_hall_pm) && !READ_ONCE(nvt_hall_pm_status))
++        (void)nvt_hall_sleep_update();
++#endif
++    return 0;
+ }
+ /* Spinel code for OSPINEL-486 by zhangyd22 at 2023/7/10 start */
+ static const struct dev_pm_ops nvt_ts_dev_pm_ops = {
+--- black42/nt36xxx_ext_proc.c
++++ wake43/nt36xxx_ext_proc.c
+@@ -1294,8 +1294,8 @@
+         return -EINVAL;
+     if (copy_from_user(buf, buffer, count))
+         return -EFAULT;
+-    /* An embedded NUL must not hide a second payload from the parser. */
+-    if (memchr(buf, '\0', count))
++    /* Accept one terminal NUL from legacy JNI writes, never a hidden payload. */
++    if (!buf[0] || (count > 1 && memchr(buf, '\0', count - 1)))
+         return -EINVAL;
+     for (i = 0; i < ARRAY_SIZE(tmp); i++) {
+         token = strsep(&cursor, ",");

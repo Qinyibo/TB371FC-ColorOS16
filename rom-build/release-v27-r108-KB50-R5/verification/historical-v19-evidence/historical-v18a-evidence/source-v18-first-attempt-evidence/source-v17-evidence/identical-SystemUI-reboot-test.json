@@ -1,0 +1,13 @@
+{
+  "state": "V17_SUBSEQUENT_REBOOT_SYSTEMUI_AND_HOME_STABLE_60_SECONDS",
+  "old_boot_id": "27d77745-36e4-4146-89e0-1de1f37597ce",
+  "new_boot_id": "20141eb5-ce96-400a-87a2-b24115420241",
+  "core": [
+    "2286",
+    "3073",
+    "1394"
+  ],
+  "stable_seconds": 69.3,
+  "systemui_registered": true,
+  "home_focus": "mCurrentFocus=Window{ce2f092 u0 com.android.launcher/com.android.launcher.Launcher}"
+}

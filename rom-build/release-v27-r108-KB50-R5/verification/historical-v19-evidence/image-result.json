@@ -1,0 +1,35 @@
+{
+  "state": "PRIVATE_OTA_SYSTEM_EXT_CANDIDATE_IMAGE_READBACK_FSCK_AND_BOTH_MANIFESTS_PASS",
+  "source_sha256": "0c3bdf81d2014c637c0bec6b23c182f47c63d1370b34324fd140a2d81b3054ce",
+  "candidate_sha256": "2064d08bf8b2782f36b0222a03b64cf6d0dd8698a6f6d30afeb4f1865511b3d6",
+  "path": "D:/TB371FC-release/v19-offline-candidates/system_ext-ota-disabled.img",
+  "bytes": 2013265920,
+  "changes": [
+    {
+      "removed_tree": "/app/OTA/oat"
+    },
+    {
+      "removed_tree": "/etc/r91-rom/ota"
+    },
+    {
+      "path": "/app/OTA/OTA.apk",
+      "sha256": "ce7d4a1ed6b34f23c7fc972a86974ebf53be53c1627c623c826a4b852e0b0d9c"
+    },
+    {
+      "path": "/etc/r91-rom/apply.sh",
+      "sha256": "d31f5606d0f0c1d2f8e2ccd7460d8a011db3cfb810e3de05d99e87600a33f917"
+    },
+    {
+      "path": "/etc/r91-rom/SHA256SUMS",
+      "sha256": "1f1568503c8f9c9ab686e6fc7dcead71882f02480348fa0e646918759d0a7070"
+    }
+  ],
+  "original_source_unchanged": true,
+  "donor_updater_and_precompiled_code_removed": true,
+  "no_boot_time_OTA_bind": true,
+  "both_real_manifest_closures_extracted_and_executed": true,
+  "physical_tested": false,
+  "new_complete_ROM_built": false,
+  "device_actions": 0,
+  "boot_kernel_vendor_systemUI_unchanged": true
+}

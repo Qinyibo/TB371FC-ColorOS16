@@ -1,0 +1,59 @@
+From 455927db6665e2b3696aa8a96bc97fb09c20bd3a Mon Sep 17 00:00:00 2001
+From: Codex <codex@localhost>
+Date: Tue, 3 Nov 2026 11:59:19 +0800
+Subject: [PATCH] drm/dsi: honor dead-panel recovery while keeping gesture
+ rails
+
+Keep p108 soft-sleep rail preservation for ordinary suspend/resume.
+Allow the existing TDDI power_off/power_on paths for panel_dead_flag,
+which was previously masked before the recovery branch.
+
+Live r103 failure: touch PREPARE stuck at INIT=0x9D, crc_err_flag=0,
+hardware-reset retry failed, repeated R96_ENABLE_FAILED; display
+software Awake with actual backlight zero. No INIT root-cause claim.
+Normal policy, firmware validation, PM ordering and freezer fix retained.
+Build host override:r104-panel-recovery. Config and Module.symvers unchanged.
+Unflashed r100 HID candidate excluded. Recovery effectiveness requires
+further natural-fault evidence; reboot success alone is not proof.
+---
+ techpack/display/msm/dsi/dsi_panel.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
+
+diff --git a/techpack/display/msm/dsi/dsi_panel.c b/techpack/display/msm/dsi/dsi_panel.c
+index 6cd8e2916..6b84138de 100644
+--- a/techpack/display/msm/dsi/dsi_panel.c
++++ b/techpack/display/msm/dsi/dsi_panel.c
+@@ -463,10 +463,14 @@ static int dsi_panel_power_on(struct dsi_panel *panel)
+ {
+ 	int rc = 0;
+ 
+-	if (p108_keep_panel_power) {
++	/* Preserve gesture rails normally; allow the existing dead-panel recovery. */
++	if (p108_keep_panel_power && !panel->mi_cfg.panel_dead_flag) {
+ 		return 0;
+ 	}
+ 
++	if (p108_keep_panel_power && panel->mi_cfg.panel_dead_flag)
++		DSI_INFO("R104_PANEL_DEAD_POWER_ON allowing existing rail recovery\n");
++
+ 	if (panel->mi_cfg.is_tddi_flag) {
+ 		if (!panel->mi_cfg.tddi_doubleclick_flag || panel->mi_cfg.panel_dead_flag) {
+ 			rc = dsi_pwr_enable_regulator(&panel->power_info, true); // git
+@@ -531,10 +535,13 @@ static int dsi_panel_power_off(struct dsi_panel *panel)
+ {
+ 	int rc = 0;
+ 
+-	if (p108_keep_panel_power) {
++	if (p108_keep_panel_power && !panel->mi_cfg.panel_dead_flag) {
+ 		return 0;
+ 	}
+ 
++	if (p108_keep_panel_power && panel->mi_cfg.panel_dead_flag)
++		DSI_INFO("R104_PANEL_DEAD_POWER_OFF allowing existing rail recovery\n");
++
+ 	if (gpio_is_valid(panel->reset_config.disp_en_gpio))
+ 		gpio_set_value(panel->reset_config.disp_en_gpio, 0);
+ 
+-- 
+2.43.0
+

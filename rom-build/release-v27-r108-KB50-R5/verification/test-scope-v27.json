@@ -1,0 +1,13 @@
+{
+  "exact_archive_clean_flash_tested": false,
+  "full_rom_fastboot_flash_tested": false,
+  "packaging_modified_device": false,
+  "normal_runtime_components_verified": true,
+  "r106_boot_fastboot_flash_readback_normal_boot_pass": true,
+  "rear_usb_bidirectional_16mib_pass": true,
+  "usb_kernel_code_changed": false,
+  "use_rear_motherboard_usb": true,
+  "black_screen_root_cause_fixed": false,
+  "exceptional_display_recovery_exercised": false,
+  "new_gemini_suggested_patch_included": false
+}

@@ -1,0 +1,11 @@
+{
+  "state": "V18A_SYSTEM_EXT_OUTER_AND_INNER_CHECKSUM_CLOSURE_FSCK_PASS",
+  "path": "D:/TB371FC-release/v18-charging-build/system_ext-v18a.img",
+  "sha256": "0c3bdf81d2014c637c0bec6b23c182f47c63d1370b34324fd140a2d81b3054ce",
+  "source_sha256": "b5fb712fb154916ff027aea078362718724be5af1b688d3c66ba3658453458b4",
+  "bytes": 2013265920,
+  "additional_changed_path": "/etc/r91-rom/SHA256SUMS",
+  "outer_and_inner_sha256sum_c_pass": true,
+  "new_guards_disabled": false,
+  "kernel_or_apps_changed_from_first_v18": false
+}

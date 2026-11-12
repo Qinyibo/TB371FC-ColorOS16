@@ -1,0 +1,166 @@
+{
+  "state": "COMPONENT_NORMAL_BOOT_AND_REAL_APP_FREEZE_THAW_PASS",
+  "time": "2026-11-02T23:50:52.252354+08:00",
+  "framework_before": "e73be401835ecede505e6c37c75c007a8f5bd840d9441fe0a99b3f5320c3e3a9",
+  "framework_after": "a5928b090b68085bd2f32d9ecd39d76d1f4919ffee7072a071ef978232f46136",
+  "boot_id": "28ff088a-e709-4c07-999d-f3c692a9affa",
+  "system_server_pid": 2494,
+  "changed_methods": 1,
+  "total_methods_compared": 49753,
+  "native_binder_and_cgroup_contract": "PASS",
+  "isolated_art": "12 cases plus backend-loss transition PASS",
+  "cached_lifecycle": {
+    "state": "PASS",
+    "phase": "cached",
+    "samples": {
+      "initial": {
+        "pid": 10637,
+        "beats": 21,
+        "deliveries": 1,
+        "marker": "candidate-cached",
+        "frozen": 0,
+        "oom_adj": 905
+      },
+      "cached1": {
+        "pid": 10637,
+        "beats": 100,
+        "deliveries": 1,
+        "marker": "candidate-cached",
+        "frozen": 1,
+        "oom_adj": 905
+      },
+      "cached2": {
+        "pid": 10637,
+        "beats": 100,
+        "deliveries": 1,
+        "marker": "candidate-cached",
+        "frozen": 1,
+        "oom_adj": 905
+      },
+      "thawed1": {
+        "pid": 10637,
+        "beats": 111,
+        "deliveries": 2,
+        "marker": "candidate-delivery",
+        "frozen": 0,
+        "oom_adj": 905
+      },
+      "thawed2": {
+        "pid": 10637,
+        "beats": 132,
+        "deliveries": 2,
+        "marker": "candidate-delivery",
+        "frozen": 0,
+        "oom_adj": 905
+      },
+      "refrozen1": {
+        "pid": 10637,
+        "beats": 200,
+        "deliveries": 2,
+        "marker": "candidate-delivery",
+        "frozen": 1,
+        "oom_adj": 905
+      },
+      "refrozen2": {
+        "pid": 10637,
+        "beats": 200,
+        "deliveries": 2,
+        "marker": "candidate-delivery",
+        "frozen": 1,
+        "oom_adj": 905
+      }
+    }
+  },
+  "foreground_service_lifecycle": {
+    "state": "PASS_WITH_TIMING_CORRECTION",
+    "phase": "foreground",
+    "samples": {
+      "fgs1": {
+        "pid": 13844,
+        "beats": 20,
+        "frozen": 0,
+        "oom_adj": 200
+      },
+      "fgs2": {
+        "pid": 13844,
+        "beats": 179,
+        "frozen": 0,
+        "oom_adj": 200
+      },
+      "stopped1": {
+        "pid": 13844,
+        "beats": 358,
+        "frozen": 0,
+        "oom_adj": 905
+      },
+      "stopped2": {
+        "pid": 13844,
+        "beats": 389,
+        "frozen": 0,
+        "oom_adj": 905
+      },
+      "final1": {
+        "pid": 13844,
+        "beats": 394,
+        "frozen": 1,
+        "oom_adj": 905
+      },
+      "final2": {
+        "pid": 13844,
+        "beats": 394,
+        "frozen": 1,
+        "oom_adj": 905
+      }
+    },
+    "service_absent_after_stop": true,
+    "observed_freeze_after_stop_seconds": 21.69,
+    "harness_notes": [
+      "First observation interrupted by OEM Athena boot_clear; explicit reason35 kill logged, not freezer failure.",
+      "OEM stopservice returns255 and Service stopped; verified absence separately.",
+      "Second chain sampled at18s/21s before actual21.69s freeze. Existing async eligibility plus10s debounce retained; final same-PID frozen heartbeat394 unchanged. No product code change to force timing."
+    ]
+  },
+  "native_startup": "READY/exit0 current boot",
+  "test_app_removed": true,
+  "original_v25_archive_unchanged": true,
+  "new_full_archive_built": false,
+  "measured_battery_gain": false,
+  "limitations": [
+    "Own idle Binder child, isolated actual extension methods and disposable Android app tested.",
+    "Full messaging/push, media and multi-app compatibility not accepted.",
+    "USB charging measurements do not establish unplugged standby drain.",
+    "No kernel, frequency, zram, LMK, wake or r100 keyboard change in this component."
+  ],
+  "component_files": [
+    {
+      "path": "system/framework/oplus-services.jar",
+      "bytes": 10155303,
+      "sha256": "a5928b090b68085bd2f32d9ecd39d76d1f4919ffee7072a071ef978232f46136",
+      "mode": "0644",
+      "uid": 0,
+      "gid": 0,
+      "selinux": "u:object_r:system_file:s0"
+    },
+    {
+      "path": "system_ext/etc/r91-rom/apply.sh",
+      "bytes": 9944,
+      "sha256": "fefea417fb6620bdd8bbc3e330dce3d627f27d55b1d9d1204d1ce456a71753bd",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0,
+      "selinux": "u:object_r:system_file:s0"
+    },
+    {
+      "path": "system_ext/etc/r91-rom/SHA256SUMS",
+      "bytes": 658,
+      "sha256": "57846b97b5d1ccca02ce350f7dcb324924527b73ba401f878a017efbc10d0570",
+      "mode": "0644",
+      "uid": 0,
+      "gid": 0,
+      "selinux": "u:object_r:system_file:s0"
+    }
+  ],
+  "source_base_rom_commit": "07dffedff683afe5861e12c4a190aa02bfc8762d",
+  "kernel_ref": "local/r102-reviewed",
+  "kernel_commit": "d981748399d68a57bcbe5faeb25c196589d9bc9c"
+}

@@ -1,0 +1,13 @@
+{
+  "state": "SOURCE_READY_NOT_BUILT_NOT_DEPLOYED",
+  "baseline": 42,
+  "candidate": 43,
+  "scope": "IRQ wake single ownership and Hall/PM synchronization plus terminal NUL compatibility",
+  "actual_device_unchanged": true,
+  "normal_IRQ_disable_outside_ts_lock": true,
+  "Hall_owner_trylock_only": true,
+  "PM_suspend_owner_serializes_completion_publication": true,
+  "async_HWC_cache_not_merged": true,
+  "physical_double_tap_not_proven": true,
+  "black_screen_root_cause_not_proven": true
+}

@@ -1,0 +1,16 @@
+{
+  "state": "OFFLINE_OTA_NOTICE_ONLY_SIGNED_CANDIDATE_READY_FOR_IMAGE_INTEGRATION",
+  "apk_sha256": "ce7d4a1ed6b34f23c7fc972a86974ebf53be53c1627c623c826a4b852e0b0d9c",
+  "bytes": 12681,
+  "permissions": [],
+  "receivers": 0,
+  "services": 0,
+  "providers": 0,
+  "donor_updater_code_included": false,
+  "full_donor_OTA_physically_replaced": false,
+  "physical_tested": false,
+  "device_actions": 0,
+  "scope": "System updater client replacement; update_engine/COTA not globally disabled",
+  "migration": "Clean original-script flash required for this first candidate because signer differs; no live install/update attempted",
+  "old_script_protection_depends_on_outer_SHA_and_post_boot_component_disable": true
+}

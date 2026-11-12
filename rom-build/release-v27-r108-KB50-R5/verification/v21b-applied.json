@@ -1,0 +1,9 @@
+﻿{
+    "state":  "V21B_HOST_PATCH_AND_ORIGINAL_OFFLINE_ENTRY_PASS",
+    "time":  "2026-10-21T00:39:35.9955776+08:00",
+    "device_actions":  0,
+    "physical_boot_verified":  false,
+    "super_sha256":  "e0c8356b26c0dccaae3d86876f6bf7d4ea68d322f6af49c1f5a30b795bf204ea",
+    "source_untouched":  true,
+    "original_scripts_unchanged":  true
+}

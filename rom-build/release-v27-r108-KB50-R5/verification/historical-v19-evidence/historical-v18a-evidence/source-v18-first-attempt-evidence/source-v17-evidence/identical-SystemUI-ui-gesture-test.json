@@ -1,0 +1,14 @@
+{
+  "state": "V17_POST_SETUP_SYSTEM_GESTURE_INJECTION_AND_SHADE_PASS",
+  "physical_touch_hardware_proven": false,
+  "checks": {
+    "edge_back_from_wlan_to_settings": true,
+    "bottom_home_gesture": true,
+    "top_pull_notification_shade": true,
+    "classic_control_center": true,
+    "separate_control_center": true,
+    "sleep_and_wake": true,
+    "systemui_systemserver_surfaceflinger_stable": true
+  },
+  "core": "27d77745-36e4-4146-89e0-1de1f37597ce\n2401\n4591\n1686"
+}

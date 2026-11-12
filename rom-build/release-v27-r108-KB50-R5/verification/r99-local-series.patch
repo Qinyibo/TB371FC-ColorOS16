@@ -1,0 +1,688 @@
+From 1f6fc1fb5e47d5bf2447cd54173da213d3772008 Mon Sep 17 00:00:00 2001
+From: Codex <codex@localhost>
+Date: Mon, 2 Nov 2026 16:31:46 +0800
+Subject: [PATCH 1/5] drm/sde: record deployed r6 display failure containment
+
+Record the already deployed, reviewed change from its preserved patch.
+This historical import does not rerun hardware tests or claim new acceptance.
+---
+ techpack/display/msm/sde/sde_connector.c | 32 ++++++++++++-----
+ techpack/display/msm/sde/sde_connector.h |  3 ++
+ techpack/display/msm/sde/sde_encoder.c   | 44 ++++++++++++++++++++++++
+ 3 files changed, 71 insertions(+), 8 deletions(-)
+
+diff --git a/techpack/display/msm/sde/sde_connector.c b/techpack/display/msm/sde/sde_connector.c
+index 8ced8b663..e4cf6b82f 100644
+--- a/techpack/display/msm/sde/sde_connector.c
++++ b/techpack/display/msm/sde/sde_connector.c
+@@ -2576,14 +2576,15 @@ static int sde_connector_atomic_check(struct drm_connector *connector,
+ 	return 0;
+ }
+ 
+-static void _sde_connector_report_panel_dead(struct sde_connector *conn,
+-	bool skip_pre_kickoff)
++static bool _sde_connector_notify_panel_dead(struct sde_connector *conn)
+ {
+ 	struct drm_event event;
+-	struct dsi_display *display = (struct dsi_display *)(conn->display);
++	struct dsi_display *display;
+ 
+-	if (!conn)
+-		return;
++	if (!conn || !conn->display)
++		return false;
++
++	display = conn->display;
+ 
+ 	/* Panel dead notification can come:
+ 	 * 1) ESD thread
+@@ -2591,7 +2592,7 @@ static void _sde_connector_report_panel_dead(struct sde_connector *conn,
+ 	 * So such case, avoid failure notification twice.
+ 	 */
+ 	if (conn->panel_dead)
+-		return;
++		return false;
+ 
+ 	conn->panel_dead = true;
+ 	display->panel->mi_cfg.panel_dead_flag = true;
+@@ -2599,11 +2600,26 @@ static void _sde_connector_report_panel_dead(struct sde_connector *conn,
+ 	event.length = sizeof(bool);
+ 	msm_mode_object_event_notify(&conn->base.base,
+ 		conn->base.dev, &event, (u8 *)&conn->panel_dead);
+-	sde_encoder_display_failure_notification(conn->encoder,
+-		skip_pre_kickoff);
+ 	SDE_EVT32(SDE_EVTLOG_ERROR);
+ 	SDE_ERROR("esd check failed report PANEL_DEAD conn_id: %d enc_id: %d\n",
+ 			conn->base.base.id, conn->encoder->base.id);
++	return true;
++}
++
++static void _sde_connector_report_panel_dead(struct sde_connector *conn,
++	bool skip_pre_kickoff)
++{
++	if (_sde_connector_notify_panel_dead(conn))
++		sde_encoder_display_failure_notification(conn->encoder,
++			skip_pre_kickoff);
++}
++
++/* A pre-enable rollback has no active encoder hardware to recover. Notify
++ * the existing userspace panel-recovery path without touching dead clocks. */
++void sde_connector_report_enable_failure(struct drm_connector *connector)
++{
++	if (connector)
++		_sde_connector_notify_panel_dead(to_sde_connector(connector));
+ }
+ 
+ int sde_connector_esd_status(struct drm_connector *conn)
+diff --git a/techpack/display/msm/sde/sde_connector.h b/techpack/display/msm/sde/sde_connector.h
+index ba9616da3..b9c8ccd18 100644
+--- a/techpack/display/msm/sde/sde_connector.h
++++ b/techpack/display/msm/sde/sde_connector.h
+@@ -991,6 +991,9 @@ int sde_connector_get_panel_vfp(struct drm_connector *connector,
+  */
+ int sde_connector_esd_status(struct drm_connector *connector);
+ 
++/* Report failed pre-enable without accessing unprepared encoder hardware. */
++void sde_connector_report_enable_failure(struct drm_connector *connector);
++
+ /**
+  * sde_connector_hbm_ctl - mi function to control hbm
+  * @connector: Pointer to DRM connector object
+diff --git a/techpack/display/msm/sde/sde_encoder.c b/techpack/display/msm/sde/sde_encoder.c
+index 12cde44d3..36db8ac1f 100644
+--- a/techpack/display/msm/sde/sde_encoder.c
++++ b/techpack/display/msm/sde/sde_encoder.c
+@@ -492,6 +492,21 @@ bool sde_encoder_is_dsc_merge(struct drm_encoder *drm_enc)
+ 	return false;
+ }
+ 
++/* The bridge rolled back this modeset before scanout started. No hardware
++ * kickoff or watchdog-vsync switch is valid on that powered-down output. */
++static bool sde_encoder_dsi_enable_failed(struct drm_encoder *enc)
++{
++	struct sde_encoder_virt *sde_enc = to_sde_encoder_virt(enc);
++	struct dsi_bridge *bridge;
++
++	if (sde_enc->disp_info.intf_type != DRM_MODE_CONNECTOR_DSI ||
++	    !enc->bridge)
++		return false;
++	bridge = container_of(enc->bridge, struct dsi_bridge, base);
++	return !bridge->r94_pre_enable_ok && bridge->display &&
++		bridge->display->r94_touch_resume_cancelled;
++}
++
+ bool sde_encoder_is_primary_display(struct drm_encoder *drm_enc)
+ {
+ 	struct sde_encoder_virt *sde_enc = to_sde_encoder_virt(drm_enc);
+@@ -3449,6 +3464,9 @@ static void sde_encoder_virt_enable(struct drm_encoder *drm_enc)
+ 		return;
+ 	}
+ 
++	if (sde_encoder_dsi_enable_failed(drm_enc))
++		return;
++
+ 	_sde_encoder_input_handler_register(drm_enc);
+ 
+ 	if ((drm_enc->crtc && drm_enc->crtc->state &&
+@@ -4996,6 +5014,11 @@ int sde_encoder_prepare_for_kickoff(struct drm_encoder *drm_enc,
+ 
+ 	_sde_encoder_helper_hdr_plus_mempool_update(sde_enc);
+ 
++	/* The failed frame is retired by kickoff below, after CRTC has accounted
++	 * for it. Do not attempt CTL/clock recovery on an unprepared panel. */
++	if (sde_encoder_dsi_enable_failed(drm_enc))
++		return 0;
++
+ 	/* prepare for next kickoff, may include waiting on previous kickoff */
+ 	SDE_ATRACE_BEGIN("sde_encoder_prepare_for_kickoff");
+ 	for (i = 0; i < sde_enc->num_phys_encs; i++) {
+@@ -5136,6 +5159,27 @@ void sde_encoder_kickoff(struct drm_encoder *drm_enc, bool is_error)
+ 
+ 	SDE_DEBUG_ENC(sde_enc, "\n");
+ 
++	if (sde_encoder_dsi_enable_failed(drm_enc)) {
++		struct dsi_bridge *failed_bridge = container_of(drm_enc->bridge,
++				struct dsi_bridge, base);
++		struct drm_connector *conn = failed_bridge->display->drm_conn;
++
++		/* No transfer was started, so buffers can be retired with ERROR.
++		 * Use one CRTC event for the virtual encoder, not one per DSI half.
++		 * Do not manufacture a successful frame or touch-ready state. */
++		sde_enc->crtc_frame_event_cb_data.connector = conn;
++		if (sde_enc->crtc_frame_event_cb)
++			sde_enc->crtc_frame_event_cb(
++				&sde_enc->crtc_frame_event_cb_data,
++				SDE_ENCODER_FRAME_EVENT_ERROR |
++				SDE_ENCODER_FRAME_EVENT_SIGNAL_RELEASE_FENCE |
++				SDE_ENCODER_FRAME_EVENT_SIGNAL_RETIRE_FENCE);
++		sde_connector_report_enable_failure(conn);
++		SDE_ERROR_ENC(sde_enc, "R96_ENABLE_FAILED frame_retired_error\n");
++		SDE_ATRACE_END("encoder_kickoff");
++		return;
++	}
++
+ 	/* create a 'no pipes' commit to release buffers on errors */
+ 	if (is_error)
+ 		_sde_encoder_reset_ctl_hw(drm_enc);
+-- 
+2.43.0
+
+
+From fd2e2b07eb30b33e030234531e0742d4457b107f Mon Sep 17 00:00:00 2001
+From: Codex <codex@localhost>
+Date: Mon, 2 Nov 2026 16:31:46 +0800
+Subject: [PATCH 2/5] input/display: record deployed r97 failure diagnostics
+
+Record the already deployed, reviewed change from its preserved patch.
+This historical import does not rerun hardware tests or claim new acceptance.
+---
+ .../touchscreen/nt36532/nt36xxx_fw_update.c   | 41 +++++++++++++++++++
+ techpack/display/msm/sde/sde_connector.c      | 14 ++++++-
+ 2 files changed, 53 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/input/touchscreen/nt36532/nt36xxx_fw_update.c b/drivers/input/touchscreen/nt36532/nt36xxx_fw_update.c
+index f3701efc0..3bfc1f2e4 100644
+--- a/drivers/input/touchscreen/nt36532/nt36xxx_fw_update.c
++++ b/drivers/input/touchscreen/nt36532/nt36xxx_fw_update.c
+@@ -637,6 +637,26 @@ static void nvt_set_bld_hw_crc(void)
+ 			ts->mmap->G_DLM_CHECKSUM_ADDR, bin_map[1].crc);
+ }
+ 
++/* Called only under the downloader owner after a failed INIT check. */
++static void nvt_diag_boot_reg(const char *name, uint32_t addr, uint8_t mask)
++{
++	uint8_t buf[2] = { addr & 0x7F, 0 };
++	int ret;
++
++	if (!addr) {
++		NVT_ERR("R97_DIAG %s unavailable\n", name);
++		return;
++	}
++	ret = nvt_set_page(addr);
++	if (!ret)
++		ret = CTP_SPI_READ(ts->client, buf, sizeof(buf));
++	if (ret)
++		NVT_ERR("R97_DIAG %s addr=0x%06X read_failed ret=%d\n", name, addr, ret);
++	else
++		NVT_ERR("R97_DIAG %s=0x%02X addr=0x%06X mask=0x%02X\n",
++				name, buf[1], addr, mask);
++}
++
+ /*******************************************************
+ Description:
+ 	Novatek touchscreen read BLD hw crc info function.
+@@ -702,6 +722,27 @@ static void nvt_read_bld_hw_crc(void)
+ 	NVT_ERR("dlm: bin crc = 0x%08X, golden = 0x%08X, result = 0x%08X\n",
+ 			bin_map[1].crc, g_crc, r_crc);
+ 
++	/* Diagnostic reads must not turn a bus failure into a zero value. */
++	nvt_diag_boot_reg("dma_crc_flag", ts->mmap->DMA_CRC_FLAG_ADDR, 0xFF);
++	nvt_diag_boot_reg("crc_err_flag", ts->crc_err_flag_addr, 0xFF);
++	nvt_diag_boot_reg("boot_rdy", ts->mmap->BOOT_RDY_ADDR, 0xFF);
++	nvt_diag_boot_reg("enb_casc_raw", ts->mmap->ENB_CASC_REG.addr,
++			ts->mmap->ENB_CASC_REG.mask);
++	{
++		int diag_ret;
++
++		diag_ret = nvt_set_page(ts->mmap->EVENT_BUF_ADDR |
++				EVENT_MAP_RESET_COMPLETE);
++		buf[0] = EVENT_MAP_RESET_COMPLETE;
++		if (!diag_ret)
++			diag_ret = CTP_SPI_READ(ts->client, buf, 6);
++		if (diag_ret)
++			NVT_ERR("R97_DIAG reset_state read_failed ret=%d\n", diag_ret);
++		else
++			NVT_ERR("R97_DIAG reset_state=0x%02X 0x%02X 0x%02X 0x%02X 0x%02X\n",
++					buf[1], buf[2], buf[3], buf[4], buf[5]);
++	}
++
+ 	return;
+ }
+ 
+diff --git a/techpack/display/msm/sde/sde_connector.c b/techpack/display/msm/sde/sde_connector.c
+index e4cf6b82f..e76409662 100644
+--- a/techpack/display/msm/sde/sde_connector.c
++++ b/techpack/display/msm/sde/sde_connector.c
+@@ -2618,8 +2618,18 @@ static void _sde_connector_report_panel_dead(struct sde_connector *conn,
+  * the existing userspace panel-recovery path without touching dead clocks. */
+ void sde_connector_report_enable_failure(struct drm_connector *connector)
+ {
+-	if (connector)
+-		_sde_connector_notify_panel_dead(to_sde_connector(connector));
++	struct sde_connector *c_conn;
++
++	if (!connector)
++		return;
++	c_conn = to_sde_connector(connector);
++	/* DIAGNOSTIC: sticky panel_dead suppresses renotify (rate-limited). */
++	if (c_conn->panel_dead) {
++		pr_err_once("R97_DIAG PANEL_DEAD_STICKY skip_renotify conn_id=%d\n",
++				connector->base.id);
++		return;
++	}
++	_sde_connector_notify_panel_dead(c_conn);
+ }
+ 
+ int sde_connector_esd_status(struct drm_connector *conn)
+-- 
+2.43.0
+
+
+From d1aa7fb98e8dbaafd23113d83e9a152e8e8f32cb Mon Sep 17 00:00:00 2001
+From: Codex <codex@localhost>
+Date: Mon, 2 Nov 2026 16:31:47 +0800
+Subject: [PATCH 3/5] ASoC: wait for real programmable mixer acknowledgements
+
+Record the already deployed, reviewed change from its preserved patch.
+This historical import does not rerun hardware tests or claim new acceptance.
+---
+ techpack/audio/asoc/msm-pcm-q6-v2.c      |  2 +-
+ techpack/audio/asoc/msm-pcm-routing-v2.c |  1 -
+ techpack/audio/dsp/q6adm.c               | 23 +++--------------------
+ 3 files changed, 4 insertions(+), 22 deletions(-)
+
+diff --git a/techpack/audio/asoc/msm-pcm-q6-v2.c b/techpack/audio/asoc/msm-pcm-q6-v2.c
+index 5cf9e2470..17241f664 100644
+--- a/techpack/audio/asoc/msm-pcm-q6-v2.c
++++ b/techpack/audio/asoc/msm-pcm-q6-v2.c
+@@ -2249,7 +2249,7 @@ static int msm_pcm_channel_mixer_cfg_ctl_put(struct snd_kcontrol *kcontrol,
+ 	if (chmixer_pspd->enable && prtd && prtd->audio_client) {
+ 		stream_id = prtd->audio_client->session;
+ 		be_id = chmixer_pspd->port_idx;
+-		msm_pcm_routing_set_channel_mixer_runtime(be_id,
++		ret = msm_pcm_routing_set_channel_mixer_runtime(be_id,
+ 				stream_id,
+ 				session_type,
+ 				chmixer_pspd);
+diff --git a/techpack/audio/asoc/msm-pcm-routing-v2.c b/techpack/audio/asoc/msm-pcm-routing-v2.c
+index cda94df2f..fc5a0e7d4 100644
+--- a/techpack/audio/asoc/msm-pcm-routing-v2.c
++++ b/techpack/audio/asoc/msm-pcm-routing-v2.c
+@@ -1829,7 +1829,6 @@ int msm_pcm_routing_set_channel_mixer_runtime(int be_id, int session_id,
+ 					0);
+ 	if (rc) {
+ 		pr_err("%s: send params failed rc=%d\n", __func__, rc);
+-		rc = -EINVAL;
+ 	}
+ 	return rc;
+ }
+diff --git a/techpack/audio/dsp/q6adm.c b/techpack/audio/dsp/q6adm.c
+index 98e9ebb52..46c8c6bb4 100644
+--- a/techpack/audio/dsp/q6adm.c
++++ b/techpack/audio/dsp/q6adm.c
+@@ -644,26 +644,9 @@ int adm_programable_channel_mixer(int port_id, int copp_idx, int session_id,
+ 		pr_debug("%s: adm_params[%d] = 0x%x\n",
+ 			__func__, index, (unsigned int)ptr[index]);
+ 
+-	atomic_set(&this_adm.copp.stat[port_idx][copp_idx], 0);
+-	ret = apr_send_pkt(this_adm.apr, (uint32_t *)adm_params);
+-	if (ret < 0) {
+-		pr_err("%s: Set params failed port %d rc %d\n", __func__,
+-			port_id, ret);
+-		ret = -EINVAL;
+-		goto fail_cmd;
+-	}
+-
+-	ret = wait_event_timeout(this_adm.copp.wait[port_idx][copp_idx],
+-			atomic_read(
+-			&this_adm.copp.stat[port_idx][copp_idx]) >= 0,
+-			msecs_to_jiffies(TIMEOUT_MS));
+-	if (!ret) {
+-		pr_err("%s: set params timed out port = %d\n",
+-			__func__, port_id);
+-		ret = -ETIMEDOUT;
+-		goto fail_cmd;
+-	}
+-	ret = 0;
++	/* Serialize this COPP command and return the actual DSP acknowledgement. */
++	ret = adm_apr_send_pkt(adm_params, NULL, port_idx, copp_idx,
++			ADM_CMD_SET_PSPD_MTMX_STRTR_PARAMS_V5);
+ fail_cmd:
+ 	kfree(adm_params);
+ 
+-- 
+2.43.0
+
+
+From 410ce6743e6192021e1dbc4dba14c17865eb65b8 Mon Sep 17 00:00:00 2001
+From: Codex <codex@localhost>
+Date: Mon, 2 Nov 2026 16:31:48 +0800
+Subject: [PATCH 4/5] ASoC: target live mixer updates by session and COPP
+
+Record the already deployed, reviewed change from its preserved patch.
+This historical import does not rerun hardware tests or claim new acceptance.
+---
+ techpack/audio/asoc/msm-pcm-routing-v2.c | 67 ++++++++++--------------
+ techpack/audio/dsp/q6adm.c               | 28 ++++++++--
+ techpack/audio/include/dsp/q6adm-v2.h    |  4 ++
+ 3 files changed, 55 insertions(+), 44 deletions(-)
+
+diff --git a/techpack/audio/asoc/msm-pcm-routing-v2.c b/techpack/audio/asoc/msm-pcm-routing-v2.c
+index fc5a0e7d4..b29b53e82 100644
+--- a/techpack/audio/asoc/msm-pcm-routing-v2.c
++++ b/techpack/audio/asoc/msm-pcm-routing-v2.c
+@@ -1784,52 +1784,41 @@ int msm_pcm_routing_set_channel_mixer_runtime(int be_id, int session_id,
+ 			int session_type,
+ 			struct msm_pcm_channel_mixer *params)
+ {
+-	int rc = 0;
+-	int port_id, copp_idx = 0;
++	int rc = -ENODEV;
++	int fe_id, copp_idx;
++	unsigned long copps;
+ 
+ 	be_id--;
+-	if (be_id < 0 || be_id >= MSM_BACKEND_DAI_MAX) {
+-		pr_err("%s: invalid backend id %d\n", __func__,
+-				be_id);
++	if (be_id < 0 || be_id >= MSM_BACKEND_DAI_MAX ||
++	    (session_type != SESSION_TYPE_RX && session_type != SESSION_TYPE_TX))
+ 		return -EINVAL;
+-	}
+-
+-	port_id = msm_bedais[be_id].port_id;
+-	copp_idx = adm_get_default_copp_idx(port_id);
+-	pr_debug("%s: port_id - %d, copp_idx %d session id - %d\n",
+-		 __func__, port_id, copp_idx, session_id);
+-
+-	if ((params->input_channel < 0) ||
+-		(params->input_channel > ADM_MAX_CHANNELS)) {
+-		pr_err("%s: invalid input channel %d\n", __func__,
+-				params->input_channel);
+-		return -EINVAL;
+-	}
+-
+-	if ((params->output_channel < 0) ||
+-		(params->output_channel > ADM_MAX_CHANNELS)) {
+-		pr_err("%s: invalid output channel %d\n", __func__,
+-				params->output_channel);
++	if (params->input_channel < 0 || params->input_channel > ADM_MAX_CHANNELS ||
++	    params->output_channel < 0 || params->output_channel > ADM_MAX_CHANNELS)
+ 		return -EINVAL;
+-	}
+ 
+ 	params->input_channels[0] = params->input_channel;
+-
+-	pr_debug("%s sess type %d,override in:%d out:%d,be active %d\n",
+-			__func__, session_type,
+-			params->override_in_ch_map,
+-			params->override_out_ch_map,
+-			msm_bedais[be_id].active);
+-
+-	rc = adm_programable_channel_mixer(port_id,
+-					copp_idx,
+-					session_id,
+-					session_type,
+-					params,
+-					0);
+-	if (rc) {
+-		pr_err("%s: send params failed rc=%d\n", __func__, rc);
++	/* Route/start/close share this lock. Never fall back to a different
++	 * stream's default COPP when this session has no active route. */
++	mutex_lock(&routing_lock);
++	if (!msm_bedais[be_id].active)
++		goto out;
++	for (fe_id = 0; fe_id < MSM_FRONTEND_DAI_MM_SIZE; fe_id++) {
++		if (fe_dai_map[fe_id][session_type].strm_id != session_id ||
++		    !test_bit(fe_id, &msm_bedais[be_id].fe_sessions[0]))
++			continue;
++		copps = session_copp_map[fe_id][session_type][be_id];
++		for (copp_idx = 0; copp_idx < MAX_COPPS_PER_PORT; copp_idx++) {
++			if (!test_bit(copp_idx, &copps))
++				continue;
++			rc = adm_programable_channel_mixer_session(
++				msm_bedais[be_id].port_id, copp_idx,
++				session_id, session_type, params, 0);
++			if (rc)
++				goto out;
++		}
+ 	}
++out:
++	mutex_unlock(&routing_lock);
+ 	return rc;
+ }
+ EXPORT_SYMBOL(msm_pcm_routing_set_channel_mixer_runtime);
+diff --git a/techpack/audio/dsp/q6adm.c b/techpack/audio/dsp/q6adm.c
+index 46c8c6bb4..3ac523cd6 100644
+--- a/techpack/audio/dsp/q6adm.c
++++ b/techpack/audio/dsp/q6adm.c
+@@ -494,10 +494,10 @@ static int adm_populate_channel_weight(u16 *ptr,
+  * ch_mixer - Passed value, ch_mixer for which channel mixer config is needed
+  * channel_index - Passed value, channel_index for which channel is needed
+  */
+-int adm_programable_channel_mixer(int port_id, int copp_idx, int session_id,
+-				  int session_type,
+-				  struct msm_pcm_channel_mixer *ch_mixer,
+-				  int channel_index)
++static noinline int adm_programable_channel_mixer_impl(int port_id,
++		int copp_idx, int session_id, int session_type,
++		struct msm_pcm_channel_mixer *ch_mixer, int channel_index,
++		bool session_update)
+ {
+ 	struct adm_cmd_set_pspd_mtmx_strtr_params_v5 *adm_params = NULL;
+ 	struct param_hdr_v1 data_v5;
+@@ -519,7 +519,8 @@ int adm_programable_channel_mixer(int port_id, int copp_idx, int session_id,
+ 	 * check if PSPD is already configured
+ 	 * if it is configured already, return 0 without applying PSPD.
+ 	 */
+-	if (atomic_read(&this_adm.copp.cnt[port_idx][copp_idx]) > 1) {
++	if (!session_update &&
++	    atomic_read(&this_adm.copp.cnt[port_idx][copp_idx]) > 1) {
+ 		pr_debug("%s: copp.cnt:%#x\n", __func__,
+ 			atomic_read(&this_adm.copp.cnt[port_idx][copp_idx]));
+ 		return 0;
+@@ -652,8 +653,25 @@ fail_cmd:
+ 
+ 	return ret;
+ }
++int adm_programable_channel_mixer(int port_id, int copp_idx, int session_id,
++		int session_type, struct msm_pcm_channel_mixer *ch_mixer,
++		int channel_index)
++{
++	return adm_programable_channel_mixer_impl(port_id, copp_idx, session_id,
++			session_type, ch_mixer, channel_index, false);
++}
+ EXPORT_SYMBOL(adm_programable_channel_mixer);
+ 
++/* PSPD belongs to the session/device pair, including on a shared COPP. */
++int adm_programable_channel_mixer_session(int port_id, int copp_idx,
++		int session_id, int session_type,
++		struct msm_pcm_channel_mixer *ch_mixer, int channel_index)
++{
++	return adm_programable_channel_mixer_impl(port_id, copp_idx, session_id,
++			session_type, ch_mixer, channel_index, true);
++}
++EXPORT_SYMBOL(adm_programable_channel_mixer_session);
++
+ /**
+  * adm_set_stereo_to_custom_stereo -
+  *        command to update custom stereo
+diff --git a/techpack/audio/include/dsp/q6adm-v2.h b/techpack/audio/include/dsp/q6adm-v2.h
+index 84fc1e01e..beb059c31 100644
+--- a/techpack/audio/include/dsp/q6adm-v2.h
++++ b/techpack/audio/include/dsp/q6adm-v2.h
+@@ -225,6 +225,10 @@ int adm_programable_channel_mixer(int port_id, int copp_idx, int session_id,
+ 			int session_type,
+ 			struct msm_pcm_channel_mixer *ch_mixer,
+ 			int channel_index);
++/* Live per-session PSPD update; never skip because its COPP is shared. */
++int adm_programable_channel_mixer_session(int port_id, int copp_idx,
++		int session_id, int session_type,
++		struct msm_pcm_channel_mixer *ch_mixer, int channel_index);
+ void msm_dts_srs_acquire_lock(void);
+ void msm_dts_srs_release_lock(void);
+ void adm_set_native_mode(int mode);
+-- 
+2.43.0
+
+
+From 4bb7828afb1b213fbb789ac8cf6b4ab2dc1a3263 Mon Sep 17 00:00:00 2001
+From: Codex <codex@localhost>
+Date: Mon, 2 Nov 2026 16:31:50 +0800
+Subject: [PATCH 5/5] build: record deployed r99 identity and honor build
+ metadata overrides
+
+---
+ build/tb371fc/build.sh               |   7 +-
+ build/tb371fc/r99-source-record.json | 131 +++++++++++++++++++++++++++
+ 2 files changed, 135 insertions(+), 3 deletions(-)
+ create mode 100644 build/tb371fc/r99-source-record.json
+
+diff --git a/build/tb371fc/build.sh b/build/tb371fc/build.sh
+index 143f413da..c8ed92b77 100755
+--- a/build/tb371fc/build.sh
++++ b/build/tb371fc/build.sh
+@@ -5,9 +5,10 @@ OUT=${OUT_DIR:-"$TREE/out-tb371fc"}
+ mkdir -p "$OUT"
+ cp "$TREE/build/tb371fc/kernel43.config" "$OUT/.config"
+ export PATH="${LLVM_BIN:-/usr/lib/llvm-21/bin}:$PATH"
+-export KBUILD_BUILD_USER=tb371fc-offline KBUILD_BUILD_HOST=r94-wake-cache-r1
+-export KBUILD_BUILD_VERSION=43
+-export KBUILD_BUILD_TIMESTAMP='Sat Oct 31 2026 12:00:00 +0800'
++export KBUILD_BUILD_USER="${KBUILD_BUILD_USER:-tb371fc-offline}"
++export KBUILD_BUILD_HOST="${KBUILD_BUILD_HOST:-r99-session-owner}"
++export KBUILD_BUILD_VERSION="${KBUILD_BUILD_VERSION:-43}"
++export KBUILD_BUILD_TIMESTAMP="${KBUILD_BUILD_TIMESTAMP:-Sat Oct 31 2026 20:00:00 +0800}"
+ FLAGS="-Wno-error -Wno-error=strict-prototypes -Wno-error=implicit-int -Wno-error=incompatible-pointer-types -Wno-error=date-time -include $TREE/drivers/staging/fw-api/fw/p226_compat.h"
+ make -C "$TREE" --output-sync=target -j"${JOBS:-4}" O="$OUT" ARCH=arm64 CC=clang CLANG_TRIPLE=aarch64-linux-gnu- CROSS_COMPILE=aarch64-linux-gnu- AS=aarch64-linux-gnu-as LOCALVERSION= KCFLAGS="$FLAGS" DYNAMIC_SINGLE_CHIP=qca6390 Image
+ echo 'Image output:' "$OUT/arch/arm64/boot/Image"
+diff --git a/build/tb371fc/r99-source-record.json b/build/tb371fc/r99-source-record.json
+new file mode 100644
+index 000000000..fe7606bcb
+--- /dev/null
++++ b/build/tb371fc/r99-source-record.json
+@@ -0,0 +1,131 @@
++{
++  "status": "locally recorded deployed r99; not a new release or new hardware validation",
++  "git_baseline": "ad9987077d8eb726a1be70801a2b7aa12e886b54",
++  "code_commit": "410ce6743e6192021e1dbc4dba14c17865eb65b8",
++  "code_history": [
++    {
++      "phase": "r6",
++      "commit": "1f6fc1fb5e47d5bf2447cd54173da213d3772008",
++      "tree": "e9e5f0817fb85899b663853eb3ed7308cc77d971",
++      "subject": "drm/sde: record deployed r6 display failure containment"
++    },
++    {
++      "phase": "r97",
++      "commit": "fd2e2b07eb30b33e030234531e0742d4457b107f",
++      "tree": "a43b229ebcdbb15bf24ace0eab8cdec308716f92",
++      "subject": "input/display: record deployed r97 failure diagnostics"
++    },
++    {
++      "phase": "r98",
++      "commit": "d1aa7fb98e8dbaafd23113d83e9a152e8e8f32cb",
++      "tree": "eeda9199f2127805e229f505d9d0e6b0db956930",
++      "subject": "ASoC: wait for real programmable mixer acknowledgements"
++    },
++    {
++      "phase": "r99",
++      "commit": "410ce6743e6192021e1dbc4dba14c17865eb65b8",
++      "tree": "1bcf8d6836600c44501d1c4a4f701f08d43d77f3",
++      "subject": "ASoC: target live mixer updates by session and COPP"
++    }
++  ],
++  "reviewed_code_files": {
++    "drivers/input/touchscreen/nt36532/nt36xxx_fw_update.c": {
++      "build_source_sha256": "a8b73fd7114238c51461882b957ace76f77df3f570b0c10247de03b01de6bad1",
++      "git_lf_sha256": "a8b73fd7114238c51461882b957ace76f77df3f570b0c10247de03b01de6bad1",
++      "raw_bytes_equal": true
++    },
++    "techpack/audio/asoc/msm-pcm-q6-v2.c": {
++      "build_source_sha256": "fc05218c40a2f1d64d41aaaf85ed0bcd6203c9c48d572a6162dd266429a1d1f2",
++      "git_lf_sha256": "fc05218c40a2f1d64d41aaaf85ed0bcd6203c9c48d572a6162dd266429a1d1f2",
++      "raw_bytes_equal": true
++    },
++    "techpack/audio/asoc/msm-pcm-routing-v2.c": {
++      "build_source_sha256": "133152cd76722f5250653c898d57e79d761c8da77b39b7e1a4de5b27430a504a",
++      "git_lf_sha256": "133152cd76722f5250653c898d57e79d761c8da77b39b7e1a4de5b27430a504a",
++      "raw_bytes_equal": true
++    },
++    "techpack/audio/dsp/q6adm.c": {
++      "build_source_sha256": "7f1067ef9831b65221b335433bd64ae48bb434940cf7e650f4cb9cc48a7422b6",
++      "git_lf_sha256": "7f1067ef9831b65221b335433bd64ae48bb434940cf7e650f4cb9cc48a7422b6",
++      "raw_bytes_equal": true
++    },
++    "techpack/audio/include/dsp/q6adm-v2.h": {
++      "build_source_sha256": "ba3837cb221a9ee3734af2fb95b544176d6eaf7ba25921648c26e3dc3574ad5f",
++      "git_lf_sha256": "ba3837cb221a9ee3734af2fb95b544176d6eaf7ba25921648c26e3dc3574ad5f",
++      "raw_bytes_equal": true
++    },
++    "techpack/display/msm/sde/sde_connector.c": {
++      "build_source_sha256": "74ad299865476e98cd5d8d4aeb3784624f8dacfc9e60bade8a45a6d0f7975e99",
++      "git_lf_sha256": "f52ab5ac98fb1f22a831f3ec07916bd8878ef24deb0f2562b0e2b0b807edb754",
++      "raw_bytes_equal": false
++    },
++    "techpack/display/msm/sde/sde_connector.h": {
++      "build_source_sha256": "e3f536331c937699867fad62a26b67fefb490496869aace3cdc75d2f8a5e53f4",
++      "git_lf_sha256": "be460961ca1ea0c6665759b2a292b63280c58260bc4901fdf78064a47c076181",
++      "raw_bytes_equal": false
++    },
++    "techpack/display/msm/sde/sde_encoder.c": {
++      "build_source_sha256": "79bc248a4a9a0e40675268314dc3a5e0ed19c43bbe7a685fbf0e4317cb643313",
++      "git_lf_sha256": "2a2ef978c4778de458fc5ac4cea41e473256d5618eaf03d6de07ce2eb228f463",
++      "raw_bytes_equal": false
++    }
++  },
++  "line_endings": "Git records canonical LF. Original r6 CRLF captures are text-equivalent; their raw SHA256 values are preserved separately. Build source C/H bytes are not changed by this import.",
++  "tracked_tree_comparison": {
++    "changed_code_files": 8,
++    "other_differences": [
++      "README-TB371FC.md",
++      "README.md",
++      "build/tb371fc/build.sh",
++      "build/tb371fc/test-firmware-cache.py",
++      "docs/tb371fc/wake-cache-r1/01-boot-firmware-cache.patch",
++      "docs/tb371fc/wake-cache-r1/02-wake-readonly-state.patch",
++      "docs/tb371fc/wake-cache-r1/README.md",
++      "docs/tb371fc/wake-cache-r1/boot-candidate-unpack.log",
++      "docs/tb371fc/wake-cache-r1/boot-original-unpack.log",
++      "docs/tb371fc/wake-cache-r1/boot-repack.log",
++      "docs/tb371fc/wake-cache-r1/build-input-verification.log",
++      "docs/tb371fc/wake-cache-r1/build-receipt.json",
++      "docs/tb371fc/wake-cache-r1/kernel-build.log",
++      "docs/tb371fc/wake-cache-r1/local-build.sh",
++      "docs/tb371fc/wake-cache-r1/local-pack.sh",
++      "docs/tb371fc/wake-cache-r1/source-manifest.json",
++      "docs/tb371fc/wake-cache-r1/test-results.txt",
++      "docs/tb371fc/wake-cache-r1/validation.json"
++    ],
++    "note": "Older build-tree documentation remains separate. Do not delete Git documentation to mimic the unpacked tree. Untracked/generated inputs were not part of this comparison."
++  },
++  "artifacts": {
++    "r99_Image_sha256": "02c917eb0ad4b3ec7c42e35854fb2064cf02663713aea18615f7960492cb1284",
++    "r99_boot_sha256": "69dc87ef2096cb68b5f87a33dc65531e950b33858d341e7060d40b369f43182a",
++    "r98_rollback_boot_sha256": "c1d3c3ae373adad9632b8807a6f5ea595390b5df648c5876da12f6984ce80dc7",
++    "note": "These are previously built and device-verified artifacts; importing Git history does not prove a bit-identical rebuild."
++  },
++  "build": {
++    "config": "build/tb371fc/kernel43.config",
++    "host": "r99-session-owner",
++    "version": 43,
++    "timestamp": "Sat Oct 31 2026 20:00:00 +0800",
++    "compiler": "Ubuntu clang 21.1.8",
++    "linker": "GNU binutils 2.42",
++    "jobs_used": 8,
++    "firmware_compat_include": "drivers/staging/fw-api/fw/p226_compat.h",
++    "builder_library_path": "/root/tc-shim/lib",
++    "existing_symbol_ABI": "unchanged; one new session mixer export",
++    "source_overlays_json": "Historical import ledger, not the current source hash manifest."
++  },
++  "verified": [
++    "r99 normal boot and boot partition SHA256",
++    "two concurrent silent streams: correct session2/COPP1, DSP ACK0 and ALSA0",
++    "eight source-extracted routing cases, full Image build, config and existing export ABI checks",
++    "ordinary stereo and QUAD AudioTrack both use 2ch kernel FE and 4ch TDM BE"
++  ],
++  "not_verified": [
++    "independent four-track acoustic output",
++    "real shared-COPP, capture/compress/loopback feature acceptance",
++    "real timeout injection, deep suspend or black-screen root cause resolution",
++    "MMAP/NOIRQ hardware path; vendor service rejected the request before fallback",
++    "pen, keyboard and phone end-to-end behavior without corresponding peripherals"
++  ],
++  "policy": "No additional wake loops. Optional panel-power recovery patch remains unapplied."
++}
+-- 
+2.43.0
+

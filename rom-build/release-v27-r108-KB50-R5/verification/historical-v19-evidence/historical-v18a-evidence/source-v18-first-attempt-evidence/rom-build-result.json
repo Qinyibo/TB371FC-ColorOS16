@@ -1,0 +1,39 @@
+{
+  "state": "V18_NATIVE_CHARGING_COMPLETE_IMAGES_ALL_LP_PASS",
+  "path": "D:\\TB371FC-release\\R94T-v18-CHARGING-TEST",
+  "time": "2026-10-19T00:21:04.072879+08:00",
+  "images": [
+    {
+      "name": "super",
+      "path": "images/super-R94.img",
+      "bytes": 12884901888,
+      "sha256": "9d4272816ef735616606a11a15cb3840fd437398762717da522c3676941e140e"
+    },
+    {
+      "name": "boot",
+      "path": "images/boot_a.img",
+      "bytes": 100663296,
+      "sha256": "d5b8e5f3570db0fec17a715d86c89d0f7adba708fbc4903d02406fa74b966efd"
+    },
+    {
+      "name": "vbmeta",
+      "path": "images/vbmeta_a.img",
+      "bytes": 65536,
+      "sha256": "5faf802f3d821512505c42a9fa0dba5b969f135fd5ec3bf6686e8448e741a169"
+    },
+    {
+      "name": "vbmeta_system",
+      "path": "images/vbmeta_system_a.img",
+      "bytes": 65536,
+      "sha256": "848f04a7cf01cbfc68640ece4895e1aa00c6ba5cbf385c81b395f51da0829fef"
+    }
+  ],
+  "original_seven_scripts_unchanged": true,
+  "only_changed_image_parts": [
+    "boot",
+    "system_ext_a"
+  ],
+  "other_logical_partitions_metadata_padding_unchanged": true,
+  "extra_charging_module_or_daemon": false,
+  "physical_flash_tested": false
+}

@@ -1,0 +1,9 @@
+{
+  "state": "NATIVE_INIT_RC_LABEL_OWNER_MODE_LIBRARY_GUARDS_POLICY_OFFLINE_PASS",
+  "init_sha256": "3a22c871e7d355229e16c46d98899fa38921ff599b95d24c2faa5eb84fbdc43b",
+  "new_SELinux_rule": false,
+  "extra_module": false,
+  "clean_first_boot_tested": false,
+  "camera_APK_preloaded": false,
+  "camera_APK_delivery": "Separate exact tested APK; neither immutable filesystem has sufficient free space, no unrelated app removed."
+}

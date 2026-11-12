@@ -1,0 +1,26 @@
+01-22 03:42:23.918  2476  2748 E PackageManager_MultiTaskDealer: Failed to scan /product/overlay/SystemUIFingerprintRes_16_0_ZF.apk: Application package com.android.systemui.overlay.fingerprint.anim.ccyh already installed.  Skipping duplicate.
+01-22 03:42:23.918  2476  2748 E PackageManager: Failed to scan /product/overlay/SystemUIFingerprintRes_16_0_ZF.apk at first boot and we try again
+01-22 03:42:23.918  2476  2744 E PackageManager_MultiTaskDealer: Failed to scan /product/overlay/SystemUIFingerprintRes_16_0_XW.apk: Application package com.android.systemui.overlay.fingerprint.anim.xw already installed.  Skipping duplicate.
+01-22 03:42:23.919  2476  2744 E PackageManager: Failed to scan /product/overlay/SystemUIFingerprintRes_16_0_XW.apk at first boot and we try again
+01-22 03:42:23.920  2476  2749 E PackageManager_MultiTaskDealer: Failed to scan /product/overlay/SystemUIFingerprintRes_16_0_QY.apk: Application package com.android.systemui.overlay.fingerprint.anim.qy already installed.  Skipping duplicate.
+01-22 03:42:23.920  2476  2749 E PackageManager: Failed to scan /product/overlay/SystemUIFingerprintRes_16_0_QY.apk at first boot and we try again
+01-22 03:42:23.922  2476  2746 E PackageManager_MultiTaskDealer: Failed to scan /product/overlay/SystemUIFingerprintRes_16_0_JD.apk: Application package com.android.systemui.overlay.fingerprint.anim.jslz already installed.  Skipping duplicate.
+01-22 03:42:23.922  2476  2746 E PackageManager: Failed to scan /product/overlay/SystemUIFingerprintRes_16_0_JD.apk at first boot and we try again
+01-22 03:42:23.925  2476  2744 E PackageManager_MultiTaskDealer: Failed to scan /product/overlay/SystemUIFingerprintRes_16_0_LY.apk: Application package com.android.systemui.overlay.fingerprint.anim.xklc already installed.  Skipping duplicate.
+01-22 03:42:23.925  2476  2745 E PackageManager_MultiTaskDealer: Failed to scan /product/overlay/SystemUIFingerprintRes_16_0_SW.apk: Application package com.android.systemui.overlay.fingerprint.anim.sw already installed.  Skipping duplicate.
+01-22 03:42:23.925  2476  2744 E PackageManager: Failed to scan /product/overlay/SystemUIFingerprintRes_16_0_LY.apk at first boot and we try again
+01-22 03:42:23.925  2476  2745 E PackageManager: Failed to scan /product/overlay/SystemUIFingerprintRes_16_0_SW.apk at first boot and we try again
+01-22 03:42:23.925  2476  2749 E PackageManager_MultiTaskDealer: Failed to scan /product/overlay/SystemUIFingerprintRes_16_0_FY.apk: Application package com.android.systemui.overlay.fingerprint.anim.fy already installed.  Skipping duplicate.
+01-22 03:42:23.925  2476  2749 E PackageManager: Failed to scan /product/overlay/SystemUIFingerprintRes_16_0_FY.apk at first boot and we try again
+01-22 03:42:23.927  2476  2747 E PackageManager_MultiTaskDealer: Failed to scan /product/overlay/com.android.SystemUIResOverlay.24926.apk: Application package com.android.SystemUIResOverlay already installed.  Skipping duplicate.
+01-22 03:42:23.927  2476  2747 E PackageManager: Failed to scan /product/overlay/com.android.SystemUIResOverlay.24926.apk at first boot and we try again
+01-22 03:42:23.928  2476  2748 E PackageManager_MultiTaskDealer: Failed to scan /product/overlay/SystemUIFingerprintRes_13_0_NONE.apk: Application package com.android.systemui.overlay.fingerprint.anim.none already installed.  Skipping duplicate.
+01-22 03:42:23.928  2476  2748 E PackageManager: Failed to scan /product/overlay/SystemUIFingerprintRes_13_0_NONE.apk at first boot and we try again
+01-22 03:42:23.930  2476  2746 E PackageManager_MultiTaskDealer: Failed to scan /product/overlay/SystemUIFingerprintRes_16_0_Halo.apk: Application package com.android.systemui.overlay.fingerprint.anim.halo already installed.  Skipping duplicate.
+01-22 03:42:23.930  2476  2746 E PackageManager: Failed to scan /product/overlay/SystemUIFingerprintRes_16_0_Halo.apk at first boot and we try again
+01-22 03:42:23.932  2476  2744 E PackageManager_MultiTaskDealer: Failed to scan /product/overlay/SystemUIFingerprintRes_16_0_HY.apk: Application package com.android.systemui.overlay.fingerprint.anim.huanying already installed.  Skipping duplicate.
+01-22 03:42:23.932  2476  2744 E PackageManager: Failed to scan /product/overlay/SystemUIFingerprintRes_16_0_HY.apk at first boot and we try again
+01-22 03:42:24.238  2476  2747 E PackageManager_MultiTaskDealer: Failed to scan /system_ext/priv-app/SystemUI: No APK Signature Scheme v2 signature in package /system_ext/priv-app/SystemUI/SystemUI.apk
+01-22 03:42:24.238  2476  2747 E PackageManager: Failed to scan /system_ext/priv-app/SystemUI at first boot and we try again
+01-22 03:42:24.243  2476  2747 E PackageManager: scan exception happened on first-boot /system_ext/priv-app/SystemUIcom.android.server.pm.PackageManagerException: No APK Signature Scheme v2 signature in package /system_ext/priv-app/SystemUI/SystemUI.apk
+01-22 03:42:24.243  2476  2747 I pm_critical_info: scan exception happened on first-boot /system_ext/priv-app/SystemUIcom.android.server.pm.PackageManagerException: No APK Signature Scheme v2 signature in package /system_ext/priv-app/SystemUI/SystemUI.apk

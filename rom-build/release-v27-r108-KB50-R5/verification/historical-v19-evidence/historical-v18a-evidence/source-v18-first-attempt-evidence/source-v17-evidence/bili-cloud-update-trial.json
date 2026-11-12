@@ -1,0 +1,11 @@
+{
+  "state": "BILI_NATIVE_EVENT_RULES_AND_CLOUD_REFRESH_RECOVERY_PASS",
+  "event_driven_observer_registered": true,
+  "draggable_live_rules_still_parsed": true,
+  "cloud_broadcast_result": "Broadcasting: Intent { act=oplus.intent.action.ROM_UPDATE_CONFIG_SUCCESS flg=0x400000 (has extras) }\r\nBroadcast completed: result=0\r\n",
+  "rule_apply_count_before": 3,
+  "rule_apply_count_after": 4,
+  "idle_poll": false,
+  "existing_ratio_and_layout_choice_preserved": true,
+  "original_app_not_modified": true
+}

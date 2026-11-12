@@ -1,0 +1,51 @@
+{
+  "state": "8_ACTUAL_SEED_SCRIPT_FILESYSTEM_CASES_PASS",
+  "cases": [
+    {
+      "case": "fresh",
+      "exit": 0,
+      "pass": true
+    },
+    {
+      "case": "existing_disabled",
+      "exit": 0,
+      "pass": true
+    },
+    {
+      "case": "existing_remove",
+      "exit": 0,
+      "pass": true
+    },
+    {
+      "case": "pending_update",
+      "exit": 0,
+      "pass": true
+    },
+    {
+      "case": "seed_marker_preserves_uninstall",
+      "exit": 0,
+      "pass": true
+    },
+    {
+      "case": "symlink_parent",
+      "exit": 1,
+      "pass": true
+    },
+    {
+      "case": "symlink_target",
+      "exit": 1,
+      "pass": true
+    },
+    {
+      "case": "corrupt_payload",
+      "exit": 1,
+      "pass": true
+    }
+  ],
+  "actual_delivery_script_used": true,
+  "paths_identity_and_SELinux_label_primitives_substituted": true,
+  "chmod_chown_payload_hash_checks_real": true,
+  "daemon_services_started": false,
+  "device_credentials_accessed": false,
+  "device_first_install_accepted": false
+}

@@ -1,0 +1,78 @@
+{
+  "state": "INDEPENDENT_IMAGES_READBACK_CLOSURE_FSCK_PASS",
+  "changes": [
+    {
+      "payload": "framework.jar",
+      "sha256": "a5928b090b68085bd2f32d9ecd39d76d1f4919ffee7072a071ef978232f46136",
+      "partition": "system_a",
+      "target": "/system/framework/oplus-services.jar",
+      "mode": "0644",
+      "expected_before": "ab25a362ff81a90c69dfa55ceaa3a2ae201775bd339abb04da5b1c2b71330467",
+      "before_sha256": "ab25a362ff81a90c69dfa55ceaa3a2ae201775bd339abb04da5b1c2b71330467"
+    },
+    {
+      "payload": "apply.sh",
+      "sha256": "fefea417fb6620bdd8bbc3e330dce3d627f27d55b1d9d1204d1ce456a71753bd",
+      "partition": "system_ext_a",
+      "target": "/etc/r91-rom/apply.sh",
+      "mode": "0755",
+      "expected_before": "e127d961575603d5773662d2adbe91db4f00023bebf2f2fea13828a844c26020",
+      "before_sha256": "e127d961575603d5773662d2adbe91db4f00023bebf2f2fea13828a844c26020"
+    },
+    {
+      "payload": "SHA256SUMS",
+      "sha256": "57846b97b5d1ccca02ce350f7dcb324924527b73ba401f878a017efbc10d0570",
+      "partition": "system_ext_a",
+      "target": "/etc/r91-rom/SHA256SUMS",
+      "mode": "0644",
+      "expected_before": "1f4182bbe821d9598364abd18a0d982f9bb2af451a8855891eac6f170c2dfbd6",
+      "before_sha256": "1f4182bbe821d9598364abd18a0d982f9bb2af451a8855891eac6f170c2dfbd6"
+    },
+    {
+      "payload": "init.target.rc",
+      "sha256": "49eb0c6e60fe4a748b489179f7d64fe9a48890e28b35a667bf80b726ae89c56b",
+      "partition": "vendor_a",
+      "target": "/etc/init/hw/init.target.rc",
+      "mode": "0644",
+      "expected_before": null,
+      "before_sha256": "e6763a583f9fa87a9ce1092651638b7be9c0e15b15c4bd2b04e3ffe6df1e93fc"
+    },
+    {
+      "payload": "hqkit.rc",
+      "sha256": "4e19ca269cf23af0d7147d4b27c63c077af4f63b0f73e9142d6251860204601c",
+      "partition": "vendor_a",
+      "target": "/etc/init/vendor.stc.hardware.hqkitservice@1.0-service.rc",
+      "mode": "0644",
+      "expected_before": "3a0c88aef2be3db887c4c6b504ced1fc611d7673417cee88e30288b0d21f9e8f",
+      "before_sha256": "3a0c88aef2be3db887c4c6b504ced1fc611d7673417cee88e30288b0d21f9e8f"
+    },
+    {
+      "payload": "animation-default-build.prop",
+      "sha256": "2b553eb8a545cb6c40596c0759eb8d14c861cd5f5362a1dd11ea2efad14c4193",
+      "partition": "system_a",
+      "target": "/my_manifest/build.prop",
+      "mode": "0644",
+      "expected_before": "18a97f39d6334bb734ede32891d33c1320e793cf60bc448f43000afa07916d91",
+      "before_sha256": "18a97f39d6334bb734ede32891d33c1320e793cf60bc448f43000afa07916d91"
+    }
+  ],
+  "images": {
+    "system_a": {
+      "path": "D:\\TB371FC-release\\v25-r102-freezer-r1-build\\system_a.img",
+      "sha256": "4f8a73a387dd4df43f66d1663daf4a4b51a6ed5bdfd3a7fe35e65694d9c9dc42",
+      "bytes": 9932111872
+    },
+    "system_ext_a": {
+      "path": "D:\\TB371FC-release\\v25-r102-freezer-r1-build\\system_ext_a.img",
+      "sha256": "6bae34b1a7be58327f710ee9f2e71651aec4dc21742db63a080852fd2a9b72fb",
+      "bytes": 2013265920
+    },
+    "vendor_a": {
+      "path": "D:\\TB371FC-release\\v25-r102-freezer-r1-build\\vendor_a.img",
+      "sha256": "78959e36b12aebb30996a94fbe4cf3e4ed53bfb57f2aacdc3c37544494d2ac1b",
+      "bytes": 899739648
+    }
+  },
+  "animation_default_r1": true,
+  "freezer_fallback_r1": true
+}

@@ -1,0 +1,12 @@
+{
+  "exact_full_archive_clean_flash_pass": false,
+  "device_modified_by_packaging": false,
+  "r102_component_runtime_verified": true,
+  "charger_guard_component_runtime_verified": true,
+  "wake_tests_not_run": true,
+  "freezer_fallback_r1_included": true,
+  "freezer_component_runtime_verified": true,
+  "independent_quad_claimed": false,
+  "pen_keyboard_phone_acceptance_added": false,
+  "source_scope": "retained historical verification files describe their named earlier builds, not this exact archive"
+}

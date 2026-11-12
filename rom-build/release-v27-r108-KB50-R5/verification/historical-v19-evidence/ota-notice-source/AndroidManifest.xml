@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.oplus.ota" android:versionCode="16000016" android:versionName="16.0.16-disabled">
+<uses-sdk android:minSdkVersion="26" android:targetSdkVersion="36" />
+<application android:label="系统更新已停用" android:allowBackup="false" android:usesCleartextTraffic="false" android:supportsRtl="true" android:theme="@android:style/Theme.Material.Light.NoActionBar">
+<activity android:name="com.oplus.otaui.activity.EntryActivity" android:exported="true">
+<intent-filter><action android:name="com.oplus.ota.MAIN"/><action android:name="android.settings.SYSTEM_UPDATE_SETTINGS"/><category android:name="android.intent.category.DEFAULT"/></intent-filter>
+</activity>
+<activity-alias android:name="com.oplus.otaui.activity.OtaFeatureSelectActivity" android:targetActivity="com.oplus.otaui.activity.EntryActivity" android:exported="true">
+<intent-filter><action android:name="oplus.intent.action.Ota_Feature_Select"/><category android:name="android.intent.category.DEFAULT"/></intent-filter>
+</activity-alias>
+</application></manifest>

@@ -1,0 +1,18 @@
+{
+  "state": "NATIVE_CAMERA_ASH_FD_LOCK_AND_ART_PROFILE_POLICY_READBACK_FSCK_PASS",
+  "changes": [
+    {
+      "path": "/system/etc/r94-camera-v7/install-once.sh",
+      "sha256": "6e4a8b40086bd10e24cbe07de508dba5db17493710c22c517b9aa0c23ed4affc",
+      "context": "u:object_r:system_file:s0",
+      "mode": "0100755"
+    },
+    {
+      "path": "/etc/init/r94-native-config.rc",
+      "sha256": "f0031d1e0170951f31eda4d3bcb1747c244bda264969a99f34297846dbf212e3",
+      "context": "u:object_r:system_file:s0",
+      "mode": "0100644"
+    }
+  ],
+  "new_permissions_or_daemon": false
+}

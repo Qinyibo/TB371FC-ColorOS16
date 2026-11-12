@@ -1,0 +1,28 @@
+{
+  "changed_methods": [
+    "Lcom/android/wm/shell/recents/RecentsTransitionHandler$RecentsController;->getSnapshotsForPausingTasks()Landroid/util/Pair;"
+  ],
+  "changed_dex": "classes4.dex",
+  "sha256": "8ad70cc761213ed3854650f1f477a010fb443b39f96c48c0de62c347f2f39b4a",
+  "base_sha256": "56bc35af0c908ec00151ec792f3df048985d1cf0db06260b6a86f42614d76928",
+  "signer_block_preserved": true,
+  "native_library_alignment_preserved": true,
+  "mapping_contract_pass": true,
+  "visual_black_bar_fix_proven": false,
+  "currently_active": false,
+  "runtime_trial": {
+    "candidate": "8ad70cc761213ed3854650f1f477a010fb443b39f96c48c0de62c347f2f39b4a",
+    "temporary_readonly_bind": true,
+    "image_written": false,
+    "earlier_mount_trials": "toybox read-only remount rejected; rollback hash verified twice; corrected with existing Magisk busybox",
+    "active": true,
+    "boot": "9d0cb3a1-e817-4600-8a00-4f620e230cc0",
+    "system_server": "2262",
+    "previous_systemui": "8274",
+    "systemui": "9110",
+    "mapped_candidate_inode": "71782"
+  },
+  "user_acceptance": "User requested black-bar manual testing; all black-bar device tests stopped. No visual-success claim.",
+  "packaged": false,
+  "boot_persistent": false
+}

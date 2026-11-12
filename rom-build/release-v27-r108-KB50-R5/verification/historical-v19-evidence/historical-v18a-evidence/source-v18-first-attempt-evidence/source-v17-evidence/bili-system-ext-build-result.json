@@ -1,0 +1,18 @@
+{
+  "state": "BILI_SEED_SYSTEM_EXT_FILES_READBACK_FSCK_PASS",
+  "path": "D:/TB371FC-release/v17-bili-ready-build/system_ext-v17-ready.img",
+  "bytes": 2013265920,
+  "sha256": "23a196acd7c7a1ad270722b84248354a5a05aa716d816d52d75a5599a6f15ef5",
+  "source_sha256": "c64e15b204ec0f535236a54b7d82aacf575a4febe0a132e2666f022d546e3413",
+  "changed_files": [
+    "/etc/r94-native/module-delivery/delivery.sh",
+    "/etc/r94-native/module-delivery/SHA256SUMS",
+    "/etc/r94-native/module-delivery/modules/r94_bili_native_rules/module.prop",
+    "/etc/r94-native/module-delivery/modules/r94_bili_native_rules/README.md",
+    "/etc/r94-native/module-delivery/modules/r94_bili_native_rules/rules.dex",
+    "/etc/r94-native/module-delivery/modules/r94_bili_native_rules/service.sh",
+    "/etc/r94-native/module-delivery/modules/r94_bili_native_rules/skip_mount"
+  ],
+  "SystemUI_APK_and_preopt_unchanged": true,
+  "original_three_modules_unchanged": true
+}

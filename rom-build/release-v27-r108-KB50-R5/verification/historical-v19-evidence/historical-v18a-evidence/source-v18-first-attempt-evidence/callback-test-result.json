@@ -1,0 +1,7 @@
+{
+  "state": "PASS",
+  "source_sha256": "27d9254115b7375ce4f247e58324b7dac06a82a7815eecc819994ed5eb4b5502",
+  "test": "actual source-extracted DWC3 queue/stop/callback guards; USB enumeration, PD, non-FLOAT, late type, bounded retry, teardown",
+  "output": "ACTUAL_DWC3_CALLBACK_GUARD_AND_RETRY_CASES=37\n",
+  "physical_kernel_acceptance": false
+}

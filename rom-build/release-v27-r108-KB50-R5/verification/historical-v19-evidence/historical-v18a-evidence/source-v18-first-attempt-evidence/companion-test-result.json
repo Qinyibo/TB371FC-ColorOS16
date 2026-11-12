@@ -1,0 +1,6 @@
+{
+  "state": "PASS_16_ACTUAL_NATIVE_INITIALIZATION_GUARDS",
+  "actual_source_region_used": true,
+  "ioctl_and_device_primitives_stubbed": true,
+  "device_used": false
+}

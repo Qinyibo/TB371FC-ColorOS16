@@ -1,0 +1,634 @@
+From 4b397325943e70d3dbaaff63b5f622ab48668d62 Mon Sep 17 00:00:00 2001
+From: Qinyibo <54056901+Qinyibo@users.noreply.github.com>
+Date: Tue, 3 Nov 2026 17:57:48 +0800
+Subject: [PATCH] drm: retain dead-panel recovery until a matching successful
+ modeset
+
+Do not clear the panel rail-recovery flag before touch PREPARE can fail.
+Use the existing panel lock and fault/recovery sequence snapshots so an old
+success cannot clear a newer ESD/enable failure. Preserve ordinary gesture
+rail retention and OFF/LP notify-only policy; retain notification coalescing.
+
+Extracted production-function regression: old 13/29 failures, candidate
+35/35 checks pass with UBSan and threaded event interleavings. Full Image,
+unchanged config/Module.symvers, boot payload invariants, partition readback
+and one normal system boot pass. No wake stress or fault injection.
+Intermittent INIT=0x9D root cause and real recovery remain unproven.
+---
+ docs/tb371fc/recovery-state-r106/README.md    |  49 ++++
+ .../recovery-state-r106/contract-before.txt   |  14 +
+ .../contract-candidate.txt                    |   1 +
+ .../recovery-state-r106/prepare_tests.py      | 250 ++++++++++++++++++
+ .../recovery-state-r106/validation.json       |  59 +++++
+ techpack/display/msm/dsi/dsi_drm.c            |   1 +
+ techpack/display/msm/dsi/dsi_panel.c          |   3 -
+ techpack/display/msm/sde/sde_connector.c      |  60 +++--
+ techpack/display/msm/sde/sde_connector.h      |   5 +
+ 9 files changed, 417 insertions(+), 25 deletions(-)
+ create mode 100644 docs/tb371fc/recovery-state-r106/README.md
+ create mode 100644 docs/tb371fc/recovery-state-r106/contract-before.txt
+ create mode 100644 docs/tb371fc/recovery-state-r106/contract-candidate.txt
+ create mode 100644 docs/tb371fc/recovery-state-r106/prepare_tests.py
+ create mode 100644 docs/tb371fc/recovery-state-r106/validation.json
+
+diff --git a/docs/tb371fc/recovery-state-r106/README.md b/docs/tb371fc/recovery-state-r106/README.md
+new file mode 100644
+index 000000000..fbb039ea5
+--- /dev/null
++++ b/docs/tb371fc/recovery-state-r106/README.md
+@@ -0,0 +1,49 @@
++# r106：恢复资格保留到成功提交
++
++基于已公开 r104 功能代码和维护提交 `9dd8f4f9edee33052c4c52706131fe72e43f2ef5`。本项修正恢复状态生命周期，不宣称修复触控 INIT=0x9D 根因或已经验证异常硬件恢复。
++
++## 问题与修改
++
++旧代码在 `dsi_panel_power_on` 中清除 `panel_dead_flag`，此时 pinctrl、面板 reset 和后续 TOUCH_PREPARE 尚未全部完成。PREPARE 失败后 unprepare 的 power_off 被 p108 提前返回；connector 的 dead 状态仍为真，sticky 通知不会重新置位 panel 标志，后续尝试失去电源恢复资格。
++
++- 删除 power_on 提前清理，失败后继续保留恢复资格。
++- 使用已有 `panel_lock` 保护两个 dead 标志与故障序号，无新增锁。
++- bridge pre-enable 开始前记录故障序号；原 helper_bridge_enable 成功提交点只有在序号未变时清理两个标志。
++- 每次故障报告（包括 sticky 报告）更新故障序号，ESD IRQ 的 pending/dead 提前返回也计入。新故障不会被旧尝试的成功提交清掉。
++- 外部 PANEL_DEAD 通知在释放 panel_lock 后发送，载荷使用稳定的局部 true，不引用可能刚被成功路径改变的状态字段。
++- OFF/LP 的既有 notify-only 路径不请求电源恢复，普通休眠的 keep-power 策略保持原样。
++
++只有四个产品源码文件变化：dsi_panel.c、dsi_drm.c、sde_connector.c/h。没有增加恢复线程、自动重通知、定时器或轮询，没有调整 IRQ 复位时序、固件/CRC、USB、调度、内存或键盘。
++
++## 锁与调用顺序
++
++新增状态访问复用 DSI panel_lock。调用者为 modeset 提交、ESD 工作或 threaded IRQ；现有 ESD 检查和 IRQ 路径在调用通知 helper 前已释放 connector/panel 锁。通知、encoder recovery 和背光调用不在新增 panel_lock 临界区内，避免扩展为跨回调持锁。
++
++成功提交仅关闭开始前的故障代次；如果恢复期间出现新故障，仍保留 dead 状态。既有 sticky 通知合并策略不增加重试，保留状态不等于保证自动再次恢复。
++
++## 已完成的软件验证
++
++直接抽取原版/候选的 power_on、power_off、bridge helper、notify/report 和 ESD IRQ 函数，硬件调用替换为受控 stub。使用 pthread 及 UBSan 测试失败回退和通知交错，不能当作真实电气、GPIO 波形或内核压力验证。
++
++- 原版共有检查 29 项，其中 13 项失败；候选相同检查通过，另加 6 项候选检查，共 35 项通过。
++- 覆盖首次恢复、PREPARE/post-enable 失败回退、上电/pinctrl/reset 返回错误、再次尝试、成功恢复后正常休眠、新故障在提交前后及通知中交错、ESD 提前返回、OFF/LP 策略和并发报告合并。
++- checkpatch：0 错误、0 警告。完整 Image 构建通过，配置与 Module.symvers 未变，继承的编译警告仍存在。
++- 未刷入的 r100 HID 候选和撤回的 r105 USB 候选均不包含；构建完成后恢复工作区原文件（包括原有 CRLF），候选源码由此 Git 提交独立保存。
++
++在本分支的完整 Git checkout 中生成并运行回归（Linux host，非平板）：
++
++```sh
++python3 docs/tb371fc/recovery-state-r106/prepare_tests.py "$PWD" /tmp/r106-contract
++clang -Wall -Wextra -Werror -Wno-unused-function -Wno-unused-parameter -Wno-misleading-indentation -fsanitize=undefined -pthread /tmp/r106-contract/contract-before.c -o /tmp/r106-before
++/tmp/r106-before # 预期返回1并报告原版缺陷
++clang -Wall -Wextra -Werror -Wno-unused-function -Wno-unused-parameter -Wno-misleading-indentation -fsanitize=undefined -pthread -DCANDIDATE /tmp/r106-contract/contract-candidate.c -o /tmp/r106-candidate
++/tmp/r106-candidate
++```
++
++完整内核沿用 `build/tb371fc/build.sh`，设置 `KBUILD_BUILD_HOST=r106-recovery-state`。启动镜像以精确 r104 boot 为基线，仅替换内核；ramdisk、DTB 和其他载荷及 header 不变量逐项比较。
++
++## 实机边界与回退
++
++当前构建/安装状态以同目录 validation.json 为准。后续只做一次正常安装与启动核对，不故障注入、不反复唤醒。异常恢复和 INIT=0x9D 仍需自然故障现场验证。
++
++回退到 r104 boot SHA256 `f29c32c15c7276d777f243a322ca35495099c25d6e41e402dd4eacb77121f85b`。不改变 ROM/data，也不使用失败的 fastboot RAM 下载载荷。
+diff --git a/docs/tb371fc/recovery-state-r106/contract-before.txt b/docs/tb371fc/recovery-state-r106/contract-before.txt
+new file mode 100644
+index 000000000..1a2629688
+--- /dev/null
++++ b/docs/tb371fc/recovery-state-r106/contract-before.txt
+@@ -0,0 +1,14 @@
++FAIL power_on must not consume recovery eligibility
++FAIL failed PREPARE rollback powers down
++FAIL failure retains both dead flags
++FAIL next recovery can power_on again
++FAIL early failure keeps recovery armed
++FAIL early failure keeps recovery armed
++FAIL early failure keeps recovery armed
++FAIL post_enable failure rollback still powers down
++FAIL late fault is not cleared by old success
++FAIL notification carries stable true payload
++FAIL concurrent ESD before completion retained
++FAIL sticky ESD IRQ is counted before early return
++FAIL pending ESD IRQ is counted before early return
++29 checks; 13 failures
+diff --git a/docs/tb371fc/recovery-state-r106/contract-candidate.txt b/docs/tb371fc/recovery-state-r106/contract-candidate.txt
+new file mode 100644
+index 000000000..518f6c86a
+--- /dev/null
++++ b/docs/tb371fc/recovery-state-r106/contract-candidate.txt
+@@ -0,0 +1 @@
++35 checks; 0 failures
+diff --git a/docs/tb371fc/recovery-state-r106/prepare_tests.py b/docs/tb371fc/recovery-state-r106/prepare_tests.py
+new file mode 100644
+index 000000000..480c6af08
+--- /dev/null
++++ b/docs/tb371fc/recovery-state-r106/prepare_tests.py
+@@ -0,0 +1,250 @@
++"""Exercise extracted production functions; no device or regulator access."""
++from pathlib import Path
++import subprocess,sys
++W=Path(__file__).resolve().parent
++if len(sys.argv)==3:
++    source=Path(sys.argv[1]).resolve();W=Path(sys.argv[2]).resolve()
++    W.mkdir(parents=True,exist_ok=False)
++    base='9dd8f4f9edee33052c4c52706131fe72e43f2ef5'
++    for name in ['dsi_panel.c','sde_connector.c','sde_connector.h','dsi_drm.c']:
++        relative='techpack/display/msm/'+('sde/' if name.startswith('sde_') else 'dsi/')+name
++        original=subprocess.check_output(['git','-C',str(source),'show',base+':'+relative])
++        (W/name).write_bytes(original)
++        (W/(name+'.candidate')).write_bytes((source/relative).read_bytes())
++elif len(sys.argv)!=1:
++    raise SystemExit('Usage: prepare_tests.py [kernel_checkout new_output_directory]')
++
++def function(text,name):
++    at=text.index(name+'(')
++    start=text.rfind('\n',0,at)+1
++    opening=text.index('{',at);level=1;pos=opening+1
++    while level:
++        if text[pos]=='{':level+=1
++        if text[pos]=='}':level-=1
++        pos+=1
++    return text[start:pos]+'\n'
++
++stub=r'''
++#include <assert.h>
++#include <errno.h>
++#include <pthread.h>
++#include <stdbool.h>
++#include <stdint.h>
++#include <stdio.h>
++#include <string.h>
++typedef uint8_t u8;
++typedef uint32_t u32;
++typedef int irqreturn_t;
++#define IRQ_HANDLED 1
++#define DRM_MODE_CONNECTOR_DSI 14
++#define SDE_MODE_DPMS_ON 0
++#define SDE_MODE_DPMS_LP1 1
++#define atomic_read(p) (*(p))
++#define atomic_set(p,v) (*(p)=(v))
++#define DSI_INFO(...) ((void)0)
++#define DSI_ERR(...) ((void)0)
++#define DSI_WARN(...) ((void)0)
++#define SDE_ERROR(...) ((void)0)
++#define SDE_EVT32(...) ((void)0)
++#define SDE_EVTLOG_ERROR 0
++#define READ_ONCE(x) (x)
++#define pr_err_once(...) ((void)0)
++#define DRM_EVENT_PANEL_DEAD 1
++#define BL_UPDATE_DELAY_UNTIL_FIRST_FRAME 1
++#define MSM_ENC_TX_COMPLETE 1
++#define FB_BLANK_UNBLANK 0
++#define BL_CORE_FBBLANK 1
++#define DSI_MODE_FLAG_DMS 1
++#define DSI_MODE_FLAG_DMS_FPS 2
++struct panel {
++    pthread_mutex_t panel_lock;
++    struct {bool panel_dead_flag,is_tddi_flag,tddi_doubleclick_flag,pending_lhbm_state;int esd_err_irq_gpio;
++            uint64_t panel_id;} mi_cfg;
++    struct {int tp_reset_gpio,disp_en_gpio,reset_gpio,lcd_mode_sel_gpio;
++            int reset_powerdown_delay;} reset_config;
++    struct {int en_gpio,bl_update;} bl_config;
++    struct {int dsi_mode_flags;} *cur_mode;
++    int power_info,panel_test_gpio,esd_recovery_pending,power_mode;
++    struct {bool cphy_strength;} host_config;
++    bool reset_gpio_always_on,lp11_init,panel_initialized;
++    const char *name;
++};
++#define dsi_panel panel
++struct dsi_display {struct panel *panel;const char *display_type;};
++struct drm_connector {struct {int id;} base;void *dev;};
++struct encoder {struct {int id;} base;};
++struct backlight {struct {int power,state,brightness;} props;};
++struct sde_connector {
++    struct drm_connector base;
++    struct dsi_display *display;
++    struct encoder *encoder;
++    u32 panel_dead_seq,panel_recovery_seq;
++    int connector_type;
++    bool panel_dead,allow_bl_update;
++    struct backlight *bl_device;
++};
++#define to_sde_connector(p) ((struct sde_connector *)(p))
++struct drm_event {int type,length;};
++static int on_calls,off_calls,fail_power,fail_pinctrl,fail_reset;
++static int notifications,failures,checks,events_with_false_payload;
++static struct panel *current_panel;
++static void (*notify_hook)(void),(*backlight_hook)(void);
++static int dsi_pwr_enable_regulator(int *info,bool on)
++{(void)info;if(on){on_calls++;return fail_power?-EIO:0;}off_calls++;return 0;}
++static int gpio_is_valid(int gpio){return gpio>=0;}
++static int gpio_get_value(int gpio){(void)gpio;return 0;}
++static void gpio_set_value(int gpio,int value){(void)gpio;(void)value;}
++static int gpio_direction_output(int gpio,int value){(void)gpio;(void)value;return 0;}
++static int gpio_direction_input(int gpio){(void)gpio;return 0;}
++static void mdelay(int n){(void)n;}
++static void usleep_range(int a,int b){(void)a;(void)b;}
++static int dsi_panel_set_pinctrl_state(struct panel *p,bool on)
++{(void)p;return on&&fail_pinctrl?-EIO:0;}
++static int dsi_panel_reset(struct panel *p){(void)p;return fail_reset?-EIO:0;}
++static void dsi_panel_acquire_panel_lock(struct panel *p){assert(!pthread_mutex_lock(&p->panel_lock));}
++static void dsi_panel_release_panel_lock(struct panel *p){assert(!pthread_mutex_unlock(&p->panel_lock));}
++static bool dsi_panel_initialized(struct panel *p){return p->panel_initialized;}
++static void dsi_panel_esd_irq_ctrl_locked(struct panel *p,bool enabled){(void)p;(void)enabled;}
++static void sde_encoder_display_failure_notification(struct encoder *e,bool skip){(void)e;(void)skip;}
++static int sde_encoder_wait_for_event(struct encoder *e,int event){(void)e;(void)event;return 0;}
++static void mi_disp_set_fod_queue_work(int a,bool b){(void)a;(void)b;}
++static void backlight_update_status(struct backlight *b){(void)b;if(backlight_hook)backlight_hook();}
++static void msm_mode_object_event_notify(void *a,void *b,struct drm_event *e,u8 *payload)
++{
++    (void)a;(void)b;assert(e->length==(int)sizeof(bool));
++    /* External notification must run after releasing panel_lock. */
++    assert(!pthread_mutex_trylock(&current_panel->panel_lock));
++    assert(!pthread_mutex_unlock(&current_panel->panel_lock));
++    if(notify_hook)notify_hook();
++    notifications++;if(!*(bool *)payload)events_with_false_payload++;
++}
++'''
++
++tests=r'''
++static struct panel p;
++static struct dsi_display display;
++static struct sde_connector conn;
++static struct encoder encoder;
++static void fresh(void)
++{
++    static bool initialized;
++    if(initialized)assert(!pthread_mutex_destroy(&p.panel_lock));
++    memset(&p,0,sizeof(p));memset(&display,0,sizeof(display));memset(&conn,0,sizeof(conn));
++    assert(!pthread_mutex_init(&p.panel_lock,0));initialized=true;current_panel=&p;
++    p.mi_cfg.is_tddi_flag=true;p.mi_cfg.tddi_doubleclick_flag=true;
++    p.reset_config.tp_reset_gpio=p.reset_config.disp_en_gpio=p.reset_config.reset_gpio=-1;
++    p.reset_config.lcd_mode_sel_gpio=p.panel_test_gpio=p.bl_config.en_gpio=-1;
++    p.name="test";p.panel_initialized=true;display.panel=&p;display.display_type="primary";
++    conn.display=&display;conn.encoder=&encoder;conn.connector_type=DRM_MODE_CONNECTOR_DSI;
++    on_calls=off_calls=fail_power=fail_pinctrl=fail_reset=notifications=events_with_false_payload=0;
++    notify_hook=backlight_hook=0;
++}
++#define CHECK(x,label) do {checks++;if(!(x)){fprintf(stderr,"FAIL %s\n",label);failures++;}}while(0)
++static bool fault(bool request_power)
++{
++#ifdef CANDIDATE
++    return _sde_connector_notify_panel_dead(&conn,request_power);
++#else
++    (void)request_power;return _sde_connector_notify_panel_dead(&conn);
++#endif
++}
++static void begin(void)
++{
++#ifdef CANDIDATE
++    sde_connector_helper_bridge_pre_enable(&conn.base);
++#endif
++}
++static int power_on(void)
++{int rc;dsi_panel_acquire_panel_lock(&p);rc=dsi_panel_power_on(&p);dsi_panel_release_panel_lock(&p);return rc;}
++static void power_off(void)
++{dsi_panel_acquire_panel_lock(&p);dsi_panel_power_off(&p);dsi_panel_release_panel_lock(&p);}
++static void success(void){sde_connector_helper_bridge_enable(&conn.base);}
++static void clear_during_notify(void){notify_hook=0;begin();success();}
++static void *report_thread(void *arg){(void)arg;fault(true);return 0;}
++static void fault_during_backlight(void)
++{pthread_t thread;backlight_hook=0;assert(!pthread_create(&thread,0,report_thread,0));assert(!pthread_join(thread,0));}
++int main(void)
++{
++    fresh();begin();CHECK(!power_on(),"healthy power_on");success();power_off();
++    CHECK(on_calls==0&&off_calls==0,"ordinary gesture rails unchanged");
++    CHECK(!conn.panel_dead&&!p.mi_cfg.panel_dead_flag,"healthy flags clear");
++
++    fresh();CHECK(fault(true),"first failure reports");power_off();
++    CHECK(off_calls==1&&p.mi_cfg.panel_dead_flag,"initial recovery OFF retains eligibility");
++    begin();CHECK(!power_on(),"recovery ON");
++    CHECK(p.mi_cfg.panel_dead_flag,"power_on must not consume recovery eligibility");
++    /* Firmware PREPARE fails: native bridge skips success and unprepares. */
++    power_off();CHECK(off_calls==2,"failed PREPARE rollback powers down");
++    sde_connector_report_enable_failure(&conn.base);
++    CHECK(notifications==1,"sticky notification stays coalesced");
++    CHECK(conn.panel_dead&&p.mi_cfg.panel_dead_flag,"failure retains both dead flags");
++    begin();power_on();CHECK(on_calls==2,"next recovery can power_on again");
++    success();CHECK(!conn.panel_dead&&!p.mi_cfg.panel_dead_flag,"successful recovery clears both flags");
++    int before=off_calls;power_off();CHECK(off_calls==before,"success restores normal keep-power policy");
++
++    for(int mode=0;mode<3;mode++){
++        fresh();fault(true);begin();
++        if(mode==0)fail_power=1;if(mode==1)fail_pinctrl=1;if(mode==2)fail_reset=1;
++        CHECK(power_on()==-EIO,"power/pinctrl/reset failure is propagated");
++        CHECK(p.mi_cfg.panel_dead_flag,"early failure keeps recovery armed");
++    }
++
++    fresh();fault(true);begin();power_on();
++    /* post_enable fails too: helper_bridge_enable must not be called. */
++    power_off();CHECK(off_calls==1,"post_enable failure rollback still powers down");
++
++    fresh();fault(true);begin();power_on();fault(true);success();
++    CHECK(conn.panel_dead&&p.mi_cfg.panel_dead_flag,"late fault is not cleared by old success");
++    CHECK(notifications==1,"late fault does not add automatic renotification");
++    begin();success();CHECK(!conn.panel_dead&&!p.mi_cfg.panel_dead_flag,"next successful epoch can clear");
++
++    fresh();notify_hook=clear_during_notify;fault(true);
++    CHECK(events_with_false_payload==0,"notification carries stable true payload");
++
++    fresh();fault(true);begin();power_on();
++    struct backlight bl={.props={.brightness=1}};conn.bl_device=&bl;
++    struct {int dsi_mode_flags;} mode={0};p.cur_mode=(void *)&mode;
++    backlight_hook=fault_during_backlight;success();
++    CHECK(conn.panel_dead&&p.mi_cfg.panel_dead_flag,"concurrent ESD before completion retained");
++
++    fresh();fault(true);begin();power_on();
++    esd_err_irq_handle(1,&conn);success();
++    CHECK(conn.panel_dead&&p.mi_cfg.panel_dead_flag,"sticky ESD IRQ is counted before early return");
++    fresh();fault(true);begin();power_on();p.esd_recovery_pending=1;
++    esd_err_irq_handle(1,&conn);success();
++    CHECK(conn.panel_dead&&p.mi_cfg.panel_dead_flag,"pending ESD IRQ is counted before early return");
++    fresh();fault(true);begin();power_on();success();fault(true);
++    CHECK(conn.panel_dead&&p.mi_cfg.panel_dead_flag&&notifications==2,"fault after completion reports and owns dead");
++    fresh();begin();p.panel_initialized=false;esd_err_irq_handle(1,&conn);success();
++    CHECK(!conn.panel_dead&&!p.mi_cfg.panel_dead_flag,"uninitialized-panel IRQ does not invent a fault");
++
++#ifdef CANDIDATE
++    fresh();CHECK(fault(false),"OFF/LP reports");
++    CHECK(conn.panel_dead&&!p.mi_cfg.panel_dead_flag,"OFF/LP does not request rail recovery");
++    begin();power_on();success();power_off();
++    CHECK(on_calls==0&&off_calls==0,"OFF/LP original power policy retained");
++    fresh();p.power_mode=2;esd_err_irq_handle(1,&conn);
++    CHECK(conn.panel_dead&&!p.mi_cfg.panel_dead_flag,"actual OFF IRQ preserves notify-only policy");
++    fresh();begin();pthread_t a,b;
++    assert(!pthread_create(&a,0,report_thread,0));assert(!pthread_create(&b,0,report_thread,0));
++    assert(!pthread_join(a,0));assert(!pthread_join(b,0));
++    CHECK(notifications==1&&conn.panel_dead_seq==2,"simultaneous faults serialize and coalesce");
++    success();CHECK(conn.panel_dead&&p.mi_cfg.panel_dead_flag,"faults after epoch snapshot survive");
++#endif
++    printf("%d checks; %d failures\n",checks,failures);
++    return failures?1:0;
++}
++'''
++
++for kind in ['before','candidate']:
++    suffix='' if kind=='before' else '.candidate'
++    panel=(W/('dsi_panel.c'+suffix)).read_text(encoding='utf-8')
++    conn=(W/('sde_connector.c'+suffix)).read_text(encoding='utf-8')
++    functions=[function(panel,'dsi_panel_power_on'),function(panel,'dsi_panel_power_off')]
++    if kind=='candidate':functions.append(function(conn,'sde_connector_helper_bridge_pre_enable'))
++    functions.extend(function(conn,name) for name in ['sde_connector_helper_bridge_enable','_sde_connector_notify_panel_dead','_sde_connector_report_panel_dead','sde_connector_report_enable_failure','esd_err_irq_handle'])
++    # The ordinary keep-power policy is the real constant from this source.
++    assert 'static bool p108_keep_panel_power = true;' in panel
++    generated=stub+'\nstatic bool p108_keep_panel_power = true;\n'+'\n'.join(functions)+tests
++    (W/('contract-'+kind+'.c')).write_bytes(generated.encode())
++print('Extracted original and candidate functions for contract tests.')
+diff --git a/docs/tb371fc/recovery-state-r106/validation.json b/docs/tb371fc/recovery-state-r106/validation.json
+new file mode 100644
+index 000000000..5e483428e
+--- /dev/null
++++ b/docs/tb371fc/recovery-state-r106/validation.json
+@@ -0,0 +1,59 @@
++{
++  "state": "SOURCE_BUILD_PARTITION_READBACK_NORMAL_BOOT_PASS_EXCEPTIONAL_RECOVERY_PENDING",
++  "candidate": "r106-recovery-state",
++  "base_commit": "9dd8f4f9edee33052c4c52706131fe72e43f2ef5",
++  "production_files": [
++    {
++      "path": "techpack/display/msm/dsi/dsi_panel.c",
++      "before": "9da43bb6463d574df00fcb191ef4244b9bdc119565b30bb2035300d6c489ce08",
++      "after": "1c564d32d7817b8cb1cccd4d78c6313e87143d90c01a0588781788d2436567f0"
++    },
++    {
++      "path": "techpack/display/msm/sde/sde_connector.c",
++      "before": "f52ab5ac98fb1f22a831f3ec07916bd8878ef24deb0f2562b0e2b0b807edb754",
++      "after": "cd516fd2aa6036718fa75cfe29f97fd22d75a3f2f121dbb8fd7ae641df08c05a"
++    },
++    {
++      "path": "techpack/display/msm/sde/sde_connector.h",
++      "before": "be460961ca1ea0c6665759b2a292b63280c58260bc4901fdf78064a47c076181",
++      "after": "114ee9f1176625244e70d223a1538820f222a89d34f55a62fb45b0e01d376c6d"
++    },
++    {
++      "path": "techpack/display/msm/dsi/dsi_drm.c",
++      "before": "1879118f5e85f6ce11208c2aa1348a8ec40131ac31083ad360594858992a4ea3",
++      "after": "ba1826de89b95a0addc8e6cf2c78f0c68c9770d2c83858f4e90c6bd609bf6bbc"
++    }
++  ],
++  "checkpatch_errors": 0,
++  "checkpatch_warnings": 0,
++  "old_contract_checks": 29,
++  "old_contract_failures": 13,
++  "candidate_contract_checks": 35,
++  "candidate_contract_failures": 0,
++  "test_functions_extracted_from_production": true,
++  "ubsan_enabled": true,
++  "concurrent_notification_cases_included": true,
++  "full_image_build_pass": true,
++  "config_unchanged": true,
++  "module_symvers_unchanged": true,
++  "image_sha256": "9cfdff7224e9239bac85fbd96a9a2c3ed197e633bcf5b922be09584c2b50bb07",
++  "firmware_reset_or_crc_changed": false,
++  "new_retry_or_polling": false,
++  "usb_changed": false,
++  "keyboard_candidate_included": false,
++  "hardware_success_claimed": false,
++  "init_0x9d_root_cause_fixed_claimed": false,
++  "normal_device_boot_tested": true,
++  "boot_sha256": "899860494f70ec1b63241a9ebbd25946502bdb7e932558bc114632f908ae0920",
++  "boot_non_kernel_payloads_and_header_match_r104": true,
++  "common_contract_checks": 29,
++  "candidate_extra_checks": 6,
++  "partition_readback_pass": true,
++  "root_and_enforcing_retained": true,
++  "animation_level": 4,
++  "systemui_from_accepted_v26_image": true,
++  "normal_boot_touch_failed": false,
++  "natural_fault_exercised": false,
++  "wake_cycles_injected": 0,
++  "physical_pixels_confirmed": false
++}
+\ No newline at end of file
+diff --git a/techpack/display/msm/dsi/dsi_drm.c b/techpack/display/msm/dsi/dsi_drm.c
+index 6d85a995d..c6df0684f 100644
+--- a/techpack/display/msm/dsi/dsi_drm.c
++++ b/techpack/display/msm/dsi/dsi_drm.c
+@@ -194,6 +194,7 @@ static void dsi_bridge_pre_enable(struct drm_bridge *bridge)
+ 	}
+ 
+ 	c_bridge->r94_pre_enable_ok = false;
++	sde_connector_helper_bridge_pre_enable(c_bridge->display->drm_conn);
+ 
+ 	if (bridge->encoder->crtc->state->active_changed)
+ 		atomic_set(&c_bridge->display->panel->esd_recovery_pending, 0);
+diff --git a/techpack/display/msm/dsi/dsi_panel.c b/techpack/display/msm/dsi/dsi_panel.c
+index 6b84138de..dab345b82 100644
+--- a/techpack/display/msm/dsi/dsi_panel.c
++++ b/techpack/display/msm/dsi/dsi_panel.c
+@@ -484,9 +484,6 @@ static int dsi_panel_power_on(struct dsi_panel *panel)
+ 							panel->reset_config.tp_reset_gpio);
+ 				}
+ 			}
+-			if (panel->mi_cfg.panel_dead_flag) {
+-				panel->mi_cfg.panel_dead_flag = false;
+-			}
+ 		}
+ 	} else {
+ 		rc = dsi_pwr_enable_regulator(&panel->power_info, true);
+diff --git a/techpack/display/msm/sde/sde_connector.c b/techpack/display/msm/sde/sde_connector.c
+index e76409662..1c1e81faa 100644
+--- a/techpack/display/msm/sde/sde_connector.c
++++ b/techpack/display/msm/sde/sde_connector.c
+@@ -1304,6 +1304,17 @@ void sde_connector_helper_bridge_disable(struct drm_connector *connector)
+ 	c_conn->allow_bl_update = false;
+ }
+ 
++/* Snapshot the fault this modeset can recover, before touching panel power. */
++void sde_connector_helper_bridge_pre_enable(struct drm_connector *connector)
++{
++	struct sde_connector *conn = to_sde_connector(connector);
++	struct dsi_display *display = conn->display;
++
++	dsi_panel_acquire_panel_lock(display->panel);
++	conn->panel_recovery_seq = conn->panel_dead_seq;
++	dsi_panel_release_panel_lock(display->panel);
++}
++
+ void sde_connector_helper_bridge_enable(struct drm_connector *connector)
+ {
+ 	struct sde_connector *c_conn = NULL;
+@@ -1342,7 +1353,13 @@ void sde_connector_helper_bridge_enable(struct drm_connector *connector)
+ 			}
+ 		}
+ 	}
+-	c_conn->panel_dead = false;
++	/* A newer fault still owns dead; do not consume it here. */
++	dsi_panel_acquire_panel_lock(display->panel);
++	if (c_conn->panel_recovery_seq == c_conn->panel_dead_seq) {
++		display->panel->mi_cfg.panel_dead_flag = false;
++		c_conn->panel_dead = false;
++	}
++	dsi_panel_release_panel_lock(display->panel);
+ }
+ 
+ int sde_connector_clk_ctrl(struct drm_connector *connector, bool enable)
+@@ -2576,10 +2593,12 @@ static int sde_connector_atomic_check(struct drm_connector *connector,
+ 	return 0;
+ }
+ 
+-static bool _sde_connector_notify_panel_dead(struct sde_connector *conn)
++static bool _sde_connector_notify_panel_dead(struct sde_connector *conn,
++		bool request_power_recovery)
+ {
+ 	struct drm_event event;
+ 	struct dsi_display *display;
++	bool panel_dead = true;
+ 
+ 	if (!conn || !conn->display)
+ 		return false;
+@@ -2591,15 +2610,22 @@ static bool _sde_connector_notify_panel_dead(struct sde_connector *conn)
+ 	 * 2) Commit thread (if TE stops coming)
+ 	 * So such case, avoid failure notification twice.
+ 	 */
+-	if (conn->panel_dead)
++	dsi_panel_acquire_panel_lock(display->panel);
++	/* Count duplicates too, so an older success cannot consume them. */
++	conn->panel_dead_seq++;
++	if (conn->panel_dead) {
++		dsi_panel_release_panel_lock(display->panel);
+ 		return false;
++	}
+ 
+ 	conn->panel_dead = true;
+-	display->panel->mi_cfg.panel_dead_flag = true;
++	if (request_power_recovery)
++		display->panel->mi_cfg.panel_dead_flag = true;
++	dsi_panel_release_panel_lock(display->panel);
+ 	event.type = DRM_EVENT_PANEL_DEAD;
+ 	event.length = sizeof(bool);
+ 	msm_mode_object_event_notify(&conn->base.base,
+-		conn->base.dev, &event, (u8 *)&conn->panel_dead);
++		conn->base.dev, &event, (u8 *)&panel_dead);
+ 	SDE_EVT32(SDE_EVTLOG_ERROR);
+ 	SDE_ERROR("esd check failed report PANEL_DEAD conn_id: %d enc_id: %d\n",
+ 			conn->base.base.id, conn->encoder->base.id);
+@@ -2609,7 +2635,7 @@ static bool _sde_connector_notify_panel_dead(struct sde_connector *conn)
+ static void _sde_connector_report_panel_dead(struct sde_connector *conn,
+ 	bool skip_pre_kickoff)
+ {
+-	if (_sde_connector_notify_panel_dead(conn))
++	if (_sde_connector_notify_panel_dead(conn, true))
+ 		sde_encoder_display_failure_notification(conn->encoder,
+ 			skip_pre_kickoff);
+ }
+@@ -2623,13 +2649,10 @@ void sde_connector_report_enable_failure(struct drm_connector *connector)
+ 	if (!connector)
+ 		return;
+ 	c_conn = to_sde_connector(connector);
+-	/* DIAGNOSTIC: sticky panel_dead suppresses renotify (rate-limited). */
+-	if (c_conn->panel_dead) {
++	if (!_sde_connector_notify_panel_dead(c_conn, true) &&
++			READ_ONCE(c_conn->panel_dead))
+ 		pr_err_once("R97_DIAG PANEL_DEAD_STICKY skip_renotify conn_id=%d\n",
+ 				connector->base.id);
+-		return;
+-	}
+-	_sde_connector_notify_panel_dead(c_conn);
+ }
+ 
+ int sde_connector_esd_status(struct drm_connector *conn)
+@@ -2719,7 +2742,6 @@ static irqreturn_t esd_err_irq_handle(int irq, void *data)
+ {
+ 	struct sde_connector *c_conn = data;
+ 	struct dsi_display *display = c_conn->display;
+-	struct drm_event event;
+ 	int power_mode;
+ 
+ 	if (!display || !display->panel) {
+@@ -2745,6 +2767,7 @@ static irqreturn_t esd_err_irq_handle(int irq, void *data)
+ 		}
+ 
+ 		if (atomic_read(&(display->panel->esd_recovery_pending))) {
++			c_conn->panel_dead_seq++;
+ 			DSI_INFO("%s display ESD recovery already pending\n",
+ 					display->display_type);
+ 			dsi_panel_release_panel_lock(display->panel);
+@@ -2754,6 +2777,7 @@ static irqreturn_t esd_err_irq_handle(int irq, void *data)
+ 		if (!c_conn->panel_dead) {
+ 			atomic_set(&display->panel->esd_recovery_pending, 1);
+ 		} else {
++			c_conn->panel_dead_seq++;
+ 			DSI_INFO("%s display already notify PANEL_DEAD\n",
+ 					display->display_type);
+ 			dsi_panel_release_panel_lock(display->panel);
+@@ -2768,16 +2792,8 @@ static irqreturn_t esd_err_irq_handle(int irq, void *data)
+ 			power_mode == SDE_MODE_DPMS_LP1) {
+ 			_sde_connector_report_panel_dead(c_conn, false);
+ 		} else {
+-			c_conn->panel_dead = true;
+-			event.type = DRM_EVENT_PANEL_DEAD;
+-			event.length = sizeof(bool);
+-			msm_mode_object_event_notify(&c_conn->base.base,
+-				c_conn->base.dev, &event, (u8 *)&c_conn->panel_dead);
+-			SDE_EVT32(SDE_EVTLOG_ERROR);
+-			SDE_ERROR("%s display esd irq check failed report"
+-				" PANEL_DEAD conn_id: %d enc_id: %d\n",
+-				display->display_type,
+-				c_conn->base.base.id, c_conn->encoder->base.id);
++			/* Keep OFF/LP policy: notify without rail recovery. */
++			_sde_connector_notify_panel_dead(c_conn, false);
+ 		}
+ 	}
+ 
+diff --git a/techpack/display/msm/sde/sde_connector.h b/techpack/display/msm/sde/sde_connector.h
+index b9c8ccd18..42b9ff305 100644
+--- a/techpack/display/msm/sde/sde_connector.h
++++ b/techpack/display/msm/sde/sde_connector.h
+@@ -487,6 +487,9 @@ struct sde_connector {
+ 	struct sde_clone_cdev *cdev_clone;
+ 	struct delayed_work status_work;
+ 	u32 esd_status_interval;
++	/* Fault and recovery snapshots are protected by the DSI panel_lock. */
++	u32 panel_dead_seq;
++	u32 panel_recovery_seq;
+ 	bool panel_dead;
+ 	bool esd_status_check;
+ 
+@@ -994,6 +997,8 @@ int sde_connector_esd_status(struct drm_connector *connector);
+ /* Report failed pre-enable without accessing unprepared encoder hardware. */
+ void sde_connector_report_enable_failure(struct drm_connector *connector);
+ 
++void sde_connector_helper_bridge_pre_enable(struct drm_connector *connector);
++
+ /**
+  * sde_connector_hbm_ctl - mi function to control hbm
+  * @connector: Pointer to DRM connector object
+-- 
+2.53.0.windows.2
+

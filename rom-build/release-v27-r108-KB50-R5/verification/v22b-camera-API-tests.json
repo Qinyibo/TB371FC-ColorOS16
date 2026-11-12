@@ -1,0 +1,46 @@
+[
+  {
+    "bytes": 641427,
+    "width": 3264,
+    "height": 2448,
+    "mime": "image/jpeg",
+    "state": "PASS",
+    "mode": "api1",
+    "lens": 0,
+    "uid": 10328,
+    "elapsed_ms": 2269
+  },
+  {
+    "bytes": 1987530,
+    "width": 4160,
+    "height": 3120,
+    "mime": "image/jpeg",
+    "state": "PASS",
+    "mode": "api1",
+    "lens": 1,
+    "uid": 10328,
+    "elapsed_ms": 2071
+  },
+  {
+    "bytes": 1152374,
+    "width": 3264,
+    "height": 2448,
+    "mime": "image/jpeg",
+    "state": "PASS",
+    "mode": "api2",
+    "lens": 0,
+    "uid": 10328,
+    "elapsed_ms": 2150
+  },
+  {
+    "bytes": 2124248,
+    "width": 4160,
+    "height": 2600,
+    "mime": "image/jpeg",
+    "state": "PASS",
+    "mode": "api2",
+    "lens": 1,
+    "uid": 10328,
+    "elapsed_ms": 2132
+  }
+]

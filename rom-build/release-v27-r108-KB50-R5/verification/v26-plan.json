@@ -1,0 +1,33 @@
+{
+  "base_package": "D:\\TB371FC-release\\R94T-v25-r102-20261102-CANDIDATE-animation-default-r1-freezer-fallback-r1",
+  "base_images": "D:/TB371FC-release/v25-r102-freezer-r1-build",
+  "changes": [
+    {
+      "payload": "SystemUI.apk",
+      "sha256": "8ad70cc761213ed3854650f1f477a010fb443b39f96c48c0de62c347f2f39b4a",
+      "partition": "system_ext_a",
+      "target": "/priv-app/SystemUI/SystemUI.apk",
+      "mode": "0644",
+      "expected_before": "56bc35af0c908ec00151ec792f3df048985d1cf0db06260b6a86f42614d76928"
+    }
+  ],
+  "removals": [
+    "/my_product/del-app/HeytapReader",
+    "/my_product/del-app/HotGamesFolder",
+    "/my_stock/del-app/Gamecenter",
+    "/my_stock/del-app/OPCommunity",
+    "/my_stock/del-app/OPPOStore",
+    "/my_stock/del-app/KeKeUserCenterMember"
+  ],
+  "boot_sha256": "f29c32c15c7276d777f243a322ca35495099c25d6e41e402dd4eacb77121f85b",
+  "kernel_commit": "455927db6665e2b3696aa8a96bc97fb09c20bd3a",
+  "kernel_ref": "local/r104-reviewed",
+  "kernel_image_sha256": "cd216f2cd47c38bd7a86499f87c8a1eca065f428cf4997d62454d13a24812e50",
+  "inherited_animation_default_r1": true,
+  "inherited_freezer_fallback_r1": true,
+  "capsule_user_accepted": true,
+  "usb_code_changed": false,
+  "black_screen_root_cause_fixed": false,
+  "keyboard_candidate_included": false,
+  "diagnostic_apk_included": false
+}
