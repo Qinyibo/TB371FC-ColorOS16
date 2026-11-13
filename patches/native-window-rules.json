@@ -58,6 +58,11 @@
             "name": "com.bilibili.bililive.room.ui.roomv3.LiveRoomActivityV3",
             "defaultFullScreen": "true",
             "forceRelaunch": "true"
+          },
+          {
+            "name": "com.bilibili.ship.theseus.detail.UnitedBizDetailsActivity",
+            "defaultFullScreen": "true",
+            "forceRelaunch": "true"
           }
         ],
         "transActivities": [
