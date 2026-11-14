@@ -1,21 +1,15 @@
 # 联想 TB371FC · ColorOS 16 移植
 
-当前本地完整包为 **v27 / r106 维护候选（2026-11-03）**：沿用 v26 系统镜像，合入已刷入的 r106 boot；原 v26/r104 包保留。见 [v27 打包入口与记录](rom-build/release-v27/README.md)。v23 保留为历史发布记录。本库保存项目修改的源码、补丁、构建资料和刷机入口。配套完整内核源码：[android_kernel_lenovo_tb371fc](https://github.com/Qinyibo/android_kernel_lenovo_tb371fc)。
+当前整包是 **v27 / r108 KB50 R5 候选版（2026-11-12）**，基于 `OPD2413_16.0.0.210(CN01)`，适用于已解锁、使用 A 槽的 Lenovo TB371FC（Bootloader 产品名 `spinel`）。仓库收录移植源码、内核补丁、打包脚本和刷入说明。完整 ROM 使用归档的刷机 ZIP，配套内核源码见 [android_kernel_lenovo_tb371fc](https://github.com/Qinyibo/android_kernel_lenovo_tb371fc)。
 
-**当前实机另已安装 r107，完整包仍是 r106。** Grok 接续优先读[黑屏交接与供电证据](docs/black-screen-handoff-20261103.md)，内核看 [recovery-state-r107](https://github.com/Qinyibo/android_kernel_lenovo_tb371fc/tree/recovery-state-r107)，不要把仍停在 r104 的 kernel main 当作当前运行代码。
+- [R5 归档入口](rom-build/release-v27-r108-KB50-R5/INDEX.md) · [刷入说明](rom-build/release-v27-r108-KB50-R5/刷入说明.md) · [镜像与版本清单](rom-build/release-v27-r108-KB50-R5/manifest.json)。
+- R5 将支持堆叠最近任务的桌面预置到系统镜像，在 vendor 中内置 Tinno 磁吸键盘与触控板配置，并预装相机。包内 Magisk 31.1 管理器按普通用户应用安装，首次打开可能提示重启以完成环境设置。
+- **实机记录。** R5 已通过 Fastboot 写入 385 个 super 分片并清空数据。用户完成开机引导后确认首次进入桌面即可看到堆叠卡片。偶发黑屏无法唤醒及触控失灵仍缺少长期复测结果，R5 保留候选标记。
+- B 站视频详情全屏规则单独提交于 R5 打包之后。见 [规则变更](https://github.com/Qinyibo/TB371FC-ColorOS16/commit/797a858695a64539bf6e0c8c732782265b8a5b46)。
 
-保留 #43 内核、原生笔/通信集成、当前相机 v7；整合辅助触摸窗口延后创建与失焦取消、微信/B站原生平行视窗及B站首页缩窄。关闭自动分屏推荐，保留144Hz、正常动画与模糊。修正框架更新后首启脚本仍校验旧SHA而退出的问题，双清后准备桌面 speed 编译。初始化服务改用现有Magisk运行域，修复管理器初始化后正常重启时旧KernelSU运行域失效的问题。
+## 历史维护版本
 
-## 当前状态（2026-11-03）
-
-**当前严重问题是偶发黑屏后无法唤醒。USB 更换为主板后置接口后，双向传输及 fastboot 刷入 96 MiB boot 已通过；用户接受固定使用后置口，停止 USB 内核修补。当前版本仍不能称为黑屏已根治或正式稳定版。**
-
-- [v26 构建与安装记录](rom-build/release-v26/README.md)：已完成 TWRP 保留数据升级、四分区回读和正常开机；换后置口后尚未重测完整 ROM fastboot 刷入，精确 v26 整包未完成双清首启验收。源码上传不等于发布完整 ROM 镜像。
-- 原 v26 整包内核为 [r104（455927db6665）](https://github.com/Qinyibo/android_kernel_lenovo_tb371fc/commit/455927db6665e2b3696aa8a96bc97fb09c20bd3a)；当前实机为 [r107（41082098d）](https://github.com/Qinyibo/android_kernel_lenovo_tb371fc/commit/41082098de91855a809239bf64f339a16d39effe)。自然故障证实 r106 在固件 INIT 恢复后仍会卡 REK=A0；r107 将成功确认延后至真实触控就绪，并补齐失败传播、ON→ON 提交及合并通知的恢复资格。70 项软件检查、完整内核构建、分区回读、原生启动和输入状态核对通过；罕见故障恢复及 INIT=0x9D/A0 起因仍未证明修复。
-- v27 将同一 r106 boot 纳入完整包，三个其他分区镜像及原七个刷机入口保持一致；完成离线入口和压缩包逐成员 SHA/CRC 核验。本次仅打包，未刷写、双清或执行新的唤醒实验，精确 v27 整包实刷尚未验收。
-- 用户当前反馈：汽水胶囊、冻结、日常调度内存、温控、四扬与旋转、键盘触控板体验可用；待机续航目前可接受。保持这些基线，此反馈不替代逐项实验室测试。
-- 手写笔暂缺测试条件，黑屏等待自然复现。新只读核对确认 vddio 使用 dummy regulator，KTZ 偏压控制缺少 GPIO 所有者；这是供电恢复接入线索，未证明为唯一根因。刷机固定使用已验证的主板后置口；[USB 实机记录](docs/usb-retest-20261103.json)不代表整包刷入或长期稳定性验收。
-- [最新维护记录](docs/maintenance-20261103.md)及[严重问题](docs/known-issues.md)。已撤回的 USB r105、胶囊计时／异步／加载器试验不进入当前构建。
+[v27 / r106 打包记录](rom-build/release-v27/README.md)、[v26 / r104 构建记录](rom-build/release-v26/README.md)和 [2026-11-03 维护记录](docs/maintenance-20261103.md)保留早期候选的构建与验收范围。[r107 黑屏交接和供电证据](docs/black-screen-handoff-20261103.md)记录了触控恢复与面板供电的排查过程。
 
 ## 历史唤醒候选（2026-10-31）
 
@@ -41,7 +35,7 @@
 
 - `native-pen/`：原生笔生命周期、BLE/GATT、系统手势桥接、补丁生成与init集成源码。
 - `patches/`：本次SystemUI/B站框架修改脚本及微信/B站规则。
-- `camera/`：当前相机v7修正与系统投放脚本。
+- `camera/`：相机 v7 修正与系统投放脚本。
 - `baseline/`：当前安全键盘宽度、投屏Surface和原生系统资源补丁。
 - `rom-build/`：实际镜像修改、校验链、首启和打包脚本。
 - `flash/`：包内原始CMD/PowerShell入口；依赖完整发布包的镜像和配套工具，单独克隆本库不能刷机。
@@ -55,9 +49,9 @@
 
 ColorOS及联想原厂应用、framework、vendor和固件含闭源组件，本库不声称拥有或公开其完整源码。公开范围是已持有的内核及本项目可编辑源码、补丁与构建资料。原厂二进制需自行准备对应基线；本地签名私钥、账号、用户数据不上传。
 
-## 测试范围
+## v23 历史测试范围
 
-最终包已通过实际双清首启及Magisk初始化后正常重启；同一组代码的连续打断采样和用户手测通过，详见 `release/v23/TESTING.md`。残余掉帧、极端连续打断及偶发黑屏不宣称根治；真笔和配对手机通信共享需要对应硬件实测。
+v23 完整包已通过实际双清首启及 Magisk 初始化后的正常重启；同一组代码的连续打断采样和用户手测通过，详见 `release/v23/TESTING.md`。残余掉帧、极端连续打断及偶发黑屏不宣称根治；真笔和配对手机通信共享需要对应硬件实测。
 
 ## 许可与来源
 
